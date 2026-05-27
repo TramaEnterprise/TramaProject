@@ -50,6 +50,7 @@ export default function BookCard({ book, rank }: BookCardProps) {
 
       <ShelfStatusDropdown
         book={book}
+        portal
         classNames={{
           root: "book-card__save-wrapper",
           btn: "book-card__save-btn",

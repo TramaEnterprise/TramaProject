@@ -40,14 +40,13 @@
     margin: 0;
     padding: var(--space-2);
     background: var(--color-bg-page);
-    border: 1px solid var(--color-border-outline);
+    border: 1px solid var(--color-text-primary);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card-hover);
-    min-width: 160px;
+    min-width: 180px;
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
-    z-index: 10;
     animation: dropdownIn var(--transition-base) ease-out forwards;
   }
 
@@ -56,7 +55,7 @@
     align-items: center;
     gap: var(--space-2);
     width: 100%;
-    padding: var(--space-2) var(--space-3);
+    padding: 10px var(--space-2);
     border: none;
     border-radius: var(--radius-md);
     background: transparent;
@@ -91,6 +90,64 @@
     color: var(--color-text-secondary);
     font-style: italic;
     list-style: none;
+  }
+
+  &__create-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+  }
+
+  &__create-input {
+    width: 100%;
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--radius-md);
+    padding: 5px var(--space-2);
+    font-family: var(--font-main);
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+    background: var(--color-bg-page);
+    outline: none;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: var(--color-text-primary);
+    }
+
+    &::placeholder {
+      color: var(--color-text-tertiary);
+    }
+  }
+
+  &__create-actions {
+    display: flex;
+    gap: var(--space-1);
+    justify-content: flex-end;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border: 1px solid var(--color-border-card);
+      border-radius: var(--radius-md);
+      background: transparent;
+      cursor: pointer;
+      color: var(--color-text-primary);
+      transition: background var(--transition-fast), border-color var(--transition-fast);
+
+      &:hover {
+        background: var(--color-neutral-alpha-muted);
+        border-color: var(--color-text-primary);
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
   }
 
   &__tooltip {

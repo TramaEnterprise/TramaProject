@@ -3,7 +3,7 @@
 .explore-section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-6);
 
   &__header {
     display: flex;
@@ -48,7 +48,7 @@
 
   &__scroll {
     display: flex;
-    gap: var(--space-3);
+    gap: var(--space-6);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -74,7 +74,7 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-3);
+    gap: var(--space-6);
     align-items: start;
 
     @include from($bp-md) {
@@ -83,7 +83,6 @@
 
     @include from($bp-lg) {
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: var(--space-4);
     }
   }
 

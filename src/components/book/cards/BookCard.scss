@@ -8,7 +8,7 @@
   padding: var(--space-2) var(--space-2) var(--space-3);
   background: transparent;
   background: var(--color-bg-page);
-  border: 1px solid var(--color-border-outline);
+  border: 1px solid var(--color-border-card);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   cursor: pointer;
@@ -69,32 +69,51 @@
     font-family: var(--font-main);
   }
 
-  // Save button + dropdown 
+  // Save button + dropdown
   &__save-wrapper {
     position: absolute;
     top: var(--space-4);
     left: var(--space-4);
     z-index: 20;
+
+    &--open {
+      z-index: 200;
+    }
   }
 
   &__save-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-1);
+    min-width: 155px;
     padding: 6px var(--space-2);
     border-radius: var(--radius-md);
-    border: 1px solid var(--color-border-outline);
-    background: var(--color-bg-page);
+    border: 1px solid var(--color-text-primary);
+    background: var(--color-text-primary);
     font-family: var(--font-main);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
-    color: var(--color-text-primary);
+    color: var(--color-btn-primary-fg);
     cursor: pointer;
     white-space: nowrap;
-    transition: border-color var(--transition-fast);
+    transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
 
     &:hover {
-      border-color: var(--color-text-primary);
+      background: var(--color-btn-primary-hover);
+      border-color: var(--color-btn-primary-hover);
+    }
+
+    &--saved {
+      background: var(--color-bg-page);
+      border-color: var(--color-border-card);
+      color: var(--color-text-primary);
+
+      &:hover {
+        background: var(--color-text-primary);
+        border-color: var(--color-text-primary);
+        color: var(--color-btn-primary-fg);
+      }
     }
 
     &--open {
@@ -108,15 +127,14 @@
 
   &__dropdown {
     position: absolute;
-    // positioned relative to .book-card (not save-wrapper), constrained within card bounds
-    top: calc(var(--space-4) + 36px + var(--space-2));
-    left: var(--space-4);
-    right: var(--space-2);
+    top: calc(100% + 4px);
+    left: 0;
+    right: auto;
     list-style: none;
     margin: 0;
     padding: var(--space-2);
     background: var(--color-bg-page);
-    border: 1px solid var(--color-border-outline);
+    border: 1px solid var(--color-text-primary);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card-hover);
     min-width: 180px;
@@ -131,7 +149,7 @@
     align-items: center;
     gap: var(--space-2);
     width: 100%;
-    padding: 10px var(--space-3);
+    padding: 10px var(--space-2);
     border: none;
     border-radius: var(--radius-md);
     background: transparent;
