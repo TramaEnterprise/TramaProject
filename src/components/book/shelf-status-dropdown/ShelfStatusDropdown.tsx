@@ -62,6 +62,8 @@ export default function ShelfStatusDropdown({ book, classNames }: ShelfStatusDro
     };
   }, []);
 
+  const encodedBookKey = encodeKey(book.key);
+
   const loadLists = () => {
     if (!user || lists !== null || listsLoading) return;
     setListsLoading(true);
@@ -100,16 +102,15 @@ export default function ShelfStatusDropdown({ book, classNames }: ShelfStatusDro
   const handleToggleList = async (e: React.MouseEvent, list: BookList) => {
     e.stopPropagation();
     if (!user || !lists) return;
-    const encodedKey = encodedBookKey;
-    const alreadyIn = list.books.some((b) => b.key === encodedKey);
+    const alreadyIn = list.books.some((b) => b.key === encodedBookKey);
     const listBook: ListBook = {
-      key: encodedKey,
+      key: encodedBookKey,
       title: book.title,
       authors: book.authors,
       cover_url: book.cover_url ?? undefined,
     };
     const newBooks = alreadyIn
-      ? list.books.filter((b) => b.key !== encodedKey)
+      ? list.books.filter((b) => b.key !== encodedBookKey)
       : [...list.books, listBook];
     setLists((prev) =>
       prev?.map((l) => (l.id === list.id ? { ...l, books: newBooks } : l)) ?? null
@@ -122,8 +123,6 @@ export default function ShelfStatusDropdown({ book, classNames }: ShelfStatusDro
       );
     }
   };
-
-  const encodedBookKey = encodeKey(book.key);
 
   const StatusIcon = saved ? STATUS_ICONS[saved] : null;
 
