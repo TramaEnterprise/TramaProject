@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Bookmark, BookOpen, BookCheck, BookX,
@@ -50,10 +50,11 @@ export default function ShelfStatusDropdown({ book, classNames }: ShelfStatusDro
   const wrapperRef = useRef<HTMLDivElement>(null);
   const tooltipTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useClickOutside(wrapperRef, () => {
+  const closeAll = useCallback(() => {
     setOpen(false);
     setSubmenuOpen(false);
-  }, open);
+  }, []);
+  useClickOutside(wrapperRef, closeAll, open);
 
   useEffect(() => {
     return () => {
@@ -99,7 +100,7 @@ export default function ShelfStatusDropdown({ book, classNames }: ShelfStatusDro
   const handleToggleList = async (e: React.MouseEvent, list: BookList) => {
     e.stopPropagation();
     if (!user || !lists) return;
-    const encodedKey = encodeKey(book.key);
+    const encodedKey = encodedBookKey;
     const alreadyIn = list.books.some((b) => b.key === encodedKey);
     const listBook: ListBook = {
       key: encodedKey,
@@ -121,6 +122,8 @@ export default function ShelfStatusDropdown({ book, classNames }: ShelfStatusDro
       );
     }
   };
+
+  const encodedBookKey = encodeKey(book.key);
 
   const StatusIcon = saved ? STATUS_ICONS[saved] : null;
 
@@ -194,7 +197,7 @@ export default function ShelfStatusDropdown({ book, classNames }: ShelfStatusDro
                     ) : lists && lists.length > 0 ? (
                       lists.map((list) => {
                         const inList = list.books.some(
-                          (b) => b.key === encodeKey(book.key)
+                          (b) => b.key === encodedBookKey
                         );
                         return (
                           <li key={list.id}>
