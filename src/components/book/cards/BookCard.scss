@@ -82,47 +82,31 @@
   }
 
   &__save-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-pill);
+    gap: var(--space-1);
+    padding: 6px var(--space-2);
+    border-radius: var(--radius-md);
     border: 1px solid var(--color-border-outline);
     background: var(--color-bg-page);
+    font-family: var(--font-main);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
     cursor: pointer;
+    white-space: nowrap;
     transition: border-color var(--transition-fast);
 
     &:hover {
       border-color: var(--color-text-primary);
     }
 
+    &--open {
+      border-color: var(--color-text-primary);
+    }
+
     svg {
-      width: 16px;
-      height: 16px;
-      transition: transform var(--transition-base);
-    }
-
-    &--open {
-      border-color: var(--color-text-primary);
-    }
-
-    &--saved {
-      background: var(--color-text-primary);
-      color: var(--color-btn-primary-fg);
-      border-color: var(--color-text-primary);
-
-      &:hover {
-        background: var(--color-btn-primary-hover);
-        border-color: var(--color-btn-primary-hover);
-      }
-    }
-  }
-
-  &__save-icon {
-    &--open {
-      transform: rotate(45deg);
+      flex-shrink: 0;
     }
   }
 
