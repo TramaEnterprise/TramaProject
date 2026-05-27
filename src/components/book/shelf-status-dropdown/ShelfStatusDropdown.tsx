@@ -126,8 +126,10 @@ export default function ShelfStatusDropdown({ book, classNames }: ShelfStatusDro
 
   return (
     <div className={bem(classNames?.root, { open })} ref={wrapperRef}>
-      {tooltipVisible && classNames?.tooltip && (
-        <span className={classNames.tooltip}>{t("explore.saveTooltip")}</span>
+      {tooltipVisible && (
+        <span className={classNames?.tooltip ?? "shelf-status-dropdown__tooltip"}>
+          {t("explore.saveTooltip")}
+        </span>
       )}
 
       <button
