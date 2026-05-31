@@ -114,6 +114,13 @@
   --color-btn-primary-fg: var(--color-bg-page);
   --color-btn-primary-hover: var(--color-bg-darkest);
 
+  // ─── DESPLEGABLES ──────────────────────────────────────
+  --color-dropdown-bg: #fff;
+  --color-dropdown-fg: #111;
+  --color-dropdown-hover: rgba(0, 0, 0, 0.07);
+  --color-dropdown-active: rgba(0, 0, 0, 0.12);
+  --color-dropdown-border: #111;
+
   // ─── SOMBRAS ───────────────────────────────────────────
   --shadow-card:
     0 1px 3px rgba(44, 36, 32, 0.06), 0 4px 12px rgba(44, 36, 32, 0.04);
@@ -181,6 +188,12 @@
   --color-neutral-alpha-medium: rgba(255, 255, 255, 0.13);
 
   --color-btn-primary-hover: #cfcbc5;
+
+  --color-dropdown-bg: var(--color-bg-card);
+  --color-dropdown-fg: var(--color-text-primary);
+  --color-dropdown-hover: var(--color-neutral-alpha-muted);
+  --color-dropdown-active: var(--color-neutral-alpha-medium);
+  --color-dropdown-border: var(--color-border-card);
 
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.15);
   --shadow-card-hover: 0 4px 20px rgba(0, 0, 0, 0.22), 0 1px 6px rgba(0, 0, 0, 0.12);

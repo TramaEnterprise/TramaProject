@@ -12,11 +12,6 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   cursor: pointer;
-  transition: transform var(--transition-base);
-
-  &:hover {
-    transform: translateY(-3px);
-  }
 
   // Cover
   &__cover-wrapper {
@@ -89,35 +84,20 @@
     min-width: 155px;
     padding: 6px var(--space-2);
     border-radius: var(--radius-md);
-    border: 1px solid var(--color-text-primary);
-    background: var(--color-text-primary);
+    border: 1px solid #111;
+    background: #111;
     font-family: var(--font-main);
     font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
-    color: var(--color-btn-primary-fg);
+    color: #fff;
     cursor: pointer;
     white-space: nowrap;
     transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
 
-    &:hover {
-      background: var(--color-btn-primary-hover);
-      border-color: var(--color-btn-primary-hover);
-    }
-
-    &--saved {
-      background: var(--color-bg-page);
-      border-color: var(--color-border-card);
-      color: var(--color-text-primary);
-
-      &:hover {
-        background: var(--color-text-primary);
-        border-color: var(--color-text-primary);
-        color: var(--color-btn-primary-fg);
-      }
-    }
-
     &--open {
-      border-color: var(--color-text-primary);
+      background: var(--color-dropdown-bg);
+      border-color: var(--color-dropdown-border);
+      color: var(--color-dropdown-fg);
     }
 
     svg {
@@ -133,8 +113,8 @@
     list-style: none;
     margin: 0;
     padding: var(--space-2);
-    background: var(--color-bg-page);
-    border: 1px solid var(--color-text-primary);
+    background: var(--color-dropdown-bg);
+    border: 1px solid var(--color-dropdown-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card-hover);
     min-width: 180px;
@@ -156,25 +136,25 @@
     font-family: var(--font-main);
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
-    color: var(--color-text-primary);
+    color: var(--color-dropdown-fg);
     cursor: pointer;
     text-align: left;
     transition: background var(--transition-fast);
 
     &:hover {
-      background: var(--color-neutral-alpha-muted);
+      background: var(--color-dropdown-hover);
     }
 
     svg {
       width: 14px;
       height: 14px;
-      color: var(--color-text-primary);
+      color: var(--color-dropdown-fg);
       flex-shrink: 0;
     }
 
     &--active {
       font-weight: var(--weight-semibold);
-      background: var(--color-neutral-alpha-muted);
+      background: var(--color-dropdown-active);
     }
   }
 
