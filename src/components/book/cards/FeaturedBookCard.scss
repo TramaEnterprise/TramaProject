@@ -231,7 +231,7 @@
     }
 
     &--solid {
-      background: var(--color-text-primary);
+      background: var(--color-btn-primary-bg);
       color: var(--color-btn-primary-fg);
       border: 1px solid transparent;
       transition: background var(--transition-fast);
