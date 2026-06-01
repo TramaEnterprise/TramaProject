@@ -44,7 +44,7 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
   const [pageInput, setPageInput] = useState(initialPage > 0 ? String(initialPage) : "");
   const [percentInput, setPercentInput] = useState(derivePercent(initialPage, totalPages));
   const [note, setNote] = useState("");
-  const [rating, setRating] = useState(entry.rating ?? 0);
+  const [rating, setRating] = useState(0);
   const [review, setReview] = useState(entry.review ?? "");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [noteSaveBlocked, setNoteSaveBlocked] = useState(false);
