@@ -35,6 +35,9 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
   const [pageInput, setPageInput] = useState(
     entry.currentPage ? String(entry.currentPage) : ""
   );
+  const [percentInput, setPercentInput] = useState(
+    entry.currentPage && totalPages > 0 ? String(Math.round((entry.currentPage / totalPages) * 100)) : "0"
+  );
   const [note, setNote] = useState("");
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState(entry.review ?? "");
@@ -128,9 +131,10 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
           <ProgressPageInput
             pageInput={pageInput}
             setPageInput={setPageInput}
+            percentInput={percentInput}
+            setPercentInput={setPercentInput}
             totalPages={totalPages}
             currentPage={currentPage}
-            finished={finished}
             progressPercent={progressPercent}
           />
 
