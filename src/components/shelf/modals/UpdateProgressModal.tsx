@@ -116,6 +116,7 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
       ariaLabel={t("myLibrary.updateProgressModal.title")}
       closeAriaLabel={t("myLibrary.updateProgressModal.close")}
       onClose={onClose}
+      closeOnBackdrop={false}
       usePortal
       classNames={{
         root: "progress-modal",

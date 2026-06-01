@@ -188,6 +188,7 @@
     &::placeholder {
       color: var(--color-text-tertiary);
       font-style: italic;
+      font-size: var(--text-xs);
     }
 
     &:focus {
