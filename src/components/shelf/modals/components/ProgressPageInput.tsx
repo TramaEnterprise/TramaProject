@@ -6,7 +6,6 @@ type ProgressPageInputProps = {
   percentInput: string;
   setPercentInput: (v: string) => void;
   totalPages: number;
-  currentPage: number;
   progressPercent: number;
 };
 
@@ -81,7 +80,7 @@ export default function ProgressPageInput({
             onChange={handlePercentChange}
             onFocus={(e) => e.target.select()}
             disabled={totalPages === 0}
-            aria-label="Porcentaje de lectura"
+            aria-label={t("myLibrary.updateProgressModal.percentageLabel")}
           />
           <span className="progress-modal__page-total">%</span>
         </div>

@@ -31,7 +31,8 @@
       "rateBook": "Rating",
       "review": "Review",
       "reviewPlaceholder": "What did you think of the book? Would you recommend it?",
-      "statusMessage": "Press 'Save' to move the book to this shelf."
+      "statusMessage": "Press 'Save' to move the book to this shelf.",
+      "percentageLabel": "Reading percentage"
     },
     "createList": "Create new list",
     "listsTitle": "Lists",

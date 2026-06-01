@@ -163,12 +163,12 @@
       #ffbc9c 0%,
       #f7a178 30%,
       #f08755 60%,
-      #e86b30 100%
+      var(--color-brand-primary) 100%
     );
     background-size: 200% 100%;
     background-repeat: repeat-x;
     animation: progress-flow 8s linear infinite;
-    transition: width 300ms ease-out;
+    transition: width var(--transition-slow);
     border-radius: var(--radius-pill);
   }
 

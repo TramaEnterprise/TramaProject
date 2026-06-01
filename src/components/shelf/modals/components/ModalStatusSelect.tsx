@@ -56,7 +56,7 @@ export default function ModalStatusSelect({ value, onChange }: ModalStatusSelect
         type="button"
         className="modal-status-select__btn"
         onClick={handleToggle}
-        aria-haspopup="listbox"
+        aria-haspopup="menu"
         aria-expanded={open}
       >
         <span className="modal-status-select__status">
@@ -74,7 +74,7 @@ export default function ModalStatusSelect({ value, onChange }: ModalStatusSelect
         createPortal(
           <ul
             ref={listRef}
-            role="listbox"
+            role="menu"
             className="modal-status-select__list"
             style={{
               position: "fixed",
@@ -87,8 +87,9 @@ export default function ModalStatusSelect({ value, onChange }: ModalStatusSelect
             {SHELF_OPTIONS.map((opt) => {
               const OptIcon = STATUS_ICONS[opt];
               return (
-                <li key={opt} role="option" aria-selected={opt === value}>
+                <li key={opt}>
                   <button
+                    role="menuitem"
                     type="button"
                     className={`modal-status-select__option${opt === value ? " modal-status-select__option--active" : ""}`}
                     onClick={() => handleSelect(opt)}

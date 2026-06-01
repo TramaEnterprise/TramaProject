@@ -31,7 +31,8 @@
       "rateBook": "Valoración",
       "review": "Reseña",
       "reviewPlaceholder": "¿Qué te ha parecido el libro? ¿Lo recomendarías?",
-      "statusMessage": "Pulsa «Guardar» para mover el libro a esta estantería."
+      "statusMessage": "Pulsa «Guardar» para mover el libro a esta estantería.",
+      "percentageLabel": "Porcentaje de lectura"
     },
     "createList": "Crear nueva lista",
     "listsTitle": "Listas",

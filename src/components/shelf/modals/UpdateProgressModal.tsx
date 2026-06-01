@@ -146,7 +146,6 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
                 percentInput={percentInput}
                 setPercentInput={setPercentInput}
                 totalPages={totalPages}
-                currentPage={currentPage}
                 progressPercent={progressPercent}
               />
               <div className="progress-modal__section">
@@ -180,7 +179,6 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
                   </span>
                   <div className="progress-modal__rating-row">
                     <EditableStarRating rating={rating} onChange={setRating} />
-                    <span className="progress-modal__rating-value">{rating}/5</span>
                   </div>
                 </div>
               </div>
