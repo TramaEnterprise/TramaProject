@@ -57,7 +57,6 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
   const btnRef = useRef<HTMLButtonElement>(null);
   const floatingRef = useRef<HTMLUListElement>(null);
   const tooltipTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const mouseLeaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const closeAll = useCallback(() => {
     setOpen(false);
@@ -87,7 +86,6 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
   useEffect(() => {
     return () => {
       if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
-      if (mouseLeaveTimerRef.current) clearTimeout(mouseLeaveTimerRef.current);
     };
   }, []);
 
@@ -126,19 +124,14 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
     setSubmenuOpen(false);
   };
 
-  const handleSubmenuMouseEnter = (e: React.MouseEvent) => {
+  const handleSubmenuToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (mouseLeaveTimerRef.current) clearTimeout(mouseLeaveTimerRef.current);
-    loadLists();
-    setSubmenuOpen(true);
-  };
-
-  const handleSubmenuMouseLeave = () => {
-    mouseLeaveTimerRef.current = setTimeout(() => {
-      setSubmenuOpen(false);
+    if (!submenuOpen) loadLists();
+    setSubmenuOpen((o) => !o);
+    if (submenuOpen) {
       setCreateMode(false);
       setNewListName("");
-    }, 150);
+    }
   };
 
   const handleToggleList = async (e: React.MouseEvent, list: BookList) => {
@@ -221,12 +214,11 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
 
           <li
             className="shelf-status-dropdown__submenu-item"
-            onMouseEnter={handleSubmenuMouseEnter}
-            onMouseLeave={handleSubmenuMouseLeave}
           >
             <button
               type="button"
               className={bem(classNames?.item, { "submenu-open": submenuOpen })}
+              onClick={handleSubmenuToggle}
             >
               <ListPlus size={14} />
               {t("book.addToList")}
