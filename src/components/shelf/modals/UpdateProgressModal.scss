@@ -99,7 +99,7 @@
   }
 
   &__label {
-    font-size: var(--text-sm);
+    font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
   }
@@ -316,5 +316,9 @@
       outline: 2px solid var(--color-accent);
       outline-offset: 2px;
     }
+  }
+
+  &__value {
+    margin-left: var(--space-4);
   }
 }
