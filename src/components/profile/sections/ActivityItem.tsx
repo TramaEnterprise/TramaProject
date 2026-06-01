@@ -35,7 +35,7 @@ export default function ActivityItem({ item }: ActivityItemProps) {
   return (
     <div className="activity-item">
       {handleCoverClick ? (
-        <button className="activity-item__cover-btn" onClick={handleCoverClick} aria-label={item.bookTitle ?? ""}>
+        <button type="button" className="activity-item__cover-btn" onClick={handleCoverClick} aria-label={item.bookTitle ?? ""}>
           {item.bookCoverUrl ? (
             <img className="activity-item__cover" src={item.bookCoverUrl} alt="" />
           ) : (

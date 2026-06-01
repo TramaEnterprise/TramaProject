@@ -18,10 +18,10 @@ export default function AbandonConfirmDialog({ onConfirm, onCancel }: AbandonCon
           {t("myLibrary.updateProgressModal.abandonConfirm.subtitle")}
         </p>
         <div className="progress-modal__confirm-actions">
-          <button className="progress-modal__confirm-accept" onClick={onConfirm}>
+          <button type="button" className="progress-modal__confirm-accept" onClick={onConfirm}>
             {t("myLibrary.updateProgressModal.abandonConfirm.confirm")}
           </button>
-          <button className="progress-modal__confirm-cancel" onClick={onCancel}>
+          <button type="button" className="progress-modal__confirm-cancel" onClick={onCancel}>
             {t("myLibrary.updateProgressModal.abandonConfirm.cancel")}
           </button>
         </div>

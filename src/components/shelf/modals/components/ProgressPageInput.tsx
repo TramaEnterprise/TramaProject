@@ -80,6 +80,7 @@ export default function ProgressPageInput({
           {t("myLibrary.updateProgressModal.finished")}
         </span>
         <button
+          type="button"
           className={`progress-modal__toggle${finished ? " progress-modal__toggle--on" : ""}`}
           role="switch"
           aria-checked={finished}

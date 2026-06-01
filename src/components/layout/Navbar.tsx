@@ -26,12 +26,6 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const [prevHidden, setPrevHidden] = useState(hidden);
-  
-  if (hidden !== prevHidden) {
-    setPrevHidden(hidden);
-    if (hidden) setMenuOpen(false);
-  }
 
   return (
     <header className={`navbar${hidden ? " navbar--hidden" : ""}`}>
@@ -98,7 +92,7 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
                 type="button"
                 aria-label={t("navbar.profile")}
                 aria-haspopup="true"
-                aria-expanded={menuOpen}
+                aria-expanded={menuOpen && !hidden}
                 onClick={() => setMenuOpen(o => !o)}
               >
                 <User size={18} />
@@ -108,7 +102,7 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
                 <User size={18} />
               </NavLink>
             )}
-            {menuOpen && <ProfileMenu onClose={() => setMenuOpen(false)} />}
+            {menuOpen && !hidden && <ProfileMenu onClose={() => setMenuOpen(false)} />}
           </div>
         </div>
       </div>

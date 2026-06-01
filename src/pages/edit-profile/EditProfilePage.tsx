@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { FirebaseError } from "firebase/app";
@@ -32,8 +32,8 @@ export default function EditProfilePage() {
 
   const photo = useObjectUrl(null);
   const banner = useObjectUrl(null);
-  const [photoFile, setPhotoFile] = useState<File | null>(null);
-  const [bannerFile, setBannerFile] = useState<File | null>(null);
+  const photoFileRef = useRef<File | null>(null);
+  const bannerFileRef = useRef<File | null>(null);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [loadingProfile, setLoadingProfile] = useState(true);
@@ -66,12 +66,12 @@ export default function EditProfilePage() {
   }, [user, reset, photo, banner]);
 
   const handlePhotoSelected = (file: File) => {
-    setPhotoFile(file);
+    photoFileRef.current = file;   
     photo.setFile(file);
   };
 
   const handleBannerSelected = (file: File) => {
-    setBannerFile(file);
+    bannerFileRef.current = file;
     banner.setFile(file);
   };
 
@@ -92,8 +92,8 @@ export default function EditProfilePage() {
         bio: data.bio,
         isPublic: data.isPublic,
       };
-      if (photoFile) updates.profilePhotoUrl = await uploadProfilePhoto(user.uid, photoFile);
-      if (bannerFile) updates.bannerImageUrl = await uploadBannerImage(user.uid, bannerFile);
+      if (photoFileRef.current)  updates.profilePhotoUrl = await uploadProfilePhoto(user.uid, photoFileRef.current);
+      if (bannerFileRef.current) updates.bannerImageUrl  = await uploadBannerImage(user.uid, bannerFileRef.current);
 
       const normalizedNew = normalizeUsername(data.username);
       const normalizedOld = normalizeUsername(originalUsername);

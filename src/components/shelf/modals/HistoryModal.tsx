@@ -123,6 +123,7 @@ export default function HistoryModal({
         <div className="history-modal__left">
           <div className="history-modal__book-info">
             <button
+              type="button"
               className="history-modal__cover-btn"
               onClick={() => { onClose(); navigate(`/books/${encodeKey(bookId)}`); }}
               aria-label={bookTitle}

@@ -57,6 +57,11 @@
     &:hover .edit-profile__banner-overlay {
       opacity: 1;
     }
+
+    &:focus-within {
+      outline: 2px solid var(--color-brand-primary);
+      outline-offset: 2px;
+    }
   }
 
   &__banner-overlay {
@@ -91,6 +96,11 @@
     &:hover .edit-profile__photo-overlay {
       opacity: 1;
     }
+
+    &:focus-within {
+      outline: 2px solid var(--color-brand-primary);
+      outline-offset: 2px;
+    }
   }
 
   &__photo-img {
@@ -117,7 +127,15 @@
   }
 
   &__file-input {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   &__fields {

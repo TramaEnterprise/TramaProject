@@ -1,7 +1,7 @@
 import { addToShelf, encodeKey, getShelf, removeFromShelf, updateReadingProgress, type ShelfEntry } from "@/services/firebase/firebaseLibrary";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ShelfContext } from "./shelf_init";
 import { useAuth } from "@/context/auth/useAuth";
 import { notifyProgressUpdated, notifyShelfAdded, notifyShelfRemoved, notifyShelfStatusChanged } from "@/utils/toast";
@@ -22,6 +22,11 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
   // uid cuya estantería ya se cargó
   const [loadedUid, setLoadedUid] = useState<string | null>(null);
   const entriesRef = useRef(entries);
+  const apiRef = useRef<{
+    addBook: typeof addBook;
+    removeBook: typeof removeBook;
+    updateProgress: typeof updateProgress;
+  }>(null);
 
   useEffect(() => {
     entriesRef.current = entries;
@@ -58,7 +63,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
 
   useShelfLangComplete({ uid, ready, entries, lang, setEntries });
 
-  const addBook = async (book: Book, status: ShelfStatus, opts?: { silent?: boolean }) => {
+  const addBook = useCallback(async (book: Book, status: ShelfStatus, opts?: { silent?: boolean }) => {
     if (!uid) return;
 
     const prevStatus = entriesRef.current.get(encodeKey(book.key))?.status ?? null;
@@ -75,20 +80,20 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
         const localizedBook = localizeBook(book, lang);
         if (prevStatus === null) {
           notifyShelfAdded(localizedBook, status, () =>
-            removeBook(book.key, { silent: true }),
+            apiRef.current!.removeBook(book.key, { silent: true }),
           );
         } else if (prevStatus !== status) {
           notifyShelfStatusChanged(localizedBook, prevStatus, status, () =>
-            addBook(book, prevStatus, { silent: true }),
+            apiRef.current!.addBook(book, prevStatus, { silent: true }),
           );
         }
       }
     } catch {
       setEntries(rollback);
     }
-  };
+  }, [uid, lang, exploreCache]);
 
-  const removeBook = async (bookKey: string, opts?: { silent?: boolean }) => {
+  const removeBook =  useCallback(async (bookKey: string, opts?: { silent?: boolean }) => {
     if (!uid) return;
 
     const prev = entriesRef.current.get(encodeKey(bookKey));
@@ -108,23 +113,29 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
       if (!opts?.silent) {
         const localizedBook = localizeBook(prev.book, lang);
         notifyShelfRemoved(localizedBook, prev.status, () =>
-          addBook(prev.book, prev.status, { silent: true }),
+          apiRef.current!.addBook(prev.book, prev.status, { silent: true }),
         );
       }
     } catch {
       setEntries(rollback);
     }
-  };
+  }, [uid, lang, exploreCache]);
 
-  const getStatus = (bookKey: string) => visibleEntries.get(encodeKey(bookKey))?.status ?? null;
+  const getStatus = useCallback(
+    (bookKey: string) => visibleEntries.get(encodeKey(bookKey))?.status ?? null,
+    [visibleEntries]
+  );
+  
+  const getEntry = useCallback(
+    (bookKey: string): ShelfEntry | null => {
+      const entry = visibleEntries.get(encodeKey(bookKey));
+      if (!entry) return null;
+      return { ...entry, book: localizeBook(entry.book, lang) };
+    },
+    [visibleEntries, lang]
+  );
 
-  const getEntry = (bookKey: string): ShelfEntry | null => {
-    const entry = visibleEntries.get(encodeKey(bookKey));
-    if (!entry) return null;
-    return { ...entry, book: localizeBook(entry.book, lang) };
-  };
-
-  const updateProgress = async (
+  const updateProgress = useCallback(async (
     bookKey: string, 
     currentPage: number, 
     opts?: {
@@ -171,7 +182,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
         const localizedBook = localizeBook(existing.book, lang);
         if (newStatus !== prevStatus && newStatus === "finished") {
           notifyShelfStatusChanged(localizedBook, prevStatus, "finished", () =>
-            updateProgress(bookKey, prevPage, {
+            apiRef.current!.updateProgress(bookKey, prevPage, {
               status: prevStatus,
               silent: true,
             }),
@@ -183,16 +194,25 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
     } catch {
       setEntries(rollback);
     }
-  };
+  },[uid, lang, exploreCache]);
+
+  useEffect(() => {
+    apiRef.current = { addBook, removeBook, updateProgress };
+  }, [addBook, removeBook, updateProgress]);
 
   const shelfByStatus = useMemo(
     () => groupShelfByStatus(visibleEntries.values(), lang),
     [visibleEntries, lang]
   );
 
+  const value = useMemo(
+    () => ({ shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress }),
+    [shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress]
+  );
+
   return (
     <ShelfContext.Provider
-      value={{ shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress }}
+      value={value}
     >
       {children}
     </ShelfContext.Provider>

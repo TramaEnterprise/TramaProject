@@ -23,7 +23,7 @@ export default function ExploreSearchResults({
         <p>
           {loading ? t("explore.searching") : t("explore.resultsFound", { count: totalResults })}
         </p>
-        <button onClick={onClear} className="explore-page__clear-btn">
+        <button type="button" onClick={onClear} className="explore-page__clear-btn">
           <ChevronLeft aria-hidden="true" />
           {t("explore.backBtn")}
         </button>

@@ -60,7 +60,7 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
           </div>
         </div>
 
-        <button className="book-info-card__share-btn" aria-label={t("bookDetail.share")}>
+        <button type="button" className="book-info-card__share-btn" aria-label={t("bookDetail.share")}>
           <Share2 />
         </button>
 
@@ -108,12 +108,13 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
           {book.synopsis ? (
             <div className="book-info-card__synopsis">
               <div className="book-info-card__synopsis-text">
-                {book.synopsis.split("\n\n").map((p, i) => (
-                  <p key={i}>{p}</p>
+                {book.synopsis.split("\n\n").map((p) => (
+                  <p key={p}>{p}</p>
                 ))}
               </div>
               <div className="book-info-card__synopsis-gradient">
                 <button
+                  type="button"
                   className="book-info-card__synopsis-expand"
                   onClick={() => setSynopsisOpen(true)}
                 >

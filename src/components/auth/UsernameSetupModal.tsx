@@ -48,10 +48,7 @@ export default function UsernameSetupModal({
       aria-modal="true"
       aria-labelledby="username-setup-modal-title"
     >
-      <div
-        className="username-setup-modal__backdrop"
-        onClick={() => { if (!isProcessing) onCancel(); }}
-      />
+      <div className="username-setup-modal__backdrop" />
       <div className="username-setup-modal__panel">
         <h2 id="username-setup-modal-title" className="username-setup-modal__title">
           {t("auth.usernameModalTitle")}

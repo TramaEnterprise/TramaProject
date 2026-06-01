@@ -37,6 +37,7 @@ export default function NavbarMini({ visible, onActiveClick }: NavbarMiniProps) 
       {ITEMS.map(({ labelKey, path, icon }) => (
         <button
           key={path}
+          type="button"
           className={`navbar-mini__item${active === path ? " navbar-mini__item--active" : ""}`}
           onClick={() => {
             if (pathname === path) onActiveClick?.();  

@@ -106,10 +106,7 @@ export default function ShelfDropdownButton({ book, variant, classNames }: Shelf
       </button>
 
       {open && (
-        <ul
-          className={classNames?.list}
-          onClick={(e) => e.stopPropagation()}
-        >
+        <ul className={classNames?.list}>
           {SHELF_OPTIONS.map((opt) => (
             <li key={opt}>
               <button

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 import type { Book } from "@/types/Book";
 import { resolveCoverSrc } from "@/utils/coverImage";
 import { useTranslation } from "react-i18next";
@@ -15,22 +15,20 @@ type BookCardProps = {
 
 export default function BookCard({ book, rank }: BookCardProps) {
   const [coverFailed, setCoverFailed] = useState(false);
-  const navigate = useNavigate();
   const { t } = useTranslation();
-
-  const handleCardClick = () => {
-    navigate(`/books/${encodeKey(book.key)}`, { state: { book } });
-  };
 
   const hasCover = (book.cover_url || book.cover_id) && !coverFailed;
   const coverSrc = resolveCoverSrc(book) ?? "";
   const rating = book.rating ?? 0;
 
   return (
-    <article
-      className={`book-card`}
-      onClick={handleCardClick}
-    >
+    <article className={`book-card`}>
+      <Link
+        className="book-card__link"
+        to={`/books/${encodeKey(book.key)}`}
+        state={{ book }}
+        aria-label={book.title}
+      />
       <div className="book-card__cover-wrapper">
         {hasCover ? (
           <img

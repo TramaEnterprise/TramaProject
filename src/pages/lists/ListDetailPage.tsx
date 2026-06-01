@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import { ChevronLeft, Pencil, Trash2 } from "lucide-react";
@@ -16,7 +16,7 @@ export default function ListDetailPage() {
   const { user } = useAuth();
   const { lists, loading, updateList, deleteList } = useLists(userId);
   const [editorOpen, setEditorOpen] = useState(false);
-  const [confirmOpen, setConfirmOpen] = useState(false);
+  const confirmRef = useRef<HTMLDialogElement>(null);
 
   const isOwner = !!user && user.uid === userId;
   const list = lists.find((l) => l.id === listId);
@@ -58,7 +58,7 @@ export default function ListDetailPage() {
                 <button
                   type="button"
                   className="list-detail-page__action list-detail-page__action--danger"
-                  onClick={() => setConfirmOpen(true)}
+                  onClick={() => confirmRef.current?.showModal()}
                 >
                   <Trash2 size={16} aria-hidden="true" /> {t("myLibrary.listDetail.delete")}
                 </button>
@@ -94,12 +94,11 @@ export default function ListDetailPage() {
         />
       )}
 
-      {confirmOpen && isOwner && (
-        <div className="list-detail-page__confirm" role="dialog" aria-modal="true">
-          <div
-            className="list-detail-page__confirm-backdrop"
-            onClick={() => setConfirmOpen(false)}
-          />
+      {isOwner && (
+        <dialog
+          ref={confirmRef}
+          className="list-detail-page__confirm"
+        >
           <div className="list-detail-page__confirm-box">
             <p className="list-detail-page__confirm-text">
               {t("myLibrary.listDetail.confirmDelete")}
@@ -118,13 +117,13 @@ export default function ListDetailPage() {
               <button
                 type="button"
                 className="list-detail-page__confirm-btn"
-                onClick={() => setConfirmOpen(false)}
+                onClick={() => confirmRef.current?.close()}
               >
                 {t("myLibrary.listDetail.confirmDeleteNo")}
               </button>
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </div>
   );

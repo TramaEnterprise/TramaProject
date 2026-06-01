@@ -75,7 +75,7 @@ function StyleGuide() {
                 <small>Whereas disregard and contempt for human rights have resulted</small>
             </div>
 
-            <button>Whereas disregard and contempt for human rights have resulted</button>
+            <button type="button">Whereas disregard and contempt for human rights have resulted</button>
             <div>
                 <a>Whereas disregard and contempt for human rights have resulted</a>
             </div>

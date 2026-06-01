@@ -70,6 +70,7 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
           {SHELF_FILTER_KEYS.map((key) => (
             <button
               key={key}
+              type="button"
               className={`shelf-section__filter-tab ${activeFilter === key ? "shelf-section__filter-tab--active" : ""}`}
               onClick={() => handleFilterChange(key)}
             >
@@ -79,14 +80,13 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
           ))}
         </div>
         {onSeeAll && (
-          <a
-            role="button"
+          <button
+            type="button"
             className="shelf-section__see-all"
             onClick={onSeeAll}
-            style={{ cursor: "pointer" }}
           >
             {t("myLibrary.seeAll")} <ChevronRight size={14} aria-hidden="true" />
-          </a>
+          </button>
         )}
       </div>
 
@@ -133,6 +133,7 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
             {totalPages > 1 && (
               <div className="shelf-section__chevron-area">
                 <button
+                  type="button"
                   className="shelf-section__chevron"
                   onClick={handleChevron}
                 >

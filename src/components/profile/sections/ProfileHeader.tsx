@@ -64,12 +64,15 @@ export default function ProfileHeader({
             ? { backgroundImage: `url(${profile.bannerImageUrl})` }
             : undefined
         }
-        onClick={isOwnProfile ? onEditClick : undefined}
       >
         {isOwnProfile && (
-          <div className="profile-header__banner-overlay">
+          <button
+            type="button"
+            className="profile-header__banner-overlay"
+            onClick={onEditClick}
+          >
             <span>{t("profile.header.changeCover")}</span>
-          </div>
+          </button>
         )}
       </div>
 
@@ -78,7 +81,6 @@ export default function ProfileHeader({
           <div className="profile-header__avatar-wrap">
             <div
               className={`profile-header__avatar-frame${isOwnProfile ? " profile-header__avatar-frame--editable" : ""}`}
-              onClick={isOwnProfile ? onEditClick : undefined}
             >
               {profile.profilePhotoUrl ? (
                 <img
@@ -92,9 +94,13 @@ export default function ProfileHeader({
                 </div>
               )}
               {isOwnProfile && (
-                <div className="profile-header__avatar-overlay">
+                <button
+                  type="button"
+                  className="profile-header__avatar-overlay"
+                  onClick={onEditClick}
+                >
                   <span>{t("profile.header.editPhoto")}</span>
-                </div>
+                </button>
               )}
             </div>
           </div>

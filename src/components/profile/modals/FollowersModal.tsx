@@ -37,13 +37,6 @@ export default function FollowersModal({
     }
   };
 
-  const [prevDeps, setPrevDeps] = useState({ userId, mode });
-  if (userId !== prevDeps.userId || mode !== prevDeps.mode) {
-    setPrevDeps({ userId, mode });
-    setLoading(true);
-    setUsers([]);
-  }
-
   useEffect(() => {
     let cancelled = false;
     const fetchFn = mode === "followers" ? getFollowers : getFollowing;

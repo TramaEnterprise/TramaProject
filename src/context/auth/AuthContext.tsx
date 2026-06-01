@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import type { User } from "firebase/auth";
 import { auth } from "@/services/firebase/firebaseInit";
@@ -24,21 +24,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => unsubscribe();
   }, []);
 
-  const enterAsGuest = () => {
-    setIsGuest(true);
-  };
+  const enterAsGuest = useCallback(() => setIsGuest(true), []);
 
-  const logout = async () => {
+  const logout = useCallback(async () => {
     await signOut(auth);
     setUser(null);
     setIsGuest(false);
-  };
+  }, []);
 
   const isAuthenticated = user !== null;
 
+  const value = useMemo(
+    () => ({ user, isGuest, loading, isAuthenticated, enterAsGuest, logout }),
+    [user, isGuest, loading, isAuthenticated, enterAsGuest, logout]
+  );
+
   return (
     <AuthContext.Provider
-      value={{ user, isGuest, loading, isAuthenticated, enterAsGuest, logout }}
+      value={value}
     >
       {children}
     </AuthContext.Provider>

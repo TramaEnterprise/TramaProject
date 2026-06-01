@@ -40,10 +40,7 @@ export default function TermsConsentModal({
       aria-modal="true"
       aria-labelledby="terms-consent-modal-title"
     >
-      <div
-        className="terms-consent-modal__backdrop"
-        onClick={() => { if (!isProcessing) onCancel(); }}
-      />
+      <div className="terms-consent-modal__backdrop" />
       <div className="terms-consent-modal__panel">
         <h2
           id="terms-consent-modal-title"

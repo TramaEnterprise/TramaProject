@@ -190,10 +190,11 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
       </div>
 
       <div className="progress-modal__footer">
-        <button className="progress-modal__abandon-btn" onClick={() => setConfirmAbandon(true)}>
+        <button type="button" className="progress-modal__abandon-btn" onClick={() => setConfirmAbandon(true)}>
           {t("myLibrary.updateProgressModal.abandon")}
         </button>
         <button
+          type="button"
           className="progress-modal__save-btn"
           onClick={handleSave}
           disabled={isSubmitting}

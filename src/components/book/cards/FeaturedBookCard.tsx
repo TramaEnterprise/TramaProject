@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import type { Book } from "@/types/Book";
 import { resolveCoverSrc } from "@/utils/coverImage";
 import { useTranslation } from "react-i18next";
@@ -22,15 +22,6 @@ export default function FeaturedBookCard({ book }: FeaturedBookCardProps) {
   const { lang } = useCurrentLanguage();
   const synopsis = useBookSynopsis(book, lang);
 
-  const [prevBookKey, setPrevBookKey] = useState(book.key);
-  if (book.key !== prevBookKey) {
-    setPrevBookKey(book.key);
-  }
-
-  const handleCardClick = () => {
-    navigate(`/books/${encodeKey(book.key)}`, { state: { book } });
-  };
-
   const handleViewClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     navigate(`/books/${encodeKey(book.key)}`, { state: { book } });
@@ -44,10 +35,13 @@ export default function FeaturedBookCard({ book }: FeaturedBookCardProps) {
     : null;
 
   return (
-    <article
-      className={`featured-book-card`}
-      onClick={handleCardClick}
-    >
+    <article className={`featured-book-card`}>
+      <Link
+        className="featured-book-card__link"
+        to={`/books/${encodeKey(book.key)}`}
+        state={{ book }}
+        aria-label={book.title}
+      />
       <div className="featured-book-card__cover-wrapper">
         {hasCover ? (
           <img

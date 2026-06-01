@@ -19,6 +19,7 @@ export default function SettingsPage() {
             </p>
           </div>
           <button
+            type="button"
             className={`settings-page__toggle${miniNavEnabled ? " settings-page__toggle--on" : ""}`}
             role="switch"
             aria-checked={miniNavEnabled}

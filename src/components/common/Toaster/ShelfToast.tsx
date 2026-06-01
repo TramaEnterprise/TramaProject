@@ -33,6 +33,7 @@ export default function ShelfToast({
       </div>
       {actionLabel && onAction && (
         <button
+          type="button"
           className="shelf-toast__action"
           onClick={() => {
             onAction();
