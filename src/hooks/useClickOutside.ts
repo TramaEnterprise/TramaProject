@@ -25,11 +25,7 @@ export function useClickOutside<T extends HTMLElement>(
   }, [ref, handler, enabled]);
 }
 
-export function useClickOutsideMany(
-  refs: ElementRef[],
-  handler: () => void,
-  enabled = true
-) {
+export function useClickOutsideMany(refs: ElementRef[], handler: () => void, enabled = true) {
   useEffect(() => {
     if (!enabled) return;
 

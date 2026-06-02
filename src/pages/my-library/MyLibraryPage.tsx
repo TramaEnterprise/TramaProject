@@ -21,14 +21,20 @@ function MyLibraryPage() {
   const [editorOpen, setEditorOpen] = useState(false);
 
   if (loading) {
-    return <section className="my-library"><p>{t("auth.loading")}</p></section>;
+    return (
+      <section className="my-library">
+        <p>{t("auth.loading")}</p>
+      </section>
+    );
   }
 
   if (!isAuthenticated) {
     return (
       <section className="my-library my-library--guest">
         <div className="my-library__guest-form">
-          <h2 className="my-library__guest-title">Crea una cuenta para empezar a añadir tus libros</h2>
+          <h2 className="my-library__guest-title">
+            Crea una cuenta para empezar a añadir tus libros
+          </h2>
           <RegisterForm />
         </div>
       </section>
@@ -61,7 +67,9 @@ function MyLibraryPage() {
       {editorOpen && (
         <ListEditorModal
           onClose={() => setEditorOpen(false)}
-          onSubmit={async ({ name, books }) => { await createList(name, books); }}
+          onSubmit={async ({ name, books }) => {
+            await createList(name, books);
+          }}
         />
       )}
     </section>

@@ -26,15 +26,14 @@ export function useFollowActions(userId: string, isOwnProfile: boolean, profileI
   useEffect(() => {
     if (!uid || !userId || isOwnProfile) return;
     let cancelled = false;
-    Promise.all([
-      checkIsFollowing(uid, userId),
-      checkHasPendingRequest(userId),
-    ]).then(([f, p]) => {
+    Promise.all([checkIsFollowing(uid, userId), checkHasPendingRequest(userId)]).then(([f, p]) => {
       if (cancelled) return;
       setIsFollowing(f);
       setHasPendingRequest(p);
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [uid, userId, isOwnProfile]);
 
   const follow = useCallback(async () => {

@@ -74,17 +74,11 @@ export default function SearchPage() {
       </div>
 
       <div className="search-page__results">
-        {!q.trim() && (
-          <p className="search-page__status">{t("search.emptyPrompt")}</p>
-        )}
+        {!q.trim() && <p className="search-page__status">{t("search.emptyPrompt")}</p>}
 
-        {loading && (
-          <p className="search-page__status">{t("explore.searching")}</p>
-        )}
+        {loading && <p className="search-page__status">{t("explore.searching")}</p>}
 
-        {error && !loading && (
-          <p className="search-page__error">{error}</p>
-        )}
+        {error && !loading && <p className="search-page__error">{error}</p>}
 
         {showNoResults && (
           <div className="search-page__no-results">

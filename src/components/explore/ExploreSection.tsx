@@ -63,7 +63,14 @@ export default function ExploreSection({
   const navigate = useNavigate();
   const result = useSectionBooks(type, params, lang, 100, !!override);
   const { books, loading, error, retry, isFallback, authorName } = override
-    ? { books: override.books, loading: false, error: null, retry: () => {}, isFallback: override.isFallback, authorName: undefined }
+    ? {
+        books: override.books,
+        loading: false,
+        error: null,
+        retry: () => {},
+        isFallback: override.isFallback,
+        authorName: undefined,
+      }
     : result;
 
   const resolvedTitleKey = isFallback && titleFallbackKey ? titleFallbackKey : titleKey;
@@ -87,11 +94,7 @@ export default function ExploreSection({
       <div className="explore-section__header">
         <h2 className="explore-section__title">{renderTitle(title, titleHighlight)}</h2>
         {!loading && !error && books.length > 0 && (
-          <button
-            type="button"
-            className="explore-section__see-more"
-            onClick={handleSeeMore}
-          >
+          <button type="button" className="explore-section__see-more" onClick={handleSeeMore}>
             {t("explore.seeMore")} <ChevronRight size={14} aria-hidden="true" />
           </button>
         )}
@@ -111,7 +114,7 @@ export default function ExploreSection({
       {!loading && !error && books.length > 0 && (
         <div className="explore-section__scroll">
           {featured && books[0] && <FeaturedBookCard book={books[0]} />}
-          {(featured ? books.slice(1) : books).map(book => (
+          {(featured ? books.slice(1) : books).map((book) => (
             <BookCard key={book.key} book={book} />
           ))}
         </div>

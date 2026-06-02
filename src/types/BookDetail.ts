@@ -24,7 +24,6 @@ export type AuthorBook = {
   pages?: number;
 };
 
-
 export type AuthorInfo = {
   name: string;
   photoUrl: string;

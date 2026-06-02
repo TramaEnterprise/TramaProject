@@ -27,10 +27,7 @@ export default function BookCard({ book, rank }: BookCardProps) {
   const rating = book.rating ?? 0;
 
   return (
-    <article
-      className={`book-card`}
-      onClick={handleCardClick}
-    >
+    <article className={`book-card`} onClick={handleCardClick}>
       <div className="book-card__cover-wrapper">
         {hasCover ? (
           <img
@@ -73,7 +70,9 @@ export default function BookCard({ book, rank }: BookCardProps) {
             <>
               <span className="book-card__rating-value">{rating.toFixed(1)}</span>
               {book.ratingCount && (
-                <span className="book-card__rating-count">({book.ratingCount.toLocaleString()})</span>
+                <span className="book-card__rating-count">
+                  ({book.ratingCount.toLocaleString()})
+                </span>
               )}
             </>
           ) : (

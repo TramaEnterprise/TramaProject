@@ -11,8 +11,8 @@ type ModalProps = {
   ariaLabel?: string;
   onClose: () => void;
   children: ReactNode;
-  closeOnBackdrop?: boolean;    
-  usePortal?: boolean;            
+  closeOnBackdrop?: boolean;
+  usePortal?: boolean;
   closeAriaLabel?: string;
   classNames?: Partial<{
     root: string;

@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import {
-  acceptFollowRequest, getFollowRequests, rejectFollowRequest,
+  acceptFollowRequest,
+  getFollowRequests,
+  rejectFollowRequest,
 } from "@/services/firebase/firebaseFollows";
 import type { FollowRequest } from "@/types/UserProfile";
 import { Check, X } from "lucide-react";
@@ -24,15 +26,18 @@ export default function FollowRequestsModal({ onClose, onAccepted }: FollowReque
   useEffect(() => {
     let cancelled = false;
     getFollowRequests()
-      .then((result) => { if (!cancelled) setRequests(result); })
-      .finally(() => { if (!cancelled) setLoading(false); });
-    return () => { cancelled = true; };
+      .then((result) => {
+        if (!cancelled) setRequests(result);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  const resolve = async (
-    request: FollowRequest,
-    action: (uid: string) => Promise<void>,
-  ) => {
+  const resolve = async (request: FollowRequest, action: (uid: string) => Promise<void>) => {
     setRequests((rs) => rs.filter((r) => r.requesterUid !== request.requesterUid));
     try {
       await action(request.requesterUid);
@@ -72,7 +77,10 @@ export default function FollowRequestsModal({ onClose, onAccepted }: FollowReque
                 <button
                   type="button"
                   className="follow-requests-modal__user"
-                  onClick={() => { onClose(); navigate(`/profile/${r.requesterUid}`); }}
+                  onClick={() => {
+                    onClose();
+                    navigate(`/profile/${r.requesterUid}`);
+                  }}
                 >
                   {r.requesterPhotoUrl ? (
                     <img

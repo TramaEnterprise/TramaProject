@@ -1,4 +1,4 @@
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .full-shelf {
   @include container;
@@ -8,7 +8,7 @@
   flex-direction: column;
   gap: var(--space-5);
 
-  // Header 
+  // Header
   &__header {
     display: flex;
     flex-direction: column;
@@ -29,9 +29,15 @@
     gap: var(--space-1);
     transition: color var(--transition-fast);
 
-    svg { width: 15px; height: 15px; flex-shrink: 0; }
+    svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
   }
 
   &__page-title {
@@ -145,7 +151,9 @@
       background: transparent;
       padding: 12px 0;
 
-      &::placeholder { color: var(--color-text-tertiary); }
+      &::placeholder {
+        color: var(--color-text-tertiary);
+      }
     }
   }
 
@@ -159,7 +167,10 @@
     color: var(--color-text-tertiary);
     transition: color var(--transition-fast);
 
-    svg { width: 16px; height: 16px; }
+    svg {
+      width: 16px;
+      height: 16px;
+    }
 
     .full-shelf__search-bar:focus-within & {
       color: var(--color-text-primary);
@@ -187,9 +198,14 @@
     cursor: pointer;
     padding: 0;
     border-radius: var(--radius-pill);
-    transition: color var(--transition-fast), background var(--transition-fast);
+    transition:
+      color var(--transition-fast),
+      background var(--transition-fast);
 
-    svg { width: 16px; height: 16px; }
+    svg {
+      width: 16px;
+      height: 16px;
+    }
 
     &:hover {
       color: var(--color-text-primary);
@@ -210,14 +226,17 @@
     cursor: not-allowed;
     opacity: 0.45;
 
-    svg { width: 18px; height: 18px; }
+    svg {
+      width: 18px;
+      height: 18px;
+    }
 
     @media (max-width: 767px) {
       order: 3;
     }
   }
 
-  // Results header 
+  // Results header
   &__results-header {
     display: flex;
     align-items: center;
@@ -242,7 +261,9 @@
     padding: 0;
     transition: color var(--transition-fast);
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
   }
 
   // Books grid

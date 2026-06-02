@@ -64,15 +64,23 @@ function throwIfAborted(signal?: AbortSignal): void {
 
 async function buildSections(
   params: ExploreSectionsParams,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<SectionEntry[]> {
   const {
-    lang, userShelfKeys, userAuthorKeys,
-    favoriteGenre, favoriteGenreLabel,
-    favoriteAuthorKey, favoriteAuthorName,
-    fiveStarAuthorKey, fiveStarAuthorName,
-    referenceBooks, wantToReadBooks,
-    likedBook, finishedBook, favoritesReferenceBook,
+    lang,
+    userShelfKeys,
+    userAuthorKeys,
+    favoriteGenre,
+    favoriteGenreLabel,
+    favoriteAuthorKey,
+    favoriteAuthorName,
+    fiveStarAuthorKey,
+    fiveStarAuthorName,
+    referenceBooks,
+    wantToReadBooks,
+    likedBook,
+    finishedBook,
+    favoritesReferenceBook,
   } = params;
 
   const year = new Date().getFullYear();
@@ -82,15 +90,15 @@ async function buildSections(
   const globalVisibleKeys = new Set<string>();
 
   function offShelf(books: Book[]): Book[] {
-    return books.filter(b => !userShelfKeys.has(b.key));
+    return books.filter((b) => !userShelfKeys.has(b.key));
   }
 
   // Reorders books so unseen ones appear first, then registers the new first ABOVE_FOLD as visible.
   function surfaceFresh(books: Book[]): Book[] {
-    const fresh = books.filter(b => !globalVisibleKeys.has(b.key));
-    const repeated = books.filter(b => globalVisibleKeys.has(b.key));
+    const fresh = books.filter((b) => !globalVisibleKeys.has(b.key));
+    const repeated = books.filter((b) => globalVisibleKeys.has(b.key));
     const reordered = [...fresh, ...repeated];
-    reordered.slice(0, ABOVE_FOLD).forEach(b => globalVisibleKeys.add(b.key));
+    reordered.slice(0, ABOVE_FOLD).forEach((b) => globalVisibleKeys.add(b.key));
     return reordered;
   }
 
@@ -98,11 +106,11 @@ async function buildSections(
   const trendingBooks = await getTrendingBooks(lang, FETCH_LIMIT, signal);
   if (trendingBooks.length > 0) {
     // Register trending books as visible so subsequent sections surface different books first.
-    trendingBooks.slice(0, ABOVE_FOLD).forEach(b => globalVisibleKeys.add(b.key));
+    trendingBooks.slice(0, ABOVE_FOLD).forEach((b) => globalVisibleKeys.add(b.key));
     entries.push({ id: "trending", type: "trending", books: trendingBooks, isFallback: false });
   } else {
     const fallback = await getTopRatedBooks(lang, FETCH_LIMIT, signal);
-    fallback.slice(0, ABOVE_FOLD).forEach(b => globalVisibleKeys.add(b.key));
+    fallback.slice(0, ABOVE_FOLD).forEach((b) => globalVisibleKeys.add(b.key));
     entries.push({ id: "trending", type: "trending", books: fallback, isFallback: true });
   }
 
@@ -111,8 +119,8 @@ async function buildSections(
   // 2. Because-liked
   if (likedBook?.genre && !usedReferenceKeys.has(likedBook.key)) {
     const raw = offShelf(
-      await getRecommendationsByGenre(likedBook.genre, lang, likedBook.key, FETCH_LIMIT, signal),
-    ).filter(b => (b.rating ?? 0) >= 4);
+      await getRecommendationsByGenre(likedBook.genre, lang, likedBook.key, FETCH_LIMIT, signal)
+    ).filter((b) => (b.rating ?? 0) >= 4);
     const books = surfaceFresh(raw);
     if (books.length > 0) {
       usedReferenceKeys.add(likedBook.key);
@@ -131,8 +139,14 @@ async function buildSections(
   // 3. Because-favorites
   if (favoritesReferenceBook?.genre && !usedReferenceKeys.has(favoritesReferenceBook.key)) {
     const raw = offShelf(
-      await getRecommendationsByGenre(favoritesReferenceBook.genre, lang, favoritesReferenceBook.key, FETCH_LIMIT, signal),
-    ).filter(b => (b.rating ?? 0) >= 4);
+      await getRecommendationsByGenre(
+        favoritesReferenceBook.genre,
+        lang,
+        favoritesReferenceBook.key,
+        FETCH_LIMIT,
+        signal
+      )
+    ).filter((b) => (b.rating ?? 0) >= 4);
     const books = surfaceFresh(raw);
     if (books.length > 0) {
       usedReferenceKeys.add(favoritesReferenceBook.key);
@@ -154,8 +168,14 @@ async function buildSections(
   // 5. Because-finished
   if (finishedBook?.genre && !usedReferenceKeys.has(finishedBook.key)) {
     const raw = offShelf(
-      await getRecommendationsByGenre(finishedBook.genre, lang, finishedBook.key, FETCH_LIMIT, signal),
-    ).filter(b => (b.rating ?? 0) >= 4);
+      await getRecommendationsByGenre(
+        finishedBook.genre,
+        lang,
+        finishedBook.key,
+        FETCH_LIMIT,
+        signal
+      )
+    ).filter((b) => (b.rating ?? 0) >= 4);
     const books = surfaceFresh(raw);
     if (books.length > 0) {
       usedReferenceKeys.add(finishedBook.key);
@@ -210,8 +230,8 @@ async function buildSections(
     const book = referenceBooks[i];
     if (!book.genre || usedReferenceKeys.has(book.key)) continue;
     const raw = offShelf(
-      await getRecommendationsByGenre(book.genre, lang, book.key, FETCH_LIMIT, signal),
-    ).filter(b => (b.rating ?? 0) >= 4);
+      await getRecommendationsByGenre(book.genre, lang, book.key, FETCH_LIMIT, signal)
+    ).filter((b) => (b.rating ?? 0) >= 4);
     if (raw.length === 0) continue;
     usedReferenceKeys.add(book.key);
     entries.push({
@@ -238,15 +258,28 @@ async function buildSections(
   const innerSeen = new Set<string>();
   const merged: Book[] = [];
   for (const b of offShelf([...byAuthor, ...byGenre])) {
-    if (!innerSeen.has(b.key)) { innerSeen.add(b.key); merged.push(b); }
+    if (!innerSeen.has(b.key)) {
+      innerSeen.add(b.key);
+      merged.push(b);
+    }
   }
   merged.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
   if (merged.length > 0) {
-    entries.push({ id: "new-releases-for-you", type: "new-releases-for-you", books: surfaceFresh(merged), isFallback: false });
+    entries.push({
+      id: "new-releases-for-you",
+      type: "new-releases-for-you",
+      books: surfaceFresh(merged),
+      isFallback: false,
+    });
   } else {
     const fallback = offShelf(await getNewReleaseBooks(year, lang, FETCH_LIMIT, signal));
     if (fallback.length > 0) {
-      entries.push({ id: "new-releases-for-you", type: "new-releases-for-you", books: surfaceFresh(fallback), isFallback: true });
+      entries.push({
+        id: "new-releases-for-you",
+        type: "new-releases-for-you",
+        books: surfaceFresh(fallback),
+        isFallback: true,
+      });
     }
   }
 
@@ -263,7 +296,10 @@ async function buildSections(
   return entries;
 }
 
-export function useExploreFeed(params: ExploreSectionsParams, disabled = false): ExploreSectionsResult {
+export function useExploreFeed(
+  params: ExploreSectionsParams,
+  disabled = false
+): ExploreSectionsResult {
   const cache = useExploreCache();
   const { user } = useAuth();
   const uid = user?.uid ?? null;
@@ -280,48 +316,53 @@ export function useExploreFeed(params: ExploreSectionsParams, disabled = false):
   const [error, setError] = useState<string | null>(null);
 
   const paramsRef = useRef(params);
-  useEffect(() => { paramsRef.current = params; });
+  useEffect(() => {
+    paramsRef.current = params;
+  });
 
-  const fetch = useCallback(async (bypassCache = false, signal?: AbortSignal) => {
-    logger.log("[useExploreFeed] fetch invoked", {
-      cacheKey,
-      bypassCache,
-      hasEntry: !!cache.getFeed(cacheKey),
-      disabled,
-    });
-    if (disabled) {
-      logger.log("[useExploreFeed] setLoading(false) path=disabled");
-      setLoading(false);
-      return;
-    }
-    if (!bypassCache) {
-      const entry = cache.getFeed(cacheKey);
-      if (entry) {
-        setSections(entry);
-        logger.log("[useExploreFeed] setLoading(false) path=cache-hit");
+  const fetch = useCallback(
+    async (bypassCache = false, signal?: AbortSignal) => {
+      logger.log("[useExploreFeed] fetch invoked", {
+        cacheKey,
+        bypassCache,
+        hasEntry: !!cache.getFeed(cacheKey),
+        disabled,
+      });
+      if (disabled) {
+        logger.log("[useExploreFeed] setLoading(false) path=disabled");
         setLoading(false);
-        setError(null);
         return;
       }
-    }
-    logger.log("[useExploreFeed] setLoading(TRUE) path=cache-miss");
-    setLoading(true);
-    setError(null);
-    try {
-      const result = await buildSections(paramsRef.current, signal);
-      if (signal?.aborted) return;
-      cache.setFeed(cacheKey, result);
-      setSections(result);
-    } catch (err) {
-      if (err instanceof DOMException && err.name === "AbortError") return;
-      logger.error("[useExploreFeed] buildSections failed", err);
-      setError(err instanceof Error ? err.message : "unknown");
-    } finally {
-      if (!signal?.aborted) {
-        setLoading(false);
+      if (!bypassCache) {
+        const entry = cache.getFeed(cacheKey);
+        if (entry) {
+          setSections(entry);
+          logger.log("[useExploreFeed] setLoading(false) path=cache-hit");
+          setLoading(false);
+          setError(null);
+          return;
+        }
       }
-    }
-  }, [cache, cacheKey, disabled]);
+      logger.log("[useExploreFeed] setLoading(TRUE) path=cache-miss");
+      setLoading(true);
+      setError(null);
+      try {
+        const result = await buildSections(paramsRef.current, signal);
+        if (signal?.aborted) return;
+        cache.setFeed(cacheKey, result);
+        setSections(result);
+      } catch (err) {
+        if (err instanceof DOMException && err.name === "AbortError") return;
+        logger.error("[useExploreFeed] buildSections failed", err);
+        setError(err instanceof Error ? err.message : "unknown");
+      } finally {
+        if (!signal?.aborted) {
+          setLoading(false);
+        }
+      }
+    },
+    [cache, cacheKey, disabled]
+  );
 
   // useEffect(() => {
   //   const controller = new AbortController();
@@ -334,7 +375,7 @@ export function useExploreFeed(params: ExploreSectionsParams, disabled = false):
   //   void fetch(true, controller.signal);
   // }, [fetch]);
   useEffect(() => {
-   fetch();
+    fetch();
   }, [fetch]);
 
   const retry = useCallback(() => fetch(true), [fetch]);

@@ -1,4 +1,4 @@
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 .trending-section {
   display: flex;
@@ -40,7 +40,9 @@
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
 
-    &::-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @include from($bp-md) {
       padding-left: 65px;
@@ -61,7 +63,7 @@
       width: 100%;
     }
 
-    &:nth-child(n+10) {
+    &:nth-child(n + 10) {
       margin-left: var(--space-10);
     }
   }
@@ -110,6 +112,8 @@
     padding: 0;
     border: none;
 
-    &:hover { opacity: 0.75; }
+    &:hover {
+      opacity: 0.75;
+    }
   }
 }

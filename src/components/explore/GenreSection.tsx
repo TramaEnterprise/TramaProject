@@ -23,11 +23,13 @@ export default function GenreSection({ featuredGenre }: Props) {
   const navigate = useNavigate();
 
   const safeFeaturedGenre = EXPLORE_GENRES.includes(featuredGenre) ? featuredGenre : "Fiction";
-  const otherGenres = EXPLORE_GENRES.filter(g => g !== safeFeaturedGenre);
+  const otherGenres = EXPLORE_GENRES.filter((g) => g !== safeFeaturedGenre);
 
   const handleClick = (genre: string) => {
     const label = t(`book.genres.${genreToI18nKey(genre)}`, { defaultValue: genre });
-    navigate(`/explore/section/more-genre?genre=${encodeURIComponent(genre)}&genreLabel=${encodeURIComponent(label)}`);
+    navigate(
+      `/explore/section/more-genre?genre=${encodeURIComponent(genre)}&genreLabel=${encodeURIComponent(label)}`
+    );
   };
 
   return (
@@ -43,11 +45,13 @@ export default function GenreSection({ featuredGenre }: Props) {
           onClick={() => handleClick(safeFeaturedGenre)}
         >
           <span className="genre-section__tile-title">
-            {t(`book.genres.${genreToI18nKey(safeFeaturedGenre)}`, { defaultValue: safeFeaturedGenre })}
+            {t(`book.genres.${genreToI18nKey(safeFeaturedGenre)}`, {
+              defaultValue: safeFeaturedGenre,
+            })}
           </span>
         </button>
 
-        {otherGenres.slice(0, 6).map(genre => (
+        {otherGenres.slice(0, 6).map((genre) => (
           <button
             key={genre}
             type="button"
@@ -60,7 +64,6 @@ export default function GenreSection({ featuredGenre }: Props) {
             </span>
           </button>
         ))}
-
       </div>
     </section>
   );

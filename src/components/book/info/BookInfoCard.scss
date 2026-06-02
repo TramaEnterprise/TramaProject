@@ -34,7 +34,7 @@
   &__cover-wrap {
     position: relative;
     width: 100%;
-    max-width: 200px;        
+    max-width: 200px;
     aspect-ratio: 2 / 3;
     margin: 0 auto;
     flex-shrink: 0;
@@ -223,11 +223,7 @@
     left: 0;
     right: 0;
     height: 68px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      var(--color-bg-page) 65%
-    );
+    background: linear-gradient(to bottom, transparent 0%, var(--color-bg-page) 65%);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -364,7 +360,7 @@
 
   &__tooltip {
     position: absolute;
-    bottom: calc(100% + 6px);  
+    bottom: calc(100% + 6px);
     left: 0;
     background: var(--color-tooltip-bg);
     color: var(--color-tooltip-fg);
@@ -375,5 +371,4 @@
     pointer-events: none;
     z-index: 10;
   }
-
 }

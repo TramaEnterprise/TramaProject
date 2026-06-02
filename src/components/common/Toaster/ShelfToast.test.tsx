@@ -11,7 +11,9 @@ vi.mock("sonner", () => ({
 }));
 
 describe("ShelfToast", () => {
-  beforeEach(() => { dismissMock.mockClear(); });
+  beforeEach(() => {
+    dismissMock.mockClear();
+  });
 
   it("renders message and title", () => {
     render(
@@ -28,12 +30,7 @@ describe("ShelfToast", () => {
 
   it("renders cover image when provided", () => {
     const { container } = render(
-      <ShelfToast
-        cover="https://example.com/cover.jpg"
-        title="X"
-        message="m"
-        toastId="t1"
-      />
+      <ShelfToast cover="https://example.com/cover.jpg" title="X" message="m" toastId="t1" />
     );
     const img = container.querySelector("img");
     expect(img).toHaveAttribute("src", "https://example.com/cover.jpg");

@@ -8,7 +8,9 @@ import type { SectionEntry } from "@/pages/explore/hooks/useExploreFeed";
 import type { ExploreSectionParams, ExploreSectionType } from "@/types/ExploreTypes";
 import type { ShelfDerived } from "@/pages/explore/hooks/useShelfDerivedFavorites";
 const FEATURED_SECTION_TYPES = new Set<ExploreSectionType>([
-  "because-liked", "because-finished", "new-releases-for-you",
+  "because-liked",
+  "because-finished",
+  "new-releases-for-you",
 ]);
 
 function truncate(text: string, max = 40): string {
@@ -32,15 +34,15 @@ function buildParamsForEntry(entry: SectionEntry, shelf: ShelfDerived): ExploreS
 function titleKeyForEntry(entry: SectionEntry): string {
   if (entry.type === "more-genre") return moreGenreTitleKey(entry.favoriteGenre);
   const map: Partial<Record<ExploreSectionType, string>> = {
-    "trending": "explore.sections.trending",
+    trending: "explore.sections.trending",
     "because-reading": "explore.sections.becauseReading",
     "because-liked": "explore.sections.becauseLiked",
     "because-finished": "explore.sections.becauseFinished",
     "because-favorites": "explore.sections.becauseFavorites",
-    "acclaimed": "explore.sections.acclaimed",
+    acclaimed: "explore.sections.acclaimed",
     "top-genre": "explore.sections.topGenre",
     "new-releases-for-you": "explore.sections.newReleasesForYou",
-    "waiting": "explore.sections.waiting",
+    waiting: "explore.sections.waiting",
     "more-author": "explore.sections.moreAuthor",
   };
   return map[entry.type] ?? "explore.sections.trending";
@@ -48,7 +50,8 @@ function titleKeyForEntry(entry: SectionEntry): string {
 
 function titleHighlightForEntry(entry: SectionEntry): string | undefined {
   if (entry.referenceBookTitle) return truncate(entry.referenceBookTitle);
-  if (entry.favoriteGenreLabel ?? entry.favoriteGenre) return entry.favoriteGenreLabel ?? entry.favoriteGenre ?? undefined;
+  if (entry.favoriteGenreLabel ?? entry.favoriteGenre)
+    return entry.favoriteGenreLabel ?? entry.favoriteGenre ?? undefined;
   if (entry.favoriteAuthorName) return entry.favoriteAuthorName;
   return undefined;
 }
@@ -60,7 +63,12 @@ type Props = {
   onNavigate: () => void;
 };
 
-export default function ExploreSectionsList({ sections, loading, shelfDerived, onNavigate }: Props) {
+export default function ExploreSectionsList({
+  sections,
+  loading,
+  shelfDerived,
+  onNavigate,
+}: Props) {
   if (loading) {
     return (
       <>
@@ -101,7 +109,11 @@ export default function ExploreSectionsList({ sections, loading, shelfDerived, o
               override={{ books: entry.books, isFallback: entry.isFallback }}
               params={buildParamsForEntry(entry, shelfDerived)}
               titleKey={titleKeyForEntry(entry)}
-              titleFallbackKey={entry.type === "new-releases-for-you" ? "explore.sections.newReleasesFallback" : undefined}
+              titleFallbackKey={
+                entry.type === "new-releases-for-you"
+                  ? "explore.sections.newReleasesFallback"
+                  : undefined
+              }
               titleHighlight={titleHighlightForEntry(entry)}
               featured={FEATURED_SECTION_TYPES.has(entry.type)}
               onNavigate={onNavigate}

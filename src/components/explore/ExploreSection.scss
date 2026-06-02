@@ -1,4 +1,4 @@
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 .explore-section {
   display: flex;
@@ -43,7 +43,9 @@
     padding: 0;
     transition: color var(--transition-fast);
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
   }
 
   &__scroll {
@@ -63,15 +65,21 @@
     margin-left: -$padding-horizontal;
     margin-right: -$padding-horizontal;
 
-    &::-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .book-card {
       flex-shrink: 0;
       width: calc(50% - var(--space-4));
       scroll-snap-align: start;
 
-      @include from($bp-md) { width: calc(25% - var(--space-4)); }
-      @include from($bp-lg) { width: calc(100% / 6 - var(--space-4)); }
+      @include from($bp-md) {
+        width: calc(25% - var(--space-4));
+      }
+      @include from($bp-lg) {
+        width: calc(100% / 6 - var(--space-4));
+      }
     }
 
     .featured-book-card {
@@ -133,6 +141,8 @@
     color: var(--color-brand-primary);
     padding: 0;
 
-    &:hover { opacity: 0.75; }
+    &:hover {
+      opacity: 0.75;
+    }
   }
 }

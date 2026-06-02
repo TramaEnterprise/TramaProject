@@ -12,10 +12,13 @@ export function localizeBook(book: Book, lang: string): Book {
 
 export function groupShelfByStatus(
   entries: Iterable<ShelfEntry>,
-  lang: string,
+  lang: string
 ): Record<ShelfStatus, Book[]> {
   const result: Record<ShelfStatus, Book[]> = {
-    wantToRead: [], reading: [], finished: [], didNotFinish: [],
+    wantToRead: [],
+    reading: [],
+    finished: [],
+    didNotFinish: [],
   };
   for (const { book, status } of entries) {
     result[status].push(localizeBook(book, lang));

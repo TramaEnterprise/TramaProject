@@ -29,14 +29,18 @@ export default function BioField({
 
   return (
     <div className="edit-profile__field">
-      <label className="edit-profile__label" htmlFor="bio">Biografía</label>
+      <label className="edit-profile__label" htmlFor="bio">
+        Biografía
+      </label>
       <textarea
         id="bio"
         className={[
           "edit-profile__textarea",
           saveBlocked && overLimit ? "edit-profile__textarea--error" : "",
           shaking ? "edit-profile__textarea--shaking" : "",
-        ].filter(Boolean).join(" ")}
+        ]
+          .filter(Boolean)
+          .join(" ")}
         rows={4}
         onAnimationEnd={onShakeEnd}
         {...register("bio")}
@@ -45,7 +49,9 @@ export default function BioField({
         {saveBlocked && overLimit && (
           <span className="edit-profile__bio-error">Demasiados caracteres</span>
         )}
-        <span className={`edit-profile__bio-count${overLimit ? " edit-profile__bio-count--over" : ""}`}>
+        <span
+          className={`edit-profile__bio-count${overLimit ? " edit-profile__bio-count--over" : ""}`}
+        >
           {value.length} / {BIO_MAX} caracteres
         </span>
       </div>

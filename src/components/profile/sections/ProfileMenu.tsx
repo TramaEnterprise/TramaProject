@@ -10,7 +10,7 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 
 type ProfileMenuProps = {
   onClose: () => void;
-}
+};
 
 export default function ProfileMenu({ onClose }: ProfileMenuProps) {
   const { t } = useTranslation();
@@ -23,11 +23,7 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
 
   return (
     <div className="profile-menu" ref={ref}>
-      <Link
-        className="profile-menu__item"
-        to="/profile"
-        onClick={onClose}
-      >
+      <Link className="profile-menu__item" to="/profile" onClick={onClose}>
         <User />
         {t("profile.menu.viewProfile")}
       </Link>
@@ -39,9 +35,7 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
 
       <button className="profile-menu__item" type="button" onClick={toggleTheme}>
         {theme === "light" ? <Moon /> : <Sun />}
-        {theme === "light"
-          ? t("profile.menu.darkTheme")
-          : t("profile.menu.lightTheme")}
+        {theme === "light" ? t("profile.menu.darkTheme") : t("profile.menu.lightTheme")}
       </button>
 
       <div className="profile-menu__divider" />
@@ -49,7 +43,10 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
       <button
         className="profile-menu__item profile-menu__item--danger"
         type="button"
-        onClick={() => { logout(); onClose(); }}
+        onClick={() => {
+          logout();
+          onClose();
+        }}
       >
         <LogOut />
         {t("profile.menu.logout")}

@@ -23,10 +23,18 @@ export function useProfileActivity(userId: string, canViewFull: boolean) {
     if (!userId || !canViewFull) return;
     let cancelled = false;
     Promise.all([
-      getActivity(userId, 10).then((a) => { if (!cancelled) setActivity(a); }),
-      getFavorites(userId).then((f) => { if (!cancelled) setFavorites(f); }),
-    ]).finally(() => { if (!cancelled) setLoading(false); });
-    return () => { cancelled = true; };
+      getActivity(userId, 10).then((a) => {
+        if (!cancelled) setActivity(a);
+      }),
+      getFavorites(userId).then((f) => {
+        if (!cancelled) setFavorites(f);
+      }),
+    ]).finally(() => {
+      if (!cancelled) setLoading(false);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [userId, canViewFull]);
 
   return { activity, favorites, loading };

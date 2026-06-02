@@ -13,7 +13,11 @@ type ExploreSearchResultsProps = {
 };
 
 export default function ExploreSearchResults({
-  loading, error, books, totalResults, onClear,
+  loading,
+  error,
+  books,
+  totalResults,
+  onClear,
 }: ExploreSearchResultsProps) {
   const { t } = useTranslation();
 
@@ -31,18 +35,20 @@ export default function ExploreSearchResults({
       <section className="explore-page__section">
         {loading && <GridLoading />}
         {error && <p className="explore-page__error">{error}</p>}
-        {!loading && !error && (
-          books.length === 0 ? (
+        {!loading &&
+          !error &&
+          (books.length === 0 ? (
             <div className="explore-page__no-results">
               <h3 className="explore-page__no-results-title">{t("myLibrary.noResults")}</h3>
               <img src="/no-results.png" alt="" className="explore-page__no-results-img" />
             </div>
           ) : (
             <div className="explore-page__search-grid">
-              {books.map((book) => <BookCard key={book.key} book={book} />)}
+              {books.map((book) => (
+                <BookCard key={book.key} book={book} />
+              ))}
             </div>
-          )
-        )}
+          ))}
       </section>
     </>
   );

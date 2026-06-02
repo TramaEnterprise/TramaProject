@@ -7,7 +7,7 @@ import { encodeKey } from "@/utils/bookPaths";
 
 type BookTileProps = {
   book: Book;
-}
+};
 
 export default function BookTile({ book }: BookTileProps) {
   const coverSrc = resolveCoverSrc(book);
@@ -15,7 +15,11 @@ export default function BookTile({ book }: BookTileProps) {
   const [coverLoaded, setCoverLoaded] = useState(false);
 
   return (
-    <article className="book-tile" onClick={() => navigate(`/books/${encodeKey(book.key)}`, { state: { book } })} style={{ cursor: "pointer" }}>
+    <article
+      className="book-tile"
+      onClick={() => navigate(`/books/${encodeKey(book.key)}`, { state: { book } })}
+      style={{ cursor: "pointer" }}
+    >
       <div className="book-tile__cover-wrapper">
         {coverSrc ? (
           <>

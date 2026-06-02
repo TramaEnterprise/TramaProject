@@ -65,10 +65,7 @@ export type ActivityItem = ActivityEvent & {
   createdAt: Timestamp;
 };
 
-export type NotificationType =
-  | "follow"
-  | "follow_request"
-  | "follow_request_accepted";
+export type NotificationType = "follow" | "follow_request" | "follow_request_accepted";
 
 export type Notification = {
   id: string;

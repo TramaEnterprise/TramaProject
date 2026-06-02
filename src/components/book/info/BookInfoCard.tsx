@@ -89,19 +89,19 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
             <div className="book-info-card__divider" />
             <div className="book-info-card__meta-item">
               <span className="book-info-card__meta-label">{t("bookDetail.pages")}</span>
-              <span className="book-info-card__meta-value">{book.pages || '-'}</span>
+              <span className="book-info-card__meta-value">{book.pages || "-"}</span>
             </div>
 
             <div className="book-info-card__divider" />
             <div className="book-info-card__meta-item">
               <span className="book-info-card__meta-label">{t("bookDetail.published")}</span>
-              <span className="book-info-card__meta-value">{book.year || '-'}</span>
+              <span className="book-info-card__meta-value">{book.year || "-"}</span>
             </div>
 
             <div className="book-info-card__divider" />
             <div className="book-info-card__meta-item">
               <span className="book-info-card__meta-label">{t("bookDetail.isbn")}</span>
-              <span className="book-info-card__meta-value">{book.isbn || '-'}</span>
+              <span className="book-info-card__meta-value">{book.isbn || "-"}</span>
             </div>
           </div>
 

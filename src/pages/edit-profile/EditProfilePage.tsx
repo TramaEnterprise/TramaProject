@@ -28,7 +28,13 @@ const BIO_MAX = 150;
 export default function EditProfilePage() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm<EditProfileForm>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm<EditProfileForm>();
 
   const photo = useObjectUrl(null);
   const banner = useObjectUrl(null);
@@ -142,7 +148,9 @@ export default function EditProfilePage() {
         <div className="edit-profile__fields">
           <div className="edit-profile__row">
             <div className="edit-profile__field">
-              <label className="edit-profile__label" htmlFor="name">Nombre</label>
+              <label className="edit-profile__label" htmlFor="name">
+                Nombre
+              </label>
               <input
                 id="name"
                 className="edit-profile__input"
@@ -152,7 +160,9 @@ export default function EditProfilePage() {
               {errors.name && <p className="edit-profile__error">{errors.name.message}</p>}
             </div>
             <div className="edit-profile__field">
-              <label className="edit-profile__label" htmlFor="surname">Apellido</label>
+              <label className="edit-profile__label" htmlFor="surname">
+                Apellido
+              </label>
               <input
                 id="surname"
                 className="edit-profile__input"
@@ -198,10 +208,18 @@ export default function EditProfilePage() {
         {saveError && <p className="edit-profile__save-error">{saveError}</p>}
 
         <div className="edit-profile__actions">
-          <button type="button" className="edit-profile__btn edit-profile__btn--cancel" onClick={() => navigate("/profile")}>
+          <button
+            type="button"
+            className="edit-profile__btn edit-profile__btn--cancel"
+            onClick={() => navigate("/profile")}
+          >
             Cancelar
           </button>
-          <button type="submit" className="edit-profile__btn edit-profile__btn--save" disabled={saving}>
+          <button
+            type="submit"
+            className="edit-profile__btn edit-profile__btn--save"
+            disabled={saving}
+          >
             {saving ? "Guardando..." : "Guardar cambios"}
           </button>
         </div>

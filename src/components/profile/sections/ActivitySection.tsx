@@ -14,9 +14,7 @@ export default function ActivitySection({ activity }: ActivitySectionProps) {
   return (
     <div className="activity-section">
       <div className="activity-section__header">
-        <h2 className="activity-section__title">
-          {t("profile.activity.title")}
-        </h2>
+        <h2 className="activity-section__title">{t("profile.activity.title")}</h2>
         {activity.length > 3 && (
           <button type="button" className="activity-section__see-all">
             {t("myLibrary.seeAll")} <ChevronRight size={14} aria-hidden="true" />
@@ -26,16 +24,12 @@ export default function ActivitySection({ activity }: ActivitySectionProps) {
 
       <div className="activity-section__card">
         {activity.length === 0 && (
-          <p className="activity-section__empty">
-            {t("profile.activity.empty")}
-          </p>
+          <p className="activity-section__empty">{t("profile.activity.empty")}</p>
         )}
         {activity.slice(0, 3).map((item, idx, arr) => (
           <div key={item.id}>
             <ActivityItem item={item} />
-            {idx < arr.length - 1 && (
-              <div className="activity-section__divider" />
-            )}
+            {idx < arr.length - 1 && <div className="activity-section__divider" />}
           </div>
         ))}
       </div>

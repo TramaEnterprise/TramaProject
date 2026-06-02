@@ -8,17 +8,17 @@ type NavItem = {
   labelKey: string;
   path: string;
   icon: ReactNode;
-}
+};
 
 type NavbarMiniProps = {
   visible: boolean;
   onActiveClick?: () => void;
-}
+};
 
 const ITEMS: NavItem[] = [
   { labelKey: "nav.myLibrary", path: "/my-library", icon: <BookOpen /> },
-  { labelKey: "nav.explore",   path: "/explore",    icon: <Search /> },
-  { labelKey: "nav.community", path: "/community",  icon: <Users /> },
+  { labelKey: "nav.explore", path: "/explore", icon: <Search /> },
+  { labelKey: "nav.community", path: "/community", icon: <Users /> },
 ];
 
 const activeFromPath = (pathname: string) => {
@@ -33,14 +33,17 @@ export default function NavbarMini({ visible, onActiveClick }: NavbarMiniProps) 
   const active = activeFromPath(pathname);
 
   return (
-    <nav className={`navbar-mini${visible ? " navbar-mini--visible" : ""}`} aria-label="Navegación rápida">
+    <nav
+      className={`navbar-mini${visible ? " navbar-mini--visible" : ""}`}
+      aria-label="Navegación rápida"
+    >
       {ITEMS.map(({ labelKey, path, icon }) => (
         <button
           key={path}
           className={`navbar-mini__item${active === path ? " navbar-mini__item--active" : ""}`}
           onClick={() => {
-            if (pathname === path) onActiveClick?.();  
-            else navigate(path);                        
+            if (pathname === path) onActiveClick?.();
+            else navigate(path);
           }}
           aria-label={t(labelKey)}
         >

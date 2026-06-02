@@ -43,7 +43,9 @@ export default function AddToListModal({ book, userId, onClose }: AddToListModal
     const newBooks = alreadyIn
       ? list.books.filter((b) => b.key !== encodedBookKey)
       : [...list.books, listBook];
-    setLists((prev) => prev?.map((l) => (l.id === list.id ? { ...l, books: newBooks } : l)) ?? null);
+    setLists(
+      (prev) => prev?.map((l) => (l.id === list.id ? { ...l, books: newBooks } : l)) ?? null
+    );
     try {
       await updateListDB(userId, list.id, { books: newBooks });
     } catch {
@@ -66,7 +68,12 @@ export default function AddToListModal({ book, userId, onClose }: AddToListModal
       const id = await createListDB(userId, trimmed, [listBook]);
       const date = new Date().toISOString();
       const newList: BookList = {
-        id, name: trimmed, books: [listBook], description: "", createdAt: date, updatedAt: date,
+        id,
+        name: trimmed,
+        books: [listBook],
+        description: "",
+        createdAt: date,
+        updatedAt: date,
       };
       setLists((prev) => [...(prev ?? []), newList]);
       setNewListName("");
@@ -154,7 +161,10 @@ export default function AddToListModal({ book, userId, onClose }: AddToListModal
                 type="button"
                 className="add-to-list-modal__action-btn"
                 aria-label={t("myLibrary.listEditor.cancel")}
-                onClick={() => { setCreateMode(false); setNewListName(""); }}
+                onClick={() => {
+                  setCreateMode(false);
+                  setNewListName("");
+                }}
               >
                 <X size={14} />
               </button>

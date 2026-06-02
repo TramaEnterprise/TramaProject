@@ -42,10 +42,7 @@ export const followUser = onCall({ region: REGION }, async (request) => {
     throw new HttpsError("not-found", "Usuario no encontrado");
   }
   if (targetSnap.data()?.isPublic === false) {
-    throw new HttpsError(
-      "failed-precondition",
-      "Perfil privado: usa una solicitud"
-    );
+    throw new HttpsError("failed-precondition", "Perfil privado: usa una solicitud");
   }
 
   const followingRef = db.doc(`Users/${followerId}/following/${targetId}`);
@@ -135,63 +132,58 @@ export const removeFollower = onCall({ region: REGION }, async (request) => {
 });
 
 /** Aceptar una solicitud de seguimiento entrante. La ejecuta el dueño del perfil. */
-export const acceptFollowRequest = onCall(
-  { region: REGION },
-  async (request) => {
-    const targetId = request.auth?.uid; // el que acepta = dueño del perfil
-    if (!targetId) {
-      throw new HttpsError("unauthenticated", "Sesión requerida");
-    }
-    const requesterId = request.data?.requesterUid as string | undefined;
-    if (!requesterId) {
-      throw new HttpsError("invalid-argument", "requesterUid inválido");
-    }
+export const acceptFollowRequest = onCall({ region: REGION }, async (request) => {
+  const targetId = request.auth?.uid; // el que acepta = dueño del perfil
+  if (!targetId) {
+    throw new HttpsError("unauthenticated", "Sesión requerida");
+  }
+  const requesterId = request.data?.requesterUid as string | undefined;
+  if (!requesterId) {
+    throw new HttpsError("invalid-argument", "requesterUid inválido");
+  }
 
-    const db = admin.firestore();
-    const reqRef = db.doc(`Users/${targetId}/followRequests/${requesterId}`);
-    if (!(await reqRef.get()).exists) {
-      throw new HttpsError("not-found", "No hay solicitud de ese usuario");
-    }
+  const db = admin.firestore();
+  const reqRef = db.doc(`Users/${targetId}/followRequests/${requesterId}`);
+  if (!(await reqRef.get()).exists) {
+    throw new HttpsError("not-found", "No hay solicitud de ese usuario");
+  }
 
-    // Notificación huérfana
-    const staleNotif = await db
-      .collection(`Users/${targetId}/notifications`)
-      .where("type", "==", "follow_request")
-      .where("actorUid", "==", requesterId)
-      .get();
+  // Notificación huérfana
+  const staleNotif = await db
+    .collection(`Users/${targetId}/notifications`)
+    .where("type", "==", "follow_request")
+    .where("actorUid", "==", requesterId)
+    .get();
 
-    const followingRef = db.doc(`Users/${requesterId}/following/${targetId}`);
-    if ((await followingRef.get()).exists) {
-      const cleanup = db.batch();
-      staleNotif.docs.forEach((d) => cleanup.delete(d.ref));
-      cleanup.delete(reqRef);
-      await cleanup.commit();
-      return { ok: true };
-    }
-
-    const actor = await buildActorPayload(db, targetId);
-    const ts = admin.firestore.FieldValue.serverTimestamp();
-    const inc = admin.firestore.FieldValue.increment(1);
-    const notifRef = db
-      .collection(`Users/${requesterId}/notifications`)
-      .doc();
-
-    const batch = db.batch();
-    batch.set(followingRef, { createdAt: ts });
-    batch.set(db.doc(`Users/${targetId}/followers/${requesterId}`), {
-      createdAt: ts,
-    });
-    batch.update(db.doc(`Users/${requesterId}`), { followingCount: inc });
-    batch.update(db.doc(`Users/${targetId}`), { followersCount: inc });
-    batch.set(notifRef, {
-      type: "follow_request_accepted",
-      ...actor,
-      createdAt: ts,
-      read: false,
-    });
-    batch.delete(reqRef);
-    staleNotif.docs.forEach((d) => batch.delete(d.ref));
-    await batch.commit();
+  const followingRef = db.doc(`Users/${requesterId}/following/${targetId}`);
+  if ((await followingRef.get()).exists) {
+    const cleanup = db.batch();
+    staleNotif.docs.forEach((d) => cleanup.delete(d.ref));
+    cleanup.delete(reqRef);
+    await cleanup.commit();
     return { ok: true };
   }
-);
+
+  const actor = await buildActorPayload(db, targetId);
+  const ts = admin.firestore.FieldValue.serverTimestamp();
+  const inc = admin.firestore.FieldValue.increment(1);
+  const notifRef = db.collection(`Users/${requesterId}/notifications`).doc();
+
+  const batch = db.batch();
+  batch.set(followingRef, { createdAt: ts });
+  batch.set(db.doc(`Users/${targetId}/followers/${requesterId}`), {
+    createdAt: ts,
+  });
+  batch.update(db.doc(`Users/${requesterId}`), { followingCount: inc });
+  batch.update(db.doc(`Users/${targetId}`), { followersCount: inc });
+  batch.set(notifRef, {
+    type: "follow_request_accepted",
+    ...actor,
+    createdAt: ts,
+    read: false,
+  });
+  batch.delete(reqRef);
+  staleNotif.docs.forEach((d) => batch.delete(d.ref));
+  await batch.commit();
+  return { ok: true };
+});

@@ -18,9 +18,7 @@ export function getFirebaseErrorMessage(error: unknown): string {
   const code = extractErrorCode(error);
   const key = `authErrors.${code}`;
   const translated = i18n.t(key);
-  return translated === key
-    ? i18n.t("authErrors.default", { code })
-    : translated;
+  return translated === key ? i18n.t("authErrors.default", { code }) : translated;
 }
 
 export class EmailNotVerifiedError extends Error {

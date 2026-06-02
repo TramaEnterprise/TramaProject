@@ -145,11 +145,7 @@
     left: 0;
     right: 0;
     height: 68px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      var(--color-bg-page) 65%
-    );
+    background: linear-gradient(to bottom, transparent 0%, var(--color-bg-page) 65%);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -251,7 +247,10 @@
     font-weight: var(--weight-semibold);
     cursor: pointer;
     white-space: nowrap;
-    transition: border-color 300ms ease-in-out, background 300ms ease-in-out, color 300ms ease-in-out;
+    transition:
+      border-color 300ms ease-in-out,
+      background 300ms ease-in-out,
+      color 300ms ease-in-out;
 
     &--solid {
       background: var(--color-btn-primary-bg);
@@ -292,8 +291,14 @@
     animation: fcDropdownIn var(--transition-base) ease-out forwards;
 
     @keyframes fcDropdownIn {
-      from { opacity: 0; transform: translateY(6px) scale(0.97); }
-      to   { opacity: 1; transform: none; }
+      from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
   }
 

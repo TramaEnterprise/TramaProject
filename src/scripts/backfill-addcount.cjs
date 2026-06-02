@@ -24,9 +24,7 @@ async function main() {
   for (const docSnap of shelfSnap.docs) {
     counts.set(docSnap.id, (counts.get(docSnap.id) ?? 0) + 1);
   }
-  console.log(
-    `Estanterías leídas: ${shelfSnap.size} entradas, ${counts.size} libros distintos.`
-  );
+  console.log(`Estanterías leídas: ${shelfSnap.size} entradas, ${counts.size} libros distintos.`);
 
   const booksSnap = await db.collection("Books").get();
   const toUpdate = [];
@@ -63,4 +61,9 @@ async function main() {
   );
 }
 
-main().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
+main()
+  .then(() => process.exit(0))
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });

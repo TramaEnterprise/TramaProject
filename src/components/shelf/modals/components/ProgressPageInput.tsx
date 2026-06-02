@@ -91,10 +91,7 @@ export default function ProgressPageInput({
           aria-valuemin={0}
           aria-valuemax={100}
         >
-          <div
-            className="progress-modal__progress-fill"
-            style={{ width: `${progressPercent}%` }}
-          />
+          <div className="progress-modal__progress-fill" style={{ width: `${progressPercent}%` }} />
         </div>
       </div>
     </div>

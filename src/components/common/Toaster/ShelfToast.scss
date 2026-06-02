@@ -68,6 +68,8 @@
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-sm);
 
-    &:hover { background: var(--color-neutral-alpha-muted); }
+    &:hover {
+      background: var(--color-neutral-alpha-muted);
+    }
   }
 }

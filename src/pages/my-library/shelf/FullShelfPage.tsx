@@ -22,14 +22,14 @@ export default function FullShelfPage() {
 
   const isSearching = searchQuery.trim().length > 0;
 
-  const allBooks: Book[] = SHELF_STATUSES.flatMap(s => shelfByStatus[s]);
+  const allBooks: Book[] = SHELF_STATUSES.flatMap((s) => shelfByStatus[s]);
 
   const displayBooks = isSearching
-    ? allBooks.filter(b => {
+    ? allBooks.filter((b) => {
         const q = searchQuery.toLowerCase();
         return (
           b.title.toLowerCase().includes(q) ||
-          (b.authors ?? []).some(a => a.toLowerCase().includes(q))
+          (b.authors ?? []).some((a) => a.toLowerCase().includes(q))
         );
       })
     : shelfByStatus[activeStatus];
@@ -45,7 +45,6 @@ export default function FullShelfPage() {
 
   return (
     <main className="full-shelf">
-
       <div className="full-shelf__header">
         <button type="button" className="full-shelf__back" onClick={() => navigate(-1)}>
           <ChevronLeft aria-hidden="true" />
@@ -56,7 +55,7 @@ export default function FullShelfPage() {
 
       <div className="full-shelf__tools">
         <div className="full-shelf__filter-tabs">
-          {SHELF_STATUSES.map(status => (
+          {SHELF_STATUSES.map((status) => (
             <button
               key={status}
               type="button"
@@ -70,13 +69,15 @@ export default function FullShelfPage() {
         </div>
 
         <div className="full-shelf__search-bar">
-          <span className="full-shelf__search-icon"><Search aria-hidden="true" /></span>
+          <span className="full-shelf__search-icon">
+            <Search aria-hidden="true" />
+          </span>
           <span className="full-shelf__search-divider" />
           <input
             type="text"
             placeholder={t("myLibrary.searchPlaceholder")}
             value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
           {isSearching && (
             <button
@@ -98,8 +99,8 @@ export default function FullShelfPage() {
       {isSearching && (
         <div className="full-shelf__results-header">
           <p className="full-shelf__results-count">
-            {t("myLibrary.resultsCount", { count: displayBooks.length })}
-            {" "}&ldquo;{searchQuery}&rdquo;
+            {t("myLibrary.resultsCount", { count: displayBooks.length })} &ldquo;{searchQuery}
+            &rdquo;
           </p>
           <button type="button" className="full-shelf__hide-search" onClick={clearSearch}>
             {t("myLibrary.clearSearch")}
@@ -119,11 +120,11 @@ export default function FullShelfPage() {
         </div>
       ) : (
         <div className="full-shelf__grid">
-          {displayBooks.map(book => (
+          {displayBooks.map((book) => (
             <BookTile key={book.key} book={book} />
           ))}
-          {displayBooks.length === 0 && (
-            isSearching ? (
+          {displayBooks.length === 0 &&
+            (isSearching ? (
               <div className="full-shelf__no-results">
                 <h3 className="full-shelf__no-results-title">{t("myLibrary.noResults")}</h3>
                 <img src="/no-results.png" alt="" className="full-shelf__no-results-img" />
@@ -132,15 +133,14 @@ export default function FullShelfPage() {
               <div className="full-shelf__empty-state">
                 <p className="full-shelf__empty-state-text">
                   <Trans i18nKey="myLibrary.emptyShelfCategory">
-                    Esta categoría está vacía. ¡Añade libros desde <Link to="/explore">Explorar</Link>!
+                    Esta categoría está vacía. ¡Añade libros desde{" "}
+                    <Link to="/explore">Explorar</Link>!
                   </Trans>
                 </p>
               </div>
-            )
-          )}
+            ))}
         </div>
       )}
-
     </main>
   );
 }

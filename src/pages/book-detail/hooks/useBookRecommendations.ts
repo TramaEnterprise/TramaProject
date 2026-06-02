@@ -40,7 +40,7 @@ export function useBookRecommendations(genre: string, excludeKey: string) {
     const loadBooks = async () => {
       const dbBooks = await getRecommendationsFromDB(genre, lang, excludeKey, MIN_DB_BOOKS);
 
-      if(dbBooks) {
+      if (dbBooks) {
         const sortedBooks = dedupBestByTitle(dbBooks);
         setPool(sortedBooks);
         setBooks(pickNext(sortedBooks));
@@ -60,7 +60,7 @@ export function useBookRecommendations(genre: string, excludeKey: string) {
     };
 
     loadBooks().catch((err) => {
-      if(axios.isCancel(err)) {
+      if (axios.isCancel(err)) {
         return;
       }
     });

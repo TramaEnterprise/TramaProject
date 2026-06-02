@@ -15,10 +15,10 @@ export default function ProgressSection() {
   ];
 
   const genres = [
-    { key: "fantasy",    percentage: 42, color: "var(--color-text-primary)" },
-    { key: "drama",      percentage: 20, color: "var(--color-text-secondary)" },
+    { key: "fantasy", percentage: 42, color: "var(--color-text-primary)" },
+    { key: "drama", percentage: 20, color: "var(--color-text-secondary)" },
     { key: "historical", percentage: 18, color: "var(--color-genre-historical)" },
-    { key: "others",     percentage: 12, color: "var(--color-text-tertiary)" },
+    { key: "others", percentage: 12, color: "var(--color-text-tertiary)" },
   ];
 
   const maxPages = Math.max(...weekActivity.map((d) => d.pages));
@@ -28,7 +28,6 @@ export default function ProgressSection() {
       <h2 className="progresses__title">{t("myLibrary.progress.title")}</h2>
 
       <div className="progresses__card">
-
         <div className="progresses__chart-area">
           <div className="progresses__bar-chart">
             {weekActivity.map(({ day, pages, currentDay }) => (
@@ -37,7 +36,9 @@ export default function ProgressSection() {
                   className={`progresses__bar${currentDay ? " progresses__bar--currentDay" : ""}`}
                   style={{ height: `${(pages / maxPages) * 64}px` }}
                 />
-                <span className={`progresses__bar-label${currentDay ? " progresses__bar-label--currentDay" : ""}`}>
+                <span
+                  className={`progresses__bar-label${currentDay ? " progresses__bar-label--currentDay" : ""}`}
+                >
                   {day}
                 </span>
               </div>
@@ -93,7 +94,6 @@ export default function ProgressSection() {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -41,9 +41,12 @@ async function main() {
     }
   }
 
-  console.log(
-    `${DRY_RUN ? "[DRY-RUN] " : ""}FIN — escaneados: ${scanned}, corregidos: ${updated}`
-  );
+  console.log(`${DRY_RUN ? "[DRY-RUN] " : ""}FIN — escaneados: ${scanned}, corregidos: ${updated}`);
 }
 
-main().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
+main()
+  .then(() => process.exit(0))
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });

@@ -31,7 +31,10 @@ export default function ReviewCard({ review }: ReviewCardProps) {
       </div>
 
       <div className="review-card__footer">
-        <button className="review-card__action" aria-label={t("bookDetail.likeAriaLabel", { count: review.likes })}>
+        <button
+          className="review-card__action"
+          aria-label={t("bookDetail.likeAriaLabel", { count: review.likes })}
+        >
           <Heart />
           <span>{review.likes}</span>
         </button>

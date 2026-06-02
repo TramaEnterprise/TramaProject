@@ -1,7 +1,7 @@
 export type LoginFormValues = {
   email: string;
   password: string;
-}
+};
 
 export type RegisterFormValues = {
   email: string;
@@ -11,4 +11,4 @@ export type RegisterFormValues = {
   birthDate: string;
   username: string;
   acceptedTerms: boolean;
-}
+};

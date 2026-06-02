@@ -1,4 +1,4 @@
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .profile-menu {
   position: absolute;
@@ -14,7 +14,7 @@
   animation: dropdownIn 180ms cubic-bezier(0.34, 1.2, 0.64, 1) both;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     right: 11px;
     top: -5px;
@@ -70,7 +70,9 @@
     &--danger {
       color: var(--color-error);
 
-      svg { color: var(--color-error); }
+      svg {
+        color: var(--color-error);
+      }
 
       &:hover {
         background: var(--color-error-bg);

@@ -13,8 +13,8 @@ import { useShelfDerivedFavorites } from "@/pages/explore/hooks/useShelfDerivedF
 import { useEffect } from "react";
 
 const SECTION_TITLE_KEYS: Record<ExploreSectionType, string> = {
-  "trending": "explore.sections.trending",
-  "acclaimed": "explore.sections.acclaimed",
+  trending: "explore.sections.trending",
+  acclaimed: "explore.sections.acclaimed",
   "top-rated": "explore.sections.topRated",
   "because-reading": "explore.sections.becauseReading",
   "because-liked": "explore.sections.becauseLiked",
@@ -23,13 +23,13 @@ const SECTION_TITLE_KEYS: Record<ExploreSectionType, string> = {
   "more-genre": "explore.sections.moreGenre",
   "more-author": "explore.sections.moreAuthor",
   "new-releases-for-you": "explore.sections.newReleasesForYou",
-  "waiting": "explore.sections.waiting",
+  waiting: "explore.sections.waiting",
   "genre-grid": "explore.sections.genreGrid",
   "top-genre": "explore.sections.topGenre",
 };
 
 const SECTION_FALLBACK_KEYS: Partial<Record<ExploreSectionType, string>> = {
-  "trending": "explore.sections.trendingFallback",
+  trending: "explore.sections.trendingFallback",
   "new-releases-for-you": "explore.sections.newReleasesFallback",
 };
 
@@ -71,22 +71,23 @@ export default function ExploreSectionPage() {
   };
 
   const isWaiting = sectionType === "waiting";
-  const { books: fetchedBooks, loading: fetchLoading, error, retry, isFallback } = useSectionBooks(
-    sectionType,
-    params,
-    lang,
-    100,
-    isWaiting,
-  );
+  const {
+    books: fetchedBooks,
+    loading: fetchLoading,
+    error,
+    retry,
+    isFallback,
+  } = useSectionBooks(sectionType, params, lang, 100, isWaiting);
 
   const books = isWaiting ? (shelfDerived?.wantToReadBooks ?? []) : fetchedBooks;
   const loading = isWaiting ? shelfDerived === null : fetchLoading;
 
-  const titleKey = isFallback && SECTION_FALLBACK_KEYS[sectionType]
-    ? SECTION_FALLBACK_KEYS[sectionType]!
-    : sectionType === "more-genre"
-      ? moreGenreTitleKey(params.favoriteGenre)
-      : (SECTION_TITLE_KEYS[sectionType] ?? "");
+  const titleKey =
+    isFallback && SECTION_FALLBACK_KEYS[sectionType]
+      ? SECTION_FALLBACK_KEYS[sectionType]!
+      : sectionType === "more-genre"
+        ? moreGenreTitleKey(params.favoriteGenre)
+        : (SECTION_TITLE_KEYS[sectionType] ?? "");
 
   const title = t(titleKey, {
     title: params.referenceBookTitle,
@@ -95,14 +96,16 @@ export default function ExploreSectionPage() {
   });
 
   const titleHighlight =
-    (sectionType === "because-reading" ||
-     sectionType === "because-liked" ||
-     sectionType === "because-finished" ||
-     sectionType === "because-favorites") ? params.referenceBookTitle :
-    sectionType === "more-genre" ? (params.favoriteGenreLabel ?? params.favoriteGenre) :
-    sectionType === "more-author" ? params.favoriteAuthorName :
-    undefined;
-
+    sectionType === "because-reading" ||
+    sectionType === "because-liked" ||
+    sectionType === "because-finished" ||
+    sectionType === "because-favorites"
+      ? params.referenceBookTitle
+      : sectionType === "more-genre"
+        ? (params.favoriteGenreLabel ?? params.favoriteGenre)
+        : sectionType === "more-author"
+          ? params.favoriteAuthorName
+          : undefined;
 
   useEffect(() => {
     clearIfDirty();
@@ -111,11 +114,7 @@ export default function ExploreSectionPage() {
   return (
     <div className="section-page">
       <div className="section-page__header">
-        <button
-          type="button"
-          className="section-page__back"
-          onClick={() => navigate(-1)}
-        >
+        <button type="button" className="section-page__back" onClick={() => navigate(-1)}>
           <ChevronLeft aria-hidden="true" />
           {t("explore.backBtn")}
         </button>
@@ -135,7 +134,7 @@ export default function ExploreSectionPage() {
 
       {!loading && !error && (
         <div className="section-page__grid">
-          {books.map(book => (
+          {books.map((book) => (
             <BookCard key={book.key} book={book} />
           ))}
         </div>

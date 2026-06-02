@@ -1,8 +1,12 @@
 @use "../../../styles/shared" as *;
 
 @keyframes progress-flow {
-  from { background-position: 0% 0; }
-  to   { background-position: -200% 0; }
+  from {
+    background-position: 0% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
 }
 
 .reading-carousel {
@@ -54,7 +58,7 @@
     flex: 1;
     min-width: 0;
     max-width: 720px;
-    margin: 0 auto;        
+    margin: 0 auto;
   }
 
   &__slide {
@@ -77,7 +81,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: border-color var(--transition-fast), background var(--transition-fast);
+    transition:
+      border-color var(--transition-fast),
+      background var(--transition-fast);
 
     &:hover {
       border-color: var(--color-text-on-dark);
@@ -267,11 +273,11 @@
     height: 100%;
     background: linear-gradient(
       90deg,
-      rgba(210, 95, 28, 0.90) 0%,
+      rgba(210, 95, 28, 0.9) 0%,
       rgba(223, 92, 32, 0.88) 20%,
       rgba(238, 140, 80, 0.75) 45%,
       rgba(247, 210, 175, 0.65) 70%,
-      rgba(210, 95, 28, 0.90) 100%
+      rgba(210, 95, 28, 0.9) 100%
     );
     background-size: 200% 100%;
     background-repeat: repeat-x;

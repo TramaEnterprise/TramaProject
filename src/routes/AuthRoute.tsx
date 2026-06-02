@@ -5,12 +5,9 @@ import { useTranslation } from "react-i18next";
 type ProtectedRouteProps = {
   children: React.ReactNode;
   requireAuth?: boolean;
-}
+};
 
-export default function AuthRoute({
-  children,
-  requireAuth = true,
-}: ProtectedRouteProps) {
+export default function AuthRoute({ children, requireAuth = true }: ProtectedRouteProps) {
   const { isAuthenticated, isGuest, loading } = useAuth();
   const { t } = useTranslation();
 

@@ -7,19 +7,13 @@ export function ExploreCacheProvider({ children }: { children: React.ReactNode }
   const feedCacheRef = useRef<Map<string, SectionEntry[]>>(new Map());
   const dirtyRef = useRef(false);
 
-  const get = useCallback(
-    (key: string) => sectionCacheRef.current.get(key),
-    [],
-  );
+  const get = useCallback((key: string) => sectionCacheRef.current.get(key), []);
 
   const set = useCallback((key: string, entry: ExploreCacheEntry) => {
     sectionCacheRef.current.set(key, entry);
   }, []);
 
-  const getFeed = useCallback(
-    (key: string) => feedCacheRef.current.get(key),
-    [],
-  );
+  const getFeed = useCallback((key: string) => feedCacheRef.current.get(key), []);
 
   const setFeed = useCallback((key: string, entries: SectionEntry[]) => {
     feedCacheRef.current.set(key, entries);
@@ -39,12 +33,8 @@ export function ExploreCacheProvider({ children }: { children: React.ReactNode }
 
   const value = useMemo(
     () => ({ get, set, getFeed, setFeed, markDirty, clearIfDirty }),
-    [get, set, getFeed, setFeed, markDirty, clearIfDirty],
+    [get, set, getFeed, setFeed, markDirty, clearIfDirty]
   );
 
-  return (
-    <ExploreCacheContext.Provider value={value}>
-      {children}
-    </ExploreCacheContext.Provider>
-  );
+  return <ExploreCacheContext.Provider value={value}>{children}</ExploreCacheContext.Provider>;
 }

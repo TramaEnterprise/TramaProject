@@ -1,10 +1,7 @@
 import { createPortal } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  Bookmark, BookOpen, BookCheck, BookX,
-  ChevronDown, ListPlus,
-} from "lucide-react";
+import { Bookmark, BookOpen, BookCheck, BookX, ChevronDown, ListPlus } from "lucide-react";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
 import { useAuth } from "@/context/auth/useAuth";
@@ -35,7 +32,11 @@ type ShelfStatusDropdownProps = {
   }>;
 };
 
-export default function ShelfStatusDropdown({ book, classNames, portal = false }: ShelfStatusDropdownProps) {
+export default function ShelfStatusDropdown({
+  book,
+  classNames,
+  portal = false,
+}: ShelfStatusDropdownProps) {
   const { t } = useTranslation();
   const { addBook, removeBook, getStatus } = useShelf();
   const { isAuthenticated, user } = useAuth();
@@ -96,7 +97,11 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
     <ul
       ref={portal ? floatingRef : undefined}
       className={classNames?.list}
-      style={portal ? { position: "absolute", top: dropdownPos.top, left: dropdownPos.left, zIndex: 9999 } : undefined}
+      style={
+        portal
+          ? { position: "absolute", top: dropdownPos.top, left: dropdownPos.left, zIndex: 9999 }
+          : undefined
+      }
       onClick={(e) => e.stopPropagation()}
     >
       {SHELF_OPTIONS.map((opt) => {
@@ -119,11 +124,7 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
         <>
           <li role="separator" aria-hidden="true" className="shelf-status-dropdown__separator" />
           <li>
-            <button
-              type="button"
-              className={classNames?.item}
-              onClick={handleOpenListModal}
-            >
+            <button type="button" className={classNames?.item} onClick={handleOpenListModal}>
               <ListPlus size={14} />
               {t("book.addToList")}
             </button>
@@ -150,20 +151,13 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
       >
         {StatusIcon && <StatusIcon size={14} />}
         <span>{saved ? t(`myLibrary.shelf.${saved}`) : t("book.add")}</span>
-        <ChevronDown
-          size={13}
-          className={bem("shelf-status-dropdown__chevron", { open })}
-        />
+        <ChevronDown size={13} className={bem("shelf-status-dropdown__chevron", { open })} />
       </button>
 
       {open && (portal ? createPortal(dropdownContent, document.body) : dropdownContent)}
 
       {listModalOpen && user && (
-        <AddToListModal
-          book={book}
-          userId={user.uid}
-          onClose={() => setListModalOpen(false)}
-        />
+        <AddToListModal book={book} userId={user.uid} onClose={() => setListModalOpen(false)} />
       )}
     </div>
   );

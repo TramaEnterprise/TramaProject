@@ -3,21 +3,21 @@ import { collection, deleteDoc, doc, getDoc, getDocs, setDoc, updateDoc } from "
 import { db } from "./firebaseInit";
 
 function mapListDoc(id: string, d: Record<string, unknown>): BookList {
-    return {
-        id,
-        name: (d.name as string) ?? "",
-        description: (d.description as string) ?? undefined,
-        books: (d.books as ListBook[]) ?? [],
-        createdAt: (d.createdAt as string) ?? "",
-        updatedAt: (d.updatedAt as string) ?? "",
-    };
+  return {
+    id,
+    name: (d.name as string) ?? "",
+    description: (d.description as string) ?? undefined,
+    books: (d.books as ListBook[]) ?? [],
+    createdAt: (d.createdAt as string) ?? "",
+    updatedAt: (d.updatedAt as string) ?? "",
+  };
 }
 
 export async function getLists(uid: string): Promise<BookList[]> {
-    const userLists = await getDocs(collection(db, "Users", uid, "lists"));
-    return userLists.docs
-        .map((docList) => mapListDoc(docList.id, docList.data()))
-        .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  const userLists = await getDocs(collection(db, "Users", uid, "lists"));
+  return userLists.docs
+    .map((docList) => mapListDoc(docList.id, docList.data()))
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
 export async function getList(uid: string, listId: string): Promise<BookList | null> {
@@ -27,18 +27,27 @@ export async function getList(uid: string, listId: string): Promise<BookList | n
 }
 
 export async function createListDB(
-    uid: string, name: string, books: ListBook[], description?: string,
+  uid: string,
+  name: string,
+  books: ListBook[],
+  description?: string
 ): Promise<string> {
-    const ref = doc(collection(db, "Users", uid, "lists"));
-    const date = new Date().toISOString();
-    await setDoc(ref, { name, books, description: description ?? "", createdAt: date, updatedAt: date});
-    return ref.id;
+  const ref = doc(collection(db, "Users", uid, "lists"));
+  const date = new Date().toISOString();
+  await setDoc(ref, {
+    name,
+    books,
+    description: description ?? "",
+    createdAt: date,
+    updatedAt: date,
+  });
+  return ref.id;
 }
 
 export async function updateListDB(
   uid: string,
   listId: string,
-  content: { name?: string; description?: string; books?: ListBook[] },
+  content: { name?: string; description?: string; books?: ListBook[] }
 ): Promise<void> {
   await updateDoc(doc(db, "Users", uid, "lists", listId), {
     ...content,

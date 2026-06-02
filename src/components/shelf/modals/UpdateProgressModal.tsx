@@ -54,8 +54,7 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
 
   const currentPage =
     pageInput === "" ? 0 : Math.max(0, Math.min(parseInt(pageInput, 10) || 0, totalPages));
-  const progressPercent =
-    totalPages > 0 ? Math.round((currentPage / totalPages) * 100) : 0;
+  const progressPercent = totalPages > 0 ? Math.round((currentPage / totalPages) * 100) : 0;
 
   const handleSave = async () => {
     if (localStatus === "wantToRead" || localStatus === "didNotFinish") {

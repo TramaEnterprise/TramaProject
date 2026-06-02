@@ -1,4 +1,4 @@
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 /* ----- Bell wrap + badge ----- */
 .navbar {
@@ -43,7 +43,7 @@
   animation: dropdownIn 180ms cubic-bezier(0.34, 1.2, 0.64, 1) both;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     right: 11px;
     top: -5px;
@@ -169,7 +169,9 @@
     border-radius: 50%;
     color: var(--color-text-secondary);
     cursor: pointer;
-    transition: background var(--transition-fast), color var(--transition-fast);
+    transition:
+      background var(--transition-fast),
+      color var(--transition-fast);
 
     &:hover {
       background: var(--color-neutral-alpha-muted);

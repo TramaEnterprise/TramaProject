@@ -92,7 +92,10 @@
     color: var(--color-btn-primary-fg);
     cursor: pointer;
     white-space: nowrap;
-    transition: border-color 300ms ease-in-out, background 300ms ease-in-out, color 300ms ease-in-out;
+    transition:
+      border-color 300ms ease-in-out,
+      background 300ms ease-in-out,
+      color 300ms ease-in-out;
 
     &--saved {
       background: var(--color-bg-page);
@@ -178,8 +181,7 @@
     z-index: 10;
   }
 
-
-  // Info 
+  // Info
   &__info {
     display: flex;
     flex-direction: column;

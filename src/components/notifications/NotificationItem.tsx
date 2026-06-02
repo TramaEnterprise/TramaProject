@@ -10,14 +10,11 @@ type NotificationItemProps = {
   onClose: () => void;
 };
 
-function timeAgo(
-  timestamp: { toDate: () => Date } | null | undefined,
-  t: TFunction
-): string {
+function timeAgo(timestamp: { toDate: () => Date } | null | undefined, t: TFunction): string {
   if (!timestamp) {
     return "";
   }
-  
+
   const now = Date.now();
   const then = timestamp.toDate().getTime();
   const diff = Math.floor((now - then) / 1000);
@@ -41,23 +38,18 @@ export default function NotificationItem({ notification, onClose }: Notification
   const navigate = useNavigate();
   const { remove, acceptRequest, rejectRequest } = useNotifications();
 
-  const displayName = notification.actorName || notification.actorUsername ||t("profile.userFallback");
-  const goToProfile = () => { onClose(); navigate(`/profile/${notification.actorUid}`)}
-  
+  const displayName =
+    notification.actorName || notification.actorUsername || t("profile.userFallback");
+  const goToProfile = () => {
+    onClose();
+    navigate(`/profile/${notification.actorUid}`);
+  };
+
   const isRequest = notification.type === "follow_request";
 
   return (
-    <div
-      className={
-        "notification-item" +
-        (notification.read ? "" : " notification-item--unread")
-      }
-    >
-      <button
-        type="button"
-        className="notification-item__body"
-        onClick={goToProfile}
-      >
+    <div className={"notification-item" + (notification.read ? "" : " notification-item--unread")}>
+      <button type="button" className="notification-item__body" onClick={goToProfile}>
         {notification.actorPhotoUrl ? (
           <img
             className="notification-item__avatar"
@@ -77,9 +69,7 @@ export default function NotificationItem({ notification, onClose }: Notification
               components={[<strong key="b" />]}
             />
           </p>
-          <span className="notification-item__time">
-            {timeAgo(notification.createdAt, t)}
-          </span>
+          <span className="notification-item__time">{timeAgo(notification.createdAt, t)}</span>
         </div>
       </button>
 

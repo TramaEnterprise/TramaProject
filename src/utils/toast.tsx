@@ -7,14 +7,9 @@ import ShelfToast from "@/components/common/Toaster/ShelfToast";
 type BookForToast = Pick<Book, "key" | "title" | "cover_url">;
 type UndoFn = () => void | Promise<void>;
 
-const shelfLabel = (status: ShelfStatus): string =>
-  i18n.t(`myLibrary.shelf.${status}`);
+const shelfLabel = (status: ShelfStatus): string => i18n.t(`myLibrary.shelf.${status}`);
 
-const renderShelfToast = (
-  book: BookForToast,
-  message: string,
-  undo?: UndoFn,
-): void => {
+const renderShelfToast = (book: BookForToast, message: string, undo?: UndoFn): void => {
   sonnerToast.custom(
     (id) => (
       <ShelfToast
@@ -30,11 +25,7 @@ const renderShelfToast = (
   );
 };
 
-export function notifyShelfAdded(
-  book: BookForToast,
-  status: ShelfStatus,
-  undo: UndoFn,
-): void {
+export function notifyShelfAdded(book: BookForToast, status: ShelfStatus, undo: UndoFn): void {
   const message = i18n.t("toasts.shelf.added", {
     title: book.title,
     shelf: shelfLabel(status),
@@ -46,7 +37,7 @@ export function notifyShelfStatusChanged(
   book: BookForToast,
   _fromStatus: ShelfStatus,
   toStatus: ShelfStatus,
-  undo: UndoFn,
+  undo: UndoFn
 ): void {
   const key =
     toStatus === "finished"
@@ -65,7 +56,7 @@ export function notifyShelfStatusChanged(
 export function notifyShelfRemoved(
   book: BookForToast,
   _prevStatus: ShelfStatus,
-  undo: UndoFn,
+  undo: UndoFn
 ): void {
   const message = i18n.t("toasts.shelf.removed", { title: book.title });
   renderShelfToast(book, message, undo);
@@ -74,7 +65,7 @@ export function notifyShelfRemoved(
 export function notifyProgressUpdated(
   book: BookForToast,
   _currentPage: number,
-  _totalPages?: number,
+  _totalPages?: number
 ): void {
   const message = i18n.t("toasts.shelf.progressUpdated", { title: book.title });
   renderShelfToast(book, message);

@@ -30,11 +30,7 @@ export default function ListDetailPage() {
   return (
     <div className="list-detail-page">
       <div className="list-detail-page__header">
-        <button
-          type="button"
-          className="list-detail-page__back"
-          onClick={() => navigate(-1)}
-        >
+        <button type="button" className="list-detail-page__back" onClick={() => navigate(-1)}>
           <ChevronLeft aria-hidden="true" />
           {t("explore.backBtn")}
         </button>

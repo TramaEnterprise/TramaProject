@@ -18,10 +18,7 @@ export default function AvatarUploader({ previewUrl, onFileSelected }: AvatarUpl
     <div className="edit-profile__field">
       <span className="edit-profile__label">Foto de perfil</span>
       <div className="edit-profile__photo-upload">
-        <div
-          className="edit-profile__photo-preview"
-          onClick={() => inputRef.current?.click()}
-        >
+        <div className="edit-profile__photo-preview" onClick={() => inputRef.current?.click()}>
           {previewUrl ? (
             <img src={previewUrl} alt="Foto de perfil" className="edit-profile__photo-img" />
           ) : (

@@ -33,6 +33,4 @@ const NOMBRE_DEL_VIENTO = {
   ],
 };
 
-
 export const FALLBACK_REVIEWS = NOMBRE_DEL_VIENTO.reviews;
-

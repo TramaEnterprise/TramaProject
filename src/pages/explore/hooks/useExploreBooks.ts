@@ -3,7 +3,11 @@ import axios from "axios";
 import type { Book } from "@/types/Book";
 import { fetchFantasyBooks, getWork } from "@/services/api/openLibraryApi";
 import { getErrorMessage } from "@/utils/apiErrors";
-import { getExploreBooksFromDB, saveBooksToDB, saveGenreToDB } from "@/services/firebase/firebaseBooks";
+import {
+  getExploreBooksFromDB,
+  saveBooksToDB,
+  saveGenreToDB,
+} from "@/services/firebase/firebaseBooks";
 import { detectGenre } from "@/utils/genreUtils";
 import { logger } from "@/utils/logger";
 import { completeBookTitles } from "@/services/api/bookComplete";
@@ -18,7 +22,7 @@ type UseFantasyBooksHybridResult = {
   error: string | null;
   fetchBooks: (limit?: number, lang?: string) => Promise<void>;
   cancelRequest: () => void;
-}
+};
 
 function loadFromStorage(lang: string): Book[] | null {
   try {
@@ -43,22 +47,26 @@ function loadFromStorage(lang: string): Book[] | null {
       return null;
     }
 
-    const valid = books.filter((book): book is Book => (
-      typeof book === "object" &&
-      book !== null &&
-      typeof (book as Book).key === "string" &&
-      typeof (book as Book).title === "string"
-    ));
+    const valid = books.filter(
+      (book): book is Book =>
+        typeof book === "object" &&
+        book !== null &&
+        typeof (book as Book).key === "string" &&
+        typeof (book as Book).title === "string"
+    );
 
     return valid.length > 0 ? valid : null;
-  } catch { return null; }
+  } catch {
+    return null;
+  }
 }
 
 function saveToStorage(books: Book[], lang: string): void {
   try {
     localStorage.setItem(LOCAL_STORAGE_KEY(lang), JSON.stringify({ books, ts: Date.now() }));
-  } 
-  catch { /* storage lleno */ }
+  } catch {
+    /* storage lleno */
+  }
 }
 
 export function useExploreBooks(): UseFantasyBooksHybridResult {
@@ -68,7 +76,6 @@ export function useExploreBooks(): UseFantasyBooksHybridResult {
   const abortController = useRef<AbortController | null>(null);
 
   const fetchBooks = useCallback(async (limit: number = 20, lang: string = "es") => {
-    
     const stored = loadFromStorage(lang);
     if (stored) {
       logger.log("[Explore] Sirviendo desde localStorage:", stored.length, "libros");
@@ -77,40 +84,50 @@ export function useExploreBooks(): UseFantasyBooksHybridResult {
       return;
     }
 
-    logger.log("[Explore] localStorage vacío o expirado. Consultando Firestore con lang:", lang, "limit:", limit);
+    logger.log(
+      "[Explore] localStorage vacío o expirado. Consultando Firestore con lang:",
+      lang,
+      "limit:",
+      limit
+    );
 
     try {
       const dbBooks = await getExploreBooksFromDB(lang, limit);
-      logger.log("[Explore] Firestore devolvió:", dbBooks ? dbBooks.length + " libros" : "null (insuficientes)");
+      logger.log(
+        "[Explore] Firestore devolvió:",
+        dbBooks ? dbBooks.length + " libros" : "null (insuficientes)"
+      );
       if (dbBooks) {
         setBooks(dbBooks);
         setLoading(false);
         saveToStorage(dbBooks, lang);
 
         completeBookTitles(dbBooks, lang)
-          .then(completed => {
-            if(completed !== dbBooks) {
+          .then((completed) => {
+            if (completed !== dbBooks) {
               setBooks(completed);
               saveToStorage(completed, lang);
             }
           })
           .catch(() => {});
-          
-        const nullGenreBooks = dbBooks.filter(b => !b.genre);
+
+        const nullGenreBooks = dbBooks.filter((b) => !b.genre);
         if (nullGenreBooks.length > 0) {
           nullGenreBooks.forEach(async (b) => {
             try {
               const work = await getWork(b.key);
               const genre = detectGenre(work.subjects);
               if (genre) saveGenreToDB(b.key, genre);
-            } catch { logger.log("No se ha podido obtener el genero (otra vez)") }
+            } catch {
+              logger.log("No se ha podido obtener el genero (otra vez)");
+            }
           });
         }
 
         return;
       }
     } catch {
-      logger.log("Ha habido un error o no se han encontrado libros")
+      logger.log("Ha habido un error o no se han encontrado libros");
     }
 
     abortController.current?.abort();
@@ -123,7 +140,7 @@ export function useExploreBooks(): UseFantasyBooksHybridResult {
         setError(null);
 
         const mappedBooks = await fetchFantasyBooks(limit, lang, controller.signal);
-        const deduplicated = dedupByNormalizedTitle(sortByCoverAndRating(mappedBooks))
+        const deduplicated = dedupByNormalizedTitle(sortByCoverAndRating(mappedBooks));
         setBooks(deduplicated);
         setLoading(false);
 
@@ -141,7 +158,7 @@ export function useExploreBooks(): UseFantasyBooksHybridResult {
     };
 
     fetchWithRetry();
-  }, [])
+  }, []);
 
   const cancelRequest = useCallback(() => {
     abortController.current?.abort();

@@ -17,4 +17,4 @@ function GridLoading() {
   );
 }
 
-export default GridLoading
+export default GridLoading;

@@ -8,11 +8,14 @@ export function useObjectUrl(initialUrl: string | null = null) {
     urlRef.current = url;
   }, [url]);
 
-  useEffect(() => () => {
-    if (urlRef.current?.startsWith("blob:")) {
-      URL.revokeObjectURL(urlRef.current);
-    }
-  }, []);
+  useEffect(
+    () => () => {
+      if (urlRef.current?.startsWith("blob:")) {
+        URL.revokeObjectURL(urlRef.current);
+      }
+    },
+    []
+  );
 
   const setFile = useCallback((file: File | null) => {
     if (urlRef.current?.startsWith("blob:")) {

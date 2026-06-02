@@ -6,9 +6,9 @@ const serviceAccount = require("../../serviceAccountKey.json");
 const { detectGenres } = require("../utils/genreUtils.ts");
 
 const DRY_RUN = process.argv.includes("--dry-run");
-const PAGE_SIZE = 200;       // docs leídos de Firestore por página
-const CONCURRENCY = 4;       // peticiones simultáneas a OpenLibrary
-const DELAY_MS = 500;        // pausa entre lotes de CONCURRENCY
+const PAGE_SIZE = 200; // docs leídos de Firestore por página
+const CONCURRENCY = 4; // peticiones simultáneas a OpenLibrary
+const DELAY_MS = 500; // pausa entre lotes de CONCURRENCY
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -74,9 +74,7 @@ async function main() {
   let lastDoc = null;
 
   for (;;) {
-    let q = booksRef
-      .orderBy(admin.firestore.FieldPath.documentId())
-      .limit(PAGE_SIZE);
+    let q = booksRef.orderBy(admin.firestore.FieldPath.documentId()).limit(PAGE_SIZE);
     if (lastDoc) q = q.startAfter(lastDoc);
 
     const snap = await q.get();

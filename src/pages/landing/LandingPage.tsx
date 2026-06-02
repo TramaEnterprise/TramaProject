@@ -44,15 +44,9 @@ function LandingPage() {
 
   return (
     <div className="landing">
-
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="landing__hero">
-        <img
-          className="landing__hero-bg"
-          src={heroImg}
-          alt="Hero"
-          aria-hidden="true"
-        />
+        <img className="landing__hero-bg" src={heroImg} alt="Hero" aria-hidden="true" />
         <div className="landing__hero-left">
           <h1 className="landing__hero-title">{t("landing.hero.title")}</h1>
           <p className="landing__hero-subtitle">{t("landing.hero.subtitle")}</p>
@@ -70,19 +64,24 @@ function LandingPage() {
       {/* ── Biblioteca ───────────────────────────────────── */}
       <section className="landing__library">
         <div className="landing__library-mockup">
-          <img
-            src={libraryImg}
-            alt="Interfaz de Mi biblioteca"
-          />
+          <img src={libraryImg} alt="Interfaz de Mi biblioteca" />
         </div>
         <div className="landing__library-text">
           <h2 className="landing__section-title">{t("landing.library.title")}</h2>
           <p className="landing__section-subtitle">{t("landing.library.subtitle")}</p>
           <div className="landing__pills">
-            <span className="landing__pill landing__pill--reading">{t("landing.library.pill.reading")}</span>
-            <span className="landing__pill landing__pill--read">{t("landing.library.pill.read")}</span>
-            <span className="landing__pill landing__pill--want">{t("landing.library.pill.want")}</span>
-            <span className="landing__pill landing__pill--abandoned">{t("landing.library.pill.abandoned")}</span>
+            <span className="landing__pill landing__pill--reading">
+              {t("landing.library.pill.reading")}
+            </span>
+            <span className="landing__pill landing__pill--read">
+              {t("landing.library.pill.read")}
+            </span>
+            <span className="landing__pill landing__pill--want">
+              {t("landing.library.pill.want")}
+            </span>
+            <span className="landing__pill landing__pill--abandoned">
+              {t("landing.library.pill.abandoned")}
+            </span>
           </div>
         </div>
       </section>
@@ -95,8 +94,12 @@ function LandingPage() {
         </div>
         <div className="landing__stats-panel">
           <div className="landing__stats-streak">
-            <span className="landing__stats-streak-label">{t("landing.habits.stats.streakLabel")}</span>
-            <span className="landing__stats-streak-value">{t("landing.habits.stats.streakValue")}</span>
+            <span className="landing__stats-streak-label">
+              {t("landing.habits.stats.streakLabel")}
+            </span>
+            <span className="landing__stats-streak-value">
+              {t("landing.habits.stats.streakValue")}
+            </span>
           </div>
           <hr className="landing__stats-divider" />
           <div className="landing__stats-block">
@@ -118,13 +121,19 @@ function LandingPage() {
             <div className="landing__genre-row">
               <span className="landing__genre-label">{t("landing.habits.stats.genre2")}</span>
               <div className="landing__progress-bar landing__progress-bar--sm landing__progress-bar--green">
-                <div className="landing__progress-bar-fill landing__progress-bar-fill--green" style={{ width: "35%" }} />
+                <div
+                  className="landing__progress-bar-fill landing__progress-bar-fill--green"
+                  style={{ width: "35%" }}
+                />
               </div>
             </div>
             <div className="landing__genre-row">
               <span className="landing__genre-label">{t("landing.habits.stats.genre3")}</span>
               <div className="landing__progress-bar landing__progress-bar--sm landing__progress-bar--blue">
-                <div className="landing__progress-bar-fill landing__progress-bar-fill--blue" style={{ width: "25%" }} />
+                <div
+                  className="landing__progress-bar-fill landing__progress-bar-fill--blue"
+                  style={{ width: "25%" }}
+                />
               </div>
             </div>
           </div>
@@ -142,24 +151,23 @@ function LandingPage() {
           </p>
         </div>
         <div className="landing__profile-cards">
-
           {/* Tarjeta María García */}
           <div className="landing__profile-card">
             <div className="landing__profile-card-user">
               <div className="landing__profile-card-avatar">M</div>
               <div>
                 <p className="landing__profile-card-name">María García</p>
-                <p className="landing__profile-card-meta">@maria_lee · ★ 47 {t("landing.community.card.followers")}</p>
+                <p className="landing__profile-card-meta">
+                  @maria_lee · ★ 47 {t("landing.community.card.followers")}
+                </p>
               </div>
             </div>
             <div className="landing__profile-card-reading">
-              <p className="landing__profile-card-section-label">{t("landing.community.card.readingNow")}</p>
+              <p className="landing__profile-card-section-label">
+                {t("landing.community.card.readingNow")}
+              </p>
               <div className="landing__profile-card-book-row">
-                <img
-                  className="landing__profile-card-cover"
-                  src={coverDuneImg}
-                  alt="Dune"
-                />
+                <img className="landing__profile-card-cover" src={coverDuneImg} alt="Dune" />
                 <div>
                   <p className="landing__profile-card-book-title">Dune</p>
                   <p className="landing__profile-card-book-author">Frank Herbert</p>
@@ -171,7 +179,9 @@ function LandingPage() {
               </div>
             </div>
             <div className="landing__profile-card-favorites">
-              <p className="landing__profile-card-section-label">{t("landing.community.card.favorites")}</p>
+              <p className="landing__profile-card-section-label">
+                {t("landing.community.card.favorites")}
+              </p>
               <div className="landing__profile-card-fav-covers">
                 <img className="landing__profile-card-fav-cover" src={fav1Img} alt="" />
                 <img className="landing__profile-card-fav-cover" src={fav2Img} alt="" />
@@ -180,7 +190,9 @@ function LandingPage() {
                 <img className="landing__profile-card-fav-cover" src={fav5Img} alt="" />
               </div>
             </div>
-            <button type="button" className="landing__profile-card-follow-btn">{t("landing.community.card.follow")}</button>
+            <button type="button" className="landing__profile-card-follow-btn">
+              {t("landing.community.card.follow")}
+            </button>
           </div>
 
           {/* Tarjeta Carlos Ruiz */}
@@ -189,17 +201,17 @@ function LandingPage() {
               <div className="landing__profile-card-avatar">C</div>
               <div>
                 <p className="landing__profile-card-name">Carlos Ruiz</p>
-                <p className="landing__profile-card-meta">@carlos_books · ★ 128 {t("landing.community.card.followers")}</p>
+                <p className="landing__profile-card-meta">
+                  @carlos_books · ★ 128 {t("landing.community.card.followers")}
+                </p>
               </div>
             </div>
             <div className="landing__profile-card-reading">
-              <p className="landing__profile-card-section-label">{t("landing.community.card.readingNow")}</p>
+              <p className="landing__profile-card-section-label">
+                {t("landing.community.card.readingNow")}
+              </p>
               <div className="landing__profile-card-book-row">
-                <img
-                  className="landing__profile-card-cover"
-                  src={cover1984Img}
-                  alt="1984"
-                />
+                <img className="landing__profile-card-cover" src={cover1984Img} alt="1984" />
                 <div>
                   <p className="landing__profile-card-book-title">1984</p>
                   <p className="landing__profile-card-book-author">George Orwell</p>
@@ -211,7 +223,9 @@ function LandingPage() {
               </div>
             </div>
             <div className="landing__profile-card-favorites">
-              <p className="landing__profile-card-section-label">{t("landing.community.card.favorites")}</p>
+              <p className="landing__profile-card-section-label">
+                {t("landing.community.card.favorites")}
+              </p>
               <div className="landing__profile-card-fav-covers">
                 <img className="landing__profile-card-fav-cover" src={fav6Img} alt="" />
                 <img className="landing__profile-card-fav-cover" src={fav7Img} alt="" />
@@ -220,9 +234,10 @@ function LandingPage() {
                 <img className="landing__profile-card-fav-cover" src={fav10Img} alt="" />
               </div>
             </div>
-            <button type="button" className="landing__profile-card-follow-btn">{t("landing.community.card.follow")}</button>
+            <button type="button" className="landing__profile-card-follow-btn">
+              {t("landing.community.card.follow")}
+            </button>
           </div>
-
         </div>
       </section>
 
@@ -237,7 +252,9 @@ function LandingPage() {
             <p className="landing__quote-text">{t("landing.socialProof.quote1.text")}</p>
             <div className="landing__quote-author">
               <p className="landing__quote-author-name">{t("landing.socialProof.quote1.author")}</p>
-              <p className="landing__quote-author-handle">{t("landing.socialProof.quote1.handle")}</p>
+              <p className="landing__quote-author-handle">
+                {t("landing.socialProof.quote1.handle")}
+              </p>
             </div>
           </div>
           <div className="landing__quote-card">
@@ -245,7 +262,9 @@ function LandingPage() {
             <p className="landing__quote-text">{t("landing.socialProof.quote2.text")}</p>
             <div className="landing__quote-author">
               <p className="landing__quote-author-name">{t("landing.socialProof.quote2.author")}</p>
-              <p className="landing__quote-author-handle">{t("landing.socialProof.quote2.handle")}</p>
+              <p className="landing__quote-author-handle">
+                {t("landing.socialProof.quote2.handle")}
+              </p>
             </div>
           </div>
           <div className="landing__quote-card">
@@ -253,7 +272,9 @@ function LandingPage() {
             <p className="landing__quote-text">{t("landing.socialProof.quote3.text")}</p>
             <div className="landing__quote-author">
               <p className="landing__quote-author-name">{t("landing.socialProof.quote3.author")}</p>
-              <p className="landing__quote-author-handle">{t("landing.socialProof.quote3.handle")}</p>
+              <p className="landing__quote-author-handle">
+                {t("landing.socialProof.quote3.handle")}
+              </p>
             </div>
           </div>
         </div>

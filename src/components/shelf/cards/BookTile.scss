@@ -1,4 +1,4 @@
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .book-tile {
   display: flex;
@@ -14,7 +14,9 @@
     border-radius: var(--radius-sm);
     overflow: hidden;
     box-shadow: var(--shadow-cover);
-    transition: box-shadow var(--transition-base), transform var(--transition-base);
+    transition:
+      box-shadow var(--transition-base),
+      transform var(--transition-base);
   }
 
   &:hover &__cover-wrapper {
@@ -70,5 +72,4 @@
     @include text-truncate;
     max-width: 100%;
   }
-
 }

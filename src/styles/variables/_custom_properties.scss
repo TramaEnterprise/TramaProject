@@ -37,7 +37,7 @@
   --color-brand-deep: #a83d0a;
   --color-brand-ember: #c44e12;
 
-  // alias — los componentes existentes usan estos nombres                                                                                                                                                                       
+  // alias — los componentes existentes usan estos nombres
   --color-accent: var(--color-brand-primary);
   --color-accent-dark: var(--color-brand-dark);
   --color-accent-light: var(--color-brand-alpha-subtle);
@@ -127,18 +127,12 @@
   --color-dropdown-border: #000;
 
   // ─── SOMBRAS ───────────────────────────────────────────
-  --shadow-card:
-    0 1px 3px rgba(44, 36, 32, 0.06), 0 4px 12px rgba(44, 36, 32, 0.04);
-  --shadow-card-hover:
-    0 4px 16px rgba(44, 36, 32, 0.1), 0 1px 4px rgba(44, 36, 32, 0.06);
-  --shadow-nav:
-    0 4px 20px rgba(44, 36, 32, 0.08), 0 1px 4px rgba(44, 36, 32, 0.04);
-  --shadow-modal:
-    0 24px 64px rgba(44, 36, 32, 0.16), 0 8px 24px rgba(44, 36, 32, 0.08);
-  --shadow-book:
-    0 8px 24px rgba(44, 36, 32, 0.18), 0 2px 6px rgba(44, 36, 32, 0.1);
-  --shadow-cover:
-    0 4px 16px rgba(44, 36, 32, 0.2), 0 1px 4px rgba(44, 36, 32, 0.1);
+  --shadow-card: 0 1px 3px rgba(44, 36, 32, 0.06), 0 4px 12px rgba(44, 36, 32, 0.04);
+  --shadow-card-hover: 0 4px 16px rgba(44, 36, 32, 0.1), 0 1px 4px rgba(44, 36, 32, 0.06);
+  --shadow-nav: 0 4px 20px rgba(44, 36, 32, 0.08), 0 1px 4px rgba(44, 36, 32, 0.04);
+  --shadow-modal: 0 24px 64px rgba(44, 36, 32, 0.16), 0 8px 24px rgba(44, 36, 32, 0.08);
+  --shadow-book: 0 8px 24px rgba(44, 36, 32, 0.18), 0 2px 6px rgba(44, 36, 32, 0.1);
+  --shadow-cover: 0 4px 16px rgba(44, 36, 32, 0.2), 0 1px 4px rgba(44, 36, 32, 0.1);
 
   // ─── ESPACIADO ─────────────────────────────────────────
   --space-1: 4px;
@@ -183,9 +177,9 @@
   --color-border-subtle: rgba(255, 255, 255, 0.06);
   --color-border-medium: rgba(255, 255, 255, 0.12);
   --color-border-strong: rgba(255, 255, 255, 0.22);
-  --color-border-warm: rgba(255, 255, 255, 0.10);
-  --color-border-outline: rgba(255, 255, 255, 0.10);
-  --color-border-card: rgba(255, 255, 255, 0.10);
+  --color-border-warm: rgba(255, 255, 255, 0.1);
+  --color-border-outline: rgba(255, 255, 255, 0.1);
+  --color-border-card: rgba(255, 255, 255, 0.1);
 
   --color-neutral-alpha-light: rgba(255, 255, 255, 0.03);
   --color-neutral-alpha-subtle: rgba(255, 255, 255, 0.05);

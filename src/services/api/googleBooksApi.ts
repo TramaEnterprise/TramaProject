@@ -29,7 +29,7 @@ export async function fetchGoogleCover(
     params: {
       q: query,
       maxResults: 1,
-      fields: 'items(volumeInfo/imageLinks)',
+      fields: "items(volumeInfo/imageLinks)",
       key: API_KEY,
     },
     signal,
@@ -51,8 +51,8 @@ async function fetchGoogleCoverWithRetry(
       if (axios.isCancel(err)) throw err;
       if (axios.isAxiosError(err) && err.response?.status === 503) {
         if (attempt < maxRetries) {
-          const delay = Math.pow(2, attempt) * 500; 
-          await new Promise(resolve => setTimeout(resolve, delay));
+          const delay = Math.pow(2, attempt) * 500;
+          await new Promise((resolve) => setTimeout(resolve, delay));
           continue;
         }
         return null; // Se han agotado los intentos
@@ -85,11 +85,10 @@ export async function fetchGoogleCovers(
     );
 
     if (i + GROUP_SIZE < books.length) {
-      await new Promise(resolve => setTimeout(resolve, DELAY));
+      await new Promise((resolve) => setTimeout(resolve, DELAY));
     }
   }
 }
-
 
 export async function fetchFantasyBooksGoogle(
   limit: number,
@@ -128,24 +127,27 @@ export async function fetchGoogleSynopsis(
   signal: AbortSignal,
   isbn?: string,
   author?: string,
-  lang = 'es',
+  lang = "es"
 ): Promise<string> {
   try {
     const titleAuthorQuery = author ? `intitle:${title}+inauthor:${author}` : `intitle:${title}`;
-    // Intento 1: ISBN 
+    // Intento 1: ISBN
     if (isbn) {
       const { data } = await googleBooksClient.get<GoogleBooksResponse>("/volumes", {
         params: {
           q: `isbn:${isbn}`,
           langRestrict: lang,
           maxResults: 1,
-          fields: 'items(volumeInfo/description,searchInfo/textSnippet)',
+          fields: "items(volumeInfo/description,searchInfo/textSnippet)",
           key: API_KEY,
         },
         signal,
       });
       const synopsis = extractDescription(data);
-      logger.log('[Synopsis] Intento 1 (ISBN):', synopsis ? `OK (${synopsis.length} chars, (${lang}, ${isbn}))` : 'vacío');
+      logger.log(
+        "[Synopsis] Intento 1 (ISBN):",
+        synopsis ? `OK (${synopsis.length} chars, (${lang}, ${isbn}))` : "vacío"
+      );
       if (synopsis.trim().length > 30) {
         return synopsis;
       }
@@ -157,20 +159,24 @@ export async function fetchGoogleSynopsis(
         q: titleAuthorQuery,
         langRestrict: lang,
         maxResults: 5,
-        fields: 'items(volumeInfo(description,language),searchInfo/textSnippet)',
+        fields: "items(volumeInfo(description,language),searchInfo/textSnippet)",
         key: API_KEY,
       },
       signal,
     });
-    
+
     const match = data2.items?.find(
-      item => item.volumeInfo.language === lang
-        && (item.volumeInfo.description ?? item.searchInfo?.textSnippet ?? '').trim().length > 50
+      (item) =>
+        item.volumeInfo.language === lang &&
+        (item.volumeInfo.description ?? item.searchInfo?.textSnippet ?? "").trim().length > 50
     );
     const synopsis2 = match
-      ? (match.volumeInfo.description ?? match.searchInfo?.textSnippet ?? '')
-      : '';
-    logger.log(`[Synopsis] ) Intento 2 (título+autor ${lang.toUpperCase()}):`, synopsis2 ? `OK (${synopsis2.length} chars, (${lang}, ${isbn})))` : 'vacío');
+      ? (match.volumeInfo.description ?? match.searchInfo?.textSnippet ?? "")
+      : "";
+    logger.log(
+      `[Synopsis] ) Intento 2 (título+autor ${lang.toUpperCase()}):`,
+      synopsis2 ? `OK (${synopsis2.length} chars, (${lang}, ${isbn})))` : "vacío"
+    );
     if (synopsis2.trim().length > 0) {
       return synopsis2;
     }
@@ -180,24 +186,24 @@ export async function fetchGoogleSynopsis(
       params: {
         q: titleAuthorQuery,
         maxResults: 1,
-        fields: 'items(volumeInfo/description,searchInfo/textSnippet)',
+        fields: "items(volumeInfo/description,searchInfo/textSnippet)",
         key: API_KEY,
       },
       signal,
     });
     const synopsis3 = extractDescription(data3);
-    logger.log('[Synopsis] Intento 3 (título+autor sin idioma):', synopsis3 ? `OK (${synopsis3.length} chars)` : 'vacío');
+    logger.log(
+      "[Synopsis] Intento 3 (título+autor sin idioma):",
+      synopsis3 ? `OK (${synopsis3.length} chars)` : "vacío"
+    );
     return synopsis3;
-
   } catch (err) {
-    logger.error('[Synopsis] Error inesperado — se cortó el flujo:', err);
-    return '';
+    logger.error("[Synopsis] Error inesperado — se cortó el flujo:", err);
+    return "";
   }
 }
 
 function extractDescription(data: GoogleBooksResponse): string {
   const item = data.items?.[0];
-  return item?.volumeInfo?.description ?? item?.searchInfo?.textSnippet ?? '';
+  return item?.volumeInfo?.description ?? item?.searchInfo?.textSnippet ?? "";
 }
-
-

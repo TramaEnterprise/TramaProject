@@ -1,4 +1,4 @@
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 .search-page {
   @include container;
@@ -192,7 +192,10 @@
     cursor: pointer;
     transition: color var(--transition-fast);
 
-    svg { width: 18px; height: 18px; }
+    svg {
+      width: 18px;
+      height: 18px;
+    }
 
     &:hover {
       color: var(--color-text-primary);

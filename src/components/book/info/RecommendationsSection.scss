@@ -50,9 +50,15 @@
     font-weight: var(--weight-bold);
     color: var(--color-btn-primary-fg);
     cursor: pointer;
-    transition: background var(--transition-fast), transform 100ms;
+    transition:
+      background var(--transition-fast),
+      transform 100ms;
 
-    &:hover  { background: var(--color-btn-primary-hover); }
-    &:active { transform: scale(0.97); }
+    &:hover {
+      background: var(--color-btn-primary-hover);
+    }
+    &:active {
+      transform: scale(0.97);
+    }
   }
 }

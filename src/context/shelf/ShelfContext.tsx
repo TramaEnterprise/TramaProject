@@ -1,16 +1,28 @@
-import { addToShelf, encodeKey, getShelf, removeFromShelf, updateReadingProgress, type ShelfEntry } from "@/services/firebase/firebaseLibrary";
+import {
+  addToShelf,
+  encodeKey,
+  getShelf,
+  removeFromShelf,
+  updateReadingProgress,
+  type ShelfEntry,
+} from "@/services/firebase/firebaseLibrary";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ShelfContext } from "./shelf_init";
 import { useAuth } from "@/context/auth/useAuth";
-import { notifyProgressUpdated, notifyShelfAdded, notifyShelfRemoved, notifyShelfStatusChanged } from "@/utils/toast";
+import {
+  notifyProgressUpdated,
+  notifyShelfAdded,
+  notifyShelfRemoved,
+  notifyShelfStatusChanged,
+} from "@/utils/toast";
 import { useExploreCache } from "../explore-cache/useExploreCache";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import { groupShelfByStatus, localizeBook } from "@/utils/shelf";
 import { useShelfLangComplete } from "@/pages/profile/hooks/useShelfLangComplete";
 
-// Estantería "vacía" 
+// Estantería "vacía"
 const EMPTY_ENTRIES = new Map<string, ShelfEntry>();
 
 export function ShelfProvider({ children }: { children: React.ReactNode }) {
@@ -46,15 +58,14 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
           setLoadedUid(uid);
         }
       });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [uid]);
 
   const ready = uid !== null && loadedUid === uid;
   const loading = uid !== null && loadedUid !== uid;
-  const visibleEntries = useMemo(
-    () => (ready ? entries : EMPTY_ENTRIES),
-    [ready, entries]
-  );
+  const visibleEntries = useMemo(() => (ready ? entries : EMPTY_ENTRIES), [ready, entries]);
 
   useShelfLangComplete({ uid, ready, entries, lang, setEntries });
 
@@ -74,12 +85,10 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
       if (!opts?.silent) {
         const localizedBook = localizeBook(book, lang);
         if (prevStatus === null) {
-          notifyShelfAdded(localizedBook, status, () =>
-            removeBook(book.key, { silent: true }),
-          );
+          notifyShelfAdded(localizedBook, status, () => removeBook(book.key, { silent: true }));
         } else if (prevStatus !== status) {
           notifyShelfStatusChanged(localizedBook, prevStatus, status, () =>
-            addBook(book, prevStatus, { silent: true }),
+            addBook(book, prevStatus, { silent: true })
           );
         }
       }
@@ -108,7 +117,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
       if (!opts?.silent) {
         const localizedBook = localizeBook(prev.book, lang);
         notifyShelfRemoved(localizedBook, prev.status, () =>
-          addBook(prev.book, prev.status, { silent: true }),
+          addBook(prev.book, prev.status, { silent: true })
         );
       }
     } catch {
@@ -125,15 +134,15 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateProgress = async (
-    bookKey: string, 
-    currentPage: number, 
+    bookKey: string,
+    currentPage: number,
     opts?: {
-    note?: string;
-    rating?: number;
-    review?: string;
-    status?: ShelfStatus;
-    silent?: boolean;
-   },
+      note?: string;
+      rating?: number;
+      review?: string;
+      status?: ShelfStatus;
+      silent?: boolean;
+    }
   ) => {
     if (!uid) {
       return;
@@ -164,9 +173,17 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
     setEntries(newMap);
 
     try {
-      await updateReadingProgress(uid, existing, currentPage, opts?.note, opts?.rating, opts?.review, opts?.status);
+      await updateReadingProgress(
+        uid,
+        existing,
+        currentPage,
+        opts?.note,
+        opts?.rating,
+        opts?.review,
+        opts?.status
+      );
       exploreCache.markDirty();
-      
+
       if (!opts?.silent) {
         const localizedBook = localizeBook(existing.book, lang);
         if (newStatus !== prevStatus && newStatus === "finished") {
@@ -174,7 +191,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
             updateProgress(bookKey, prevPage, {
               status: prevStatus,
               silent: true,
-            }),
+            })
           );
         } else {
           notifyProgressUpdated(localizedBook, currentPage, totalPages);

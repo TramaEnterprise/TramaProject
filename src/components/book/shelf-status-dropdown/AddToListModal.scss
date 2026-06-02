@@ -1,8 +1,14 @@
-@use '../../../styles/shared' as *;
+@use "../../../styles/shared" as *;
 
 @keyframes add-to-list-slide-up {
-  from { transform: translateY(14px); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .add-to-list-modal {
@@ -153,7 +159,9 @@
     color: var(--color-text-secondary);
     cursor: pointer;
     text-align: left;
-    transition: background var(--transition-fast), color var(--transition-fast);
+    transition:
+      background var(--transition-fast),
+      color var(--transition-fast);
 
     &:hover {
       background: var(--color-bg-section);
@@ -206,7 +214,9 @@
     background: transparent;
     color: var(--color-text-primary);
     cursor: pointer;
-    transition: background var(--transition-fast), border-color var(--transition-fast);
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast);
 
     &:hover {
       background: var(--color-bg-section);

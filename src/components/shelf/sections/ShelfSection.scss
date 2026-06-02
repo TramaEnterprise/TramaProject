@@ -1,4 +1,4 @@
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .shelf-section {
   width: 100%;
@@ -158,7 +158,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color var(--transition-fast), background var(--transition-fast);
+    transition:
+      border-color var(--transition-fast),
+      background var(--transition-fast);
   }
 
   &__add-book-icon {
@@ -170,7 +172,9 @@
     align-items: center;
     justify-content: center;
     color: var(--color-text-secondary);
-    transition: border-color var(--transition-fast), color var(--transition-fast);
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast);
 
     svg {
       width: 16px;

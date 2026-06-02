@@ -50,7 +50,9 @@ export default function UsernameSetupModal({
     >
       <div
         className="username-setup-modal__backdrop"
-        onClick={() => { if (!isProcessing) onCancel(); }}
+        onClick={() => {
+          if (!isProcessing) onCancel();
+        }}
       />
       <div className="username-setup-modal__panel">
         <h2 id="username-setup-modal-title" className="username-setup-modal__title">
@@ -95,7 +97,9 @@ export default function UsernameSetupModal({
           <button
             type="button"
             className="username-setup-modal__btn username-setup-modal__btn--primary"
-            onClick={() => { void onSubmit(username); }}
+            onClick={() => {
+              void onSubmit(username);
+            }}
             disabled={!canSubmit}
           >
             {isProcessing ? t("auth.registering") : t("auth.usernameContinue")}

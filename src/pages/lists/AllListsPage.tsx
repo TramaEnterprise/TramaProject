@@ -21,11 +21,7 @@ export default function AllListsPage() {
   return (
     <div className="all-lists-page">
       <div className="all-lists-page__header">
-        <button
-          type="button"
-          className="all-lists-page__back"
-          onClick={() => navigate(-1)}
-        >
+        <button type="button" className="all-lists-page__back" onClick={() => navigate(-1)}>
           <ChevronLeft aria-hidden="true" />
           {t("explore.backBtn")}
         </button>
@@ -46,9 +42,7 @@ export default function AllListsPage() {
               <div className="lists-section__create-icon">
                 <Plus size={18} aria-hidden="true" />
               </div>
-              <span className="lists-section__create-text">
-                {t("myLibrary.createList")}
-              </span>
+              <span className="lists-section__create-text">{t("myLibrary.createList")}</span>
             </button>
           )}
         </div>
@@ -57,7 +51,9 @@ export default function AllListsPage() {
       {editorOpen && isOwner && (
         <ListEditorModal
           onClose={() => setEditorOpen(false)}
-          onSubmit={async ({ name, description, books }) => { await createList(name, books, description); }}
+          onSubmit={async ({ name, description, books }) => {
+            await createList(name, books, description);
+          }}
         />
       )}
     </div>

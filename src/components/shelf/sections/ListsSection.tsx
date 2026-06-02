@@ -17,7 +17,11 @@ type ListsSectionProps = {
 };
 
 export default function ListsSection({
-  lists, userId, isOwner, onCreateList, column = false,
+  lists,
+  userId,
+  isOwner,
+  onCreateList,
+  column = false,
 }: ListsSectionProps) {
   const { t } = useTranslation();
   const previewCount = column ? PREVIEW_COUNT_COLUMN : PREVIEW_COUNT_GRID;
@@ -48,9 +52,7 @@ export default function ListsSection({
             <div className="lists-section__create-icon">
               <Plus size={18} aria-hidden="true" />
             </div>
-            <span className="lists-section__create-text">
-              {t("myLibrary.createList")}
-            </span>
+            <span className="lists-section__create-text">{t("myLibrary.createList")}</span>
           </button>
         )}
       </div>

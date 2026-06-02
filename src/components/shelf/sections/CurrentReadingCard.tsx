@@ -35,8 +35,14 @@ function CurrentReadingCard() {
     const swiper = swiperRef.current;
     if (!swiper || isSwiping.current || swiper.animating) return;
 
-    if (dir === "next" && swiper.isEnd) { swiper.slideNext(); return; }
-    if (dir === "prev" && swiper.isBeginning) { swiper.slidePrev(); return; }
+    if (dir === "next" && swiper.isEnd) {
+      swiper.slideNext();
+      return;
+    }
+    if (dir === "prev" && swiper.isBeginning) {
+      swiper.slidePrev();
+      return;
+    }
 
     const el = swiper.wrapperEl;
     const rect = el.getBoundingClientRect();
@@ -89,18 +95,16 @@ function CurrentReadingCard() {
     return entries.sort(sortByRecency).slice(0, MAX_VISIBLE);
   }, [shelfByStatus.reading, getEntry]);
 
-  const [selectedKey, setSelectedKey] = useState<string | null>(
-    () => localStorage.getItem(STORAGE_KEY)
+  const [selectedKey, setSelectedKey] = useState<string | null>(() =>
+    localStorage.getItem(STORAGE_KEY)
   );
-  
+
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
 
   const activeEntry: ShelfEntry | null = useMemo(() => {
     if (topReading.length === 0) return null;
-    const found = selectedKey
-      ? topReading.find((e) => e.book.key === selectedKey)
-      : undefined;
+    const found = selectedKey ? topReading.find((e) => e.book.key === selectedKey) : undefined;
     return found ?? topReading[0];
   }, [topReading, selectedKey]);
 
@@ -146,9 +150,7 @@ function CurrentReadingCard() {
 
         {!hasBooks && (
           <div className="reading-card__empty-state">
-            <p className="reading-card__empty-state-text">
-              {t("myLibrary.noCurrentReading")}
-            </p>
+            <p className="reading-card__empty-state-text">{t("myLibrary.noCurrentReading")}</p>
           </div>
         )}
 
@@ -178,14 +180,15 @@ function CurrentReadingCard() {
               grabCursor
               keyboard={{ enabled: true, onlyInViewport: true }}
               initialSlide={currentIndex}
-              onSwiper={(s) => { swiperRef.current = s; }}
+              onSwiper={(s) => {
+                swiperRef.current = s;
+              }}
               onSlideChange={(s) => {
                 const next = topReading[s.realIndex];
                 if (next) setSelectedKey(next.book.key);
               }}
               className="reading-carousel__swiper"
             >
-
               {topReading.map((entry) => (
                 <SwiperSlide key={entry.book.key} className="reading-carousel__slide">
                   <ReadingCardContent
@@ -218,10 +221,7 @@ function CurrentReadingCard() {
       </section>
 
       {isUpdateModalOpen && activeEntry && (
-        <UpdateProgressModal
-          entry={activeEntry}
-          onClose={() => setIsUpdateModalOpen(false)}
-        />
+        <UpdateProgressModal entry={activeEntry} onClose={() => setIsUpdateModalOpen(false)} />
       )}
 
       {isHistoryModalOpen && activeEntry && (

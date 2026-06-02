@@ -59,7 +59,9 @@ function ExplorePage() {
         }
       }
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [isLoggedIn, user, lang]);
 
   const handleNavigateToSection = () => {
@@ -85,21 +87,32 @@ function ExplorePage() {
           favoritesReferenceBook,
         }
       : {
-          lang, userShelfKeys: new Set(), userAuthorKeys: [],
-          favoriteGenre: null, favoriteGenreLabel: null,
-          favoriteAuthorKey: null, favoriteAuthorName: null,
-          fiveStarAuthorKey: null, fiveStarAuthorName: null,
-          referenceBooks: [], wantToReadBooks: [],
-          likedBook: null, finishedBook: null, favoritesReferenceBook: null,
+          lang,
+          userShelfKeys: new Set(),
+          userAuthorKeys: [],
+          favoriteGenre: null,
+          favoriteGenreLabel: null,
+          favoriteAuthorKey: null,
+          favoriteAuthorName: null,
+          fiveStarAuthorKey: null,
+          fiveStarAuthorName: null,
+          referenceBooks: [],
+          wantToReadBooks: [],
+          likedBook: null,
+          finishedBook: null,
+          favoritesReferenceBook: null,
         },
-      !(isLoggedIn && shelfDerived?.hasBooks)
+    !(isLoggedIn && shelfDerived?.hasBooks)
   );
 
-  const handleSearch = useCallback((query: string, filter: SearchFilter) => {
-    setSearchQuery(query);
-    if (query.trim()) fetchBooks(query, filter, 20, lang);
-    else resetBookResults();
-  }, [fetchBooks, resetBookResults, lang]);
+  const handleSearch = useCallback(
+    (query: string, filter: SearchFilter) => {
+      setSearchQuery(query);
+      if (query.trim()) fetchBooks(query, filter, 20, lang);
+      else resetBookResults();
+    },
+    [fetchBooks, resetBookResults, lang]
+  );
 
   const handleClearSearch = useCallback(() => {
     setSearchQuery("");

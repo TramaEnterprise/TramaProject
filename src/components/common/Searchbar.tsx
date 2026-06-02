@@ -9,9 +9,13 @@ type SearchBarProps = {
   placeholder?: string;
   initialQuery?: string;
   debounceMs?: number;
-}
+};
 
-export default function SearchBar({ onSearch, initialQuery = "", debounceMs = 400 }: SearchBarProps) {
+export default function SearchBar({
+  onSearch,
+  initialQuery = "",
+  debounceMs = 400,
+}: SearchBarProps) {
   const [query, setQuery] = useState(initialQuery);
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -32,11 +36,7 @@ export default function SearchBar({ onSearch, initialQuery = "", debounceMs = 40
     return () => window.clearTimeout(timer);
   }, [query, debounceMs, onSearch]);
 
-
-  const inputRowClass = [
-    "searchbar__input-row",
-    isFocused ? "searchbar__input-row--focused" : "",
-  ]
+  const inputRowClass = ["searchbar__input-row", isFocused ? "searchbar__input-row--focused" : ""]
     .filter(Boolean)
     .join(" ");
 

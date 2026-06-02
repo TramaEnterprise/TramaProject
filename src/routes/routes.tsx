@@ -30,8 +30,8 @@ export const ROUTES = [
       { path: "books/:bookId", element: <BookDetailPage /> },
       { path: "community", element: <CommunityPage /> },
       {
-        path: "my-library", 
-        element: <MyLibraryPage /> 
+        path: "my-library",
+        element: <MyLibraryPage />,
       },
       {
         path: "my-library/shelf",
@@ -65,12 +65,8 @@ export const ROUTES = [
         path: "u/:username",
         element: <ProfilePage />,
       },
-      { path: "lists/:userId", 
-        element: <AllListsPage /> 
-      },
-      { path: "lists/:userId/:listId", 
-        element: <ListDetailPage /> 
-      },
+      { path: "lists/:userId", element: <AllListsPage /> },
+      { path: "lists/:userId/:listId", element: <ListDetailPage /> },
       {
         path: "settings",
         element: (
@@ -79,13 +75,13 @@ export const ROUTES = [
           </AuthRoute>
         ),
       },
-      { 
-        path: "legal/terms", 
-        element: <TermsPage /> 
+      {
+        path: "legal/terms",
+        element: <TermsPage />,
       },
       {
         path: "legal/privacy",
-        element: <PrivacyPage />
+        element: <PrivacyPage />,
       },
     ],
   },

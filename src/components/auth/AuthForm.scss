@@ -1,13 +1,25 @@
 @use "../../styles/shared" as *;
 
 @keyframes auth-slide-from-right {
-  from { transform: translateX(24px); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes auth-slide-from-left {
-  from { transform: translateX(-24px); opacity: 0; }
-  to   { transform: translateX(0);     opacity: 1; }
+  from {
+    transform: translateX(-24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .auth {
@@ -57,7 +69,10 @@
     background: none;
     border: none;
     cursor: pointer;
-    transition: color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+    transition:
+      color var(--transition-fast),
+      background var(--transition-fast),
+      box-shadow var(--transition-fast);
 
     &--active {
       background: var(--color-bg-page);
@@ -68,8 +83,12 @@
 
   // ── Animacion de desplazamiento entre tabs ────────────────
   &__slide {
-    &--right { animation: auth-slide-from-right 220ms ease-out; }
-    &--left  { animation: auth-slide-from-left  220ms ease-out; }
+    &--right {
+      animation: auth-slide-from-right 220ms ease-out;
+    }
+    &--left {
+      animation: auth-slide-from-left 220ms ease-out;
+    }
   }
 
   // ── Titulo (solo estado verificationSent) ────────────────
@@ -216,7 +235,10 @@
     background: var(--color-bg-secondary);
     color: var(--color-text-primary);
     border: 1px solid var(--color-border-medium);
-    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+    transition:
+      background var(--transition-fast),
+      color var(--transition-fast),
+      border-color var(--transition-fast);
 
     &:hover:not(:disabled) {
       background: var(--color-bg-darkest);

@@ -12,11 +12,7 @@ export default function ExploreConversionBanner() {
         <p className="explore-banner__title">{t("explore.banner.title")}</p>
         <p className="explore-banner__body">{t("explore.banner.body")}</p>
       </div>
-      <button
-        type="button"
-        className="explore-banner__cta"
-        onClick={() => navigate("/auth")}
-      >
+      <button type="button" className="explore-banner__cta" onClick={() => navigate("/auth")}>
         {t("explore.banner.cta")}
       </button>
     </div>

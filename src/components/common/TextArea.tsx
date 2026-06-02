@@ -8,7 +8,7 @@ type LimitedTextareaProps = {
   value: string;
   onChange: (v: string) => void;
   max: number;
-  hardLimit?: boolean;      
+  hardLimit?: boolean;
   disabled?: boolean;
   saveBlocked: boolean;
   onClearBlock: () => void;
@@ -19,18 +19,29 @@ type LimitedTextareaProps = {
   classNames?: Partial<{
     field: string;
     label: string;
-    textarea: string;          
+    textarea: string;
     footer: string;
     error: string;
-    count: string;             
+    count: string;
   }>;
 };
 
 export default function LimitedTextarea({
-  id, label, placeholder, rows = 4,
-  value, onChange, max, hardLimit, disabled,
-  saveBlocked, onClearBlock, shaking, onShakeEnd,
-  errorText, charactersText,
+  id,
+  label,
+  placeholder,
+  rows = 4,
+  value,
+  onChange,
+  max,
+  hardLimit,
+  disabled,
+  saveBlocked,
+  onClearBlock,
+  shaking,
+  onShakeEnd,
+  errorText,
+  charactersText,
   classNames,
 }: LimitedTextareaProps) {
   const overLimit = value.length > max;
@@ -59,9 +70,7 @@ export default function LimitedTextarea({
         rows={rows}
       />
       <div className={classNames?.footer}>
-        {saveBlocked && overLimit && (
-          <span className={classNames?.error}>{errorText}</span>
-        )}
+        {saveBlocked && overLimit && <span className={classNames?.error}>{errorText}</span>}
         <span className={bem(classNames?.count, { over: overLimit })}>
           {value.length} / {max} {charactersText}
         </span>

@@ -9,14 +9,14 @@ import NotificationsBell from "../notifications/NotificationBell";
 
 const NAV_LINKS = [
   { path: "/my-library", labelKey: "nav.myLibrary" },
-  { path: "/explore",    labelKey: "nav.explore"   },
-  { path: "/community",  labelKey: "nav.community" },
+  { path: "/explore", labelKey: "nav.explore" },
+  { path: "/community", labelKey: "nav.community" },
 ];
 
 type NavbarProps = {
   hidden?: boolean;
   onActiveClick?: () => void;
-}
+};
 
 export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
   const { isAuthenticated } = useAuth();
@@ -27,7 +27,7 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
   const [searchValue, setSearchValue] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [prevHidden, setPrevHidden] = useState(hidden);
-  
+
   if (hidden !== prevHidden) {
     setPrevHidden(hidden);
     if (hidden) setMenuOpen(false);
@@ -48,12 +48,17 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
 
         <nav className="navbar__nav">
           {NAV_LINKS.map(({ path, labelKey }) => (
-            <NavLink key={path} to={path} className="navbar__link" onClick={(e) => {
-              if(pathname === path) {
-                e.preventDefault();
-                onActiveClick?.();
-              }
-            }}>
+            <NavLink
+              key={path}
+              to={path}
+              className="navbar__link"
+              onClick={(e) => {
+                if (pathname === path) {
+                  e.preventDefault();
+                  onActiveClick?.();
+                }
+              }}
+            >
               {t(labelKey)}
             </NavLink>
           ))}
@@ -99,7 +104,7 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
                 aria-label={t("navbar.profile")}
                 aria-haspopup="true"
                 aria-expanded={menuOpen}
-                onClick={() => setMenuOpen(o => !o)}
+                onClick={() => setMenuOpen((o) => !o)}
               >
                 <User size={18} />
               </button>

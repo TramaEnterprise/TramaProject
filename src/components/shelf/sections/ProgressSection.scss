@@ -1,4 +1,4 @@
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .progresses {
   width: 100%;
@@ -38,8 +38,14 @@
       linear-gradient(to right, var(--color-border-subtle) 100%, transparent 0),
       linear-gradient(to right, var(--color-border-subtle) 100%, transparent 0),
       linear-gradient(to right, var(--color-border-subtle) 100%, transparent 0);
-    background-size: 100% 1px, 100% 1px, 100% 1px;
-    background-position: 0 16px, 0 37px, 0 59px;
+    background-size:
+      100% 1px,
+      100% 1px,
+      100% 1px;
+    background-position:
+      0 16px,
+      0 37px,
+      0 59px;
     background-repeat: no-repeat;
   }
 

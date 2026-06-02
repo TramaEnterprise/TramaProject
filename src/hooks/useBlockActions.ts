@@ -21,8 +21,12 @@ export function useBlockActions(userId: string, isOwnProfile: boolean) {
 
     let cancelled = false;
 
-    checkIsBlocked(userId).then((b) => { if (!cancelled) setIsBlocked(b); });
-    return () => { cancelled = true; };
+    checkIsBlocked(userId).then((b) => {
+      if (!cancelled) setIsBlocked(b);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [uid, userId, isOwnProfile]);
 
   const block = useCallback(async () => {
@@ -31,10 +35,9 @@ export function useBlockActions(userId: string, isOwnProfile: boolean) {
     }
 
     setIsBlocked(true);
-    try { 
-      await blockUser(userId); 
-    }
-    catch (err) {
+    try {
+      await blockUser(userId);
+    } catch (err) {
       logger.error("[useBlockActions] block failed", err);
       setIsBlocked(false);
     }
@@ -43,8 +46,9 @@ export function useBlockActions(userId: string, isOwnProfile: boolean) {
   const unblock = useCallback(async () => {
     if (!uid) return;
     setIsBlocked(false);
-    try { await unblockUser(userId); }
-    catch (err) {
+    try {
+      await unblockUser(userId);
+    } catch (err) {
       logger.error("[useBlockActions] unblock failed", err);
       setIsBlocked(true);
     }

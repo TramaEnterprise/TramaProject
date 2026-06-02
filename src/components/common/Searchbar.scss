@@ -23,7 +23,7 @@
     text-align: center;
   }
 
-&__input-row {
+  &__input-row {
     display: flex;
     align-items: center;
     width: 100%;
@@ -93,10 +93,12 @@
     color: var(--color-text-tertiary);
     cursor: pointer;
     flex-shrink: 0;
-    transition:
-      color var(--transition-fast);
+    transition: color var(--transition-fast);
 
-    svg { width: 18px; height: 18px; }
+    svg {
+      width: 18px;
+      height: 18px;
+    }
 
     &:hover {
       color: var(--color-text-primary);

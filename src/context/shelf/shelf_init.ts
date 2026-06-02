@@ -21,6 +21,6 @@ export type ShelfContextType = {
       silent?: boolean;
     }
   ) => Promise<void>;
-}
+};
 
 export const ShelfContext = createContext<ShelfContextType | null>(null);

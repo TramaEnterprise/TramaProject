@@ -22,7 +22,12 @@ type ShelfSectionProps = {
   onSeeAll?: () => void;
 };
 
-export default function ShelfSection({ books, loading = false, readOnly = false, onSeeAll }: ShelfSectionProps) {
+export default function ShelfSection({
+  books,
+  loading = false,
+  readOnly = false,
+  onSeeAll,
+}: ShelfSectionProps) {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState<ShelfFilterKey>(SHELF_FILTER_KEYS[0]);
   const [page, setPage] = useState(0);
@@ -58,7 +63,7 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
   }
 
   function handleChevron() {
-    setPage(p => (p + 1) % totalPages);
+    setPage((p) => (p + 1) % totalPages);
   }
 
   return (
@@ -103,17 +108,20 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
           </div>
         ) : (
           <>
-            <div className={`shelf-section__track ${singleRow ? "shelf-section__track--single-row" : ""}`}>
+            <div
+              className={`shelf-section__track ${singleRow ? "shelf-section__track--single-row" : ""}`}
+            >
               {loading
                 ? Array.from({ length: PAGE_SIZE }).map((_, i) => (
                     <div key={i} className="shelf-section__item shelf-section__item--skeleton" />
                   ))
                 : slots.map((slot) => {
-                    if (slot.type === "book") return (
-                      <div key={slot.book.key} className="shelf-section__item">
-                        <BookTile book={slot.book} />
-                      </div>
-                    );
+                    if (slot.type === "book")
+                      return (
+                        <div key={slot.book.key} className="shelf-section__item">
+                          <BookTile book={slot.book} />
+                        </div>
+                      );
                     return (
                       <div key="add" className="shelf-section__item">
                         <div className="shelf-section__add-book">
@@ -122,20 +130,20 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
                               <Plus />
                             </div>
                           </div>
-                          <p className="shelf-section__add-book-title">{t("myLibrary.emptyShelf")}</p>
-                          <p className="shelf-section__add-book-author" aria-hidden="true">&nbsp;</p>
+                          <p className="shelf-section__add-book-title">
+                            {t("myLibrary.emptyShelf")}
+                          </p>
+                          <p className="shelf-section__add-book-author" aria-hidden="true">
+                            &nbsp;
+                          </p>
                         </div>
                       </div>
                     );
-                  })
-              }
+                  })}
             </div>
             {totalPages > 1 && (
               <div className="shelf-section__chevron-area">
-                <button
-                  className="shelf-section__chevron"
-                  onClick={handleChevron}
-                >
+                <button className="shelf-section__chevron" onClick={handleChevron}>
                   {isLastPage ? <ChevronLeft /> : <ChevronRight />}
                 </button>
               </div>

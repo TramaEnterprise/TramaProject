@@ -2,11 +2,7 @@
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "./firebaseInit";
 
-async function compressImage(
-  file: File,
-  maxWidth: number,
-  quality: number
-): Promise<Blob> {
+async function compressImage(file: File, maxWidth: number, quality: number): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const img = new Image();
     const objectUrl = URL.createObjectURL(file);
@@ -24,8 +20,7 @@ async function compressImage(
       }
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       canvas.toBlob(
-        (blob) =>
-          blob ? resolve(blob) : reject(new Error("Canvas compression failed")),
+        (blob) => (blob ? resolve(blob) : reject(new Error("Canvas compression failed"))),
         "image/jpeg",
         quality
       );
@@ -39,20 +34,14 @@ async function compressImage(
   });
 }
 
-export async function uploadProfilePhoto(
-  uid: string,
-  file: File
-): Promise<string> {
+export async function uploadProfilePhoto(uid: string, file: File): Promise<string> {
   const compressed = await compressImage(file, 400, 0.85);
   const storageRef = ref(storage, `users/${uid}/profile-photo.jpg`);
   await uploadBytes(storageRef, compressed, { contentType: "image/jpeg" });
   return getDownloadURL(storageRef);
 }
 
-export async function uploadBannerImage(
-  uid: string,
-  file: File
-): Promise<string> {
+export async function uploadBannerImage(uid: string, file: File): Promise<string> {
   const compressed = await compressImage(file, 1200, 0.85);
   const storageRef = ref(storage, `users/${uid}/banner.jpg`);
   await uploadBytes(storageRef, compressed, { contentType: "image/jpeg" });

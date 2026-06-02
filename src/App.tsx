@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/context/theme/ThemeContext";
 import { PreferencesProvider } from "@/context/preferences/PreferencesContext";
 import { usePreferences } from "@/context/preferences/usePreferences";
 import Footer from "@/components/layout/Footer";
-import "./App.scss"
+import "./App.scss";
 import { ShelfProvider } from "./context/shelf/ShelfContext";
 import i18n from "./plugins/i18n/i18n";
 import ErrorBoundary from "./components/common/ErrorBoundary";
@@ -24,7 +24,7 @@ function AppShell() {
 
   const reloadCurrent = () => {
     setReloadCount((c) => c + 1);
-    window.scrollTo({ top: 0});
+    window.scrollTo({ top: 0 });
   };
 
   useEffect(() => {
@@ -39,10 +39,10 @@ function AppShell() {
 
   return (
     <>
-      <Navbar hidden={scrolled} onActiveClick={reloadCurrent}/>
-      <NavbarMini visible={scrolled} onActiveClick={reloadCurrent}/>
+      <Navbar hidden={scrolled} onActiveClick={reloadCurrent} />
+      <NavbarMini visible={scrolled} onActiveClick={reloadCurrent} />
       <main>
-        <Outlet key={reloadCount}/>
+        <Outlet key={reloadCount} />
       </main>
       <Footer />
       <AppToaster />
@@ -54,7 +54,9 @@ function AppShell() {
 export default function App() {
   useEffect(() => {
     document.documentElement.lang = i18n.language;
-    const handler = (lng: string) => { document.documentElement.lang = lng; };
+    const handler = (lng: string) => {
+      document.documentElement.lang = lng;
+    };
     i18n.on("languageChanged", handler);
     return () => i18n.off("languageChanged", handler);
   }, []);
