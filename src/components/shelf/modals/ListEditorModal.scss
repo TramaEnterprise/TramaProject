@@ -61,7 +61,7 @@
 
   &__name-label {
     font-size: var(--text-md);
-    font-weight: var(--weight-regular);
+    font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
   }
 
@@ -80,6 +80,11 @@
     &:focus {
       border-color: var(--color-text-primary);
     }
+
+    &::placeholder {
+      font-size: var(--text-sm);
+      color: var(--color-text-tertiary);
+    }
   }
 
   &__search-area {
@@ -93,7 +98,7 @@
     font-size: var(--text-xs);
     color: var(--color-text-tertiary);
     line-height: 1;
-    flex-shrink: 0;
+    align-self: flex-end;
   }
 
   &__current {
@@ -208,7 +213,7 @@
 
   &__description-label {
     font-size: var(--text-md);
-    font-weight: var(--weight-regular);
+    font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
   }
 
@@ -232,6 +237,7 @@
     }
 
     &::placeholder {
+      font-size: var(--text-sm);
       color: var(--color-text-tertiary);
     }
   }
@@ -253,16 +259,9 @@
     gap: var(--space-2);
   }
 
-  &__search-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-3);
-  }
-
   &__add-books-label {
     font-size: var(--text-md);
-    font-weight: var(--weight-regular);
+    font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
     margin: 0;
   }
@@ -281,6 +280,11 @@
 
     &:focus {
       border-color: var(--color-text-primary);
+    }
+
+    &::placeholder {
+      font-size: var(--text-sm);
+      color: var(--color-text-tertiary);
     }
   }
 
@@ -391,7 +395,7 @@
     }
 
     &--save {
-      background: var(--color-text-primary);
+      background: var(--color-btn-primary-bg);
       border: none;
       color: var(--color-btn-primary-fg);
       &:hover:not(:disabled) {

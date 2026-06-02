@@ -112,14 +112,9 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
       </div>
 
       <div className="list-editor-modal__search-field">
-        <div className="list-editor-modal__search-header">
-          <p className="list-editor-modal__add-books-label">
-            {t("myLibrary.listEditor.addBooksLabel")}
-          </p>
-          <span className="list-editor-modal__counter" aria-live="polite">
-            {books.length}/{MAX_LIST_BOOKS}
-          </span>
-        </div>
+        <p className="list-editor-modal__add-books-label">
+          {t("myLibrary.listEditor.addBooksLabel")}
+        </p>
         <div className="list-editor-modal__search-area">
           <BookSearchPicker
             selected={books}
@@ -138,6 +133,9 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
             }}
           />
         </div>
+        <span className="list-editor-modal__counter" aria-live="polite">
+          {books.length}/{MAX_LIST_BOOKS}
+        </span>
       </div>
 
       <div className="list-editor-modal__current">
