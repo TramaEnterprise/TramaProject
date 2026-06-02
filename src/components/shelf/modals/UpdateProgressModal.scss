@@ -1,11 +1,11 @@
 @use "../../../styles/shared" as *;
 
-@keyframes progress-flow {
-  from {
-    background-position: 0% 0;
+@keyframes progress-sheen {
+  0% {
+    transform: translateX(-100%);
   }
-  to {
-    background-position: -200% 0;
+  100% {
+    transform: translateX(200%);
   }
 }
 
@@ -179,18 +179,31 @@
 
   &__progress-fill {
     height: 100%;
+    position: relative;
+    overflow: hidden;
     background: linear-gradient(
       90deg,
-      #ffbc9c 0%,
-      #f7a178 30%,
-      #f08755 60%,
-      var(--color-brand-primary) 100%
+      var(--color-brand-primary) 0%,
+      #f08755 40%,
+      #f7a178 72%,
+      #ffbc9c 100%
     );
-    background-size: 200% 100%;
-    background-repeat: repeat-x;
-    animation: progress-flow 8s linear infinite;
     transition: width var(--transition-slow);
     border-radius: var(--radius-pill);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.22) 50%,
+        transparent 100%
+      );
+      transform: translateX(-100%);
+      animation: progress-sheen 2.5s ease-in-out infinite;
+    }
   }
 
   &__textarea {
