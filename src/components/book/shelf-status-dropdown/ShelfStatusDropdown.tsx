@@ -56,7 +56,7 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
   useClickOutside(wrapperRef, closeDropdown, !portal && open);
   useClickOutsideMany([wrapperRef, floatingRef], closeDropdown, portal && open);
 
-useEffect(() => {
+  useEffect(() => {
     return () => {
       if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
     };
@@ -72,7 +72,7 @@ useEffect(() => {
     }
     if (portal && btnRef.current) {
       const rect = btnRef.current.getBoundingClientRect();
-      setDropdownPos({ top: rect.bottom + 4, left: rect.left });
+      setDropdownPos({ top: rect.bottom + 4 + window.scrollY, left: rect.left + window.scrollX });
     }
     setOpen((o) => !o);
   };
@@ -96,7 +96,7 @@ useEffect(() => {
     <ul
       ref={portal ? floatingRef : undefined}
       className={classNames?.list}
-      style={portal ? { position: "fixed", top: dropdownPos.top, left: dropdownPos.left, zIndex: 9999 } : undefined}
+      style={portal ? { position: "absolute", top: dropdownPos.top, left: dropdownPos.left, zIndex: 9999 } : undefined}
       onClick={(e) => e.stopPropagation()}
     >
       {SHELF_OPTIONS.map((opt) => {
