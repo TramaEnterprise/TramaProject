@@ -183,10 +183,10 @@
     overflow: hidden;
     background: linear-gradient(
       90deg,
-      var(--color-brand-primary) 0%,
-      #f08755 40%,
-      #f7a178 72%,
-      #ffbc9c 100%
+      #ffbc9c 0%,
+      #f7a178 28%,
+      #f08755 60%,
+      var(--color-brand-primary) 100%
     );
     transition: width var(--transition-slow);
     border-radius: var(--radius-pill);
