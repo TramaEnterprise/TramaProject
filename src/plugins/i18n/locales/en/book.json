@@ -11,6 +11,9 @@
     "viewPage": "View page",
     "save": "Save",
     "saved": "Saved",
+    "add": "Add",
+    "addToList": "Add to list",
+    "noLists": "You have no lists yet",
     "noRating": "Unrated",
     "genres": {
       "fantasy": "Fantasy",

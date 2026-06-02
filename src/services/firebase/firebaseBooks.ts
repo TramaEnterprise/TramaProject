@@ -97,7 +97,7 @@ export async function getAuthorBooksFromDB(
     collection(db, BOOKS_COLLECTION),
     where("authorKeys", "array-contains", authorKey),
     orderBy("rating", "desc"),
-    limit(10)
+    limit(50)
   );
   const books = await getDocs(q);
   throwIfAborted(signal);

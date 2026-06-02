@@ -35,7 +35,11 @@
       "Read(//private/tmp/**)",
       "Bash(mkdir -p wireframe_out)",
       "Bash(tar -xf /tmp/wireframe -C wireframe_out)",
-      "Bash(npx playwright *)"
+      "Bash(npx playwright *)",
+      "Bash(grep -E \"\\\\.\\(scss|css|tsx|ts\\)$\")",
+      "Bash(grep -E \"^/Users.*\\\\.tsx?$\")",
+      "Bash(npx eslint *)",
+      "Bash(grep *)"
     ]
   }
 }

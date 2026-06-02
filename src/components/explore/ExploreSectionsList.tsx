@@ -7,7 +7,6 @@ import GenreSection from "@/components/explore/GenreSection";
 import type { SectionEntry } from "@/pages/explore/hooks/useExploreFeed";
 import type { ExploreSectionParams, ExploreSectionType } from "@/types/ExploreTypes";
 import type { ShelfDerived } from "@/pages/explore/hooks/useShelfDerivedFavorites";
-
 const FEATURED_SECTION_TYPES = new Set<ExploreSectionType>([
   "because-liked", "because-finished", "new-releases-for-you",
 ]);

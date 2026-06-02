@@ -162,6 +162,7 @@
   &__rating-group {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--space-1);
   }
 
@@ -272,76 +273,51 @@
   &__save-btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-1);
-    padding: 9px 20px;
+    gap: var(--space-2);
+    padding: 10px 20px;
     border-radius: var(--radius-sm);
-    border: 2px solid transparent;
-    background: var(--color-text-primary);
+    border: 2px solid var(--color-btn-primary-bg);
+    background: var(--color-btn-primary-bg);
     font-family: var(--font-main);
     font-size: var(--text-sm);
-    font-weight: var(--weight-bold);
+    font-weight: var(--weight-medium);
     color: var(--color-btn-primary-fg);
     cursor: pointer;
+    white-space: nowrap;
     transition:
       background var(--transition-fast),
-      transform 100ms,
       color var(--transition-fast),
-      border-color var(--transition-fast);
+      border-color var(--transition-fast),
+      transform 100ms;
 
-    &:hover {
-      background: var(--color-btn-primary-hover);
-    }
     &:active {
       transform: scale(0.97);
     }
 
-    &--saved {
-      background: transparent;
-      border-color: var(--color-border-medium);
-      color: var(--color-text-primary);
-
-      &:hover {
-        background: transparent;
-        border-color: var(--color-text-primary);
-      }
+    &--open {
+      background: var(--color-dropdown-bg);
+      border-color: var(--color-dropdown-border);
+      color: var(--color-dropdown-fg);
     }
-  }
 
-  &__save-check {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-  }
-
-  &__save-chevron {
-    width: 0;
-    height: 14px;
-    overflow: hidden;
-    opacity: 0;
-    flex-shrink: 0;
-    transition:
-      width var(--transition-fast),
-      opacity var(--transition-fast);
-  }
-
-  &__save-btn:hover &__save-chevron,
-  &__save-btn--open &__save-chevron {
-    width: 14px;
-    opacity: 1;
+    svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
   }
 
   &__dropdown {
     position: absolute;
     top: calc(100% + 6px);
-    left: auto;
-    right: 0;
-    background: var(--color-bg-page);
-    border: 1px solid var(--color-border-medium);
+    left: 0;
+    right: auto;
+    background: var(--color-dropdown-bg);
+    border: 1px solid var(--color-dropdown-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card-hover);
     padding: var(--space-2);
-    min-width: 180px;
+    min-width: 220px;
     z-index: 200;
     list-style: none;
     margin: 0;
@@ -349,12 +325,6 @@
     flex-direction: column;
     gap: var(--space-1);
     animation: dropdown-in 180ms ease-out forwards;
-
-    @include from($bp-md) {
-      top: 0;
-      left: calc(100% + 8px);
-      right: auto;
-    }
   }
 
   &__dropdown-item {
@@ -369,7 +339,7 @@
     font-family: var(--font-main);
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
-    color: var(--color-text-primary);
+    color: var(--color-dropdown-fg);
     cursor: pointer;
     text-align: left;
     transition: background var(--transition-fast);
@@ -377,17 +347,17 @@
     svg {
       width: 14px;
       height: 14px;
-      color: var(--color-text-primary);
+      color: var(--color-dropdown-fg);
       flex-shrink: 0;
     }
 
     &:hover {
-      background: var(--color-neutral-alpha-muted);
+      background: var(--color-dropdown-hover);
     }
 
     &--active {
       font-weight: var(--weight-semibold);
-      background: var(--color-neutral-alpha-muted);
+      background: var(--color-dropdown-active);
     }
   }
 
@@ -395,12 +365,12 @@
     position: absolute;
     bottom: calc(100% + 6px);  
     left: 0;
-    background: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    font-size: 0.7rem;
+    background: var(--color-tooltip-bg);
+    color: var(--color-tooltip-fg);
+    font-size: var(--text-xs);
     white-space: nowrap;
-    padding: 4px 8px;
-    border-radius: 6px;
+    padding: 4px var(--space-2);
+    border-radius: var(--radius-sm);
     pointer-events: none;
     z-index: 10;
   }

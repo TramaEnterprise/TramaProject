@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import "./BookCard.scss";
 import { encodeKey } from "@/utils/bookPaths";
 import { BookOpen, Star } from "lucide-react";
-import ShelfDropdownButton from "@/components/book/shelf-dropdown/ShelfDropdownButton";
+import ShelfStatusDropdown from "@/components/book/shelf-status-dropdown/ShelfStatusDropdown";
 
 type BookCardProps = {
   book: Book;
@@ -48,16 +48,15 @@ export default function BookCard({ book, rank }: BookCardProps) {
         {rank && <span className="book-card__rank">{rank}</span>}
       </div>
 
-      <ShelfDropdownButton
+      <ShelfStatusDropdown
         book={book}
-        variant="compact"
+        portal
         classNames={{
           root: "book-card__save-wrapper",
           btn: "book-card__save-btn",
           list: "book-card__dropdown",
           item: "book-card__dropdown-item",
           tooltip: "book-card__tooltip",
-          icon: "book-card__save-icon",
         }}
       />
 
