@@ -67,6 +67,8 @@
       "notFound": "Lista no disponible",
       "edit": "Editar",
       "delete": "Eliminar",
+      "share": "Compartir",
+      "moreOptions": "Más opciones",
       "confirmDelete": "¿Eliminar esta lista?",
       "confirmDeleteSubtitle": "Esta acción no podrá deshacerse.",
       "confirmDeleteYes": "Eliminar",

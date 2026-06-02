@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, Pencil, Trash2 } from "lucide-react";
+import { ChevronLeft, Pencil, MoreHorizontal, Share2, Trash2 } from "lucide-react";
 import { useAuth } from "@/context/auth/useAuth";
 import { useLists } from "@/hooks/useLists";
 import BookCard from "@/components/book/cards/BookCard";
@@ -17,6 +17,29 @@ export default function ListDetailPage() {
   const { lists, loading, updateList, deleteList } = useLists(userId);
   const [editorOpen, setEditorOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [menuOpen]);
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      await navigator.share({ title: list?.name, url });
+    } else {
+      await navigator.clipboard.writeText(url);
+    }
+    setMenuOpen(false);
+  };
 
   const isOwner = !!user && user.uid === userId;
   const list = lists.find((l) => l.id === listId);
@@ -49,15 +72,50 @@ export default function ListDetailPage() {
                   className="list-detail-page__action"
                   onClick={() => setEditorOpen(true)}
                 >
-                  <Pencil size={16} aria-hidden="true" /> {t("myLibrary.listDetail.edit")}
+                  <Pencil size={14} aria-hidden="true" /> {t("myLibrary.listDetail.edit")}
                 </button>
-                <button
-                  type="button"
-                  className="list-detail-page__action list-detail-page__action--danger"
-                  onClick={() => setConfirmOpen(true)}
-                >
-                  <Trash2 size={16} aria-hidden="true" /> {t("myLibrary.listDetail.delete")}
-                </button>
+                <div className="list-detail-page__menu" ref={menuRef}>
+                  <button
+                    type="button"
+                    className="list-detail-page__menu-trigger"
+                    aria-label={t("myLibrary.listDetail.moreOptions")}
+                    onClick={() => setMenuOpen((v) => !v)}
+                  >
+                    <MoreHorizontal size={18} aria-hidden="true" />
+                  </button>
+                  {menuOpen && (
+                    <ul className="list-detail-page__menu-dropdown" role="menu">
+                      <li role="none">
+                        <button
+                          type="button"
+                          className="list-detail-page__menu-item"
+                          role="menuitem"
+                          onClick={handleShare}
+                        >
+                          <Share2 size={15} aria-hidden="true" />
+                          {t("myLibrary.listDetail.share")}
+                        </button>
+                      </li>
+                      <li role="separator" aria-hidden="true">
+                        <hr className="list-detail-page__menu-divider" />
+                      </li>
+                      <li role="none">
+                        <button
+                          type="button"
+                          className="list-detail-page__menu-item list-detail-page__menu-item--danger"
+                          role="menuitem"
+                          onClick={() => {
+                            setMenuOpen(false);
+                            setConfirmOpen(true);
+                          }}
+                        >
+                          <Trash2 size={15} aria-hidden="true" />
+                          {t("myLibrary.listDetail.delete")}
+                        </button>
+                      </li>
+                    </ul>
+                  )}
+                </div>
               </div>
             )}
           </div>

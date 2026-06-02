@@ -67,6 +67,8 @@
       "notFound": "List not available",
       "edit": "Edit",
       "delete": "Delete",
+      "share": "Share",
+      "moreOptions": "More options",
       "confirmDelete": "Delete this list?",
       "confirmDeleteSubtitle": "This action cannot be undone.",
       "confirmDeleteYes": "Delete",
