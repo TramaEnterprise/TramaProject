@@ -60,11 +60,11 @@ export default function ModalStatusSelect({ value, onChange }: ModalStatusSelect
         aria-expanded={open}
       >
         <span className="modal-status-select__status">
-          <Icon size={16} aria-hidden="true" />
+          <Icon size={14} aria-hidden="true" />
           <span>{t(`myLibrary.shelf.${value}`)}</span>
         </span>
         <ChevronDown
-          size={14}
+          size={13}
           aria-hidden="true"
           className={`modal-status-select__chevron${open ? " modal-status-select__chevron--open" : ""}`}
         />

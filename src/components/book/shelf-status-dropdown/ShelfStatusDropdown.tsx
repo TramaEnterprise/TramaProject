@@ -56,19 +56,7 @@ export default function ShelfStatusDropdown({ book, classNames, portal = false }
   useClickOutside(wrapperRef, closeDropdown, !portal && open);
   useClickOutsideMany([wrapperRef, floatingRef], closeDropdown, portal && open);
 
-  useEffect(() => {
-    if (!portal || !open) return;
-    const onScroll = () => {
-      if (btnRef.current) {
-        const rect = btnRef.current.getBoundingClientRect();
-        setDropdownPos({ top: rect.bottom + 4, left: rect.left });
-      }
-    };
-    window.addEventListener("scroll", onScroll, { capture: true, passive: true });
-    return () => window.removeEventListener("scroll", onScroll, { capture: true });
-  }, [portal, open]);
-
-  useEffect(() => {
+useEffect(() => {
     return () => {
       if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
     };

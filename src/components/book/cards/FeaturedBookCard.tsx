@@ -134,6 +134,7 @@ export default function FeaturedBookCard({ book }: FeaturedBookCardProps) {
         <div className="featured-book-card__btns">
           <ShelfStatusDropdown
             book={book}
+            portal
             classNames={{
               root: "featured-book-card__save-wrapper",
               btn: "featured-book-card__btn featured-book-card__btn--solid",
