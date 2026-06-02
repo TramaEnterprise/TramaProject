@@ -75,7 +75,7 @@ export default function ExploreSectionPage() {
     sectionType,
     params,
     lang,
-    24,
+    100,
     isWaiting,
   );
 

@@ -45,11 +45,8 @@ export default function FeaturedBookCard({ book }: FeaturedBookCardProps) {
       {synopsisOpen && synopsis && (
         <SynopsisModal text={synopsis} onClose={() => setSynopsisOpen(false)} />
       )}
-    <article
-      className={`featured-book-card`}
-      onClick={handleCardClick}
-    >
-      <div className="featured-book-card__cover-wrapper">
+    <article className="featured-book-card">
+      <div className="featured-book-card__cover-wrapper" onClick={handleCardClick}>
         {hasCover ? (
           <img
             className="featured-book-card__cover"

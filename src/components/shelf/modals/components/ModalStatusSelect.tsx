@@ -54,7 +54,7 @@ export default function ModalStatusSelect({ value, onChange }: ModalStatusSelect
       <button
         ref={btnRef}
         type="button"
-        className="modal-status-select__btn"
+        className={`modal-status-select__btn${open ? " modal-status-select__btn--open" : ""}`}
         onClick={handleToggle}
         aria-haspopup="menu"
         aria-expanded={open}

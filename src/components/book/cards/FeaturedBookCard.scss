@@ -8,12 +8,7 @@
   border: 1px solid var(--color-border-outline);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  cursor: pointer;
   transition: box-shadow var(--transition-base);
-
-  &:hover {
-    box-shadow: var(--shadow-card-hover);
-  }
 
   &--open {
     z-index: 50;
@@ -30,6 +25,7 @@
     display: flex;
     align-items: flex-start;
     flex-shrink: 0;
+    cursor: pointer;
 
     @include from($bp-md) {
       width: 260px;
@@ -248,7 +244,7 @@
     justify-content: center;
     gap: var(--space-1);
     min-width: 155px;
-    padding: 6px var(--space-2);
+    padding: 8px var(--space-2);
     border-radius: var(--radius-md);
     font-family: var(--font-main);
     font-size: var(--text-sm);
@@ -261,6 +257,7 @@
       background: var(--color-btn-primary-bg);
       color: var(--color-btn-primary-fg);
       border: 1px solid var(--color-btn-primary-bg);
+      font-weight: var(--weight-medium);
     }
 
     &--open {

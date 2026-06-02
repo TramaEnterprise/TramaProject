@@ -46,6 +46,7 @@ export default function Modal({
       role="dialog"
       aria-modal="true"
       aria-label={ariaLabel ?? title}
+      onClick={(e) => e.stopPropagation()}
     >
       {classNames?.backdrop && <div className={classNames.backdrop} />}
       <div className={classNames?.box} ref={panelRef}>

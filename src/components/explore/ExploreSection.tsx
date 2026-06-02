@@ -13,7 +13,7 @@ import type { SectionEntry } from "@/pages/explore/hooks/useExploreFeed";
 type ExploreSectionProps = {
   type: ExploreSectionType;
   params?: ExploreSectionParams;
-  override?: Pick<SectionEntry, "books" | "isFallback">;  
+  override?: Pick<SectionEntry, "books" | "isFallback">;
   titleKey?: string;
   titleFallbackKey?: string;
   titleHighlight?: string;
@@ -61,8 +61,10 @@ export default function ExploreSection({
   const { t } = useTranslation();
   const { lang } = useCurrentLanguage();
   const navigate = useNavigate();
-  const result = useSectionBooks(type, params, lang, featured ? 4 : 15, !!override);
-  const { books, loading, error, retry, isFallback, authorName } = override ? { books: override.books, loading: false, error: null, retry: () => {}, isFallback: override.isFallback, authorName: undefined } : result
+  const result = useSectionBooks(type, params, lang, 100, !!override);
+  const { books, loading, error, retry, isFallback, authorName } = override
+    ? { books: override.books, loading: false, error: null, retry: () => {}, isFallback: override.isFallback, authorName: undefined }
+    : result;
 
   const resolvedTitleKey = isFallback && titleFallbackKey ? titleFallbackKey : titleKey;
   const title = resolvedTitleKey
@@ -107,20 +109,12 @@ export default function ExploreSection({
       )}
 
       {!loading && !error && books.length > 0 && (
-        featured ? (
-          <div className="explore-section__grid explore-section__grid--featured">
-            <FeaturedBookCard book={books[0]} />
-            {books.slice(1, 4).map(book => (
-              <BookCard key={book.key} book={book} />
-            ))}
-          </div>
-        ) : (
-          <div className="explore-section__scroll">
-            {books.map(book => (
-              <BookCard key={book.key} book={book} />
-            ))}
-          </div>
-        )
+        <div className="explore-section__scroll">
+          {featured && books[0] && <FeaturedBookCard book={books[0]} />}
+          {(featured ? books.slice(1) : books).map(book => (
+            <BookCard key={book.key} book={book} />
+          ))}
+        </div>
       )}
     </section>
   );
