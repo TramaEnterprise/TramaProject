@@ -5,10 +5,11 @@ import { resolveCoverSrc } from "@/utils/coverImage";
 import { useTranslation } from "react-i18next";
 import { encodeKey } from "@/utils/bookPaths";
 import { genreToI18nKey } from "@/utils/genreUtils";
-import { BookOpen, Star } from "lucide-react";
+import { BookOpen, ChevronDown, Star } from "lucide-react";
 import "./FeaturedBookCard.scss";
+import SynopsisModal from "@/components/book/info/SynopsisModal";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
-import ShelfDropdownButton from "@/components/book/shelf-dropdown/ShelfDropdownButton";
+import ShelfStatusDropdown from "@/components/book/shelf-status-dropdown/ShelfStatusDropdown";
 import { useBookSynopsis } from "@/pages/book-detail/hooks/useBookSynopsis";
 
 type FeaturedBookCardProps = {
@@ -22,17 +23,13 @@ export default function FeaturedBookCard({ book }: FeaturedBookCardProps) {
   const { lang } = useCurrentLanguage();
   const synopsis = useBookSynopsis(book, lang);
 
+  const [synopsisOpen, setSynopsisOpen] = useState(false);
   const [prevBookKey, setPrevBookKey] = useState(book.key);
   if (book.key !== prevBookKey) {
     setPrevBookKey(book.key);
   }
 
   const handleCardClick = () => {
-    navigate(`/books/${encodeKey(book.key)}`, { state: { book } });
-  };
-
-  const handleViewClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
     navigate(`/books/${encodeKey(book.key)}`, { state: { book } });
   };
 
@@ -44,6 +41,10 @@ export default function FeaturedBookCard({ book }: FeaturedBookCardProps) {
     : null;
 
   return (
+    <>
+      {synopsisOpen && synopsis && (
+        <SynopsisModal text={synopsis} onClose={() => setSynopsisOpen(false)} />
+      )}
     <article
       className={`featured-book-card`}
       onClick={handleCardClick}
@@ -114,21 +115,28 @@ export default function FeaturedBookCard({ book }: FeaturedBookCardProps) {
         </div>
 
         {synopsis && (
-          <p className="featured-book-card__synopsis">{synopsis}</p>
+          <div className="featured-book-card__synopsis">
+            <div className="featured-book-card__synopsis-text">
+              {synopsis.split("\n\n").map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            <div className="featured-book-card__synopsis-gradient">
+              <button
+                type="button"
+                className="featured-book-card__synopsis-expand"
+                onClick={(e) => { e.stopPropagation(); setSynopsisOpen(true); }}
+              >
+                {t("bookDetail.readMore")}
+                <ChevronDown />
+              </button>
+            </div>
+          </div>
         )}
 
         <div className="featured-book-card__btns">
-          <button
-            type="button"
-            className="featured-book-card__btn featured-book-card__btn--outline"
-            onClick={handleViewClick}
-          >
-            {t("book.viewPage")}
-          </button>
-
-          <ShelfDropdownButton
+          <ShelfStatusDropdown
             book={book}
-            variant="featured"
             classNames={{
               root: "featured-book-card__save-wrapper",
               btn: "featured-book-card__btn featured-book-card__btn--solid",
@@ -140,5 +148,6 @@ export default function FeaturedBookCard({ book }: FeaturedBookCardProps) {
         </div>
       </div>
     </article>
+    </>
   );
 }
