@@ -6,7 +6,7 @@ import { Search, X } from "lucide-react";
 import "./SearchPage.scss";
 import { useBookSearchInfinite } from "@/hooks/useBookSearchInfinite";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
-import LoadMoreSentinel from "@/components/common/LoadMoreSentinel";
+import LoadMore from "@/components/common/LoadMore";
 
 export default function SearchPage() {
   const [searchParams] = useSearchParams();
@@ -99,7 +99,7 @@ export default function SearchPage() {
                 <BookCard key={book.key} book={book} />
               ))}
             </div>
-            <LoadMoreSentinel
+            <LoadMore
               hasMore={hasNextPage}
               loading={isFetchingNextPage}
               onLoadMore={fetchNextPage}
