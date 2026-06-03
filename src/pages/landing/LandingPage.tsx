@@ -3,8 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "@/context/auth/useAuth";
 import { useEffect } from "react";
 import "./LandingPage.scss";
-
-import heroImg from "@/assets/landing-hero.png";
+import HeroSection from "./HeroSection";
 import libraryImg from "@/assets/landing-library.png";
 import coverDuneImg from "@/assets/landing-cover-dune.png";
 import cover1984Img from "@/assets/landing-cover-1984.png";
@@ -45,24 +44,7 @@ function LandingPage() {
   return (
     <div className="landing">
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="landing__hero">
-        <img className="landing__hero-bg" src={heroImg} alt="Hero" aria-hidden="true" />
-        <div className="landing__hero-left">
-          <h1 className="landing__hero-title">
-            <span>{t("landing.hero.title")}</span>
-            <span>{t("landing.hero.titleSecond")}</span>
-          </h1>
-          <p className="landing__hero-subtitle">{t("landing.hero.subtitle")}</p>
-          <div className="landing__hero-cta">
-            <button type="button" className="landing__btn-primary" onClick={handleRegister}>
-              {t("landing.hero.cta")}
-            </button>
-            <button type="button" className="landing__btn-ghost" onClick={handleGuest}>
-              {t("landing.hero.guest")}
-            </button>
-          </div>
-        </div>
-      </section>
+      <HeroSection onRegister={handleRegister} onGuest={handleGuest} />
 
       {/* ── Biblioteca ───────────────────────────────────── */}
       <section className="landing__library">
