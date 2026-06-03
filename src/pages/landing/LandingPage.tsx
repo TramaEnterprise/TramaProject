@@ -228,9 +228,6 @@ function LandingPage() {
 
       {/* ── Testimonios ──────────────────────────────────── */}
       <section className="landing__social-proof">
-        <h2 className="landing__section-title landing__section-title--centered">
-          {t("landing.socialProof.title")}
-        </h2>
         <div className="landing__quotes">
           <div className="landing__quote-card">
             <p className="landing__quote-stars">★★★★★</p>
