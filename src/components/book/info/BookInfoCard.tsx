@@ -105,6 +105,7 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
             </div>
           </div>
 
+
           {book.synopsis ? (
             <div className="book-info-card__synopsis">
               <div className="book-info-card__synopsis-text">

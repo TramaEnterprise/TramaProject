@@ -61,7 +61,7 @@
   &__share-btn {
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: var(--space-6);
     width: 42px;
     height: 42px;
     border-radius: var(--radius-pill);
@@ -208,6 +208,10 @@
     position: relative;
     overflow: hidden;
     max-height: 170px;
+
+    @include from($bp-md) {
+      margin-right: -48px;
+    }
   }
 
   &__synopsis-text p {
@@ -256,6 +260,10 @@
     display: flex;
     justify-content: flex-end;
     margin-top: var(--space-1);
+
+    @include from($bp-md) {
+      margin-right: -48px;
+    }
   }
 
   &__save-wrapper {
