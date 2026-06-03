@@ -235,9 +235,6 @@ function LandingPage() {
             <button type="button" className="landing__btn-primary" onClick={handleRegister}>
               {t("landing.cta.btn")}
             </button>
-            <button type="button" className="landing__btn-ghost" onClick={handleGuest}>
-              {t("landing.cta.guest")}
-            </button>
           </div>
         </div>
         <div className="landing__quotes">
