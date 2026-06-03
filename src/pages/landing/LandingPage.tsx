@@ -48,7 +48,10 @@ function LandingPage() {
       <section className="landing__hero">
         <img className="landing__hero-bg" src={heroImg} alt="Hero" aria-hidden="true" />
         <div className="landing__hero-left">
-          <h1 className="landing__hero-title">{t("landing.hero.title")}</h1>
+          <h1 className="landing__hero-title">
+            <span>{t("landing.hero.title")}</span>
+            <span>{t("landing.hero.titleSecond")}</span>
+          </h1>
           <p className="landing__hero-subtitle">{t("landing.hero.subtitle")}</p>
           <div className="landing__hero-cta">
             <button type="button" className="landing__btn-primary" onClick={handleRegister}>
