@@ -179,22 +179,37 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
           {isAuthenticated && <NotificationsBell />}
           <div className="navbar__avatar-wrap">
             {isAuthenticated ? (
-              <button
-                className="navbar__btn-icon navbar__btn-icon--avatar"
-                type="button"
-                aria-label={t("navbar.profile")}
-                aria-haspopup="true"
-                aria-expanded={menuOpen && !hidden}
-                onClick={() => setMenuOpen(o => !o)}
-              >
-                <User size={18} />
-              </button>
+              <>
+                <button
+                  className="navbar__btn-icon navbar__btn-icon--avatar"
+                  type="button"
+                  aria-label={t("navbar.profile")}
+                  aria-haspopup="true"
+                  aria-expanded={menuOpen && !hidden}
+                  onClick={() => setMenuOpen(o => !o)}
+                >
+                  <User size={18} />
+                </button>
+                {menuOpen && !hidden && <ProfileMenu onClose={() => setMenuOpen(false)} />}
+              </>
             ) : (
-              <NavLink to="/auth" className="navbar__btn-icon navbar__btn-icon--avatar">
-                <User size={18} />
-              </NavLink>
+              <div className="navbar__auth-btns">
+                <button
+                  type="button"
+                  className="navbar__btn-login"
+                  onClick={() => navigate("/auth")}
+                >
+                  {t("navbar.loginShort")}
+                </button>
+                <button
+                  type="button"
+                  className="navbar__btn-signup"
+                  onClick={() => navigate("/auth", { state: { tab: "register" } })}
+                >
+                  {t("navbar.signupShort")}
+                </button>
+              </div>
             )}
-            {menuOpen && !hidden && <ProfileMenu onClose={() => setMenuOpen(false)} />}
           </div>
         </div>
       </div>
