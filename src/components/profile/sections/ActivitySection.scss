@@ -1,5 +1,5 @@
 // src/components/ActivitySection/ActivitySection.scss
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .activity-section {
   display: flex;
@@ -36,7 +36,9 @@
     flex-shrink: 0;
     transition: color var(--transition-fast);
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
   }
 
   &__card {

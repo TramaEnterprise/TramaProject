@@ -25,7 +25,11 @@ type ShelfDropdownButtonProps = {
   }>;
 };
 
-export default function ShelfDropdownButton({ book, variant, classNames }: ShelfDropdownButtonProps) {
+export default function ShelfDropdownButton({
+  book,
+  variant,
+  classNames,
+}: ShelfDropdownButtonProps) {
   const { t } = useTranslation();
   const { addBook, removeBook, getStatus } = useShelf();
   const { isAuthenticated } = useAuth();
@@ -38,9 +42,12 @@ export default function ShelfDropdownButton({ book, variant, classNames }: Shelf
 
   useClickOutside(wrapperRef, () => setOpen(false), open);
 
-  useEffect(() => () => {
-    if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
-  }, []);
+  useEffect(
+    () => () => {
+      if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
+    },
+    []
+  );
 
   const handleSaveBtnClick = (e: React.MouseEvent) => {
     e.stopPropagation();

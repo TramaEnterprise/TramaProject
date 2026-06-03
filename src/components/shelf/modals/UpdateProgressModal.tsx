@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useShelf } from "@/context/shelf/useShelf";
 import type { ShelfEntry } from "@/services/firebase/firebaseLibrary";
+import type { ShelfStatus } from "@/types/BookDetail";
 import { resolveCoverSrc } from "@/utils/coverImage";
 import "./UpdateProgressModal.scss";
 import Modal from "@/components/common/Modal";
 import EditableStarRating from "@/components/common/EditableStarRating";
 import LimitedTextarea from "@/components/common/TextArea";
 import ProgressPageInput from "./components/ProgressPageInput";
-import AbandonConfirmDialog from "./components/AbandonConfirmDialog";
+import ModalStatusSelect from "./components/ModalStatusSelect";
 
 const NOTE_MAX = 280;
 const REVIEW_MAX = 600;
@@ -27,14 +28,21 @@ const TEXTAREA_CLASSNAMES = {
   count: "progress-modal__note-count",
 };
 
+function derivePercent(page: number, total: number): string {
+  if (total === 0 || page === 0) return "0";
+  return String(Math.round((page / total) * 100));
+}
+
 export default function UpdateProgressModal({ entry, onClose }: UpdateProgressModalProps) {
   const { t } = useTranslation();
-  const { updateProgress, removeBook } = useShelf();
+  const { updateProgress, addBook } = useShelf();
   const totalPages = entry.book.pages ?? 0;
 
-  const [pageInput, setPageInput] = useState(
-    entry.currentPage ? String(entry.currentPage) : ""
-  );
+  const initialPage = entry.currentPage ?? 0;
+
+  const [localStatus, setLocalStatus] = useState<ShelfStatus>(entry.status);
+  const [pageInput, setPageInput] = useState(initialPage > 0 ? String(initialPage) : "");
+  const [percentInput, setPercentInput] = useState(derivePercent(initialPage, totalPages));
   const [note, setNote] = useState("");
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState(entry.review ?? "");
@@ -43,53 +51,60 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
   const [noteShaking, setNoteShaking] = useState(false);
   const [reviewSaveBlocked, setReviewSaveBlocked] = useState(false);
   const [reviewShaking, setReviewShaking] = useState(false);
-  const [confirmAbandon, setConfirmAbandon] = useState(false);
 
-  const currentPage = pageInput === ""
-    ? 0
-    : Math.max(0, Math.min(parseInt(pageInput, 10) || 0, totalPages));
-  const finished = totalPages > 0 && currentPage === totalPages;
+  const currentPage =
+    pageInput === "" ? 0 : Math.max(0, Math.min(parseInt(pageInput, 10) || 0, totalPages));
   const progressPercent = totalPages > 0 ? Math.round((currentPage / totalPages) * 100) : 0;
-  const pageChanged = currentPage !== (entry.currentPage ?? 0);
 
   const handleSave = async () => {
-    if (finished) {
+    if (localStatus === "wantToRead" || localStatus === "didNotFinish") {
+      setIsSubmitting(true);
+      try {
+        await addBook(entry.book, localStatus);
+      } finally {
+        setIsSubmitting(false);
+        onClose();
+      }
+      return;
+    }
+
+    if (localStatus === "finished") {
       if (review.length > REVIEW_MAX) {
         setReviewSaveBlocked(true);
         setReviewShaking(true);
         return;
       }
       setIsSubmitting(true);
+      const savePage = totalPages > 0 ? totalPages : currentPage;
       try {
-        await updateProgress(entry.book.key, currentPage, {
+        await updateProgress(entry.book.key, savePage, {
           rating: rating || undefined,
           review: review.trim() || undefined,
+          status: "finished",
         });
       } finally {
         setIsSubmitting(false);
         onClose();
       }
-    } else {
-      if (note.length > NOTE_MAX) {
-        setNoteSaveBlocked(true);
-        setNoteShaking(true);
-        return;
-      }
-      setIsSubmitting(true);
-      try {
-        await updateProgress(entry.book.key, currentPage, {
-          note: note.trim() || undefined,
-        });
-      } finally {
-        setIsSubmitting(false);
-        onClose();
-      }
+      return;
     }
-  };
 
-  const handleConfirmAbandon = () => {
-    onClose();
-    removeBook(entry.book.key);
+    // localStatus === "reading"
+    if (note.length > NOTE_MAX) {
+      setNoteSaveBlocked(true);
+      setNoteShaking(true);
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      await updateProgress(entry.book.key, currentPage, {
+        note: note.trim() || undefined,
+        status: "reading",
+      });
+    } finally {
+      setIsSubmitting(false);
+      onClose();
+    }
   };
 
   const coverSrc = resolveCoverSrc(entry.book);
@@ -100,6 +115,7 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
       ariaLabel={t("myLibrary.updateProgressModal.title")}
       closeAriaLabel={t("myLibrary.updateProgressModal.close")}
       onClose={onClose}
+      closeOnBackdrop={false}
       usePortal
       classNames={{
         root: "progress-modal",
@@ -111,88 +127,91 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
     >
       <div className="progress-modal__body">
         <div className="progress-modal__left">
-          <div className="progress-modal__book-info">
-            {coverSrc ? (
-              <img className="progress-modal__cover" src={coverSrc} alt="" />
-            ) : (
-              <div className="progress-modal__cover progress-modal__cover--placeholder" />
-            )}
-            <p className="progress-modal__book-title">{entry.book.title}</p>
-            <p className="progress-modal__book-author">{entry.book.authors.join(", ")}</p>
-          </div>
+          <ModalStatusSelect value={localStatus} onChange={setLocalStatus} />
+          {coverSrc ? (
+            <img className="progress-modal__cover" src={coverSrc} alt="" />
+          ) : (
+            <div className="progress-modal__cover progress-modal__cover--placeholder" />
+          )}
         </div>
 
         <div className="progress-modal__divider" aria-hidden="true" />
 
         <div className="progress-modal__right">
-          <ProgressPageInput
-            pageInput={pageInput}
-            setPageInput={setPageInput}
-            totalPages={totalPages}
-            currentPage={currentPage}
-            finished={finished}
-            progressPercent={progressPercent}
-          />
-
-          {finished && (
-            <div className="progress-modal__section">
-              <div className="progress-modal__rating-block">
-                <span className="progress-modal__label">
-                  {t("myLibrary.updateProgressModal.rateBook")}
-                </span>
-                <div className="progress-modal__rating-row">
-                  <EditableStarRating rating={rating} onChange={setRating} />
-                </div>
+          {localStatus === "reading" && (
+            <>
+              <ProgressPageInput
+                pageInput={pageInput}
+                setPageInput={setPageInput}
+                percentInput={percentInput}
+                setPercentInput={setPercentInput}
+                totalPages={totalPages}
+                progressPercent={progressPercent}
+              />
+              <div className="progress-modal__section">
+                <LimitedTextarea
+                  id="progress-note-input"
+                  label={t("myLibrary.updateProgressModal.note")}
+                  placeholder={t("myLibrary.updateProgressModal.notePlaceholder")}
+                  value={note}
+                  onChange={setNote}
+                  max={NOTE_MAX}
+                  hardLimit
+                  rows={4}
+                  saveBlocked={noteSaveBlocked}
+                  onClearBlock={() => setNoteSaveBlocked(false)}
+                  shaking={noteShaking}
+                  onShakeEnd={() => setNoteShaking(false)}
+                  errorText={t("myLibrary.updateProgressModal.noteTooLong")}
+                  charactersText={t("myLibrary.updateProgressModal.characters")}
+                  classNames={TEXTAREA_CLASSNAMES}
+                />
               </div>
-            </div>
+            </>
           )}
 
-          <div className="progress-modal__section">
-            {finished ? (
-              <LimitedTextarea
-                id="progress-review-input"
-                label={t("myLibrary.updateProgressModal.review")}
-                placeholder={t("myLibrary.updateProgressModal.reviewPlaceholder")}
-                value={review}
-                onChange={setReview}
-                max={REVIEW_MAX}
-                rows={4}
-                saveBlocked={reviewSaveBlocked}
-                onClearBlock={() => setReviewSaveBlocked(false)}
-                shaking={reviewShaking}
-                onShakeEnd={() => setReviewShaking(false)}
-                errorText={t("myLibrary.updateProgressModal.noteTooLong")}
-                charactersText={t("myLibrary.updateProgressModal.characters")}
-                classNames={TEXTAREA_CLASSNAMES}
-              />
-            ) : (
-              <LimitedTextarea
-                id="progress-note-input"
-                label={t("myLibrary.updateProgressModal.notes")}
-                placeholder={t("myLibrary.updateProgressModal.notesPlaceholder")}
-                value={note}
-                onChange={setNote}
-                max={NOTE_MAX}
-                hardLimit
-                rows={3}
-                disabled={!pageChanged}
-                saveBlocked={noteSaveBlocked}
-                onClearBlock={() => setNoteSaveBlocked(false)}
-                shaking={noteShaking}
-                onShakeEnd={() => setNoteShaking(false)}
-                errorText={t("myLibrary.updateProgressModal.noteTooLong")}
-                charactersText={t("myLibrary.updateProgressModal.characters")}
-                classNames={TEXTAREA_CLASSNAMES}
-              />
-            )}
-          </div>
+          {localStatus === "finished" && (
+            <>
+              <div className="progress-modal__section">
+                <div className="progress-modal__rating-block">
+                  <span className="progress-modal__label">
+                    {t("myLibrary.updateProgressModal.rateBook")}
+                  </span>
+                  <div className="progress-modal__rating-row">
+                    <EditableStarRating rating={rating} onChange={setRating} />
+                  </div>
+                </div>
+              </div>
+              <div className="progress-modal__section">
+                <LimitedTextarea
+                  id="progress-review-input"
+                  label={t("myLibrary.updateProgressModal.review")}
+                  placeholder={t("myLibrary.updateProgressModal.reviewPlaceholder")}
+                  value={review}
+                  onChange={setReview}
+                  max={REVIEW_MAX}
+                  rows={5}
+                  saveBlocked={reviewSaveBlocked}
+                  onClearBlock={() => setReviewSaveBlocked(false)}
+                  shaking={reviewShaking}
+                  onShakeEnd={() => setReviewShaking(false)}
+                  errorText={t("myLibrary.updateProgressModal.noteTooLong")}
+                  charactersText={t("myLibrary.updateProgressModal.characters")}
+                  classNames={TEXTAREA_CLASSNAMES}
+                />
+              </div>
+            </>
+          )}
+
+          {(localStatus === "wantToRead" || localStatus === "didNotFinish") && (
+            <div className="progress-modal__status-message">
+              <p>{t("myLibrary.updateProgressModal.statusMessage")}</p>
+            </div>
+          )}
         </div>
       </div>
 
       <div className="progress-modal__footer">
-        <button type="button" className="progress-modal__abandon-btn" onClick={() => setConfirmAbandon(true)}>
-          {t("myLibrary.updateProgressModal.abandon")}
-        </button>
         <button
           type="button"
           className="progress-modal__save-btn"
@@ -202,13 +221,6 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
           {t("myLibrary.updateProgressModal.save")}
         </button>
       </div>
-
-      {confirmAbandon && (
-        <AbandonConfirmDialog
-          onConfirm={handleConfirmAbandon}
-          onCancel={() => setConfirmAbandon(false)}
-        />
-      )}
     </Modal>
   );
 }

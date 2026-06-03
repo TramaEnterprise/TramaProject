@@ -9,9 +9,7 @@ export default function LockedProfileNotice({ profileName }: Props) {
   return (
     <div className="locked-profile-notice">
       <Lock size={48} className="locked-profile-notice__icon" aria-hidden="true" />
-      <h3 className="locked-profile-notice__title">
-        {t("profile.locked.title")}
-      </h3>
+      <h3 className="locked-profile-notice__title">{t("profile.locked.title")}</h3>
       <p className="locked-profile-notice__subtitle">
         {t("profile.locked.subtitle", { name: profileName })}
       </p>

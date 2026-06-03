@@ -1,4 +1,4 @@
-export type LTLanguageCode = 'spa' | 'eng' | string;
+export type LTLanguageCode = "spa" | "eng" | string;
 
 export type LTFactVersion = {
   language: LTLanguageCode;
@@ -6,7 +6,7 @@ export type LTFactVersion = {
 };
 
 export type LTField = {
-  name: string;      
+  name: string;
   versions: LTFactVersion[];
 };
 

@@ -8,10 +8,7 @@ type ShareProfileButtonProps = {
   name: string;
 };
 
-export default function ShareProfileButton({
-  username,
-  name,
-}: ShareProfileButtonProps) {
+export default function ShareProfileButton({ username, name }: ShareProfileButtonProps) {
   const { t } = useTranslation();
   const [toastVisible, setToastVisible] = useState(false);
 
@@ -54,7 +51,7 @@ export default function ShareProfileButton({
         onClick={handleClick}
         aria-label={t("profile.share.ariaLabel")}
       >
-      <Share2 size={18} aria-hidden="true" />
+        <Share2 size={18} aria-hidden="true" />
       </button>
       {toastVisible && (
         <p className="share-profile-button__toast" role="status">

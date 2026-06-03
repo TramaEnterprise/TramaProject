@@ -27,7 +27,11 @@ function StarSvg({ fill, uid }: { fill: 0 | 0.5 | 1; uid: string }) {
   );
 }
 
-export default function EditableStarRating({ rating, onChange, ariaLabel = "Valoración" }: EditableStarRatingProps) {
+export default function EditableStarRating({
+  rating,
+  onChange,
+  ariaLabel = "Valoración",
+}: EditableStarRatingProps) {
   const [hover, setHover] = useState(0);
   const gradBase = useId();
   const display = hover || rating;
@@ -63,7 +67,7 @@ export default function EditableStarRating({ rating, onChange, ariaLabel = "Valo
           </span>
         );
       })}
-      {display > 0 && <span className="star-rating__value">{display} / 5</span>}
+      {display > 0 && <span className="star-rating__value">{Math.round(display)} / 5</span>}
     </div>
   );
 }

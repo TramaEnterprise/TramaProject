@@ -79,5 +79,3 @@ export default function AuthorSection({ authorInfo }: AuthorSectionProps) {
     </section>
   );
 }
-
-

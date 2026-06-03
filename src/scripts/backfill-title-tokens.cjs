@@ -27,9 +27,7 @@ async function main() {
   let skipped = 0;
 
   for (;;) {
-    let q = booksRef
-      .orderBy(admin.firestore.FieldPath.documentId())
-      .limit(PAGE_SIZE);
+    let q = booksRef.orderBy(admin.firestore.FieldPath.documentId()).limit(PAGE_SIZE);
     if (lastDoc) q = q.startAfter(lastDoc);
 
     const snap = await q.get();

@@ -1,8 +1,29 @@
 import type { Book } from "@/types/Book";
-import { arrayUnion, collection, doc, getDoc, getDocs, increment, limit, orderBy, query, setDoc, updateDoc, where, writeBatch, type DocumentData } from "firebase/firestore";
+import {
+  arrayUnion,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  increment,
+  limit,
+  orderBy,
+  query,
+  setDoc,
+  updateDoc,
+  where,
+  writeBatch,
+  type DocumentData,
+} from "firebase/firestore";
 import { db } from "./firebaseInit";
 import { fetchWorkEditionByLang, searchBooks } from "@/services/api/openLibraryApi";
-import { buildAuthorTokens, buildTitleTokens, normalizeTitleForSearch, scoreAuthorRelevance, scoreTitleRelevance } from "@/utils/titleSearch";
+import {
+  buildAuthorTokens,
+  buildTitleTokens,
+  normalizeTitleForSearch,
+  scoreAuthorRelevance,
+  scoreTitleRelevance,
+} from "@/utils/titleSearch";
 import type { SearchFilter } from "@/types/Search";
 
 const BOOKS_COLLECTION = "Books";
@@ -21,10 +42,7 @@ function throwIfAborted(signal?: AbortSignal): void {
   }
 }
 
-export async function getExploreBooksFromDB(
-  lang: string,
-  minCount = 48
-): Promise<Book[] | null> {
+export async function getExploreBooksFromDB(lang: string, minCount = 48): Promise<Book[] | null> {
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("langs", "array-contains", lang),
@@ -37,16 +55,15 @@ export async function getExploreBooksFromDB(
   return books.docs.map((d) => mapBookDoc(d.data(), lang));
 }
 
-export async function saveBooksToDB(
-  books: Book[], 
-  lang: string
-): Promise<void> {
-    const batch = writeBatch(db);
+export async function saveBooksToDB(books: Book[], lang: string): Promise<void> {
+  const batch = writeBatch(db);
 
-    for (const book of books) {
-      const ref = doc(db, BOOKS_COLLECTION, encodeKey(book.key));
+  for (const book of books) {
+    const ref = doc(db, BOOKS_COLLECTION, encodeKey(book.key));
 
-      batch.set(ref, {
+    batch.set(
+      ref,
+      {
         key: book.key,
         authors: book.authors,
         authorTokens: buildAuthorTokens(book.authors ?? []),
@@ -63,22 +80,22 @@ export async function saveBooksToDB(
         pages: book.pages ?? null,
         authorKeys: book.authorKeys ?? [],
         langs: arrayUnion(lang),
-      }, { merge: true });
+      },
+      { merge: true }
+    );
   }
 
   await batch.commit();
 
   // Asignar titulos al idioma actual
   await Promise.all(
-    books.map(book =>
-      updateBookTitleToDB(book.key, book.title, lang, book.isbn).catch(() => {})
-    )
+    books.map((book) => updateBookTitleToDB(book.key, book.title, lang, book.isbn).catch(() => {}))
   );
 
   // Buscar titulo en otro idioma
-  const otherLang = lang === 'es' ? 'en' : 'es';
+  const otherLang = lang === "es" ? "en" : "es";
   Promise.all(
-    books.map(async book => {
+    books.map(async (book) => {
       const edition = await fetchWorkEditionByLang(book.key, otherLang);
       if (edition) {
         await updateBookTitleToDB(book.key, edition.title, otherLang, edition.isbn);
@@ -97,34 +114,30 @@ export async function getAuthorBooksFromDB(
     collection(db, BOOKS_COLLECTION),
     where("authorKeys", "array-contains", authorKey),
     orderBy("rating", "desc"),
-    limit(10)
+    limit(50)
   );
   const books = await getDocs(q);
   throwIfAborted(signal);
-  
+
   return books.docs
-  .map((d) => mapBookDoc(d.data(), lang))
-  .filter((b) => b.title.toLowerCase() !== excludeTitle.toLowerCase());
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter((b) => b.title.toLowerCase() !== excludeTitle.toLowerCase());
 }
 
-
-export async function getSynopsisFromDB(
-  workKey: string,
-  lang: string
-): Promise<string | null> {
+export async function getSynopsisFromDB(workKey: string, lang: string): Promise<string | null> {
   const refDoc = doc(db, BOOKS_COLLECTION, encodeKey(workKey));
   const document = await getDoc(refDoc);
   if (!document.exists()) return null;
 
   const synopsis = document.data().synopsis as SynopsisField | undefined;
-  if(!synopsis) return null;
+  if (!synopsis) return null;
 
   //Se hace esto porque hasta ahora las sinopsis eran solo string
-  if(typeof synopsis === 'string') {
+  if (typeof synopsis === "string") {
     //Cambiar formato de sinopsis solo en español
     setDoc(refDoc, { synopsis: { es: synopsis } }, { merge: true }).catch(() => {});
 
-    return lang === 'es' ? synopsis : null;
+    return lang === "es" ? synopsis : null;
   }
 
   return synopsis[lang] ?? null;
@@ -155,7 +168,7 @@ export async function updateBookTitleToDB(
   workKey: string,
   title: string,
   lang: string,
-  isbn?: string,
+  isbn?: string
 ): Promise<void> {
   const refDoc = doc(db, BOOKS_COLLECTION, encodeKey(workKey));
   const update: Record<string, unknown> = {
@@ -168,7 +181,7 @@ export async function updateBookTitleToDB(
   await updateDoc(refDoc, update);
 }
 
-export async function getRecommendationsFromDB(                                                                                                                             
+export async function getRecommendationsFromDB(
   genre: string,
   lang: string,
   excludeKey: string,
@@ -182,9 +195,7 @@ export async function getRecommendationsFromDB(
   );
 
   const doc = await getDocs(q);
-  const books = doc.docs
-  .map((d) => mapBookDoc(d.data(), lang))
-  .filter((b) => b.key !== excludeKey);
+  const books = doc.docs.map((d) => mapBookDoc(d.data(), lang)).filter((b) => b.key !== excludeKey);
 
   if (books.length < minCount) return null;
   return books;
@@ -215,36 +226,42 @@ function mapBookDoc(data: Record<string, any>, lang: string): Book {
 }
 
 // Queries para Explore
-export async function getTrendingBooks(lang: string, count = 6, signal?: AbortSignal): Promise<Book[]> {
+export async function getTrendingBooks(
+  lang: string,
+  count = 6,
+  signal?: AbortSignal
+): Promise<Book[]> {
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("langs", "array-contains", lang),
     where("addCount", ">", 0),
     orderBy("addCount", "desc"),
-    limit(100),
+    limit(100)
   );
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
-  return snap.docs
-    .slice(0, count)
-    .map(d => mapBookDoc(d.data(), lang));
+  return snap.docs.slice(0, count).map((d) => mapBookDoc(d.data(), lang));
 }
 
-export async function getTopRatedBooks(lang: string, count = 6, signal?: AbortSignal): Promise<Book[]> {
+export async function getTopRatedBooks(
+  lang: string,
+  count = 6,
+  signal?: AbortSignal
+): Promise<Book[]> {
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("langs", "array-contains", lang),
     where("rating", ">=", 3.5),
     orderBy("rating", "desc"),
-    limit(300),
+    limit(300)
   );
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
   return snap.docs
-    .map(d => mapBookDoc(d.data(), lang))
-    .filter(b => (b.ratingCount ?? 0) >= 10)
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter((b) => (b.ratingCount ?? 0) >= 10)
     .slice(0, count);
 }
 
@@ -252,7 +269,7 @@ export async function getTopAuthorBooks(
   authorKey: string,
   lang: string,
   minCount = 4,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<Book[]> {
   const books = await getAuthorBooksFromDB(authorKey, "", lang, signal);
   return books.length < minCount ? [] : books;
@@ -260,64 +277,60 @@ export async function getTopAuthorBooks(
 
 export async function getPopularAuthorWithBooks(
   lang: string,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<{ authorKey: string; authorName: string; books: Book[] } | null> {
   const trending = await getTrendingBooks(lang, 8, signal);
-  const candidates = trending.filter(
-    b => b.authorKeys?.length && b.authors.length,
-  );
+  const candidates = trending.filter((b) => b.authorKeys?.length && b.authors.length);
   const results = await Promise.all(
-    candidates.slice(0, 5).map(async b => {
+    candidates.slice(0, 5).map(async (b) => {
       const authorKey = b.authorKeys![0];
       const authorName = b.authors[0];
       const books = await getTopAuthorBooks(authorKey, lang, 4, signal);
       return books.length >= 4 ? { authorKey, authorName, books } : null;
-    }),
+    })
   );
   throwIfAborted(signal);
-  return results.find(r => r !== null) ?? null;
+  return results.find((r) => r !== null) ?? null;
 }
 
 export async function getBooksByGenre(
   genre: string,
   lang: string,
   count = 6,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<Book[]> {
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("langs", "array-contains", lang),
     where("genre", "==", genre),
     orderBy("rating", "desc"),
-    limit(count + 20),
+    limit(count + 20)
   );
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
-  return snap.docs
-    .map(d => mapBookDoc(d.data(), lang))
-    .slice(0, count);
+  return snap.docs.map((d) => mapBookDoc(d.data(), lang)).slice(0, count);
 }
 
 export async function getNewReleaseBooks(
   year: number,
   lang: string,
   count = 6,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<Book[]> {
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("langs", "array-contains", lang),
-    orderBy("first_publish_year", "desc"), 
+    orderBy("first_publish_year", "desc"),
     orderBy("rating", "desc"),
-    limit(150),
+    limit(150)
   );
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
   return snap.docs
-    .map(d => mapBookDoc(d.data(), lang))
-    .filter(b => (b.first_publish_year ?? 0) >= year && (b.rating ?? 0) >= 3)
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter((b) => (b.first_publish_year ?? 0) >= year && (b.rating ?? 0) >= 3)
     .slice(0, count);
 }
 
@@ -327,13 +340,13 @@ export async function getQuickAndGoodBooks(lang: string, count = 6): Promise<Boo
     where("langs", "array-contains", lang),
     where("rating", ">=", 4),
     orderBy("rating", "desc"),
-    limit(80),
+    limit(80)
   );
   const snap = await getDocs(q);
 
   return snap.docs
-    .map(d => mapBookDoc(d.data(), lang))
-    .filter(b => b.pages !== undefined && b.pages > 0 && b.pages < 300)
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter((b) => b.pages !== undefined && b.pages > 0 && b.pages < 300)
     .slice(0, count);
 }
 
@@ -342,7 +355,7 @@ export async function getAuthorNewReleases(
   year: number,
   lang: string,
   count = 6,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<Book[]> {
   if (authorKeys.length === 0) return [];
   const keys = authorKeys.slice(0, 10);
@@ -350,14 +363,14 @@ export async function getAuthorNewReleases(
     collection(db, BOOKS_COLLECTION),
     where("authorKeys", "array-contains-any", keys),
     orderBy("first_publish_year", "desc"),
-    limit(100),
+    limit(100)
   );
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
   return snap.docs
-    .map(d => mapBookDoc(d.data(), lang))
-    .filter(b => (b.first_publish_year ?? 0) >= year - 2)
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter((b) => (b.first_publish_year ?? 0) >= year - 2)
     .slice(0, count);
 }
 
@@ -366,21 +379,21 @@ export async function getGenreNewReleases(
   year: number,
   lang: string,
   count = 6,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<Book[]> {
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("genre", "==", genre),
     where("langs", "array-contains", lang),
     orderBy("first_publish_year", "desc"),
-    limit(count + 30),
+    limit(count + 30)
   );
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
   return snap.docs
-    .map(d => mapBookDoc(d.data(), lang))
-    .filter(b => (b.first_publish_year ?? 0) >= year - 2)
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter((b) => (b.first_publish_year ?? 0) >= year - 2)
     .slice(0, count);
 }
 
@@ -389,20 +402,20 @@ export async function getRecommendationsByGenre(
   lang: string,
   excludeKey: string,
   count = 6,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<Book[]> {
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("genre", "==", genre),
     where("langs", "array-contains", lang),
     orderBy("rating", "desc"),
-    limit(count + 10),
+    limit(count + 10)
   );
   const snap = await getDocs(q);
   throwIfAborted(signal);
   return snap.docs
-    .map(d => mapBookDoc(d.data(), lang))
-    .filter(b => b.key !== excludeKey)
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter((b) => b.key !== excludeKey)
     .slice(0, count);
 }
 
@@ -416,7 +429,6 @@ export async function searchBooksFromDB(
   lang: string,
   maxResults = 8
 ): Promise<Book[]> {
-
   const words = buildTitleTokens(queryText);
   if (words.length === 0) return [];
 
@@ -469,7 +481,6 @@ export async function searchBooksWithFallback(
   maxResults = 8,
   signal?: AbortSignal
 ): Promise<Book[]> {
-
   if (buildTitleTokens(queryText).length === 0) return []; // Solo stopwords o palabras vacías
   const fromDb = await searchBooksFromDB(queryText, lang, maxResults);
 
@@ -482,12 +493,7 @@ export async function searchBooksWithFallback(
 
   let fromApi: Book[] = [];
   try {
-    const res = await searchBooks(
-      { q: queryText },
-      remaining + dbKeys.size,
-      lang,
-      effectiveSignal
-    );
+    const res = await searchBooks({ q: queryText }, remaining + dbKeys.size, lang, effectiveSignal);
     fromApi = res.books;
   } catch {
     return fromDb;
@@ -549,11 +555,7 @@ export async function searchBooksByIsbnFromDB(
   if (isbn.length === 0) return [];
 
   const snap = await getDocs(
-    query(
-      collection(db, BOOKS_COLLECTION),
-      where("isbn", "==", isbn),
-      limit(maxResults)
-    )
+    query(collection(db, BOOKS_COLLECTION), where("isbn", "==", isbn), limit(maxResults))
   );
   return snap.docs.map((d) => mapBookDoc(d.data(), lang));
 }
@@ -576,13 +578,9 @@ export async function searchBooksInDB(
   }
 }
 
-export async function getBookFromDB(
-  workKey: string,
-  lang: string
-): Promise<Book | null> {
+export async function getBookFromDB(workKey: string, lang: string): Promise<Book | null> {
   const refDoc = doc(db, BOOKS_COLLECTION, encodeKey(workKey));
   const document = await getDoc(refDoc);
   if (!document.exists()) return null;
   return mapBookDoc(document.data(), lang);
 }
-

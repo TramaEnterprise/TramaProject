@@ -1,4 +1,11 @@
-import { addToShelf, encodeKey, getShelf, removeFromShelf, updateReadingProgress, type ShelfEntry } from "@/services/firebase/firebaseLibrary";
+import {
+  addToShelf,
+  encodeKey,
+  getShelf,
+  removeFromShelf,
+  updateReadingProgress,
+  type ShelfEntry,
+} from "@/services/firebase/firebaseLibrary";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -10,7 +17,7 @@ import { groupShelfByStatus, localizeBook } from "@/utils/shelf";
 import { useShelfLangComplete } from "@/pages/profile/hooks/useShelfLangComplete";
 import { useQueryClient } from "@tanstack/react-query";
 
-// Estantería "vacía" 
+// Estantería "vacía"
 const EMPTY_ENTRIES = new Map<string, ShelfEntry>();
 
 export function ShelfProvider({ children }: { children: React.ReactNode }) {
@@ -51,15 +58,14 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
           setLoadedUid(uid);
         }
       });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [uid]);
 
   const ready = uid !== null && loadedUid === uid;
   const loading = uid !== null && loadedUid !== uid;
-  const visibleEntries = useMemo(
-    () => (ready ? entries : EMPTY_ENTRIES),
-    [ready, entries]
-  );
+  const visibleEntries = useMemo(() => (ready ? entries : EMPTY_ENTRIES), [ready, entries]);
 
   useShelfLangComplete({ uid, ready, entries, lang, setEntries });
 
@@ -145,12 +151,12 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
     bookKey: string, 
     currentPage: number, 
     opts?: {
-    note?: string;
-    rating?: number;
-    review?: string;
-    status?: ShelfStatus;
-    silent?: boolean;
-   },
+      note?: string;
+      rating?: number;
+      review?: string;
+      status?: ShelfStatus;
+      silent?: boolean;
+    }
   ) => {
     if (!uid) {
       return;
@@ -194,7 +200,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
             apiRef.current!.updateProgress(bookKey, prevPage, {
               status: prevStatus,
               silent: true,
-            }),
+            })
           );
         } else {
           notifyProgressUpdated(localizedBook, currentPage, totalPages);

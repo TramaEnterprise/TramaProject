@@ -13,7 +13,7 @@ import type { SectionEntry } from "@/pages/explore/hooks/useExploreFeed";
 type ExploreSectionProps = {
   type: ExploreSectionType;
   params?: ExploreSectionParams;
-  override?: Pick<SectionEntry, "books" | "isFallback">;  
+  override?: Pick<SectionEntry, "books" | "isFallback">;
   titleKey?: string;
   titleFallbackKey?: string;
   titleHighlight?: string;
@@ -61,8 +61,17 @@ export default function ExploreSection({
   const { t } = useTranslation();
   const { lang } = useCurrentLanguage();
   const navigate = useNavigate();
-  const result = useSectionBooks(type, params, lang, featured ? 4 : 15, !!override);
-  const { books, loading, error, retry, isFallback, authorName } = override ? { books: override.books, loading: false, error: null, retry: () => {}, isFallback: override.isFallback, authorName: undefined } : result
+  const result = useSectionBooks(type, params, lang, 100, !!override);
+  const { books, loading, error, retry, isFallback, authorName } = override
+    ? {
+        books: override.books,
+        loading: false,
+        error: null,
+        retry: () => {},
+        isFallback: override.isFallback,
+        authorName: undefined,
+      }
+    : result;
 
   const resolvedTitleKey = isFallback && titleFallbackKey ? titleFallbackKey : titleKey;
   const title = resolvedTitleKey
@@ -85,11 +94,7 @@ export default function ExploreSection({
       <div className="explore-section__header">
         <h2 className="explore-section__title">{renderTitle(title, titleHighlight)}</h2>
         {!loading && !error && books.length > 0 && (
-          <button
-            type="button"
-            className="explore-section__see-more"
-            onClick={handleSeeMore}
-          >
+          <button type="button" className="explore-section__see-more" onClick={handleSeeMore}>
             {t("explore.seeMore")} <ChevronRight size={14} aria-hidden="true" />
           </button>
         )}
@@ -107,20 +112,12 @@ export default function ExploreSection({
       )}
 
       {!loading && !error && books.length > 0 && (
-        featured ? (
-          <div className="explore-section__grid explore-section__grid--featured">
-            <FeaturedBookCard book={books[0]} />
-            {books.slice(1, 4).map(book => (
-              <BookCard key={book.key} book={book} />
-            ))}
-          </div>
-        ) : (
-          <div className="explore-section__scroll">
-            {books.map(book => (
-              <BookCard key={book.key} book={book} />
-            ))}
-          </div>
-        )
+        <div className="explore-section__scroll">
+          {featured && books[0] && <FeaturedBookCard book={books[0]} />}
+          {(featured ? books.slice(1) : books).map((book) => (
+            <BookCard key={book.key} book={book} />
+          ))}
+        </div>
       )}
     </section>
   );

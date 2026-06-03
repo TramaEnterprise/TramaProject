@@ -35,17 +35,21 @@ export default function ProfilePage() {
   const [resolvedUserId, setResolvedUserId] = useState<string | null>(null);
   const [resolveState, setResolveState] = useState<"loading" | "done" | "notfound">("loading");
 
-  const {
-    profile,
-    isOwnProfile,
-    loading,
-  } = useProfile(resolvedUserId ?? "");
+  const { profile, isOwnProfile, loading } = useProfile(resolvedUserId ?? "");
   const profileIsPublic = profile?.isPublic !== false;
-  const { isFollowing, hasPendingRequest, follow, unfollow, cancelRequest } = useFollowActions(resolvedUserId ?? "", isOwnProfile, profileIsPublic);
+  const { isFollowing, hasPendingRequest, follow, unfollow, cancelRequest } = useFollowActions(
+    resolvedUserId ?? "",
+    isOwnProfile,
+    profileIsPublic
+  );
   const canViewFull = isOwnProfile || profileIsPublic || isFollowing;
-  const { shelf, loading: shelfLoading } = useProfileShelf(resolvedUserId ?? "", isOwnProfile, canViewFull);
+  const { shelf, loading: shelfLoading } = useProfileShelf(
+    resolvedUserId ?? "",
+    isOwnProfile,
+    canViewFull
+  );
   const { activity, favorites } = useProfileActivity(resolvedUserId ?? "", canViewFull);
-  const { isBlocked, block, unblock } = useBlockActions(resolvedUserId ?? "", isOwnProfile)
+  const { isBlocked, block, unblock } = useBlockActions(resolvedUserId ?? "", isOwnProfile);
 
   const [followModal, setFollowModal] = useState<"followers" | "following" | null>(null);
   const [showFavEditor, setShowFavEditor] = useState(false);
@@ -66,7 +70,6 @@ export default function ProfilePage() {
     let cancelled = false;
 
     const resolve = async () => {
-
       // uid en URL
       if (paramUserId) {
         setResolvedUserId(paramUserId);
@@ -99,7 +102,9 @@ export default function ProfilePage() {
     };
 
     void resolve();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [paramUserId, paramUsername, user]);
 
   if (resolveState === "loading") {
@@ -150,7 +155,11 @@ export default function ProfilePage() {
         onEditClick={() => navigate("/profile/edit")}
         onRequestsClick={() => setShowRequests(true)}
         onBlock={block}
-        onBooksReadClick={isOwnProfile ? () => navigate("/my-library/shelf", { state: { status: "finished" } }) : undefined}
+        onBooksReadClick={
+          isOwnProfile
+            ? () => navigate("/my-library/shelf", { state: { status: "finished" } })
+            : undefined
+        }
       />
 
       {isBlocked ? (
@@ -195,9 +204,7 @@ export default function ProfilePage() {
         />
       )}
 
-      {showRequests && (
-        <FollowRequestsModal onClose={() => setShowRequests(false)} />
-      )}
+      {showRequests && <FollowRequestsModal onClose={() => setShowRequests(false)} />}
 
       {showFavEditor && isOwnProfile && (
         <FavoriteBooksEditorModal
@@ -211,7 +218,9 @@ export default function ProfilePage() {
       {listEditorOpen && isOwnProfile && (
         <ListEditorModal
           onClose={() => setListEditorOpen(false)}
-          onSubmit={async ({ name, description, books }) => { await createList(name, books, description); }}
+          onSubmit={async ({ name, description, books }) => {
+            await createList(name, books, description);
+          }}
         />
       )}
     </section>

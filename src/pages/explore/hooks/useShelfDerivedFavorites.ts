@@ -39,14 +39,22 @@ export function useShelfDerivedFavorites(): ShelfDerived | null {
 
     const userShelfKeys = new Set(allBooks.map((b) => b.key));
 
-    const highRatedBook = [...shelfByStatus.finished, ...shelfByStatus.reading]
-      .find((b) => (b.rating ?? 0) >= 4) ?? null;
-    const referenceBooks = shelfByStatus.reading.length > 0
-      ? shelfByStatus.reading
-      : highRatedBook ? [highRatedBook] : [];
+    const highRatedBook =
+      [...shelfByStatus.finished, ...shelfByStatus.reading].find((b) => (b.rating ?? 0) >= 4) ??
+      null;
+    const referenceBooks =
+      shelfByStatus.reading.length > 0
+        ? shelfByStatus.reading
+        : highRatedBook
+          ? [highRatedBook]
+          : [];
 
     const genreCounts: Record<string, number> = {};
-    for (const b of [...shelfByStatus.finished, ...shelfByStatus.reading, ...shelfByStatus.wantToRead]) {
+    for (const b of [
+      ...shelfByStatus.finished,
+      ...shelfByStatus.reading,
+      ...shelfByStatus.wantToRead,
+    ]) {
       if (b.genre) genreCounts[b.genre] = (genreCounts[b.genre] ?? 0) + 1;
     }
     const favoriteGenre = Object.entries(genreCounts).sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
@@ -69,11 +77,15 @@ export function useShelfDerivedFavorites(): ShelfDerived | null {
       ? t(`book.genres.${genreToI18nKey(favoriteGenre)}`, { defaultValue: favoriteGenre })
       : null;
 
-    const fiveStarBook = [...shelfByStatus.finished, ...shelfByStatus.reading]
-      .find((b) => (b.rating ?? 0) === 5 && b.authorKeys?.length) ?? null;
+    const fiveStarBook =
+      [...shelfByStatus.finished, ...shelfByStatus.reading].find(
+        (b) => (b.rating ?? 0) === 5 && b.authorKeys?.length
+      ) ?? null;
 
-    const likedBook = [...shelfByStatus.finished, ...shelfByStatus.reading]
-      .find((b) => (b.rating ?? 0) >= 4 && b.genre) ?? null;
+    const likedBook =
+      [...shelfByStatus.finished, ...shelfByStatus.reading].find(
+        (b) => (b.rating ?? 0) >= 4 && b.genre
+      ) ?? null;
 
     const finishedBook = shelfByStatus.finished.find((b) => b.genre) ?? null;
 

@@ -8,11 +8,15 @@ import type { ActivityItem } from "@/types/UserProfile";
 import Modal from "@/components/common/Modal";
 import "./HistoryModal.scss";
 
-function timeAgo(timestamp: { toDate: () => Date }, t: (key: string, opts?: Record<string, unknown>) => string): string {
+function timeAgo(
+  timestamp: { toDate: () => Date },
+  t: (key: string, opts?: Record<string, unknown>) => string
+): string {
   const diff = Math.floor((Date.now() - timestamp.toDate().getTime()) / 1000);
   if (diff < 60) return t("myLibrary.historyModal.timeAgo.seconds");
   if (diff < 3600) return t("myLibrary.historyModal.timeAgo.minutes", { n: Math.floor(diff / 60) });
-  if (diff < 86400) return t("myLibrary.historyModal.timeAgo.hours", { n: Math.floor(diff / 3600) });
+  if (diff < 86400)
+    return t("myLibrary.historyModal.timeAgo.hours", { n: Math.floor(diff / 3600) });
   return t("myLibrary.historyModal.timeAgo.days", { n: Math.floor(diff / 86400) });
 }
 
@@ -27,7 +31,7 @@ function computeDeltas(items: ActivityItem[], totalPages: number): EntryWithDelt
     (a, b) => a.createdAt.toDate().getTime() - b.createdAt.toDate().getTime()
   );
   let lastProgress = 0;
-  const result: EntryWithDelta[] = sorted.map(item => {
+  const result: EntryWithDelta[] = sorted.map((item) => {
     if (item.type === "progress" && typeof item.progress === "number") {
       const prev = lastProgress;
       const added = item.progress - prev;
@@ -40,7 +44,11 @@ function computeDeltas(items: ActivityItem[], totalPages: number): EntryWithDelt
   return result.reverse();
 }
 
-function HistoryEntry({ item, totalPages, t }: {
+function HistoryEntry({
+  item,
+  totalPages,
+  t,
+}: {
   item: EntryWithDelta;
   totalPages: number;
   t: (key: string, opts?: Record<string, unknown>) => string;
@@ -52,7 +60,9 @@ function HistoryEntry({ item, totalPages, t }: {
   return (
     <div className="history-entry">
       <div className="history-entry__header">
-        <span className="history-entry__event">{eventLabel === eventKey ? item.type : eventLabel}</span>
+        <span className="history-entry__event">
+          {eventLabel === eventKey ? item.type : eventLabel}
+        </span>
         <span className="history-entry__time">{timeAgo(item.createdAt, t)}</span>
       </div>
 
@@ -60,11 +70,16 @@ function HistoryEntry({ item, totalPages, t }: {
         <div className="history-entry__pages">
           <span className="history-entry__pages-progress">
             {totalPages > 0
-              ? t("myLibrary.historyModal.pageProgress", { current: item.progress, total: totalPages })
+              ? t("myLibrary.historyModal.pageProgress", {
+                  current: item.progress,
+                  total: totalPages,
+                })
               : t("myLibrary.historyModal.pageProgressNoTotal", { current: item.progress })}
           </span>
           {typeof item.addedPages === "number" && item.addedPages > 0 && (
-            <span className="history-entry__pages-added">{t("myLibrary.historyModal.pagesAdded", { count: item.addedPages })}</span>
+            <span className="history-entry__pages-added">
+              {t("myLibrary.historyModal.pagesAdded", { count: item.addedPages })}
+            </span>
           )}
         </div>
       )}
@@ -84,7 +99,12 @@ type HistoryModalProps = {
 };
 
 export default function HistoryModal({
-  bookId, bookTitle, bookAuthor, bookCoverUrl, totalPages = 0, onClose,
+  bookId,
+  bookTitle,
+  bookAuthor,
+  bookCoverUrl,
+  totalPages = 0,
+  onClose,
 }: HistoryModalProps) {
   const { user } = useAuth();
   const uid = user?.uid;
@@ -97,9 +117,15 @@ export default function HistoryModal({
     if (!uid) return;
     let cancelled = false;
     getActivity(uid, 50)
-      .then((all) => { if (!cancelled) setItems(all.filter((a) => a.bookId === bookId)); })
-      .finally(() => { if (!cancelled) setLoading(false); });
-    return () => { cancelled = true; };
+      .then((all) => {
+        if (!cancelled) setItems(all.filter((a) => a.bookId === bookId));
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [uid, bookId]);
 
   const entries = computeDeltas(items, totalPages);
@@ -125,7 +151,10 @@ export default function HistoryModal({
             <button
               type="button"
               className="history-modal__cover-btn"
-              onClick={() => { onClose(); navigate(`/books/${encodeKey(bookId)}`); }}
+              onClick={() => {
+                onClose();
+                navigate(`/books/${encodeKey(bookId)}`);
+              }}
               aria-label={bookTitle}
             >
               {bookCoverUrl ? (
@@ -142,18 +171,17 @@ export default function HistoryModal({
         <div className="history-modal__divider" aria-hidden="true" />
 
         <div className="history-modal__right">
-          {loading && (
-            <p className="history-modal__empty">{t("myLibrary.historyModal.loading")}</p>
-          )}
+          {loading && <p className="history-modal__empty">{t("myLibrary.historyModal.loading")}</p>}
           {!loading && entries.length === 0 && (
             <p className="history-modal__empty">{t("myLibrary.historyModal.empty")}</p>
           )}
-          {!loading && entries.map((item, idx, arr) => (
-            <div key={item.id}>
-              <HistoryEntry item={item} totalPages={totalPages} t={t} />
-              {idx < arr.length - 1 && <div className="history-modal__item-divider" />}
-            </div>
-          ))}
+          {!loading &&
+            entries.map((item, idx, arr) => (
+              <div key={item.id}>
+                <HistoryEntry item={item} totalPages={totalPages} t={t} />
+                {idx < arr.length - 1 && <div className="history-modal__item-divider" />}
+              </div>
+            ))}
         </div>
       </div>
     </Modal>

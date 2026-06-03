@@ -1,5 +1,5 @@
-@use '../variables/scss_variables' as *;
-@use '../lib/mixins';
+@use "../variables/scss_variables" as *;
+@use "../lib/mixins";
 
 @mixin card-grid($cols-desktop: 4) {
   display: grid;

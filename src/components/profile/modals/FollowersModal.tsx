@@ -17,7 +17,11 @@ type FollowersModalProps = {
 };
 
 export default function FollowersModal({
-  userId, mode, isOwnProfile = false, onClose, onFollowerRemoved,
+  userId,
+  mode,
+  isOwnProfile = false,
+  onClose,
+  onFollowerRemoved,
 }: FollowersModalProps) {
   const { t } = useTranslation();
   const [users, setUsers] = useState<UserMinimal[]>([]);
@@ -41,14 +45,21 @@ export default function FollowersModal({
     let cancelled = false;
     const fetchFn = mode === "followers" ? getFollowers : getFollowing;
     fetchFn(userId)
-      .then((result) => { if (!cancelled) setUsers(result); })
-      .finally(() => { if (!cancelled) setLoading(false); });
-    return () => { cancelled = true; };
+      .then((result) => {
+        if (!cancelled) setUsers(result);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [userId, mode]);
 
-  const title = mode === "followers"
-    ? t("profile.followList.followersTitle")
-    : t("profile.followList.followingTitle");
+  const title =
+    mode === "followers"
+      ? t("profile.followList.followersTitle")
+      : t("profile.followList.followingTitle");
 
   return (
     <Modal
@@ -65,14 +76,20 @@ export default function FollowersModal({
       }}
     >
       <div className="followers-modal__list">
-        {loading && (
-          <p className="followers-modal__loading">{t("profile.followList.loading")}</p>
-        )}
+        {loading && <p className="followers-modal__loading">{t("profile.followList.loading")}</p>}
         {!loading && users.length === 0 && (
           <p className="followers-modal__empty">
             {mode === "followers"
-              ? t(isOwnProfile ? "profile.followList.emptyFollowers" : "profile.followList.emptyFollowersOther")
-              : t(isOwnProfile ? "profile.followList.emptyFollowing" : "profile.followList.emptyFollowingOther")}
+              ? t(
+                  isOwnProfile
+                    ? "profile.followList.emptyFollowers"
+                    : "profile.followList.emptyFollowersOther"
+                )
+              : t(
+                  isOwnProfile
+                    ? "profile.followList.emptyFollowing"
+                    : "profile.followList.emptyFollowingOther"
+                )}
           </p>
         )}
         {!loading &&

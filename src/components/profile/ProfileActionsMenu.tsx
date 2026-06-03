@@ -10,11 +10,7 @@ type ProfileActionsMenuProps = {
   onBlock: () => void;
 };
 
-export default function ProfileActionsMenu({
-  username,
-  name,
-  onBlock,
-}: ProfileActionsMenuProps) {
+export default function ProfileActionsMenu({ username, name, onBlock }: ProfileActionsMenuProps) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);

@@ -29,14 +29,16 @@ export function useBookSynopsis(book: Book, lang: string): string {
     }
     const controller = new AbortController();
     const existing = inFlightCache.get(key);
-    const promise = existing ?? fetchSynopsisRace({
-      title: book.title,
-      isbn: book.isbn,
-      author: book.authors[0],
-      lang,
-      signal: controller.signal,
-      workKey: book.key,
-    });
+    const promise =
+      existing ??
+      fetchSynopsisRace({
+        title: book.title,
+        isbn: book.isbn,
+        author: book.authors[0],
+        lang,
+        signal: controller.signal,
+        workKey: book.key,
+      });
     if (!existing) inFlightCache.set(key, promise);
 
     promise

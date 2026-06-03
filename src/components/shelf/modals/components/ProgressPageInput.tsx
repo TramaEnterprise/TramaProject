@@ -1,45 +1,51 @@
-import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 type ProgressPageInputProps = {
   pageInput: string;
   setPageInput: (v: string) => void;
+  percentInput: string;
+  setPercentInput: (v: string) => void;
   totalPages: number;
-  currentPage: number;
-  finished: boolean;
   progressPercent: number;
 };
 
 export default function ProgressPageInput({
   pageInput,
   setPageInput,
+  percentInput,
+  setPercentInput,
   totalPages,
-  currentPage,
-  finished,
   progressPercent,
 }: ProgressPageInputProps) {
   const { t } = useTranslation();
-  const prevPageRef = useRef(currentPage);
 
   const handlePageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const digits = e.target.value.replace(/\D/g, "");
-    const stripped = digits.replace(/^0+/, "");
-    if (stripped === "") {
+    const digits = e.target.value.replace(/\D/g, "").replace(/^0+/, "");
+    if (digits === "") {
       setPageInput("");
+      setPercentInput("0");
       return;
     }
-    const clamped = totalPages > 0
-      ? Math.min(parseInt(stripped, 10), totalPages)
-      : parseInt(stripped, 10);
+    const raw = parseInt(digits, 10);
+    const clamped = totalPages > 0 ? Math.min(raw, totalPages) : raw;
     setPageInput(String(clamped));
+    if (totalPages > 0) {
+      setPercentInput(String(Math.round((clamped / totalPages) * 100)));
+    }
   };
 
-  const handleToggleFinished = () => {
-    if (finished) {
-      setPageInput(prevPageRef.current > 0 ? String(prevPageRef.current) : "");
-    } else {
-      prevPageRef.current = currentPage;
-      setPageInput(String(totalPages));
+  const handlePercentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const digits = e.target.value.replace(/\D/g, "").replace(/^0+/, "");
+    if (digits === "") {
+      setPercentInput("0");
+      setPageInput("0");
+      return;
+    }
+    const raw = parseInt(digits, 10);
+    const clamped = Math.min(raw, 100);
+    setPercentInput(String(clamped));
+    if (totalPages > 0) {
+      setPageInput(String(Math.round((clamped / 100) * totalPages)));
     }
   };
 
@@ -65,29 +71,28 @@ export default function ProgressPageInput({
               {t("myLibrary.updateProgressModal.of")} {totalPages}
             </span>
           )}
-          <span className="progress-modal__progress-pct">{progressPercent}%</span>
-        </div>
-        <div className="progress-modal__progress-track">
-          <div
-            className="progress-modal__progress-fill"
-            style={{ width: `${progressPercent}%` }}
+          <input
+            className="progress-modal__page-input progress-modal__page-input--percent"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            value={percentInput}
+            onChange={handlePercentChange}
+            onFocus={(e) => e.target.select()}
+            disabled={totalPages === 0}
+            aria-label={t("myLibrary.updateProgressModal.percentageLabel")}
           />
+          <span className="progress-modal__page-total">%</span>
         </div>
-      </div>
-
-      <div className="progress-modal__field progress-modal__field--toggle">
-        <span className="progress-modal__label">
-          {t("myLibrary.updateProgressModal.finished")}
-        </span>
-        <button
-          type="button"
-          className={`progress-modal__toggle${finished ? " progress-modal__toggle--on" : ""}`}
-          role="switch"
-          aria-checked={finished}
-          onClick={handleToggleFinished}
+        <div
+          className="progress-modal__progress-track"
+          role="progressbar"
+          aria-valuenow={progressPercent}
+          aria-valuemin={0}
+          aria-valuemax={100}
         >
-          <span className="progress-modal__toggle-knob" />
-        </button>
+          <div className="progress-modal__progress-fill" style={{ width: `${progressPercent}%` }} />
+        </div>
       </div>
     </div>
   );

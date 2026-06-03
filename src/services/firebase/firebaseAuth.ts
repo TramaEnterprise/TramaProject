@@ -30,10 +30,7 @@ export async function loginWithEmail(
   return signInWithEmailAndPassword(auth, email, password);
 }
 
-export async function registerWithEmail(
-  email: string,
-  password: string
-): Promise<UserCredential> {
+export async function registerWithEmail(email: string, password: string): Promise<UserCredential> {
   return createUserWithEmailAndPassword(auth, email, password);
 }
 

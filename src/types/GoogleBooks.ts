@@ -1,7 +1,7 @@
 export type GoogleBooksImageLinks = {
   thumbnail?: string;
   smallThumbnail?: string;
-}
+};
 
 export type GoogleBooksVolumeInfo = {
   title: string;
@@ -10,15 +10,15 @@ export type GoogleBooksVolumeInfo = {
   imageLinks?: GoogleBooksImageLinks;
   description?: string;
   language?: string;
-}
+};
 
 export type GoogleBooksItem = {
   id: string;
   volumeInfo: GoogleBooksVolumeInfo;
-  searchInfo?: { textSnippet?: string};
-}
+  searchInfo?: { textSnippet?: string };
+};
 
 export type GoogleBooksResponse = {
   items?: GoogleBooksItem[];
   totalItems: number;
-}
+};

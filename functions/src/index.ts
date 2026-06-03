@@ -48,10 +48,7 @@ function absoluteLecturaliaUrl(href: string): string {
 }
 
 function cleanText(text: string): string {
-  return text
-    .replace(/\s+/g, " ")
-    .replace(/"{2,}/g, "\"")
-    .trim();
+  return text.replace(/\s+/g, " ").replace(/"{2,}/g, '"').trim();
 }
 
 // Normaliza para comparar: sin acentos, minúsculas, solo alfanumérico.
@@ -66,7 +63,9 @@ function norm(s: string): string {
 }
 
 function tokens(s: string): string[] {
-  return norm(s).split(" ").filter((w) => w.length >= 3);
+  return norm(s)
+    .split(" ")
+    .filter((w) => w.length >= 3);
 }
 
 // Lee TODOS los libros de la página de resultados completa, con su autor.
@@ -88,16 +87,11 @@ function collectCandidates(html: string): Candidate[] {
 }
 
 // Puntúa un candidato: parecido de título + el autor como desempate fuerte.
-function scoreCandidate(
-  c: Candidate,
-  reqTitle: string,
-  reqAuthor: string
-): number {
+function scoreCandidate(c: Candidate, reqTitle: string, reqAuthor: string): number {
   const candTitle = tokens(c.title);
   const reqTitleTokens = tokens(reqTitle);
   const overlap = reqTitleTokens.length
-    ? reqTitleTokens.filter((w) => candTitle.includes(w)).length /
-      reqTitleTokens.length
+    ? reqTitleTokens.filter((w) => candTitle.includes(w)).length / reqTitleTokens.length
     : 0;
 
   let score = norm(c.title) === norm(reqTitle) ? 1 : overlap;
@@ -128,30 +122,33 @@ function extractSynopsis(html: string): string {
   const paragraphs: string[] = [];
   let started = false;
 
-  heading.parent().children().each((_, el) => {
-    if (el === heading[0]) {
-      started = true;
-      return;
-    }
-    if (!started) return;
+  heading
+    .parent()
+    .children()
+    .each((_, el) => {
+      if (el === heading[0]) {
+        started = true;
+        return;
+      }
+      if (!started) return;
 
-    const tag = (el.tagName || "").toLowerCase();
-    if (["h1", "h2", "h3", "h4"].includes(tag)) {
-      started = false; // siguiente encabezado → fin de la sinopsis
-      return;
-    }
-    if (tag !== "p") return; // ignora div.promo y el div de premios/participantes
+      const tag = (el.tagName || "").toLowerCase();
+      if (["h1", "h2", "h3", "h4"].includes(tag)) {
+        started = false; // siguiente encabezado → fin de la sinopsis
+        return;
+      }
+      if (tag !== "p") return; // ignora div.promo y el div de premios/participantes
 
-    const $el = $(el);
-    if ($el.hasClass("promo") || $el.hasClass("participate")) return;
+      const $el = $(el);
+      if ($el.hasClass("promo") || $el.hasClass("participate")) return;
 
-    const text = cleanText($el.text());
-    if (!text) return;
-    // Corte defensivo: pie de ficha en cualquiera de sus dos redacciones.
-    if (/han? participado en esta ficha/i.test(text)) return;
+      const text = cleanText($el.text());
+      if (!text) return;
+      // Corte defensivo: pie de ficha en cualquiera de sus dos redacciones.
+      if (/han? participado en esta ficha/i.test(text)) return;
 
-    paragraphs.push(text);
-  });
+      paragraphs.push(text);
+    });
 
   return [...new Set(paragraphs)].join("\n\n").trim();
 }
@@ -182,9 +179,7 @@ export const scrapeSynopsis = onRequest(
 
     let candidates: Candidate[] = [];
     for (const query of queries) {
-      const html = await fetchHtml(
-        `https://www.lecturalia.com/libros/s/${slugify(query)}`
-      );
+      const html = await fetchHtml(`https://www.lecturalia.com/libros/s/${slugify(query)}`);
       if (html) candidates = collectCandidates(html);
       if (candidates.length) break;
     }

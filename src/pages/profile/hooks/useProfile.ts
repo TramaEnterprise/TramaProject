@@ -15,7 +15,7 @@ export function useProfile(userId: string) {
     setProfile(null);
     setLoading(!!userId);
   }
-  
+
   const isOwnProfile = !!uid && uid === userId;
 
   useEffect(() => {
@@ -25,16 +25,22 @@ export function useProfile(userId: string) {
     let cancelled = false;
 
     getUserProfile(userId)
-      .then((p) => { if (!cancelled) setProfile(p); })
-      .finally(() => { if (!cancelled) setLoading(false); });
+      .then((p) => {
+        if (!cancelled) setProfile(p);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
 
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [userId]);
 
   useEffect(() => {
     if (!userId) return;
     return subscribeToProfileCounts(userId, ({ followersCount, followingCount }) =>
-      setProfile((p) => (p ? { ...p, followersCount, followingCount } : p)),
+      setProfile((p) => (p ? { ...p, followersCount, followingCount } : p))
     );
   }, [userId]);
 

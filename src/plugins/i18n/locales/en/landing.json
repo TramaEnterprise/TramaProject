@@ -2,7 +2,8 @@
   "landing": {
     "checkingSession": "Checking session...",
     "hero": {
-      "title": "Your literary story, all in one place.",
+      "title": "Your literary story,",
+      "titleSecond": "all in one place",
       "subtitle": "Search for books, track your progress, celebrate your goals and connect with other readers.",
       "cta": "Get started free",
       "guest": "Explore without an account →"

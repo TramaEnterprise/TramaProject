@@ -29,11 +29,7 @@ function ReadingCardContent({ entry, onOpenHistory, onOpenUpdate }: ReadingCardC
         aria-label={t("book.coverAlt", { title: book.title })}
       >
         {coverSrc ? (
-          <img
-            className="reading-card__cover-img"
-            src={coverSrc}
-            alt=""
-          />
+          <img className="reading-card__cover-img" src={coverSrc} alt="" />
         ) : (
           <div className="reading-card__cover-placeholder" />
         )}
@@ -58,10 +54,7 @@ function ReadingCardContent({ entry, onOpenHistory, onOpenUpdate }: ReadingCardC
             </span>
           </div>
           <div className="reading-card__progress-bar">
-            <div
-              className="reading-card__progress-fill"
-              style={{ width: `${progressPercent}%` }}
-            />
+            <div className="reading-card__progress-fill" style={{ width: `${progressPercent}%` }} />
           </div>
         </div>
 

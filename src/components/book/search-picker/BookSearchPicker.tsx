@@ -51,16 +51,10 @@ export default function BookSearchPicker({
         onChange={(e) => setQuery(e.target.value)}
       />
 
-      {searching && (
-        <p className={classNames?.searching}>
-          {t(`${translationPrefix}.searching`)}
-        </p>
-      )}
+      {searching && <p className={classNames?.searching}>{t(`${translationPrefix}.searching`)}</p>}
 
       {!searching && query.trim() && results.length === 0 && (
-        <p className={classNames?.noResults}>
-          {t(`${translationPrefix}.noResults`)}
-        </p>
+        <p className={classNames?.noResults}>{t(`${translationPrefix}.noResults`)}</p>
       )}
 
       {results.length > 0 && (

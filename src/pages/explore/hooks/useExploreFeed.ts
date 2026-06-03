@@ -62,15 +62,23 @@ function throwIfAborted(signal?: AbortSignal): void {
 
 async function buildSections(
   params: ExploreSectionsParams,
-  signal?: AbortSignal,
+  signal?: AbortSignal
 ): Promise<SectionEntry[]> {
   const {
-    lang, userShelfKeys, userAuthorKeys,
-    favoriteGenre, favoriteGenreLabel,
-    favoriteAuthorKey, favoriteAuthorName,
-    fiveStarAuthorKey, fiveStarAuthorName,
-    referenceBooks, wantToReadBooks,
-    likedBook, finishedBook, favoritesReferenceBook,
+    lang,
+    userShelfKeys,
+    userAuthorKeys,
+    favoriteGenre,
+    favoriteGenreLabel,
+    favoriteAuthorKey,
+    favoriteAuthorName,
+    fiveStarAuthorKey,
+    fiveStarAuthorName,
+    referenceBooks,
+    wantToReadBooks,
+    likedBook,
+    finishedBook,
+    favoritesReferenceBook,
   } = params;
 
   const year = new Date().getFullYear();
@@ -80,14 +88,14 @@ async function buildSections(
   const globalVisibleKeys = new Set<string>();
 
   function offShelf(books: Book[]): Book[] {
-    return books.filter(b => !userShelfKeys.has(b.key));
+    return books.filter((b) => !userShelfKeys.has(b.key));
   }
 
   function surfaceFresh(books: Book[]): Book[] {
-    const fresh = books.filter(b => !globalVisibleKeys.has(b.key));
-    const repeated = books.filter(b => globalVisibleKeys.has(b.key));
+    const fresh = books.filter((b) => !globalVisibleKeys.has(b.key));
+    const repeated = books.filter((b) => globalVisibleKeys.has(b.key));
     const reordered = [...fresh, ...repeated];
-    reordered.slice(0, ABOVE_FOLD).forEach(b => globalVisibleKeys.add(b.key));
+    reordered.slice(0, ABOVE_FOLD).forEach((b) => globalVisibleKeys.add(b.key));
     return reordered;
   }
 
@@ -98,7 +106,7 @@ async function buildSections(
     entries.push({ id: "trending", type: "trending", books: trendingBooks, isFallback: false });
   } else {
     const fallback = await getTopRatedBooks(lang, FETCH_LIMIT, signal);
-    fallback.slice(0, ABOVE_FOLD).forEach(b => globalVisibleKeys.add(b.key));
+    fallback.slice(0, ABOVE_FOLD).forEach((b) => globalVisibleKeys.add(b.key));
     entries.push({ id: "trending", type: "trending", books: fallback, isFallback: true });
   }
 
@@ -107,8 +115,8 @@ async function buildSections(
   // 2. Because-liked
   if (likedBook?.genre && !usedReferenceKeys.has(likedBook.key)) {
     const raw = offShelf(
-      await getRecommendationsByGenre(likedBook.genre, lang, likedBook.key, FETCH_LIMIT, signal),
-    ).filter(b => (b.rating ?? 0) >= 4);
+      await getRecommendationsByGenre(likedBook.genre, lang, likedBook.key, FETCH_LIMIT, signal)
+    ).filter((b) => (b.rating ?? 0) >= 4);
     const books = surfaceFresh(raw);
     if (books.length > 0) {
       usedReferenceKeys.add(likedBook.key);
@@ -127,8 +135,14 @@ async function buildSections(
   // 3. Because-favorites
   if (favoritesReferenceBook?.genre && !usedReferenceKeys.has(favoritesReferenceBook.key)) {
     const raw = offShelf(
-      await getRecommendationsByGenre(favoritesReferenceBook.genre, lang, favoritesReferenceBook.key, FETCH_LIMIT, signal),
-    ).filter(b => (b.rating ?? 0) >= 4);
+      await getRecommendationsByGenre(
+        favoritesReferenceBook.genre,
+        lang,
+        favoritesReferenceBook.key,
+        FETCH_LIMIT,
+        signal
+      )
+    ).filter((b) => (b.rating ?? 0) >= 4);
     const books = surfaceFresh(raw);
     if (books.length > 0) {
       usedReferenceKeys.add(favoritesReferenceBook.key);
@@ -150,8 +164,14 @@ async function buildSections(
   // 5. Because-finished
   if (finishedBook?.genre && !usedReferenceKeys.has(finishedBook.key)) {
     const raw = offShelf(
-      await getRecommendationsByGenre(finishedBook.genre, lang, finishedBook.key, FETCH_LIMIT, signal),
-    ).filter(b => (b.rating ?? 0) >= 4);
+      await getRecommendationsByGenre(
+        finishedBook.genre,
+        lang,
+        finishedBook.key,
+        FETCH_LIMIT,
+        signal
+      )
+    ).filter((b) => (b.rating ?? 0) >= 4);
     const books = surfaceFresh(raw);
     if (books.length > 0) {
       usedReferenceKeys.add(finishedBook.key);
@@ -206,8 +226,8 @@ async function buildSections(
     const book = referenceBooks[i];
     if (!book.genre || usedReferenceKeys.has(book.key)) continue;
     const raw = offShelf(
-      await getRecommendationsByGenre(book.genre, lang, book.key, FETCH_LIMIT, signal),
-    ).filter(b => (b.rating ?? 0) >= 4);
+      await getRecommendationsByGenre(book.genre, lang, book.key, FETCH_LIMIT, signal)
+    ).filter((b) => (b.rating ?? 0) >= 4);
     if (raw.length === 0) continue;
     usedReferenceKeys.add(book.key);
     entries.push({
@@ -234,15 +254,28 @@ async function buildSections(
   const innerSeen = new Set<string>();
   const merged: Book[] = [];
   for (const b of offShelf([...byAuthor, ...byGenre])) {
-    if (!innerSeen.has(b.key)) { innerSeen.add(b.key); merged.push(b); }
+    if (!innerSeen.has(b.key)) {
+      innerSeen.add(b.key);
+      merged.push(b);
+    }
   }
   merged.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
   if (merged.length > 0) {
-    entries.push({ id: "new-releases-for-you", type: "new-releases-for-you", books: surfaceFresh(merged), isFallback: false });
+    entries.push({
+      id: "new-releases-for-you",
+      type: "new-releases-for-you",
+      books: surfaceFresh(merged),
+      isFallback: false,
+    });
   } else {
     const fallback = offShelf(await getNewReleaseBooks(year, lang, FETCH_LIMIT, signal));
     if (fallback.length > 0) {
-      entries.push({ id: "new-releases-for-you", type: "new-releases-for-you", books: surfaceFresh(fallback), isFallback: true });
+      entries.push({
+        id: "new-releases-for-you",
+        type: "new-releases-for-you",
+        books: surfaceFresh(fallback),
+        isFallback: true,
+      });
     }
   }
 

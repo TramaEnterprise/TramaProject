@@ -1,7 +1,12 @@
 import { useState, useMemo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Trans, useTranslation } from "react-i18next";
-import { logoutUser, registerWithEmail, sendVerificationEmail, isEmailInUse } from "@/services/firebase/firebaseAuth";
+import {
+  logoutUser,
+  registerWithEmail,
+  sendVerificationEmail,
+  isEmailInUse,
+} from "@/services/firebase/firebaseAuth";
 import type { RegisterFormValues } from "@/types/AuthTypes";
 import { createUserProfile } from "@/services/firebase/firebaseUsers";
 import { getFirebaseErrorMessage } from "@/services/firebase/firebaseErrors";
@@ -13,8 +18,21 @@ import { setUsername } from "@/services/firebase/firebaseUsernames";
 
 export default function RegisterForm() {
   const { t } = useTranslation();
-  const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm<RegisterFormValues>({
-    defaultValues: { email: "", password: "", name: "", surname: "", birthDate: "", username: "", acceptedTerms: false },
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isSubmitting },
+  } = useForm<RegisterFormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+      name: "",
+      surname: "",
+      birthDate: "",
+      username: "",
+      acceptedTerms: false,
+    },
     mode: "onSubmit",
     reValidateMode: "onSubmit",
   });
@@ -141,7 +159,10 @@ export default function RegisterForm() {
           registration={register("email", {
             required: t("authErrors.fieldRequired"),
             maxLength: { value: 254, message: t("authErrors.email-too-long") },
-            pattern: { value: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/, message: t("authErrors.auth/invalid-email") },
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/,
+              message: t("authErrors.auth/invalid-email"),
+            },
             validate: async (value) => {
               const inUse = await isEmailInUse(value);
               return inUse ? t("authErrors.email-already-in-use-field") : true;
@@ -197,7 +218,9 @@ export default function RegisterForm() {
         </label>
 
         {errors.acceptedTerms && (
-          <p className="auth__error" role="alert">{errors.acceptedTerms.message}</p>
+          <p className="auth__error" role="alert">
+            {errors.acceptedTerms.message}
+          </p>
         )}
 
         <button

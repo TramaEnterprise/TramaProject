@@ -40,17 +40,17 @@ export default function TermsConsentModal({
       aria-modal="true"
       aria-labelledby="terms-consent-modal-title"
     >
-      <div className="terms-consent-modal__backdrop" />
+      <div
+        className="terms-consent-modal__backdrop"
+        onClick={() => {
+          if (!isProcessing) onCancel();
+        }}
+      />
       <div className="terms-consent-modal__panel">
-        <h2
-          id="terms-consent-modal-title"
-          className="terms-consent-modal__title"
-        >
+        <h2 id="terms-consent-modal-title" className="terms-consent-modal__title">
           {t("auth.consentModalTitle")}
         </h2>
-        <p className="terms-consent-modal__body">
-          {t("auth.consentModalBody")}
-        </p>
+        <p className="terms-consent-modal__body">{t("auth.consentModalBody")}</p>
 
         <label className="auth__remember auth__terms-row">
           <input
@@ -96,7 +96,9 @@ export default function TermsConsentModal({
           <button
             type="button"
             className="terms-consent-modal__btn terms-consent-modal__btn--primary"
-            onClick={() => { void onAccept(); }}
+            onClick={() => {
+              void onAccept();
+            }}
             disabled={!accepted || isProcessing}
           >
             {isProcessing ? t("auth.registering") : t("auth.consentAccept")}

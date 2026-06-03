@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "@/context/auth/useAuth";
 import { useTheme } from "@/context/theme/useTheme";
 import { User, Settings, Moon, Sun, LogOut } from "lucide-react";
@@ -10,12 +10,13 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 
 type ProfileMenuProps = {
   onClose: () => void;
-}
+};
 
 export default function ProfileMenu({ onClose }: ProfileMenuProps) {
   const { t } = useTranslation();
   const { logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
 
   useEscapeKey(onClose);
@@ -23,11 +24,7 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
 
   return (
     <div className="profile-menu" ref={ref}>
-      <Link
-        className="profile-menu__item"
-        to="/profile"
-        onClick={onClose}
-      >
+      <Link className="profile-menu__item" to="/profile" onClick={onClose}>
         <User />
         {t("profile.menu.viewProfile")}
       </Link>
@@ -39,9 +36,7 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
 
       <button className="profile-menu__item" type="button" onClick={toggleTheme}>
         {theme === "light" ? <Moon /> : <Sun />}
-        {theme === "light"
-          ? t("profile.menu.darkTheme")
-          : t("profile.menu.lightTheme")}
+        {theme === "light" ? t("profile.menu.darkTheme") : t("profile.menu.lightTheme")}
       </button>
 
       <div className="profile-menu__divider" />
@@ -49,7 +44,11 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
       <button
         className="profile-menu__item profile-menu__item--danger"
         type="button"
-        onClick={() => { logout(); onClose(); }}
+        onClick={() => {
+          logout();
+          onClose();
+          navigate("/");
+        }}
       >
         <LogOut />
         {t("profile.menu.logout")}

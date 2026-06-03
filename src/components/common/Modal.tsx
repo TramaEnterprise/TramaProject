@@ -11,8 +11,8 @@ type ModalProps = {
   ariaLabel?: string;
   onClose: () => void;
   children: ReactNode;
-  closeOnBackdrop?: boolean;    
-  usePortal?: boolean;            
+  closeOnBackdrop?: boolean;
+  usePortal?: boolean;
   closeAriaLabel?: string;
   classNames?: Partial<{
     root: string;
@@ -46,6 +46,7 @@ export default function Modal({
       role="dialog"
       aria-modal="true"
       aria-label={ariaLabel ?? title}
+      onClick={(e) => e.stopPropagation()}
     >
       {classNames?.backdrop && <div className={classNames.backdrop} />}
       <div className={classNames?.box} ref={panelRef}>

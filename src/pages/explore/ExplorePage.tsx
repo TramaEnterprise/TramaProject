@@ -69,14 +69,22 @@ function ExplorePage() {
           favoritesReferenceBook,
         }
       : {
-          lang, userShelfKeys: new Set(), userAuthorKeys: [],
-          favoriteGenre: null, favoriteGenreLabel: null,
-          favoriteAuthorKey: null, favoriteAuthorName: null,
-          fiveStarAuthorKey: null, fiveStarAuthorName: null,
-          referenceBooks: [], wantToReadBooks: [],
-          likedBook: null, finishedBook: null, favoritesReferenceBook: null,
+          lang,
+          userShelfKeys: new Set(),
+          userAuthorKeys: [],
+          favoriteGenre: null,
+          favoriteGenreLabel: null,
+          favoriteAuthorKey: null,
+          favoriteAuthorName: null,
+          fiveStarAuthorKey: null,
+          fiveStarAuthorName: null,
+          referenceBooks: [],
+          wantToReadBooks: [],
+          likedBook: null,
+          finishedBook: null,
+          favoritesReferenceBook: null,
         },
-      !(isLoggedIn && shelfDerived?.hasBooks)
+    !(isLoggedIn && shelfDerived?.hasBooks)
   );
 
   const showGuestVersion = !isLoggedIn || (shelfDerived !== null && !shelfDerived.hasBooks);

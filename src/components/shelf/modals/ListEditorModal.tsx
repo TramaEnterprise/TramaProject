@@ -16,9 +16,7 @@ type ListEditorModalProps = {
   onClose: () => void;
 };
 
-export default function ListEditorModal({
-  existingList, onSubmit, onClose,
-}: ListEditorModalProps) {
+export default function ListEditorModal({ existingList, onSubmit, onClose }: ListEditorModalProps) {
   const { t } = useTranslation();
   const isEdit = !!existingList;
 
@@ -33,7 +31,7 @@ export default function ListEditorModal({
   const safePage = Math.min(page, totalPages - 1);
   const pageBooks = books.slice(
     safePage * BOOKS_PER_PAGE,
-    safePage * BOOKS_PER_PAGE + BOOKS_PER_PAGE,
+    safePage * BOOKS_PER_PAGE + BOOKS_PER_PAGE
   );
 
   const addBook = (book: Book) => {
@@ -106,20 +104,17 @@ export default function ListEditorModal({
           maxLength={MAX_LIST_DESCRIPTION}
           rows={3}
         />
-        <span className={`list-editor-modal__desc-counter${description.length >= MAX_LIST_DESCRIPTION ? " list-editor-modal__desc-counter--limit" : ""}`}>
+        <span
+          className={`list-editor-modal__desc-counter${description.length >= MAX_LIST_DESCRIPTION ? " list-editor-modal__desc-counter--limit" : ""}`}
+        >
           {description.length}/{MAX_LIST_DESCRIPTION}
         </span>
       </div>
 
       <div className="list-editor-modal__search-field">
-        <div className="list-editor-modal__search-header">
-          <p className="list-editor-modal__add-books-label">
-            {t("myLibrary.listEditor.addBooksLabel")}
-          </p>
-          <span className="list-editor-modal__counter" aria-live="polite">
-            {books.length}/{MAX_LIST_BOOKS}
-          </span>
-        </div>
+        <p className="list-editor-modal__add-books-label">
+          {t("myLibrary.listEditor.addBooksLabel")}
+        </p>
         <div className="list-editor-modal__search-area">
           <BookSearchPicker
             selected={books}
@@ -138,6 +133,9 @@ export default function ListEditorModal({
             }}
           />
         </div>
+        <span className="list-editor-modal__counter" aria-live="polite">
+          {books.length}/{MAX_LIST_BOOKS}
+        </span>
       </div>
 
       <div className="list-editor-modal__current">
@@ -199,7 +197,9 @@ export default function ListEditorModal({
 
       <div className="list-editor-modal__footer">
         {saveError && (
-          <p className="list-editor-modal__save-error" role="alert">{saveError}</p>
+          <p className="list-editor-modal__save-error" role="alert">
+            {saveError}
+          </p>
         )}
         <div className="list-editor-modal__footer-actions">
           <button

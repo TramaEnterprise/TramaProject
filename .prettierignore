@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Docs and plans
+docs/
+*.md
+
+# Agent skills
+.agents/
+
+# Coverage
+coverage/
+
+# Capacitor native
+android/
+ios/

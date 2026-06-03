@@ -59,7 +59,9 @@ export default function UsernameField({
 
   return (
     <div className="edit-profile__field">
-      <label className="edit-profile__label" htmlFor="username">Nickname</label>
+      <label className="edit-profile__label" htmlFor="username">
+        Nickname
+      </label>
       <div className="edit-profile__input-prefix-wrap">
         <span className="edit-profile__prefix">@</span>
         <input

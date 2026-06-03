@@ -21,17 +21,17 @@ export default function BookDetailPage() {
   const { t } = useTranslation();
   const { book, loading, error } = useBookDetail(bookId);
   const { authorInfo, loading: authorLoading } = useAuthorData(
-    book?.author ?? '',
-    book?.title ?? '',
-    book?.authorKey 
+    book?.author ?? "",
+    book?.title ?? "",
+    book?.authorKey
   );
   const { books: recommendedBooks, refresh: refreshRecs } = useBookRecommendations(
-    book?.genre ?? '',
+    book?.genre ?? "",
     book?.key ?? toWorkKey(bookId)
   );
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [bookId]);
 
   if (loading) {
@@ -72,10 +72,11 @@ export default function BookDetailPage() {
       <UserReviewSection bookKey={book.key} />
       <ReviewsSection reviews={book.reviews} />
 
-      {authorLoading
-        ? <AuthorSectionSkeleton />
-        : <AuthorSection authorInfo={authorInfo ?? book.authorInfo} />
-      }
+      {authorLoading ? (
+        <AuthorSectionSkeleton />
+      ) : (
+        <AuthorSection authorInfo={authorInfo ?? book.authorInfo} />
+      )}
 
       {recommendedBooks.length > 0 && (
         <RecommendationsSection books={recommendedBooks} onRefresh={refreshRecs} />

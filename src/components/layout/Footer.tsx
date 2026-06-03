@@ -37,12 +37,7 @@ export default function Footer() {
             <ul className="footer__list">
               {SOCIAL_LINKS.map(({ key, href }) => (
                 <li key={key}>
-                  <a
-                    className="footer__link"
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
+                  <a className="footer__link" href={href} target="_blank" rel="noreferrer noopener">
                     {t(`footer.links.${key}`)}
                   </a>
                 </li>

@@ -1,4 +1,4 @@
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 .book-detail-page {
   max-width: $max-width;
@@ -15,7 +15,9 @@
     font-size: var(--text-md);
     margin: 0;
 
-    &--error { color: #dc2626; }
+    &--error {
+      color: #dc2626;
+    }
   }
 
   &__under-construction {
@@ -56,8 +58,14 @@
     margin: 0 auto;
     transition: color var(--transition-fast);
 
-    svg { width: 15px; height: 15px; flex-shrink: 0; }
+    svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
   }
 }

@@ -13,14 +13,14 @@ import { encodeKey } from "@/utils/bookPaths";
 
 const NAV_LINKS = [
   { path: "/my-library", labelKey: "nav.myLibrary" },
-  { path: "/explore",    labelKey: "nav.explore"   },
-  { path: "/community",  labelKey: "nav.community" },
+  { path: "/explore", labelKey: "nav.explore" },
+  { path: "/community", labelKey: "nav.community" },
 ];
 
 type NavbarProps = {
   hidden?: boolean;
   onActiveClick?: () => void;
-}
+};
 
 export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
   const { isAuthenticated } = useAuth();
@@ -85,12 +85,17 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
 
         <nav className="navbar__nav">
           {NAV_LINKS.map(({ path, labelKey }) => (
-            <NavLink key={path} to={path} className="navbar__link" onClick={(e) => {
-              if(pathname === path) {
-                e.preventDefault();
-                onActiveClick?.();
-              }
-            }}>
+            <NavLink
+              key={path}
+              to={path}
+              className="navbar__link"
+              onClick={(e) => {
+                if (pathname === path) {
+                  e.preventDefault();
+                  onActiveClick?.();
+                }
+              }}
+            >
               {t(labelKey)}
             </NavLink>
           ))}

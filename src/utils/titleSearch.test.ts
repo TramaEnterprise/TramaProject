@@ -1,8 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { scoreTitleRelevance, scoreAuthorRelevance } from "./titleSearch";
 
-const BALLENA =
-  "El Nombre de la Ballena Colección Los Especiales de a la Orilla del Viento";
+const BALLENA = "El Nombre de la Ballena Colección Los Especiales de a la Orilla del Viento";
 
 describe("scoreTitleRelevance", () => {
   it("pone el título exacto por encima de uno largo que contiene las mismas palabras (query con stopwords)", () => {
@@ -41,13 +40,12 @@ describe("scoreAuthorRelevance", () => {
 
   it("toma el mejor autor de un libro con varios", () => {
     const q = "brandon sanderson";
-    expect(
-      scoreAuthorRelevance(q, ["Otro Autor", "Brandon Sanderson"])
-    ).toBe(scoreAuthorRelevance(q, ["Brandon Sanderson"]));
+    expect(scoreAuthorRelevance(q, ["Otro Autor", "Brandon Sanderson"])).toBe(
+      scoreAuthorRelevance(q, ["Brandon Sanderson"])
+    );
   });
 
   it("0 si no hay autores", () => {
     expect(scoreAuthorRelevance("brandon", [])).toBe(0);
   });
 });
-

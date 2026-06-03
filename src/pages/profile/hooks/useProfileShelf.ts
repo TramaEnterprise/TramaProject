@@ -7,7 +7,10 @@ import type { ShelfStatus } from "@/types/BookDetail";
 import { groupShelfByStatus } from "@/utils/shelf";
 
 const EMPTY_SHELF: Record<ShelfStatus, Book[]> = {
-  wantToRead: [], reading: [], finished: [], didNotFinish: [],
+  wantToRead: [],
+  reading: [],
+  finished: [],
+  didNotFinish: [],
 };
 
 export function useProfileShelf(userId: string, isOwnProfile: boolean, canViewFull: boolean) {
@@ -17,7 +20,11 @@ export function useProfileShelf(userId: string, isOwnProfile: boolean, canViewFu
   const [publicLoading, setPublicLoading] = useState(false);
   const [prevKey, setPrevKey] = useState({ userId, isOwnProfile, canViewFull });
 
-  if (prevKey.userId !== userId || prevKey.isOwnProfile !== isOwnProfile || prevKey.canViewFull !== canViewFull) {
+  if (
+    prevKey.userId !== userId ||
+    prevKey.isOwnProfile !== isOwnProfile ||
+    prevKey.canViewFull !== canViewFull
+  ) {
     setPrevKey({ userId, isOwnProfile, canViewFull });
     setPublicShelf(EMPTY_SHELF);
     const enabled = !!userId && !isOwnProfile && canViewFull;
@@ -30,11 +37,16 @@ export function useProfileShelf(userId: string, isOwnProfile: boolean, canViewFu
     }
     let cancelled = false;
     getShelf(userId)
-      .then((entries) => { if (!cancelled) setPublicShelf(groupShelfByStatus(entries ?? [], lang)); })
-      .finally(() => { if (!cancelled) setPublicLoading(false); });
-    return () => { cancelled = true; };
+      .then((entries) => {
+        if (!cancelled) setPublicShelf(groupShelfByStatus(entries ?? [], lang));
+      })
+      .finally(() => {
+        if (!cancelled) setPublicLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [userId, isOwnProfile, canViewFull, lang]);
-
 
   return {
     shelf: isOwnProfile ? shelfByStatus : publicShelf,

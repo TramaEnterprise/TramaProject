@@ -17,7 +17,10 @@ type FavoriteBooksEditorModalProps = {
 };
 
 export default function FavoriteBooksEditorModal({
-  userId, currentFavorites, onClose, onSave,
+  userId,
+  currentFavorites,
+  onClose,
+  onSave,
 }: FavoriteBooksEditorModalProps) {
   const { t } = useTranslation();
   const [favorites, setFavorites] = useState<FavoriteBook[]>(currentFavorites);
@@ -130,11 +133,7 @@ export default function FavoriteBooksEditorModal({
               <AlignJustify size={16} />
             </span>
             {book.cover_url && (
-              <img
-                className="fav-editor-modal__fav-cover"
-                src={book.cover_url}
-                alt={book.title}
-              />
+              <img className="fav-editor-modal__fav-cover" src={book.cover_url} alt={book.title} />
             )}
             <div className="fav-editor-modal__fav-info">
               <span className="fav-editor-modal__fav-title">{book.title}</span>
@@ -156,7 +155,9 @@ export default function FavoriteBooksEditorModal({
 
       <div className="fav-editor-modal__footer">
         {saveError && (
-          <p className="fav-editor-modal__save-error" role="alert">{saveError}</p>
+          <p className="fav-editor-modal__save-error" role="alert">
+            {saveError}
+          </p>
         )}
         <div className="fav-editor-modal__footer-actions">
           <button

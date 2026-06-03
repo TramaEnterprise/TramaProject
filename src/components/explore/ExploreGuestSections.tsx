@@ -10,7 +10,11 @@ type Props = {
   onNavigate: () => void;
 };
 
-export default function ExploreGuestSections({ showConversionBanner, shelfParams, onNavigate }: Props) {
+export default function ExploreGuestSections({
+  showConversionBanner,
+  shelfParams,
+  onNavigate,
+}: Props) {
   return (
     <>
       <TrendingSection params={shelfParams} onNavigate={onNavigate} />

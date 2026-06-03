@@ -42,8 +42,6 @@ export default function SearchBar({ initialQuery = "", debounceMs = 400 }: Searc
           <Search size={18} aria-hidden="true" />
         </span>
 
-        <div className="searchbar__divider" />
-
         <input
           ref={inputRef}
           type="text"

@@ -7,7 +7,7 @@ import { encodeKey } from "@/utils/bookPaths";
 
 type BookTileProps = {
   book: Book;
-}
+};
 
 export default function BookTile({ book }: BookTileProps) {
   const coverSrc = resolveCoverSrc(book);

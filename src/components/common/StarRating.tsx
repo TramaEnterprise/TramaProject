@@ -8,7 +8,7 @@ type StarRatingProps = {
 
 export default function StarRating({ rating, size = 16 }: StarRatingProps) {
   const { t } = useTranslation();
-  
+
   return (
     <div className="star-rating" aria-label={t("book.starRatingLabel", { rating })}>
       {[1, 2, 3, 4, 5].map((i) => {

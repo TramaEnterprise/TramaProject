@@ -7,7 +7,7 @@ import SynopsisModal from "@/components/book/info/SynopsisModal";
 import "./BookInfoCard.scss";
 import { genreToI18nKey } from "@/utils/genreUtils";
 import { Share2, ChevronDown } from "lucide-react";
-import ShelfDropdownButton from "@/components/book/shelf-dropdown/ShelfDropdownButton";
+import ShelfStatusDropdown from "@/components/book/shelf-status-dropdown/ShelfStatusDropdown";
 
 function formatCount(n: number): string {
   if (n >= 1000) {
@@ -89,21 +89,22 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
             <div className="book-info-card__divider" />
             <div className="book-info-card__meta-item">
               <span className="book-info-card__meta-label">{t("bookDetail.pages")}</span>
-              <span className="book-info-card__meta-value">{book.pages || '-'}</span>
+              <span className="book-info-card__meta-value">{book.pages || "-"}</span>
             </div>
 
             <div className="book-info-card__divider" />
             <div className="book-info-card__meta-item">
               <span className="book-info-card__meta-label">{t("bookDetail.published")}</span>
-              <span className="book-info-card__meta-value">{book.year || '-'}</span>
+              <span className="book-info-card__meta-value">{book.year || "-"}</span>
             </div>
 
             <div className="book-info-card__divider" />
             <div className="book-info-card__meta-item">
               <span className="book-info-card__meta-label">{t("bookDetail.isbn")}</span>
-              <span className="book-info-card__meta-value">{book.isbn || '-'}</span>
+              <span className="book-info-card__meta-value">{book.isbn || "-"}</span>
             </div>
           </div>
+
 
           {book.synopsis ? (
             <div className="book-info-card__synopsis">
@@ -130,16 +131,14 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
           )}
 
           <div className="book-info-card__footer">
-            <ShelfDropdownButton
+            <ShelfStatusDropdown
               book={bookForShelf}
-              variant="detail"
               classNames={{
                 root: "book-info-card__save-wrapper",
                 btn: "book-info-card__save-btn",
                 list: "book-info-card__dropdown",
                 item: "book-info-card__dropdown-item",
                 tooltip: "book-info-card__tooltip",
-                icon: "book-info-card__save-check",
               }}
             />
           </div>

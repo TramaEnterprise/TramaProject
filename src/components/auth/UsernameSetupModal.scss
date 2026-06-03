@@ -1,4 +1,4 @@
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 .username-setup-modal {
   position: fixed;
@@ -104,7 +104,11 @@
     border-radius: var(--radius-md);
     border: 1px solid transparent;
     cursor: pointer;
-    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
+    transition:
+      background var(--transition-fast),
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      opacity var(--transition-fast);
 
     &:disabled {
       opacity: 0.5;

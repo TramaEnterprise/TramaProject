@@ -1,5 +1,5 @@
 // src/components/FavoriteBooksEditorModal/FavoriteBooksEditorModal.scss
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .fav-editor-modal {
   position: fixed;
@@ -60,9 +60,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color var(--transition-fast), color var(--transition-fast);
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast);
 
-    &:hover { border-color: var(--color-text-primary); color: var(--color-text-primary); }
+    &:hover {
+      border-color: var(--color-text-primary);
+      color: var(--color-text-primary);
+    }
   }
 
   &__hint {
@@ -99,7 +104,9 @@
     color: var(--color-text-tertiary);
     cursor: grab;
 
-    &:active { cursor: grabbing; }
+    &:active {
+      cursor: grabbing;
+    }
   }
 
   &__fav-cover {
@@ -145,7 +152,9 @@
     padding: 0 var(--space-1);
     @include transition(color);
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
   }
 
   &__search {
@@ -193,8 +202,13 @@
     text-align: left;
     @include transition(background);
 
-    &:hover:not(:disabled) { background: var(--color-bg-section); }
-    &:disabled { opacity: 0.5; cursor: default; }
+    &:hover:not(:disabled) {
+      background: var(--color-bg-section);
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
   }
 
   &__result-cover {
@@ -253,15 +267,22 @@
       background: none;
       border: 1.5px solid var(--color-border-medium);
       color: var(--color-text-primary);
-      &:hover { border-color: var(--color-text-primary); }
+      &:hover {
+        border-color: var(--color-text-primary);
+      }
     }
 
     &--save {
       background: var(--color-text-primary);
       border: none;
       color: var(--color-btn-primary-fg);
-      &:hover { background: var(--color-btn-primary-hover); }
-      &:disabled { opacity: 0.6; cursor: default; }
+      &:hover {
+        background: var(--color-btn-primary-hover);
+      }
+      &:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
     }
   }
 }

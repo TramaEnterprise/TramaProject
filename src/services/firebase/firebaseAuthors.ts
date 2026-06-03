@@ -4,7 +4,7 @@ import { db } from "./firebaseInit";
 export type AuthorData = {
   key: string;
   name: string;
-  bio: Record<string, string>; 
+  bio: Record<string, string>;
   photoUrl: string;
   cachedAt: string;
 };
@@ -26,35 +26,40 @@ export async function getAuthorFromDB(authorKey: string): Promise<AuthorData | n
   const bioField = data.bio as string | Record<string, string> | undefined;
 
   //Por si alguna biografía aún está en string
-  const bio : Record<string, string> = typeof bioField === 'string' ? { es: bioField } : (bioField ?? {});
+  const bio: Record<string, string> =
+    typeof bioField === "string" ? { es: bioField } : (bioField ?? {});
 
   return {
     key: data.key,
     name: data.name,
     bio,
-    photoUrl: data.photoUrl ?? '',
-    cachedAt: data.cachedAt ?? '',
+    photoUrl: data.photoUrl ?? "",
+    cachedAt: data.cachedAt ?? "",
   };
 }
 
 export function resolveBio(bio: Record<string, string>, lang: string): string {
-  return bio[lang] ?? bio['es'] ?? bio['en'] ?? '';
+  return bio[lang] ?? bio["es"] ?? bio["en"] ?? "";
 }
 
 export async function saveAuthorToDB(
   authorKey: string,
   data: { key: string; name: string; bio: string; photoUrl: string },
-  lang = 'es'
+  lang = "es"
 ): Promise<void> {
   const ref = doc(db, "Authors", encodeAuthorKey(authorKey));
   // merge para no sobreescribir
   // otros idiomas si dos usuarios llegan simultáneamente por primera vez
-  await setDoc(ref, {
-    key: data.key,
-    name: data.name,
-    photoUrl: data.photoUrl,
-    cachedAt: new Date().toISOString(),
-  }, { merge: true });
+  await setDoc(
+    ref,
+    {
+      key: data.key,
+      name: data.name,
+      photoUrl: data.photoUrl,
+      cachedAt: new Date().toISOString(),
+    },
+    { merge: true }
+  );
 
   await updateDoc(ref, { [`bio.${lang}`]: data.bio });
 }

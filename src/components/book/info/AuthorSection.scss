@@ -101,11 +101,9 @@
     gap: var(--space-6);
     flex-wrap: wrap;
     margin-top: var(--space-5);
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--color-border-subtle);
 
     @include from($bp-md) {
-      margin-left: -128px;  
+      margin-left: -128px;
     }
   }
 

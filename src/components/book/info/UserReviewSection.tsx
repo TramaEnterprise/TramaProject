@@ -47,18 +47,12 @@ export default function UserReviewSection({ bookKey }: UserReviewSectionProps) {
 
   return (
     <section className="user-review-section">
-      <h2 className="user-review-section__title">
-        {t("bookDetail.yourReviewTitle")}
-      </h2>
+      <h2 className="user-review-section__title">{t("bookDetail.yourReviewTitle")}</h2>
 
       <article className="user-review-section__card">
         <header className="user-review-section__header">
           {profile.profilePhotoUrl ? (
-            <img
-              className="user-review-section__avatar"
-              src={profile.profilePhotoUrl}
-              alt=""
-            />
+            <img className="user-review-section__avatar" src={profile.profilePhotoUrl} alt="" />
           ) : (
             <div
               className="user-review-section__avatar user-review-section__avatar--placeholder"
@@ -70,17 +64,13 @@ export default function UserReviewSection({ bookKey }: UserReviewSectionProps) {
 
           <div className="user-review-section__user">
             <span className="user-review-section__name">{displayName}</span>
-            <span className="user-review-section__handle">
-              @{profile.username}
-            </span>
+            <span className="user-review-section__handle">@{profile.username}</span>
           </div>
 
           {hasRating && entry.rating !== undefined && (
             <div className="user-review-section__rating">
               <StarRating rating={entry.rating} size={20} />
-              <span className="user-review-section__rating-value">
-                {entry.rating} / 5
-              </span>
+              <span className="user-review-section__rating-value">{entry.rating} / 5</span>
             </div>
           )}
         </header>

@@ -8,17 +8,12 @@ type RecommendationsSectionProps = {
   onRefresh?: () => void;
 };
 
-export default function RecommendationsSection({
-  books,
-  onRefresh,
-}: RecommendationsSectionProps) {
+export default function RecommendationsSection({ books, onRefresh }: RecommendationsSectionProps) {
   const { t } = useTranslation();
 
   return (
     <section className="recs-section">
-      <h2 className="recs-section__title">
-        {t("bookDetail.recsTitle")}
-      </h2>
+      <h2 className="recs-section__title">{t("bookDetail.recsTitle")}</h2>
       <div className="recs-section__grid">
         {books.map((book) => (
           <BookCard key={book.key} book={book} />

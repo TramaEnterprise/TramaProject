@@ -18,10 +18,7 @@ export async function updatePrivateInfo(
   await setDoc(doc(db, "Users", uid, "private", "info"), data, { merge: true });
 }
 
-export async function createUserProfile(
-  uid: string, 
-  data: UserProfileData
-): Promise<void> {
+export async function createUserProfile(uid: string, data: UserProfileData): Promise<void> {
   const { email, birthDate, acceptedTermsAt, acceptedTermsVersion, ...publicData } = data;
   const userRef = doc(db, "Users", uid);
 
@@ -96,7 +93,12 @@ export async function getUserMinimal(uid: string): Promise<UserMinimal | null> {
 
 export async function updateUserProfile(
   uid: string,
-  data: Partial<Omit<UserFullProfile, "uid" | "email" | "birthDate" | "username" | "followersCount" | "followingCount">>
+  data: Partial<
+    Omit<
+      UserFullProfile,
+      "uid" | "email" | "birthDate" | "username" | "followersCount" | "followingCount"
+    >
+  >
 ): Promise<void> {
   await updateDoc(doc(db, "Users", uid), data);
 }
@@ -107,10 +109,7 @@ export async function getFavorites(uid: string): Promise<FavoriteBook[]> {
   return (snap.data().books as FavoriteBook[]) ?? [];
 }
 
-export async function saveFavorites(
-  uid: string,
-  books: FavoriteBook[]
-): Promise<void> {
+export async function saveFavorites(uid: string, books: FavoriteBook[]): Promise<void> {
   await setDoc(doc(db, "Users", uid, "favorites", "list"), { books });
 }
 
@@ -132,5 +131,3 @@ export async function userProfileExists(uid: string): Promise<boolean> {
   const snap = await getDoc(doc(db, "Users", uid));
   return snap.exists();
 }
-
-

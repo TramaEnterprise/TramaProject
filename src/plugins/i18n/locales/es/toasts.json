@@ -1,12 +1,12 @@
 {
   "toasts": {
     "shelf": {
-      "added": "Has añadido «{{title}}» a {{shelf}}",
-      "statusChanged": "Has movido «{{title}}» a {{shelf}}",
-      "removed": "Has quitado «{{title}}» de tu biblioteca",
-      "progressUpdated": "Has actualizado el progreso de «{{title}}»",
-      "finished": "Has terminado «{{title}}»",
-      "didNotFinish": "Has marcado «{{title}}» como abandonado",
+      "added": "Marcado como «{{shelf}}»",
+      "statusChanged": "Marcado como «{{shelf}}»",
+      "removed": "Quitado de tu biblioteca",
+      "progressUpdated": "Progreso actualizado",
+      "finished": "Libro terminado",
+      "didNotFinish": "Marcado como abandonado",
       "undo": "Deshacer"
     }
   }

@@ -1,5 +1,5 @@
 // src/components/ProfileCard/ProfileCard.scss
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .profile-card {
   display: flex;
@@ -14,7 +14,9 @@
   text-align: left;
   @include transition(background);
 
-  &:hover { background: var(--color-bg-section); }
+  &:hover {
+    background: var(--color-bg-section);
+  }
 
   &__avatar {
     width: 44px;

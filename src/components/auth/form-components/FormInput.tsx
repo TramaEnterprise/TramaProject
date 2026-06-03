@@ -13,7 +13,16 @@ type FormInputProps = {
   required?: boolean;
 };
 
-export default function FormInput({ type, label, placeholder, hint, error, registration, max, required }: FormInputProps) {
+export default function FormInput({
+  type,
+  label,
+  placeholder,
+  hint,
+  error,
+  registration,
+  max,
+  required,
+}: FormInputProps) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === "password";
   const inputType = isPassword && showPassword ? "text" : type;
@@ -22,7 +31,8 @@ export default function FormInput({ type, label, placeholder, hint, error, regis
   return (
     <div className="auth__field">
       <label className="auth__label" htmlFor={inputId}>
-        {label}{required && <span className="auth__required">*</span>}
+        {label}
+        {required && <span className="auth__required">*</span>}
       </label>
       <div className={isPassword ? "auth__input-wrapper" : undefined}>
         <input
@@ -38,7 +48,7 @@ export default function FormInput({ type, label, placeholder, hint, error, regis
           <button
             type="button"
             className="auth__input-toggle"
-            onClick={() => setShowPassword(v => !v)}
+            onClick={() => setShowPassword((v) => !v)}
             tabIndex={-1}
             aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
           >

@@ -2,11 +2,44 @@ const DEFAULT_MIN_LENGTH = 2;
 
 const STOPWORDS = new Set([
   // español
-  "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del",
-  "y", "e", "o", "u", "a", "en", "con", "por", "para", "al", "lo",
-  "su", "sus", "se", "que",
+  "el",
+  "la",
+  "los",
+  "las",
+  "un",
+  "una",
+  "unos",
+  "unas",
+  "de",
+  "del",
+  "y",
+  "e",
+  "o",
+  "u",
+  "a",
+  "en",
+  "con",
+  "por",
+  "para",
+  "al",
+  "lo",
+  "su",
+  "sus",
+  "se",
+  "que",
   // inglés
-  "the", "an", "of", "and", "or", "to", "in", "on", "for", "with", "at", "by",
+  "the",
+  "an",
+  "of",
+  "and",
+  "or",
+  "to",
+  "in",
+  "on",
+  "for",
+  "with",
+  "at",
+  "by",
 ]);
 
 export function normalizeTitleForSearch(title: string): string {
@@ -92,10 +125,7 @@ export function buildAuthorTokens(authors: string[]): string[] {
   return [...tokens];
 }
 
-export function isAuthorTokensUpToDate(
-  current: string[] | undefined,
-  expected: string[]
-): boolean {
+export function isAuthorTokensUpToDate(current: string[] | undefined, expected: string[]): boolean {
   if (!current) return expected.length === 0;
   if (current.length !== expected.length) return false;
   const set = new Set(current);

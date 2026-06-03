@@ -37,13 +37,13 @@ describe('SearchBar', () => {
     vi.useRealTimers();
   });
 
-  it('muestra el botón de limpiar cuando hay texto y lo borra al hacer click', async () => {
+  it("muestra el botón de limpiar cuando hay texto y lo borra al hacer click", async () => {
     render(<SearchBar />);
     const input = screen.getByPlaceholderText('explore.searchPlaceholder');
     await userEvent.type(input, 'prueba');
     const clearButton = screen.getByRole('button', { name: 'search.clearLabel' });
     expect(clearButton).toBeInTheDocument();
     await userEvent.click(clearButton);
-    expect(input).toHaveValue('');
+    expect(input).toHaveValue("");
   });
 });

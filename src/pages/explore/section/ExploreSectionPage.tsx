@@ -13,8 +13,8 @@ import { useState } from "react";
 import LoadMore from "@/components/common/LoadMore";
 
 const SECTION_TITLE_KEYS: Record<ExploreSectionType, string> = {
-  "trending": "explore.sections.trending",
-  "acclaimed": "explore.sections.acclaimed",
+  trending: "explore.sections.trending",
+  acclaimed: "explore.sections.acclaimed",
   "top-rated": "explore.sections.topRated",
   "because-reading": "explore.sections.becauseReading",
   "because-liked": "explore.sections.becauseLiked",
@@ -23,13 +23,13 @@ const SECTION_TITLE_KEYS: Record<ExploreSectionType, string> = {
   "more-genre": "explore.sections.moreGenre",
   "more-author": "explore.sections.moreAuthor",
   "new-releases-for-you": "explore.sections.newReleasesForYou",
-  "waiting": "explore.sections.waiting",
+  waiting: "explore.sections.waiting",
   "genre-grid": "explore.sections.genreGrid",
   "top-genre": "explore.sections.topGenre",
 };
 
 const SECTION_FALLBACK_KEYS: Partial<Record<ExploreSectionType, string>> = {
-  "trending": "explore.sections.trendingFallback",
+  trending: "explore.sections.trendingFallback",
   "new-releases-for-you": "explore.sections.newReleasesFallback",
 };
 
@@ -85,11 +85,12 @@ export default function ExploreSectionPage() {
   const visibleBooks = books.slice(0, visibleCount);
   const hasMore = visibleCount < books.length;
 
-  const titleKey = isFallback && SECTION_FALLBACK_KEYS[sectionType]
-    ? SECTION_FALLBACK_KEYS[sectionType]!
-    : sectionType === "more-genre"
-      ? moreGenreTitleKey(params.favoriteGenre)
-      : (SECTION_TITLE_KEYS[sectionType] ?? "");
+  const titleKey =
+    isFallback && SECTION_FALLBACK_KEYS[sectionType]
+      ? SECTION_FALLBACK_KEYS[sectionType]!
+      : sectionType === "more-genre"
+        ? moreGenreTitleKey(params.favoriteGenre)
+        : (SECTION_TITLE_KEYS[sectionType] ?? "");
 
   const title = t(titleKey, {
     title: params.referenceBookTitle,
@@ -109,11 +110,7 @@ export default function ExploreSectionPage() {
   return (
     <div className="section-page">
       <div className="section-page__header">
-        <button
-          type="button"
-          className="section-page__back"
-          onClick={() => navigate(-1)}
-        >
+        <button type="button" className="section-page__back" onClick={() => navigate(-1)}>
           <ChevronLeft aria-hidden="true" />
           {t("explore.backBtn")}
         </button>

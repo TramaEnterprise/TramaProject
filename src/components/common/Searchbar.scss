@@ -23,7 +23,7 @@
     text-align: center;
   }
 
-&__input-row {
+  &__input-row {
     display: flex;
     align-items: center;
     width: 100%;
@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: center;
     height: 44px;
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-1) 0 var(--space-4);
     color: var(--color-text-tertiary);
     flex-shrink: 0;
     pointer-events: none;
@@ -55,20 +55,13 @@
     }
   }
 
-  &__divider {
-    width: 1px;
-    height: 20px;
-    background: var(--color-border-subtle);
-    flex-shrink: 0;
-  }
-
   &__input {
     flex: 1;
     min-width: 0;
     background: transparent;
     border: none;
     outline: none;
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-3) 0 var(--space-2);
     height: 44px;
     font-size: var(--text-sm);
     font-family: var(--font-main);
@@ -93,10 +86,12 @@
     color: var(--color-text-tertiary);
     cursor: pointer;
     flex-shrink: 0;
-    transition:
-      color var(--transition-fast);
+    transition: color var(--transition-fast);
 
-    svg { width: 18px; height: 18px; }
+    svg {
+      width: 18px;
+      height: 18px;
+    }
 
     &:hover {
       color: var(--color-text-primary);

@@ -12,7 +12,13 @@ type useShelfLangCompleteProps = {
   setEntries: Dispatch<SetStateAction<Map<string, ShelfEntry>>>;
 };
 
-export function useShelfLangComplete({ uid, ready, entries, lang, setEntries }: useShelfLangCompleteProps) {
+export function useShelfLangComplete({
+  uid,
+  ready,
+  entries,
+  lang,
+  setEntries,
+}: useShelfLangCompleteProps) {
   useEffect(() => {
     if (!uid || !ready || entries.size === 0) return;
 
@@ -31,8 +37,13 @@ export function useShelfLangComplete({ uid, ready, entries, lang, setEntries }: 
         // Propagar al shelf doc también
         for (const completed of completedBooks) {
           if (completed.titles?.[lang]) {
-            updateShelfBookTitleToDB(uid, completed.key, completed.titles[lang], lang, completed.isbns?.[lang])
-              .catch((err) => logger.warn("[ShelfEnrich] Shelf update failed:", err));
+            updateShelfBookTitleToDB(
+              uid,
+              completed.key,
+              completed.titles[lang],
+              lang,
+              completed.isbns?.[lang]
+            ).catch((err) => logger.warn("[ShelfEnrich] Shelf update failed:", err));
           }
         }
 
@@ -48,6 +59,8 @@ export function useShelfLangComplete({ uid, ready, entries, lang, setEntries }: 
       })
       .catch(() => {});
 
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [uid, ready, entries.size, lang, setEntries, entries]);
 }

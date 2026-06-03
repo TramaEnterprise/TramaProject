@@ -16,7 +16,11 @@ type Props = {
   onNavigate?: () => void;
 };
 
-export default function TrendingSection({ params = {}, books: overrideBooks, isFallback: overrideFallback }: Props) {
+export default function TrendingSection({
+  params = {},
+  books: overrideBooks,
+  isFallback: overrideFallback,
+}: Props) {
   const { t } = useTranslation();
   const { lang } = useCurrentLanguage();
 

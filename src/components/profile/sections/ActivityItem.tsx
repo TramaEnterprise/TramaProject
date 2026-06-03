@@ -42,12 +42,10 @@ export default function ActivityItem({ item }: ActivityItemProps) {
             <div className="activity-item__cover activity-item__cover--placeholder" />
           )}
         </button>
+      ) : item.bookCoverUrl ? (
+        <img className="activity-item__cover" src={item.bookCoverUrl} alt={item.bookTitle ?? ""} />
       ) : (
-        item.bookCoverUrl ? (
-          <img className="activity-item__cover" src={item.bookCoverUrl} alt={item.bookTitle ?? ""} />
-        ) : (
-          <div className="activity-item__cover activity-item__cover--placeholder" />
-        )
+        <div className="activity-item__cover activity-item__cover--placeholder" />
       )}
 
       <div className="activity-item__info">
@@ -55,26 +53,16 @@ export default function ActivityItem({ item }: ActivityItemProps) {
           <span className="activity-item__event">
             {t(`profile.activity.events.${item.type}`, { defaultValue: item.type })}
           </span>
-          <span className="activity-item__time">
-            {timeAgo(item.createdAt, t)}
-          </span>
+          <span className="activity-item__time">{timeAgo(item.createdAt, t)}</span>
         </div>
 
-        {item.bookTitle && (
-          <p className="activity-item__book-title">{item.bookTitle}</p>
-        )}
-        {item.bookAuthor && (
-          <p className="activity-item__book-author">{item.bookAuthor}</p>
-        )}
-        {item.listName && (
-          <p className="activity-item__list-name">"{item.listName}"</p>
-        )}
+        {item.bookTitle && <p className="activity-item__book-title">{item.bookTitle}</p>}
+        {item.bookAuthor && <p className="activity-item__book-author">{item.bookAuthor}</p>}
+        {item.listName && <p className="activity-item__list-name">"{item.listName}"</p>}
         {typeof item.rating === "number" && item.rating > 0 && (
           <StarRating rating={item.rating} size={14} />
         )}
-        {item.note && (
-          <p className="activity-item__note">{item.note}</p>
-        )}
+        {item.note && <p className="activity-item__note">{item.note}</p>}
       </div>
     </div>
   );
