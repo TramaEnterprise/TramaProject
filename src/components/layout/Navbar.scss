@@ -154,7 +154,7 @@
 
   &__link {
     text-decoration: none;
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     font-weight: var(--weight-medium);
     color: var(--color-text-secondary);
     white-space: nowrap;
@@ -173,18 +173,6 @@
 
     &.active {
       color: var(--color-text-primary);
-      font-weight: var(--weight-semibold);
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 6px;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: var(--color-text-primary);
-      }
     }
   }
 
@@ -236,7 +224,7 @@
     border: 1px solid transparent;
     cursor: pointer;
     font-family: var(--font-main);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     font-weight: var(--weight-medium);
     color: var(--color-text-primary);
     border-radius: var(--radius-pill);
