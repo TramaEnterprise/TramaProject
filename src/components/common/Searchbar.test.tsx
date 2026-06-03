@@ -1,43 +1,48 @@
-import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import SearchBar from "./Searchbar";
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import SearchBar from './Searchbar';
 
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({
-    t: (key: string) => key,
-  }),
+const navigateMock = vi.fn();
+
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({ t: (key: string) => key }),
 }));
 
-describe("SearchBar", () => {
-  it("renderiza el título y el campo de búsqueda", () => {
-    render(<SearchBar />);
+vi.mock('react-router', () => ({
+  useNavigate: () => navigateMock,
+}));
 
-    expect(screen.getByText("explore.searchTitle")).toBeInTheDocument();
-    expect(screen.getByPlaceholderText("explore.searchPlaceholder")).toBeInTheDocument();
+describe('SearchBar', () => {
+  beforeEach(() => {
+    navigateMock.mockClear();
   });
 
-  it("actualiza el input cuando se escribe y dispara onSearch al presionar Enter", async () => {
-    const handleSearch = vi.fn();
-    render(<SearchBar onSearch={handleSearch} />);
+  it('renderiza el título y el campo de búsqueda', () => {
+    render(<SearchBar />);
+    expect(screen.getByText('explore.searchTitle')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('explore.searchPlaceholder')).toBeInTheDocument();
+  });
 
-    const input = screen.getByPlaceholderText("explore.searchPlaceholder");
-    await userEvent.type(input, "  historia  ");
-    await userEvent.keyboard("{Enter}");
+  it('navega a /search tras el debounce al escribir 3+ caracteres', async () => {
+    vi.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    render(<SearchBar debounceMs={400} />);
 
-    expect(handleSearch).toHaveBeenCalledTimes(1);
-    expect(handleSearch).toHaveBeenCalledWith("historia", "todo");
+    const input = screen.getByPlaceholderText('explore.searchPlaceholder');
+    await user.type(input, 'historia');
+    vi.advanceTimersByTime(400);
+
+    expect(navigateMock).toHaveBeenCalledWith('/search?q=historia');
+    vi.useRealTimers();
   });
 
   it("muestra el botón de limpiar cuando hay texto y lo borra al hacer click", async () => {
     render(<SearchBar />);
-
-    const input = screen.getByPlaceholderText("explore.searchPlaceholder");
-    await userEvent.type(input, "prueba");
-
-    const clearButton = screen.getByRole("button", { name: "search.clearLabel" });
+    const input = screen.getByPlaceholderText('explore.searchPlaceholder');
+    await userEvent.type(input, 'prueba');
+    const clearButton = screen.getByRole('button', { name: 'search.clearLabel' });
     expect(clearButton).toBeInTheDocument();
-
     await userEvent.click(clearButton);
     expect(input).toHaveValue("");
   });

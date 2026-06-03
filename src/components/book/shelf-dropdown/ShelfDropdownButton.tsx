@@ -113,7 +113,7 @@ export default function ShelfDropdownButton({
       </button>
 
       {open && (
-        <ul className={classNames?.list} onClick={(e) => e.stopPropagation()}>
+        <ul className={classNames?.list}>
           {SHELF_OPTIONS.map((opt) => (
             <li key={opt}>
               <button

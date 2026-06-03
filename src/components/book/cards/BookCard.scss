@@ -12,6 +12,21 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   cursor: pointer;
+  transition: transform var(--transition-base);
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &--open {
+    z-index: 50;
+  }
 
   // Cover
   &__cover-wrapper {

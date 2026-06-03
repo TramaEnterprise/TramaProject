@@ -23,6 +23,7 @@ function ReadingCardContent({ entry, onOpenHistory, onOpenUpdate }: ReadingCardC
   return (
     <article className="reading-card">
       <button
+        type="button"
         className="reading-card__cover-btn"
         onClick={() => navigate(`/books/${encodeKey(book.key)}`, { state: { book } })}
         aria-label={t("book.coverAlt", { title: book.title })}
@@ -58,10 +59,10 @@ function ReadingCardContent({ entry, onOpenHistory, onOpenUpdate }: ReadingCardC
         </div>
 
         <div className="reading-card__actions">
-          <button className="reading-card__btn-outline" onClick={onOpenHistory}>
+          <button type="button" className="reading-card__btn-outline" onClick={onOpenHistory}>
             {t("myLibrary.viewHistory")}
           </button>
-          <button className="reading-card__btn-fill" onClick={onOpenUpdate}>
+          <button type="button" className="reading-card__btn-fill" onClick={onOpenUpdate}>
             {t("myLibrary.updateProgress")}
           </button>
         </div>

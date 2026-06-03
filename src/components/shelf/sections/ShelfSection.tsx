@@ -75,6 +75,7 @@ export default function ShelfSection({
           {SHELF_FILTER_KEYS.map((key) => (
             <button
               key={key}
+              type="button"
               className={`shelf-section__filter-tab ${activeFilter === key ? "shelf-section__filter-tab--active" : ""}`}
               onClick={() => handleFilterChange(key)}
             >
@@ -84,14 +85,13 @@ export default function ShelfSection({
           ))}
         </div>
         {onSeeAll && (
-          <a
-            role="button"
+          <button
+            type="button"
             className="shelf-section__see-all"
             onClick={onSeeAll}
-            style={{ cursor: "pointer" }}
           >
             {t("myLibrary.seeAll")} <ChevronRight size={14} aria-hidden="true" />
-          </a>
+          </button>
         )}
       </div>
 
@@ -143,7 +143,11 @@ export default function ShelfSection({
             </div>
             {totalPages > 1 && (
               <div className="shelf-section__chevron-area">
-                <button className="shelf-section__chevron" onClick={handleChevron}>
+                <button
+                  type="button"
+                  className="shelf-section__chevron"
+                  onClick={handleChevron}
+                >
                   {isLastPage ? <ChevronLeft /> : <ChevronRight />}
                 </button>
               </div>

@@ -10,6 +10,16 @@
   box-shadow: var(--shadow-card);
   transition: box-shadow var(--transition-base);
 
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
   &--open {
     z-index: 50;
     overflow: visible;
@@ -232,6 +242,8 @@
     gap: var(--space-2);
     flex-shrink: 0;
     margin-top: auto;
+    position: relative;
+    z-index: 2;
   }
 
   &__btn {

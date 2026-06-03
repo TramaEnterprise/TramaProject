@@ -15,12 +15,13 @@
   }
 
   &__reading-section {
+    position: relative;
+    isolation: isolate;
     margin-top: calc(-1 * (var(--space-6) + var(--space-2) + 2rem));
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     width: 100vw;
-    min-height: 480px;
-    background: radial-gradient(circle 500px at 50% 50%, var(--color-bg-darkest) 35%, #fff 100%);
+    min-height: 620px;
     padding: var(--space-6) var(--space-5);
     display: flex;
     flex-direction: column;
@@ -28,9 +29,51 @@
     justify-content: center;
     gap: var(--space-3);
 
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 550px;
+      aspect-ratio: 1;
+      //background: var(--color-border-strong);
+      background: #f9dbc1;
+      z-index: -1;
+
+      mask:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='460'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='1'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='discrete' tableValues='0 1'/%3E%3CfeFuncG type='discrete' tableValues='0 1'/%3E%3CfeFuncB type='discrete' tableValues='0 1'/%3E%3CfeFuncA type='discrete' tableValues='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='460' height='460' filter='url(%23n)'/%3E%3C/svg%3E") center / 100% 100%,
+        radial-gradient(circle closest-side, #fff 64%, #000 98%);
+      mask-mode: luminance, luminance;
+      mask-composite: intersect;
+      -webkit-mask-composite: source-in;
+
+      @include from($bp-md) {
+        width: 680px;
+      }
+    }
+
+    // Núcleo gris sólido (encima del halo): tapa el grano del centro
+    // y deja solo el borde con puntitos. Se desvanece suave en su orilla.
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 445px;
+      aspect-ratio: 1;
+      //background: var(--color-border-strong);
+      background: #f9dbc1;
+      mask: radial-gradient(circle closest-side, #000 82%, transparent 100%);
+      z-index: -1;
+
+      @include from($bp-md) {
+        width: 575px;
+      }
+    }
+
     @include from($bp-md) {
       margin-top: calc(-1 * (var(--space-10) + var(--space-2) + 2rem));
-      min-height: 580px;
+      min-height: 720px;
       padding: var(--space-8) var(--space-7);
     }
   }

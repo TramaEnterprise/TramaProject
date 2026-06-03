@@ -196,6 +196,7 @@ export default function ProfilePage() {
 
       {followModal && (
         <FollowersModal
+          key={`${followModal}-${resolvedUserId}`}
           userId={resolvedUserId}
           mode={followModal}
           isOwnProfile={isOwnProfile}

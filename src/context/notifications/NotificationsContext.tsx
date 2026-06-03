@@ -126,17 +126,13 @@ export function NotificationsProvider({ children }: { children: React.ReactNode 
     [uid]
   );
 
+  const value = useMemo(
+    () => ({ notifications, unreadCount, loading, markAllRead, remove, acceptRequest, rejectRequest }),
+    [notifications, unreadCount, loading, markAllRead, remove, acceptRequest, rejectRequest]);
+
   return (
     <NotificationsContext.Provider
-      value={{
-        notifications,
-        unreadCount,
-        loading,
-        markAllRead,
-        remove,
-        acceptRequest,
-        rejectRequest,
-      }}
+      value={value}
     >
       {children}
     </NotificationsContext.Provider>

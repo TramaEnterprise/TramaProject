@@ -230,20 +230,16 @@
   }
 
   &__confirm {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-4);
-  }
+    width: 360px;
+    max-width: calc(100% - var(--space-8));
+    border: none;
+    padding: 0;
+    background: transparent;
 
-  &__confirm-backdrop {
-    position: absolute;
-    inset: 0;
-    background: var(--color-overlay);
-    backdrop-filter: blur(4px);
+    &::backdrop {
+      background: var(--color-overlay);
+      backdrop-filter: blur(4px);
+    }
   }
 
   &__confirm-box {

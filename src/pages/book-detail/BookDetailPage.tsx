@@ -54,7 +54,7 @@ export default function BookDetailPage() {
           <p className="book-detail-page__under-construction-sub">
             Estamos trabajando para traerte la información de este libro pronto.
           </p>
-          <button className="book-detail-page__back-btn" onClick={() => navigate(-1)}>
+          <button type="button" className="book-detail-page__back-btn" onClick={() => navigate(-1)}>
             <ChevronLeft aria-hidden="true" />
             {t("bookDetail.back")}
           </button>

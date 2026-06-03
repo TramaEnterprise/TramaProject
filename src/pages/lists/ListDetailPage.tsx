@@ -16,7 +16,7 @@ export default function ListDetailPage() {
   const { user } = useAuth();
   const { lists, loading, updateList, deleteList } = useLists(userId);
   const [editorOpen, setEditorOpen] = useState(false);
-  const [confirmOpen, setConfirmOpen] = useState(false);
+  const confirmRef = useRef<HTMLDialogElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -106,7 +106,7 @@ export default function ListDetailPage() {
                           role="menuitem"
                           onClick={() => {
                             setMenuOpen(false);
-                            setConfirmOpen(true);
+                            confirmRef.current?.showModal();
                           }}
                         >
                           <Trash2 size={15} aria-hidden="true" />
@@ -148,12 +148,11 @@ export default function ListDetailPage() {
         />
       )}
 
-      {confirmOpen && isOwner && (
-        <div className="list-detail-page__confirm" role="dialog" aria-modal="true">
-          <div
-            className="list-detail-page__confirm-backdrop"
-            onClick={() => setConfirmOpen(false)}
-          />
+      {isOwner && (
+        <dialog
+          ref={confirmRef}
+          className="list-detail-page__confirm"
+        >
           <div className="list-detail-page__confirm-box">
             <p className="list-detail-page__confirm-text">
               {t("myLibrary.listDetail.confirmDelete")}
@@ -172,13 +171,13 @@ export default function ListDetailPage() {
               <button
                 type="button"
                 className="list-detail-page__confirm-btn"
-                onClick={() => setConfirmOpen(false)}
+                onClick={() => confirmRef.current?.close()}
               >
                 {t("myLibrary.listDetail.confirmDeleteNo")}
               </button>
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </div>
   );

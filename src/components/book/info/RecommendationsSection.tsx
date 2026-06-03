@@ -20,7 +20,7 @@ export default function RecommendationsSection({ books, onRefresh }: Recommendat
         ))}
       </div>
       <div className="recs-section__cta">
-        <button className="recs-section__cta-btn" onClick={onRefresh}>
+        <button type="button" className="recs-section__cta-btn" onClick={onRefresh}>
           {t("bookDetail.recsCta", { defaultValue: "Generar más" })}
         </button>
       </div>

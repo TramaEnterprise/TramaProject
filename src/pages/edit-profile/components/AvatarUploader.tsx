@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { Upload } from "lucide-react";
 
 type AvatarUploaderProps = {
@@ -7,9 +6,7 @@ type AvatarUploaderProps = {
 };
 
 export default function AvatarUploader({ previewUrl, onFileSelected }: AvatarUploaderProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const forwardSelectedFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) onFileSelected(file);
   };
@@ -18,7 +15,7 @@ export default function AvatarUploader({ previewUrl, onFileSelected }: AvatarUpl
     <div className="edit-profile__field">
       <span className="edit-profile__label">Foto de perfil</span>
       <div className="edit-profile__photo-upload">
-        <div className="edit-profile__photo-preview" onClick={() => inputRef.current?.click()}>
+        <label className="edit-profile__photo-preview" htmlFor="avatar-input">
           {previewUrl ? (
             <img src={previewUrl} alt="Foto de perfil" className="edit-profile__photo-img" />
           ) : (
@@ -27,13 +24,13 @@ export default function AvatarUploader({ previewUrl, onFileSelected }: AvatarUpl
           <div className="edit-profile__photo-overlay">
             <Upload size={20} aria-hidden="true" />
           </div>
-        </div>
+        </label>
         <input
-          ref={inputRef}
+          id="avatar-input"
           type="file"
           accept="image/*"
           className="edit-profile__file-input"
-          onChange={handleChange}
+          onChange={forwardSelectedFile}
           aria-label="Subir foto de perfil"
         />
       </div>

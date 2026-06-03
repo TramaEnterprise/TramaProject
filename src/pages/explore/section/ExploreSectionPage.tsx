@@ -8,9 +8,9 @@ import type { ExploreSectionParams, ExploreSectionType } from "@/types/ExploreTy
 import { moreGenreTitleKey } from "@/utils/genreUtils";
 import { ChevronLeft } from "lucide-react";
 import "./ExploreSectionPage.scss";
-import { useExploreCache } from "@/context/explore-cache/useExploreCache";
 import { useShelfDerivedFavorites } from "@/pages/explore/hooks/useShelfDerivedFavorites";
-import { useEffect } from "react";
+import { useState } from "react";
+import LoadMore from "@/components/common/LoadMore";
 
 const SECTION_TITLE_KEYS: Record<ExploreSectionType, string> = {
   trending: "explore.sections.trending",
@@ -47,7 +47,6 @@ function renderTitle(title: string, highlight: string | undefined) {
 
 export default function ExploreSectionPage() {
   const { type } = useParams<{ type: string }>();
-  const { clearIfDirty } = useExploreCache();
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
   const { lang } = useCurrentLanguage();
@@ -71,16 +70,20 @@ export default function ExploreSectionPage() {
   };
 
   const isWaiting = sectionType === "waiting";
-  const {
-    books: fetchedBooks,
-    loading: fetchLoading,
-    error,
-    retry,
-    isFallback,
-  } = useSectionBooks(sectionType, params, lang, 100, isWaiting);
+  const { books: fetchedBooks, loading: fetchLoading, error, retry, isFallback } = useSectionBooks(
+    sectionType,
+    params,
+    lang,
+    100,
+    isWaiting,
+  );
 
   const books = isWaiting ? (shelfDerived?.wantToReadBooks ?? []) : fetchedBooks;
   const loading = isWaiting ? shelfDerived === null : fetchLoading;
+  const PAGE = 24;
+  const [visibleCount, setVisibleCount] = useState(PAGE);
+  const visibleBooks = books.slice(0, visibleCount);
+  const hasMore = visibleCount < books.length;
 
   const titleKey =
     isFallback && SECTION_FALLBACK_KEYS[sectionType]
@@ -96,20 +99,13 @@ export default function ExploreSectionPage() {
   });
 
   const titleHighlight =
-    sectionType === "because-reading" ||
-    sectionType === "because-liked" ||
-    sectionType === "because-finished" ||
-    sectionType === "because-favorites"
-      ? params.referenceBookTitle
-      : sectionType === "more-genre"
-        ? (params.favoriteGenreLabel ?? params.favoriteGenre)
-        : sectionType === "more-author"
-          ? params.favoriteAuthorName
-          : undefined;
-
-  useEffect(() => {
-    clearIfDirty();
-  }, [clearIfDirty]);
+    (sectionType === "because-reading" ||
+     sectionType === "because-liked" ||
+     sectionType === "because-finished" ||
+     sectionType === "because-favorites") ? params.referenceBookTitle :
+    sectionType === "more-genre" ? (params.favoriteGenreLabel ?? params.favoriteGenre) :
+    sectionType === "more-author" ? params.favoriteAuthorName :
+    undefined;
 
   return (
     <div className="section-page">
@@ -133,11 +129,21 @@ export default function ExploreSectionPage() {
       )}
 
       {!loading && !error && (
-        <div className="section-page__grid">
-          {books.map((book) => (
-            <BookCard key={book.key} book={book} />
-          ))}
-        </div>
+        <>
+          <div className="section-page__grid">
+            {visibleBooks.map(book => (
+              <BookCard key={book.key} book={book} />
+            ))}
+          </div>
+          <LoadMore
+            hasMore={hasMore}
+            loading={false}
+            onLoadMore={() => setVisibleCount(c => c + PAGE)}
+          />
+          {!hasMore && books.length > PAGE && (
+            <p className="section-page__end">{t("explore.noMoreResults")}</p>
+          )}
+        </>
       )}
     </div>
   );

@@ -25,8 +25,8 @@ export default function SynopsisModal({ text, onClose }: SynopsisModalProps) {
       }}
     >
       <div className="synopsis-modal__body">
-        {text.split("\n\n").map((p, i) => (
-          <p key={i}>{p}</p>
+        {text.split("\n\n").map((p) => (
+          <p key={p}>{p}</p>
         ))}
       </div>
     </Modal>

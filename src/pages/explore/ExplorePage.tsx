@@ -1,39 +1,40 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useAuth } from "@/context/auth/useAuth";
 import { getFavorites } from "@/services/firebase/firebaseUsers";
 import { getBookFromDB } from "@/services/firebase/firebaseBooks";
-import { useBookSearch } from "@/pages/explore/hooks/useBookSearch";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import SearchBar from "@/components/common/Searchbar";
 import type { ExploreSectionParams } from "@/types/ExploreTypes";
-import type { SearchFilter } from "@/types/Search";
 import "./ExplorePage.scss";
 import { useExploreFeed } from "./hooks/useExploreFeed";
-import { useExploreCache } from "@/context/explore-cache/useExploreCache";
 import { useShelfDerivedFavorites } from "./hooks/useShelfDerivedFavorites";
-import type { Book } from "@/types/Book";
 import ExploreSectionsList from "@/components/explore/ExploreSectionsList";
 import ExploreGuestSections from "@/components/explore/ExploreGuestSections";
-import ExploreSearchResults from "@/components/explore/ExploreSearchResults";
+import { useQuery } from "@tanstack/react-query";
 
 const SCROLL_KEY = "explore_scroll";
 
 function ExplorePage() {
-  const { clearIfDirty } = useExploreCache();
   const { lang } = useCurrentLanguage();
   const { isAuthenticated, isGuest, user } = useAuth();
-  const { books, loading, error, totalResults, fetchBooks, resetBookResults } = useBookSearch();
   const shelfDerived = useShelfDerivedFavorites();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [favoritesReferenceBook, setFavoritesReferenceBook] = useState<Book | null>(null);
   const scrollRestored = useRef(false);
 
   const isLoggedIn = isAuthenticated && !isGuest;
-  const isSearching = searchQuery.trim().length > 0;
 
-  useEffect(() => {
-    clearIfDirty();
-  }, [clearIfDirty]);
+  const { data: favoritesReferenceBook = null } = useQuery({
+    queryKey: ["favorites-reference-book", user?.uid ?? null, lang],
+    queryFn: async () => {
+      const favs = await getFavorites(user!.uid);
+      for (const fav of favs) {
+        const book = await getBookFromDB(fav.key, lang);
+        if (book?.genre) return book;
+      }
+      return null;
+    },
+    enabled: isLoggedIn && !!user,
+  });
+
 
   useEffect(() => {
     if (scrollRestored.current) return;
@@ -44,25 +45,6 @@ function ExplorePage() {
       sessionStorage.removeItem(SCROLL_KEY);
     }
   }, []);
-
-  useEffect(() => {
-    if (!isLoggedIn || !user) return;
-    let cancelled = false;
-    getFavorites(user.uid).then(async (favs) => {
-      if (cancelled || favs.length === 0) return;
-      for (const fav of favs) {
-        const book = await getBookFromDB(fav.key, lang);
-        if (cancelled) return;
-        if (book?.genre) {
-          setFavoritesReferenceBook(book);
-          return;
-        }
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [isLoggedIn, user, lang]);
 
   const handleNavigateToSection = () => {
     sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
@@ -105,20 +87,6 @@ function ExplorePage() {
     !(isLoggedIn && shelfDerived?.hasBooks)
   );
 
-  const handleSearch = useCallback(
-    (query: string, filter: SearchFilter) => {
-      setSearchQuery(query);
-      if (query.trim()) fetchBooks(query, filter, 20, lang);
-      else resetBookResults();
-    },
-    [fetchBooks, resetBookResults, lang]
-  );
-
-  const handleClearSearch = useCallback(() => {
-    setSearchQuery("");
-    resetBookResults();
-  }, [resetBookResults]);
-
   const showGuestVersion = !isLoggedIn || (shelfDerived !== null && !shelfDerived.hasBooks);
 
   const shelfParams: Partial<ExploreSectionParams> = shelfDerived
@@ -127,17 +95,7 @@ function ExplorePage() {
 
   return (
     <>
-      <SearchBar onSearch={handleSearch} />
-
-      {isSearching ? (
-        <ExploreSearchResults
-          loading={loading}
-          error={error}
-          books={books}
-          totalResults={totalResults}
-          onClear={handleClearSearch}
-        />
-      ) : (
+      <SearchBar />
         <div className="explore-page__sections">
           {showGuestVersion && (
             <ExploreGuestSections
@@ -155,7 +113,6 @@ function ExplorePage() {
             />
           )}
         </div>
-      )}
     </>
   );
 }
