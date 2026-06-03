@@ -11,6 +11,7 @@
   justify-content: center;
 
   &__book {
+    position: absolute;
     width: 110px;
     height: 155px;
     border-radius: var(--radius-sm);

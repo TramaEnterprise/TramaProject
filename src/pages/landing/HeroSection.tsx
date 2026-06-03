@@ -51,12 +51,11 @@ type Props = {
 export default function HeroSection({ onRegister, onGuest }: Props) {
   const { t } = useTranslation();
 
-  const renderBook = (book: BookConfig, key: number) => (
+  const renderBook = (book: BookConfig, idx: number) => (
     <motion.div
-      key={key}
+      key={idx}
       className="hero__book"
       style={{
-        position: "absolute",
         ...book.pos,
         rotate: book.rotate,
       }}
