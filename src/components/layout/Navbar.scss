@@ -233,7 +233,7 @@
 
   &__btn-login {
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
     font-family: var(--font-main);
     font-size: var(--text-sm);
@@ -241,10 +241,11 @@
     color: var(--color-text-primary);
     border-radius: var(--radius-pill);
     padding: var(--space-2) var(--space-4);
-    transition: background var(--transition-fast);
+    transition: background var(--transition-fast), border-color var(--transition-fast);
 
     &:hover {
       background: var(--color-neutral-alpha-subtle);
+      border-color: var(--color-text-primary);
     }
   }
 
