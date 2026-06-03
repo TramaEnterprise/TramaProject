@@ -259,6 +259,12 @@
       font-weight: var(--weight-medium);
     }
 
+    &--saved {
+      background: var(--color-bg-page);
+      border-color: var(--color-dropdown-border);
+      color: var(--color-text-primary);
+    }
+
     &--open {
       background: var(--color-dropdown-bg);
       border-color: var(--color-dropdown-border);
