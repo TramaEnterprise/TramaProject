@@ -27,7 +27,7 @@
     font-weight: var(--weight-regular);
     font-family: var(--font-main);
     line-height: 1.15;
-    color: #2c2420;
+    color: var(--color-text-primary);
     margin: 0;
 
     &--centered {
@@ -37,6 +37,7 @@
 
   &__section-subtitle {
     font-size: clamp(var(--text-md), 2vw, 24px);
+    font-family: var(--font-main);
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin: 0;
@@ -49,10 +50,10 @@
   // ── Botones ───────────────────────────────────────────
   &__btn-primary {
     background: var(--color-brand-primary);
-    color: #fff;
+    color: var(--color-text-on-brand);
     font-weight: var(--weight-bold);
     font-family: var(--font-main);
-    padding: 14px 28px;
+    padding: 14px var(--space-7);
     border-radius: var(--radius-pill);
     font-size: var(--text-xl);
     border: none;
@@ -79,11 +80,11 @@
   }
 
   &__btn-white {
-    background: #fff;
-    color: #2c2420;
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
     font-weight: var(--weight-bold);
     font-family: var(--font-main);
-    padding: 16px 32px;
+    padding: var(--space-4) var(--space-8);
     border-radius: var(--radius-pill);
     font-size: var(--text-md);
     border: none;
@@ -105,7 +106,7 @@
     padding: 0;
 
     &:hover {
-      color: #fff;
+      color: var(--color-text-on-dark);
     }
   }
 
@@ -118,30 +119,30 @@
   }
 
   &__pill {
-    padding: 6px 12px;
+    padding: var(--space-1) var(--space-3);
     border-radius: var(--radius-pill);
     font-size: var(--text-xs);
     font-weight: var(--weight-semibold);
 
     &--reading {
-      background: #fff3ec;
+      background: var(--color-brand-alpha-subtle);
       border: 1px solid var(--color-brand-primary);
       color: var(--color-brand-primary);
     }
     &--read {
-      background: #edf4ee;
+      background: var(--color-success-bg);
       border: 1px solid var(--color-success);
       color: var(--color-success);
     }
     &--want {
-      background: #f0ece8;
+      background: var(--color-neutral-alpha-subtle);
       border: 1px solid var(--color-text-tertiary);
       color: var(--color-text-secondary);
     }
     &--abandoned {
-      background: #ffded9;
-      border: 1px solid #ea3535;
-      color: #ea3535;
+      background: var(--color-error-bg);
+      border: 1px solid var(--color-error);
+      color: var(--color-error);
     }
   }
 
@@ -186,7 +187,7 @@
       inset: 0;
       background: linear-gradient(
         90deg,
-        #fff 0%,
+        var(--color-bg-page) 0%,
         rgba(255, 255, 255, 0.88) 37.82%,
         rgba(153, 153, 153, 0) 100%
       );
@@ -264,7 +265,7 @@
       img {
         width: 100%;
         border-radius: 12px;
-        box-shadow: 0 12px 32px rgba(44, 36, 32, 0.15);
+        box-shadow: var(--shadow-modal);
       }
     }
 
@@ -298,7 +299,7 @@
   &__stats-panel {
     background: var(--color-bg-page);
     border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(44, 36, 32, 0.12);
+    box-shadow: var(--shadow-book);
     padding: var(--space-8);
     display: flex;
     flex-direction: column;
@@ -329,7 +330,7 @@
 
   &__stats-divider {
     border: none;
-    border-top: 1px solid #e5e0da;
+    border-top: 1px solid var(--color-border-medium);
     margin: 0;
   }
 
@@ -347,18 +348,18 @@
 
   &__stats-goal-text {
     font-size: var(--text-sm);
-    color: #2c2420;
+    color: var(--color-text-primary);
   }
 
   &__genre-row {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
   }
 
   &__genre-label {
     font-size: var(--text-xs);
-    color: #2c2420;
+    color: var(--color-text-primary);
   }
 
   // ── SECCIÓN: Comunidad ────────────────────────────────
@@ -392,8 +393,8 @@
   &__profile-card {
     background: var(--color-bg-page);
     border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(44, 36, 32, 0.08);
-    padding: 28px;
+    box-shadow: var(--shadow-card-hover);
+    padding: var(--space-7);
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
@@ -423,7 +424,7 @@
     &-name {
       font-size: var(--text-sm);
       font-weight: var(--weight-semibold);
-      color: #2c2420;
+      color: var(--color-text-primary);
       margin: 0;
     }
 
@@ -456,14 +457,14 @@
       width: 36px;
       height: 52px;
       object-fit: cover;
-      border-radius: 3px;
+      border-radius: var(--radius-sm);
       flex-shrink: 0;
     }
 
     &-book-title {
       font-size: var(--text-sm);
       font-weight: var(--weight-semibold);
-      color: #2c2420;
+      color: var(--color-text-primary);
       margin: 0;
     }
 
@@ -486,14 +487,14 @@
 
     &-fav-covers {
       display: flex;
-      gap: 6px;
+      gap: var(--space-1);
     }
 
     &-fav-cover {
       width: 36px;
       height: 52px;
       object-fit: cover;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
     }
 
     &-follow-btn {
@@ -504,7 +505,7 @@
       font-size: var(--text-sm);
       font-weight: var(--weight-semibold);
       font-family: var(--font-main);
-      padding: 10px 20px;
+      padding: 10px var(--space-5);
       border-radius: var(--radius-pill);
       cursor: pointer;
       transition:
@@ -513,7 +514,7 @@
 
       &:hover {
         background: var(--color-brand-primary);
-        color: #fff;
+        color: var(--color-text-on-brand);
       }
     }
   }
@@ -540,8 +541,8 @@
   &__quote-card {
     background: var(--color-bg-page);
     border-radius: 20px;
-    box-shadow: 0 12px 32px rgba(44, 36, 32, 0.15);
-    padding: 28px;
+    box-shadow: var(--shadow-card-hover);
+    padding: var(--space-7);
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
@@ -558,19 +559,19 @@
   &__quote-text {
     font-size: var(--text-sm);
     line-height: 1.6;
-    color: #2c2420;
+    color: var(--color-text-primary);
     margin: 0;
   }
 
   &__quote-author {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: var(--space-1);
 
     &-name {
       font-size: var(--text-xs);
       font-weight: var(--weight-semibold);
-      color: #2c2420;
+      color: var(--color-text-primary);
       margin: 0;
     }
 
@@ -583,7 +584,7 @@
 
   // ── SECCIÓN: CTA final ────────────────────────────────
   &__cta-final {
-    background: #272625;
+    background: var(--color-bg-darkest);
     padding: var(--space-24) 80px;
     display: flex;
     flex-direction: column;
@@ -598,7 +599,7 @@
     font-family: var(--font-editorial);
     font-size: clamp(36px, 5vw, 56px);
     font-weight: var(--weight-regular);
-    color: #f0ebe5;
+    color: var(--color-text-on-dark);
     line-height: 1.15;
     max-width: 900px;
     margin: 0;
@@ -606,7 +607,7 @@
 
   &__cta-subtitle {
     font-size: var(--text-lg);
-    color: rgba(240, 235, 229, 0.7);
+    color: var(--color-text-subtle);
     margin: 0;
     max-width: 700px;
   }
@@ -622,7 +623,7 @@
   // ── SECCIÓN: Footer ───────────────────────────────────
   &__footer {
     background: var(--color-bg-darkest);
-    padding: 32px 80px;
+    padding: var(--space-8) 80px;
     border-top: 1px solid rgba(255, 240, 224, 0.08);
     display: flex;
     flex-direction: column;
@@ -640,7 +641,7 @@
   &__footer-logo {
     font-family: var(--font-editorial);
     font-size: var(--text-xl);
-    color: #f0ebe5;
+    color: var(--color-text-on-dark);
   }
 
   &__footer-links {
@@ -654,17 +655,17 @@
     cursor: pointer;
     font-family: var(--font-main);
     font-size: var(--text-sm);
-    color: #7a7268;
+    color: var(--color-text-tertiary);
     padding: 0;
 
     &:hover {
-      color: #f0ebe5;
+      color: var(--color-text-on-dark);
     }
   }
 
   &__footer-copy {
     font-size: var(--text-xs);
-    color: #7a7268;
+    color: var(--color-text-tertiary);
     margin: 0;
   }
 }
