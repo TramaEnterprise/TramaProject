@@ -1,8 +1,8 @@
 {
   "toasts": {
     "shelf": {
-      "added": "Marked as {{shelf}}",
-      "statusChanged": "Marked as {{shelf}}",
+      "added": "Marked as \"{{shelf}}\"",
+      "statusChanged": "Marked as \"{{shelf}}\"",
       "removed": "Removed from your library",
       "progressUpdated": "Progress updated",
       "finished": "Book finished",
