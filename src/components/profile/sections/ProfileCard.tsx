@@ -11,8 +11,7 @@ type ProfileCardProps = {
 export default function ProfileCard({ user, onClose }: ProfileCardProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const displayName =
-    user.name || user.username || t("profile.userFallback");
+  const displayName = user.name || user.username || t("profile.userFallback");
 
   const handleClick = () => {
     onClose?.();
@@ -22,11 +21,7 @@ export default function ProfileCard({ user, onClose }: ProfileCardProps) {
   return (
     <button type="button" className="profile-card" onClick={handleClick}>
       {user.profilePhotoUrl ? (
-        <img
-          className="profile-card__avatar"
-          src={user.profilePhotoUrl}
-          alt={displayName}
-        />
+        <img className="profile-card__avatar" src={user.profilePhotoUrl} alt={displayName} />
       ) : (
         <div className="profile-card__avatar profile-card__avatar--placeholder">
           {displayName.charAt(0).toUpperCase()}
@@ -34,9 +29,7 @@ export default function ProfileCard({ user, onClose }: ProfileCardProps) {
       )}
       <div className="profile-card__info">
         <p className="profile-card__name">{displayName}</p>
-        {user.username && (
-          <p className="profile-card__handle">@{user.username}</p>
-        )}
+        {user.username && <p className="profile-card__handle">@{user.username}</p>}
       </div>
     </button>
   );

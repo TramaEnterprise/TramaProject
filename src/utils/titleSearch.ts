@@ -2,11 +2,44 @@ const DEFAULT_MIN_LENGTH = 2;
 
 const STOPWORDS = new Set([
   // español
-  "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del",
-  "y", "e", "o", "u", "a", "en", "con", "por", "para", "al", "lo",
-  "su", "sus", "se", "que",
+  "el",
+  "la",
+  "los",
+  "las",
+  "un",
+  "una",
+  "unos",
+  "unas",
+  "de",
+  "del",
+  "y",
+  "e",
+  "o",
+  "u",
+  "a",
+  "en",
+  "con",
+  "por",
+  "para",
+  "al",
+  "lo",
+  "su",
+  "sus",
+  "se",
+  "que",
   // inglés
-  "the", "an", "of", "and", "or", "to", "in", "on", "for", "with", "at", "by",
+  "the",
+  "an",
+  "of",
+  "and",
+  "or",
+  "to",
+  "in",
+  "on",
+  "for",
+  "with",
+  "at",
+  "by",
 ]);
 
 export function normalizeTitleForSearch(title: string): string {
@@ -92,13 +125,117 @@ export function buildAuthorTokens(authors: string[]): string[] {
   return [...tokens];
 }
 
-export function isAuthorTokensUpToDate(
-  current: string[] | undefined,
-  expected: string[]
-): boolean {
+export function isAuthorTokensUpToDate(current: string[] | undefined, expected: string[]): boolean {
   if (!current) return expected.length === 0;
   if (current.length !== expected.length) return false;
   const set = new Set(current);
   return expected.every((t) => set.has(t));
 }
 
+export function scoreTitleRelevance(queryText: string, title: string): number {
+  const qNormalized = normalizeTitleForSearch(queryText);
+  const tNormalized = normalizeTitleForSearch(title);
+  const qTokens = buildTitleTokens(queryText);
+  const tTokens = buildTitleTokens(title);
+
+  if (qTokens.length === 0 || tTokens.length === 0) {
+    return 0;
+  }
+
+  const tSet = new Set(tTokens);
+  const matched = qTokens.filter((w) => tSet.has(w)).length;
+
+  if (matched === 0) {
+    return 0;
+  }
+
+  let score = 0;
+
+  // Titulo exacto con stopwords
+  if (tNormalized === qNormalized) {
+    score += 1000;
+  }
+
+  const qSet = new Set(qTokens);
+
+  // Titulo exacto sin stopwords y sin orden exacto
+  if (qSet.size === tSet.size && [...qSet].every((w) => tSet.has(w))) {
+    score += 500;
+  }
+
+  // Todas las palabras de la query están presentes
+  if (matched === qTokens.length) {
+    score += 100;
+  }
+
+  // El título empieza por la query
+  if (tNormalized.startsWith(qNormalized)) {
+    score += 50;
+  }
+
+  // Recall: fracción de la query cubierta
+  score += (matched / qTokens.length) * 30;
+
+  // Precisión: fracción del título que es query (penaliza palabras de más)
+  score += (matched / tTokens.length) * 30;
+
+  return score;
+}
+
+// Relevancia de un libro para una búsqueda por autor => el mejor score entre todos sus autores
+export function scoreAuthorRelevance(queryText: string, authors: string[]): number {
+  if (!authors || authors.length === 0) {
+    return 0;
+  }
+
+  return Math.max(...authors.map((a) => scoreTitleRelevance(queryText, a)));
+}
+
+// Mapa de título normalizado por idioma (espejo de buildTitleTokensMap).
+export function buildTitleNormMap(
+  titles: Record<string, string> | undefined,
+  legacyTitle?: string,
+  langs?: string[]
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const safeTitles = titles ?? {};
+
+  for (const [lang, title] of Object.entries(safeTitles)) {
+    if (typeof title === "string" && title.trim()) {
+      result[lang] = normalizeTitleForSearch(title);
+    }
+  }
+
+  if (legacyTitle && legacyTitle.trim()) {
+    const fallback = normalizeTitleForSearch(legacyTitle);
+    const targetLangs = langs && langs.length > 0 ? langs : ["es"];
+    for (const lang of targetLangs) {
+      if (!result[lang]) result[lang] = fallback;
+    }
+  }
+
+  return result;
+}
+
+export function isTitleNormUpToDate(
+  current: Record<string, string> | undefined,
+  expected: Record<string, string>
+): boolean {
+  if (!current) {
+    return Object.keys(expected).length === 0;
+  }
+
+  const currentLangs = Object.keys(current);
+  const expectedLangs = Object.keys(expected);
+
+  if (currentLangs.length !== expectedLangs.length) {
+    return false;
+  }
+
+  for (const lang of expectedLangs) {
+    if (current[lang] !== expected[lang]) {
+      return false;
+    }
+  }
+  return true;
+}

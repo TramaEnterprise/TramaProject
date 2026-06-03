@@ -1,4 +1,4 @@
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .section-page {
   @include container;
@@ -28,9 +28,15 @@
     gap: var(--space-1);
     transition: color var(--transition-fast);
 
-    svg { width: 15px; height: 15px; flex-shrink: 0; }
+    svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
   }
 
   &__title {
@@ -84,3 +90,10 @@
     }
   }
 }
+
+.section-page__end {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-6) 0;
+}
+

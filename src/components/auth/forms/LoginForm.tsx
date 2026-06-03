@@ -2,16 +2,25 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
-import { loginWithEmail, logoutUser, resetPassword, sendVerificationEmail } from "@/services/firebase/firebaseAuth";
+import {
+  loginWithEmail,
+  logoutUser,
+  resetPassword,
+  sendVerificationEmail,
+} from "@/services/firebase/firebaseAuth";
 import type { LoginFormValues } from "@/types/AuthTypes";
-import { getFirebaseErrorMessage } from "@/services/firebase/firebaseErrors";
+import { EmailNotVerifiedError, getFirebaseErrorMessage } from "@/services/firebase/firebaseErrors";
 import FormInput from "@/components/auth/form-components/FormInput";
 import GoogleFormInput from "@/components/auth/form-components/GoogleFormInput";
 
 export default function LoginForm() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<LoginFormValues>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginFormValues>({
     defaultValues: { email: "", password: "" },
     mode: "onSubmit",
     reValidateMode: "onSubmit",
@@ -31,12 +40,11 @@ export default function LoginForm() {
       if (!credential.user.emailVerified) {
         await sendVerificationEmail(credential.user);
         await logoutUser();
-        throw { code: "auth/email-not-verified" };
+        throw new EmailNotVerifiedError();
       }
       navigate("/explore", { replace: true });
-    } catch (error: unknown) {
-      const firebaseErr = error as { code?: string };
-      setFirebaseError(getFirebaseErrorMessage(firebaseErr.code ?? "unknown"));
+    } catch (error) {
+      setFirebaseError(getFirebaseErrorMessage(error));
     }
   }
 
@@ -47,9 +55,8 @@ export default function LoginForm() {
     try {
       await resetPassword(resetEmail);
       setResetSent(true);
-    } catch (error: unknown) {
-      const e = error as { code?: string };
-      setResetError(getFirebaseErrorMessage(e.code ?? "unknown"));
+    } catch (error) {
+      setResetError(getFirebaseErrorMessage(error));
     } finally {
       setResetLoading(false);
     }
@@ -68,7 +75,10 @@ export default function LoginForm() {
           registration={register("email", {
             required: t("authErrors.fieldRequired"),
             maxLength: { value: 254, message: t("authErrors.email-too-long") },
-            pattern: { value: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/, message: t("authErrors.auth/invalid-email") },
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/,
+              message: t("authErrors.auth/invalid-email"),
+            },
           })}
         />
         <FormInput
@@ -90,7 +100,7 @@ export default function LoginForm() {
             />
             <label htmlFor="rememberMe">{t("auth.rememberMe")}</label>
           </div>
-          <button type="button" className="auth__link" onClick={() => setShowReset(v => !v)}>
+          <button type="button" className="auth__link" onClick={() => setShowReset((v) => !v)}>
             {t("auth.forgotPassword")}
           </button>
         </div>
@@ -107,7 +117,9 @@ export default function LoginForm() {
           {!resetSent ? (
             <>
               <p className="auth__reset-hint">{t("auth.resetInstructions")}</p>
-              <label className="auth__label" htmlFor="resetEmail">{t("auth.emailPlaceholder")}</label>
+              <label className="auth__label" htmlFor="resetEmail">
+                {t("auth.emailPlaceholder")}
+              </label>
               <input
                 id="resetEmail"
                 type="email"
@@ -115,7 +127,12 @@ export default function LoginForm() {
                 value={resetEmail}
                 onChange={(e) => setResetEmail(e.target.value)}
               />
-              <button type="button" className="auth__btn-secondary" onClick={handleReset} disabled={resetLoading}>
+              <button
+                type="button"
+                className="auth__btn-secondary"
+                onClick={handleReset}
+                disabled={resetLoading}
+              >
                 {resetLoading ? t("auth.sending") : t("auth.sendResetEmail")}
               </button>
               {resetError && <p className="auth__error">{resetError}</p>}

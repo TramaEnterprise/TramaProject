@@ -59,9 +59,16 @@
     @extend %shimmer;
     height: 12px;
 
-    &--genre  { width: 80px; }
-    &--title  { width: 70%; height: 22px; }
-    &--author { width: 40%; }
+    &--genre {
+      width: 80px;
+    }
+    &--title {
+      width: 70%;
+      height: 22px;
+    }
+    &--author {
+      width: 40%;
+    }
   }
 
   &__info-row {

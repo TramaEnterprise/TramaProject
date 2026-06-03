@@ -1,5 +1,5 @@
 // src/components/FavoriteBooksEditorModal/FavoriteBooksEditorModal.scss
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .fav-editor-modal {
   position: fixed;
@@ -25,7 +25,7 @@
     box-shadow: var(--shadow-modal);
     width: 100%;
     max-width: 520px;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow-y: auto;
     padding: var(--space-6);
     display: flex;
@@ -60,9 +60,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color var(--transition-fast), color var(--transition-fast);
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast);
 
-    &:hover { border-color: var(--color-text-primary); color: var(--color-text-primary); }
+    &:hover {
+      border-color: var(--color-text-primary);
+      color: var(--color-text-primary);
+    }
   }
 
   &__hint {
@@ -84,6 +89,24 @@
     padding: var(--space-2);
     border-radius: var(--radius-md);
     background: var(--color-bg-section);
+    transition: outline var(--transition-fast);
+    outline: 2px solid transparent;
+
+    &--drag-over {
+      outline-color: var(--color-text-primary);
+    }
+  }
+
+  &__fav-drag {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--color-text-tertiary);
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 
   &__fav-cover {
@@ -129,7 +152,9 @@
     padding: 0 var(--space-1);
     @include transition(color);
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
   }
 
   &__search {
@@ -162,8 +187,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
-    max-height: 240px;
-    overflow-y: auto;
   }
 
   &__result-item {
@@ -179,8 +202,13 @@
     text-align: left;
     @include transition(background);
 
-    &:hover:not(:disabled) { background: var(--color-bg-section); }
-    &:disabled { opacity: 0.5; cursor: default; }
+    &:hover:not(:disabled) {
+      background: var(--color-bg-section);
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
   }
 
   &__result-cover {
@@ -223,7 +251,7 @@
 
   &__footer-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: var(--space-3);
   }
 
@@ -239,15 +267,22 @@
       background: none;
       border: 1.5px solid var(--color-border-medium);
       color: var(--color-text-primary);
-      &:hover { border-color: var(--color-text-primary); }
+      &:hover {
+        border-color: var(--color-text-primary);
+      }
     }
 
     &--save {
       background: var(--color-text-primary);
       border: none;
       color: var(--color-btn-primary-fg);
-      &:hover { background: var(--color-btn-primary-hover); }
-      &:disabled { opacity: 0.6; cursor: default; }
+      &:hover {
+        background: var(--color-btn-primary-hover);
+      }
+      &:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
     }
   }
 }

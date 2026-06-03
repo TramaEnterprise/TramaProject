@@ -1,9 +1,4 @@
-import {
-  doc,
-  getDoc,
-  runTransaction,
-  serverTimestamp,
-} from "firebase/firestore";
+import { doc, getDoc, runTransaction, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebaseInit";
 
 const USERNAME_REGEX = /^[a-z0-9_]{3,20}$/;
@@ -29,9 +24,7 @@ export async function checkUsernameAvailable(
   return currentUid !== undefined && snap.data().uid === currentUid;
 }
 
-export async function lookupUidByUsername(
-  username: string
-): Promise<string | null> {
+export async function lookupUidByUsername(username: string): Promise<string | null> {
   const normalized = normalizeUsername(username);
   if (!isValidUsername(normalized)) return null;
 

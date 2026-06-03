@@ -99,7 +99,11 @@
     @extend %shimmer;
     height: 11px;
 
-    &--title { width: 85%; }
-    &--year  { width: 40%; }
+    &--title {
+      width: 85%;
+    }
+    &--year {
+      width: 40%;
+    }
   }
 }

@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
-interface AuthLayoutProps {
+type AuthLayoutProps = {
   children: ReactNode;
-}
+};
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
   return (

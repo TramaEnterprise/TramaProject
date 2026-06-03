@@ -1,30 +1,35 @@
 import { useNavigate, useParams, useSearchParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
-import { useExploreSection } from "@/hooks/useExploreSection";
+import { useSectionBooks } from "../hooks/useSectionBooks";
 import BookCard from "@/components/book/cards/BookCard";
 import ExploreGridSkeleton from "@/components/explore/ExploreGridSkeleton";
 import type { ExploreSectionParams, ExploreSectionType } from "@/types/ExploreTypes";
+import { moreGenreTitleKey } from "@/utils/genreUtils";
 import { ChevronLeft } from "lucide-react";
 import "./ExploreSectionPage.scss";
+import { useShelfDerivedFavorites } from "@/pages/explore/hooks/useShelfDerivedFavorites";
+import { useState } from "react";
+import LoadMore from "@/components/common/LoadMore";
 
 const SECTION_TITLE_KEYS: Record<ExploreSectionType, string> = {
-  "trending": "explore.sections.trending",
+  trending: "explore.sections.trending",
+  acclaimed: "explore.sections.acclaimed",
   "top-rated": "explore.sections.topRated",
-  "fiction": "explore.sections.fiction",
-  "non-fiction": "explore.sections.nonFiction",
-  "new-releases": "explore.sections.newReleases",
-  "quick-reads": "explore.sections.quickReads",
   "because-reading": "explore.sections.becauseReading",
+  "because-liked": "explore.sections.becauseLiked",
+  "because-finished": "explore.sections.becauseFinished",
+  "because-favorites": "explore.sections.becauseFavorites",
   "more-genre": "explore.sections.moreGenre",
-  "new-releases-for-you": "explore.sections.newReleasesForYou",
-  "waiting": "explore.sections.waiting",
   "more-author": "explore.sections.moreAuthor",
+  "new-releases-for-you": "explore.sections.newReleasesForYou",
+  waiting: "explore.sections.waiting",
+  "genre-grid": "explore.sections.genreGrid",
   "top-genre": "explore.sections.topGenre",
 };
 
 const SECTION_FALLBACK_KEYS: Partial<Record<ExploreSectionType, string>> = {
-  "trending": "explore.sections.trendingFallback",
+  trending: "explore.sections.trendingFallback",
   "new-releases-for-you": "explore.sections.newReleasesFallback",
 };
 
@@ -48,6 +53,7 @@ export default function ExploreSectionPage() {
   const navigate = useNavigate();
 
   const sectionType = type as ExploreSectionType;
+  const shelfDerived = useShelfDerivedFavorites();
 
   const favoriteGenreLabel = searchParams.get("genreLabel") ?? undefined;
 
@@ -60,18 +66,31 @@ export default function ExploreSectionPage() {
     favoriteAuthorKey: searchParams.get("authorKey") ?? undefined,
     favoriteAuthorName: searchParams.get("authorName") ?? undefined,
     userAuthorKeys: searchParams.get("authorKeys")?.split(",").filter(Boolean) ?? undefined,
+    wantToReadBooks: sectionType === "waiting" ? (shelfDerived?.wantToReadBooks ?? []) : undefined,
   };
 
-  const { books, loading, error, retry, isFallback } = useExploreSection(
+  const isWaiting = sectionType === "waiting";
+  const { books: fetchedBooks, loading: fetchLoading, error, retry, isFallback } = useSectionBooks(
     sectionType,
     params,
     lang,
-    24,
+    100,
+    isWaiting,
   );
 
-  const titleKey = isFallback && SECTION_FALLBACK_KEYS[sectionType]
-    ? SECTION_FALLBACK_KEYS[sectionType]!
-    : (SECTION_TITLE_KEYS[sectionType] ?? "");
+  const books = isWaiting ? (shelfDerived?.wantToReadBooks ?? []) : fetchedBooks;
+  const loading = isWaiting ? shelfDerived === null : fetchLoading;
+  const PAGE = 24;
+  const [visibleCount, setVisibleCount] = useState(PAGE);
+  const visibleBooks = books.slice(0, visibleCount);
+  const hasMore = visibleCount < books.length;
+
+  const titleKey =
+    isFallback && SECTION_FALLBACK_KEYS[sectionType]
+      ? SECTION_FALLBACK_KEYS[sectionType]!
+      : sectionType === "more-genre"
+        ? moreGenreTitleKey(params.favoriteGenre)
+        : (SECTION_TITLE_KEYS[sectionType] ?? "");
 
   const title = t(titleKey, {
     title: params.referenceBookTitle,
@@ -80,7 +99,10 @@ export default function ExploreSectionPage() {
   });
 
   const titleHighlight =
-    sectionType === "because-reading" ? params.referenceBookTitle :
+    (sectionType === "because-reading" ||
+     sectionType === "because-liked" ||
+     sectionType === "because-finished" ||
+     sectionType === "because-favorites") ? params.referenceBookTitle :
     sectionType === "more-genre" ? (params.favoriteGenreLabel ?? params.favoriteGenre) :
     sectionType === "more-author" ? params.favoriteAuthorName :
     undefined;
@@ -88,11 +110,7 @@ export default function ExploreSectionPage() {
   return (
     <div className="section-page">
       <div className="section-page__header">
-        <button
-          type="button"
-          className="section-page__back"
-          onClick={() => navigate(-1)}
-        >
+        <button type="button" className="section-page__back" onClick={() => navigate(-1)}>
           <ChevronLeft aria-hidden="true" />
           {t("explore.backBtn")}
         </button>
@@ -111,11 +129,21 @@ export default function ExploreSectionPage() {
       )}
 
       {!loading && !error && (
-        <div className="section-page__grid">
-          {books.map(book => (
-            <BookCard key={book.key} book={book} />
-          ))}
-        </div>
+        <>
+          <div className="section-page__grid">
+            {visibleBooks.map(book => (
+              <BookCard key={book.key} book={book} />
+            ))}
+          </div>
+          <LoadMore
+            hasMore={hasMore}
+            loading={false}
+            onLoadMore={() => setVisibleCount(c => c + PAGE)}
+          />
+          {!hasMore && books.length > PAGE && (
+            <p className="section-page__end">{t("explore.noMoreResults")}</p>
+          )}
+        </>
       )}
     </div>
   );

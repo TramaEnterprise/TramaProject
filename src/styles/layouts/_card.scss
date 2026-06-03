@@ -1,6 +1,6 @@
-@use '../variables/scss_variables' as *;
-@use '../lib/mixins';
-@use '../lib/helpers';
+@use "../variables/scss_variables" as *;
+@use "../lib/mixins";
+@use "../lib/helpers";
 
 @mixin book-cover-img {
   width: 100%;

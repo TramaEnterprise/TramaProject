@@ -2,15 +2,22 @@ import { collection, deleteDoc, doc, getDoc, getDocs, setDoc, updateDoc } from "
 import { db } from "./firebaseInit";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
-import { deleteActivitiesByTypeAndBook, deleteProgressActivitiesAbove, logActivity } from "./firebaseActivity";
+import {
+  deleteActivitiesByTypeAndBook,
+  deleteProgressActivitiesAbove,
+  logActivity,
+} from "./firebaseActivity";
 import { incrementBookAddCount } from "./firebaseBooks";
+import { logger } from "@/utils/logger";
 
-export type ShelfEntry = { 
-  book: Book; 
-  status: ShelfStatus; 
+export type ShelfEntry = {
+  book: Book;
+  status: ShelfStatus;
   currentPage?: number;
   rating?: number;
-  review?: string; 
+  review?: string;
+  addedAt?: string;
+  lastProgressAt?: string;
 };
 
 export function encodeKey(bookKey: string): string {
@@ -25,11 +32,17 @@ export async function addToShelf(
 ): Promise<void> {
   const shelfRef = doc(db, "Users", uid, "Shelf", encodeKey(book.key));
   const { titles, isbns, ...bookData } = book;
-  await setDoc(shelfRef, {
+
+  const nowDate = new Date().toISOString();
+  const data: Record<string, unknown> = {
     ...bookData,
     status,
-    addedAt: new Date().toISOString(),
-  }, { merge: true });
+    addedAt: nowDate,
+  };
+  if (status === "reading") {
+    data.lastProgressAt = nowDate;
+  }
+  await setDoc(shelfRef, data, { merge: true });
 
   // Escribir titles/isbns con estilo dot-notation para mantener otros idiomas
   if (titles && Object.keys(titles).length > 0) {
@@ -55,20 +68,27 @@ export async function addToShelf(
   };
 
   if (status === "wantToRead") {
-    logActivity(uid, { type: "watchlist_add", ...base })
-      .catch((err) => console.warn("[addToShelf] logActivity failed:", err));
+    logActivity(uid, { type: "watchlist_add", ...base }).catch((err) =>
+      logger.warn("[addToShelf] logActivity failed:", err)
+    );
   } else if (status === "reading") {
-    deleteActivitiesByTypeAndBook(uid, "watchlist_add", book.key)
-      .catch((err) => console.warn("[addToShelf] deleteWatchlistAdd failed:", err));
-    logActivity(uid, { type: "reading_started", ...base })
-      .catch((err) => console.warn("[addToShelf] logActivity failed:", err));
+    deleteActivitiesByTypeAndBook(uid, "watchlist_add", book.key).catch((err) =>
+      logger.warn("[addToShelf] deleteWatchlistAdd failed:", err)
+    );
+    logActivity(uid, { type: "reading_started", ...base }).catch((err) =>
+      logger.warn("[addToShelf] logActivity failed:", err)
+    );
   } else if (status === "finished") {
-    logActivity(uid, { type: "book_finished", ...base })
-      .catch((err) => console.warn("[addToShelf] logActivity failed:", err));
+    logActivity(uid, { type: "book_finished", ...base }).catch((err) =>
+      logger.warn("[addToShelf] logActivity failed:", err)
+    );
   }
 
-  incrementBookAddCount(book.key)
-    .catch((err) => console.warn("[addToShelf] incrementTrending failed:", err));
+  if (!prevStatus) {
+    incrementBookAddCount(book.key).catch((err) =>
+      logger.warn("[addToShelf] incrementTrending failed:", err)
+    );
+  }
 }
 
 export async function updateReadingProgress(
@@ -77,14 +97,23 @@ export async function updateReadingProgress(
   currentPage: number,
   note?: string,
   rating?: number,
-  review?: string
+  review?: string,
+  statusOverride?: ShelfStatus
 ): Promise<void> {
   const totalPages = entry.book.pages ?? 0;
   const isFinished = totalPages > 0 && currentPage === totalPages;
   const shelfRef = doc(db, "Users", uid, "Shelf", encodeKey(entry.book.key));
 
+  const prevPage = entry.currentPage ?? 0;
+  const pageChanged = currentPage !== prevPage;
+
   const update: Record<string, unknown> = { currentPage };
-  if (isFinished) {
+  if (pageChanged) {
+    update.lastProgressAt = new Date().toISOString();
+  }
+  if (statusOverride !== undefined) {
+    update.status = statusOverride;
+  } else if (isFinished) {
     update.status = "finished";
     if (rating !== undefined) {
       update.rating = rating;
@@ -102,77 +131,83 @@ export async function updateReadingProgress(
     bookAuthor: entry.book.authors[0],
   };
 
-  const prevPage = entry.currentPage ?? 0;
-  const pageChanged = currentPage !== prevPage;
   if (pageChanged) {
     if (currentPage > prevPage) {
-      logActivity(uid, { type: "progress", ...base, progress: currentPage, ...(note !== undefined && { note }) })
-        .catch((err) => console.warn("[updateReadingProgress] logActivity failed:", err));
+      logActivity(uid, {
+        type: "progress",
+        ...base,
+        progress: currentPage,
+        ...(note !== undefined && { note }),
+      }).catch((err) => logger.warn("[updateReadingProgress] logActivity failed:", err));
     } else {
-      deleteProgressActivitiesAbove(uid, entry.book.key, currentPage)
-        .catch((err) => console.warn("[updateReadingProgress] deleteProgressActivities failed:", err));
+      deleteProgressActivitiesAbove(uid, entry.book.key, currentPage).catch((err) =>
+        logger.warn("[updateReadingProgress] deleteProgressActivities failed:", err)
+      );
     }
   }
 
   if (isFinished) {
-    logActivity(uid, { type: "book_finished", ...base })
-      .catch((err) => console.warn("[updateReadingProgress] logActivity failed:", err));
-    
+    logActivity(uid, { type: "book_finished", ...base }).catch((err) =>
+      logger.warn("[updateReadingProgress] logActivity failed:", err)
+    );
+
     if (rating !== undefined) {
-      logActivity(uid, { type: "book_rated", ...base, rating, ...(review !== undefined && { note: review }) })
-        .catch((err) => console.warn("[updateReadingProgress] logActivity failed:", err));
+      logActivity(uid, {
+        type: "book_rated",
+        ...base,
+        rating,
+        ...(review !== undefined && { note: review }),
+      }).catch((err) => logger.warn("[updateReadingProgress] logActivity failed:", err));
     }
   }
 }
 
-export async function removeFromShelf(
-    uid: string,
-    bookKey: string): Promise<void> {
-    await deleteDoc(doc(db, "Users", uid, "Shelf", encodeKey(bookKey)));
+export async function removeFromShelf(uid: string, bookKey: string): Promise<void> {
+  await deleteDoc(doc(db, "Users", uid, "Shelf", encodeKey(bookKey)));
 }
 
 export async function getShelf(uid: string): Promise<ShelfEntry[] | null> {
-   const shelf = await getDocs(collection(db, "Users", uid, "Shelf"));
+  const shelf = await getDocs(collection(db, "Users", uid, "Shelf"));
 
-    if (shelf.size <= 0) {
-        return null;
-    }
+  if (shelf.size <= 0) {
+    return null;
+  }
 
-    return shelf.docs.map((d) => {
-        const data = d.data();
-        return {
-          book: {
-              key: data.key,
-              title: data.titles?.es ?? data.titles?.en ?? data.title ?? "",
-              authors: data.authors,
-              authorKeys: data.authorKeys ?? undefined,
-              first_publish_year: data.first_publish_year,
-              cover_id: data.cover_id,
-              cover_url: data.cover_url ?? undefined,
-              edition_count: data.edition_count,
-              genre: data.genre ?? undefined,
-              rating: data.rating ?? undefined,
-              ratingCount: data.ratingCount ?? undefined,
-              isbn: data.isbn ?? undefined,
-              isbns: data.isbns ?? undefined,
-              pages: data.pages ?? undefined,
-              titles: data.titles ?? {},
-          } as Book,
-          status: data.status as ShelfStatus,
-          currentPage: data.currentPage ?? undefined,
-          rating: data.rating ?? undefined,
-          review: data.review ?? undefined,
-        };
-    });
+  return shelf.docs.map((d) => {
+    const data = d.data();
+    return {
+      book: {
+        key: data.key,
+        title: data.titles?.es ?? data.titles?.en ?? data.title ?? "",
+        authors: data.authors,
+        authorKeys: data.authorKeys ?? undefined,
+        first_publish_year: data.first_publish_year,
+        cover_id: data.cover_id,
+        cover_url: data.cover_url ?? undefined,
+        edition_count: data.edition_count,
+        genre: data.genre ?? undefined,
+        rating: data.rating ?? undefined,
+        ratingCount: data.ratingCount ?? undefined,
+        isbn: data.isbn ?? undefined,
+        isbns: data.isbns ?? undefined,
+        pages: data.pages ?? undefined,
+        titles: data.titles ?? {},
+      } as Book,
+      status: data.status as ShelfStatus,
+      currentPage: data.currentPage ?? undefined,
+      rating: data.rating ?? undefined,
+      review: data.review ?? undefined,
+      addedAt: data.addedAt ?? undefined,
+      lastProgressAt: data.lastProgressAt ?? undefined,
+    };
+  });
 }
 
-export async function getBookStatus(
-    uid: string,
-    bookKey: string): Promise<ShelfStatus | null> {
-    const bookDoc = await getDoc(doc(db, "Users", uid, "Shelf", encodeKey(bookKey)));
+export async function getBookStatus(uid: string, bookKey: string): Promise<ShelfStatus | null> {
+  const bookDoc = await getDoc(doc(db, "Users", uid, "Shelf", encodeKey(bookKey)));
 
-    if (!bookDoc.exists()) return null;
-    return (bookDoc.data().status as ShelfStatus) ?? null;
+  if (!bookDoc.exists()) return null;
+  return (bookDoc.data().status as ShelfStatus) ?? null;
 }
 
 export async function updateShelfBookTitleToDB(
@@ -180,7 +215,7 @@ export async function updateShelfBookTitleToDB(
   bookKey: string,
   title: string,
   lang: string,
-  isbn?: string,
+  isbn?: string
 ): Promise<void> {
   const shelfRef = doc(db, "Users", uid, "Shelf", encodeKey(bookKey));
   const update: Record<string, string> = { [`titles.${lang}`]: title };

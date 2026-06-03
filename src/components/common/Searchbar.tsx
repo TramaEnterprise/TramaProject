@@ -1,36 +1,37 @@
-import { useState, useRef } from "react";
-import type { SearchFilter } from "@/types/Search";
+import { useState, useRef, useEffect } from "react";
 import "./Searchbar.scss";
 import { useTranslation } from "react-i18next";
 import { Search, X } from "lucide-react";
+import { useNavigate } from "react-router";
 
 type SearchBarProps = {
-  onSearch?: (query: string, filter: SearchFilter) => void;
   placeholder?: string;
-}
+  initialQuery?: string;
+  debounceMs?: number;
+};
 
-export default function SearchBar({ onSearch }: SearchBarProps) {
-  const [query, setQuery] = useState("");
+export default function SearchBar({ initialQuery = "", debounceMs = 400 }: SearchBarProps) {
+  const [query, setQuery] = useState(initialQuery);
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
-  const handleSearch = () => {
-    if (query.trim()) {
-      onSearch?.(query.trim(), "todo");
-    }
-  };
+ useEffect(() => {
+    const trimmed = query.trim();
+    if (trimmed.length < 3) return;
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") handleSearch();
-  };
+    const timer = window.setTimeout(() => {
+      navigate(`/search?q=${encodeURIComponent(trimmed)}`);
+    }, debounceMs);
+
+    return () => window.clearTimeout(timer);
+  }, [query, debounceMs, navigate]);
 
   const inputRowClass = [
     "searchbar__input-row",
     isFocused ? "searchbar__input-row--focused" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  ].filter(Boolean).join(" ");
 
   return (
     <div className="searchbar">
@@ -38,17 +39,14 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
 
       <div className={inputRowClass}>
         <span className="searchbar__icon" aria-hidden="true">
-          <Search size={14} aria-hidden="true" />
+          <Search size={18} aria-hidden="true" />
         </span>
-
-        <div className="searchbar__divider" />
 
         <input
           ref={inputRef}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={handleKeyDown}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={t("explore.searchPlaceholder")}
@@ -66,7 +64,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             }}
             aria-label={t("search.clearLabel")}
           >
-            <X size={18} aria-hidden="true" />
+            <X size={20} aria-hidden="true" />
           </button>
         )}
       </div>

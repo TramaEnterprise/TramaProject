@@ -1,6 +1,13 @@
 import i18n from "@/plugins/i18n/i18n";
 import type { Book } from "@/types/Book";
-import type { OLAuthorDoc, OLAuthorWork, OpenLibrarySearchResponse, OpenLibraryWork, WikiSummary, WorkEditionsResponse } from "@/types/OpenLibrary";
+import type {
+  OLAuthorDoc,
+  OLAuthorWork,
+  OpenLibrarySearchResponse,
+  OpenLibraryWork,
+  WikiSummary,
+  WorkEditionsResponse,
+} from "@/types/OpenLibrary";
 import { openLibraryClient } from "@/services/api/apiConnections";
 import { getLangIso3Letters } from "@/utils/langConversion";
 import { genreFieldsFromSubjects } from "@/utils/genreUtils";
@@ -27,12 +34,23 @@ const FANTASY_FIELDS = [
 ].join(",");
 
 const SEARCH_FIELDS = [
-  "key", "title", "author_name", "author_key",
-  "first_publish_year", "cover_i", "edition_count",
-  "subject", "isbn", "number_of_pages_median",
-  "ratings_average", "ratings_count",
-  "editions", "editions.title", "editions.language",
-  "editions.cover_i", "editions.isbn",
+  "key",
+  "title",
+  "author_name",
+  "author_key",
+  "first_publish_year",
+  "cover_i",
+  "edition_count",
+  "subject",
+  "isbn",
+  "number_of_pages_median",
+  "ratings_average",
+  "ratings_count",
+  "editions",
+  "editions.title",
+  "editions.language",
+  "editions.cover_i",
+  "editions.isbn",
 ].join(",");
 
 export async function fetchFantasyBooks(
@@ -54,8 +72,8 @@ export async function fetchFantasyBooks(
   });
 
   return data.docs.map((doc) => {
-    const bestEdition = doc.editions?.docs?.find(e => e.language?.includes(langCode))
-      ?? doc.editions?.docs?.[0];
+    const bestEdition =
+      doc.editions?.docs?.find((e) => e.language?.includes(langCode)) ?? doc.editions?.docs?.[0];
     const title = bestEdition?.title ?? doc.title;
     const cover_id = bestEdition?.cover_i ?? doc.cover_i ?? null;
 
@@ -81,7 +99,8 @@ export async function searchBooks(
   params: Record<string, string>,
   limit: number,
   lang: string,
-  signal: AbortSignal
+  signal: AbortSignal,
+  page = 1,
 ): Promise<{ books: Book[]; totalResults: number }> {
   const langCode = getLangIso3Letters(lang);
   const unknownAuthor = i18n.t("book.unknownAuthor");
@@ -92,13 +111,14 @@ export async function searchBooks(
       fields: SEARCH_FIELDS,
       limit,
       lang,
+      page,
     },
     signal,
   });
 
   const books: Book[] = data.docs.map((doc) => {
-    const bestEdition = doc.editions?.docs?.find(e => e.language?.includes(langCode))
-      ?? doc.editions?.docs?.[0];
+    const bestEdition =
+      doc.editions?.docs?.find((e) => e.language?.includes(langCode)) ?? doc.editions?.docs?.[0];
     const cover_id = bestEdition?.cover_i ?? doc.cover_i ?? null;
     return {
       key: doc.key,
@@ -141,8 +161,8 @@ export async function fetchBookByTitle(
 
   const doc = data.docs[0];
   const langCode = getLangIso3Letters(lang);
-  const bestEdition = doc.editions?.docs?.find(e => e.language?.includes(langCode))
-    ?? doc.editions?.docs?.[0];
+  const bestEdition =
+    doc.editions?.docs?.find((e) => e.language?.includes(langCode)) ?? doc.editions?.docs?.[0];
   const bookTitle = bestEdition?.title ?? doc.title;
   const cover_id = bestEdition?.cover_i ?? doc.cover_i ?? null;
 
@@ -161,28 +181,21 @@ export async function fetchBookByTitle(
   };
 }
 
-export async function getWork(
-  workKey: string,
-  signal?: AbortSignal
-): Promise<OpenLibraryWork> {
-  const { data } = await openLibraryClient.get<OpenLibraryWork>(
-    `${workKey}.json`,
-    { signal }
-  );
+export async function getWork(workKey: string, signal?: AbortSignal): Promise<OpenLibraryWork> {
+  const { data } = await openLibraryClient.get<OpenLibraryWork>(`${workKey}.json`, { signal });
   return data;
 }
 
 export function extractSynopsis(work: OpenLibraryWork): string {
-  if (!work.description) return '';
-  if (typeof work.description === 'string') return work.description;
-  return work.description.value ?? '';
+  if (!work.description) return "";
+  if (typeof work.description === "string") return work.description;
+  return work.description.value ?? "";
 }
 
 export async function searchAuthor(name: string): Promise<OLAuthorDoc | null> {
-  const { data } = await openLibraryClient.get<{ docs?: OLAuthorDoc[] }>(
-    '/search/authors.json',
-    { params: { q: name, limit: 1 } }
-  );
+  const { data } = await openLibraryClient.get<{ docs?: OLAuthorDoc[] }>("/search/authors.json", {
+    params: { q: name, limit: 1 },
+  });
   return data.docs?.[0] ?? null;
 }
 
@@ -207,15 +220,16 @@ export async function fetchAuthorBooks(
     params: {
       q: `author:${authorName} language:${langCode}`,
       lang,
-      fields: "key,title,author_name,author_key,cover_i,subject,first_publish_year,edition_count,isbn,number_of_pages_median,ratings_average,ratings_count,editions,editions.title,editions.language,editions.cover_i,editions.isbn",
+      fields:
+        "key,title,author_name,author_key,cover_i,subject,first_publish_year,edition_count,isbn,number_of_pages_median,ratings_average,ratings_count,editions,editions.title,editions.language,editions.cover_i,editions.isbn",
       limit,
     },
     signal,
   });
 
-  return data.docs.map(doc => {
-    const bestEdition = doc.editions?.docs?.find(e => e.language?.includes(langCode))
-      ?? doc.editions?.docs?.[0];
+  return data.docs.map((doc) => {
+    const bestEdition =
+      doc.editions?.docs?.find((e) => e.language?.includes(langCode)) ?? doc.editions?.docs?.[0];
     const cover_id = bestEdition?.cover_i ?? doc.cover_i ?? null;
     return {
       key: doc.key,
@@ -274,25 +288,22 @@ export async function fetchBooksByGenre(
   });
 }
 
-export async function getWikipediaSummary(
-  name: string,
-  lang: string
-): Promise<WikiSummary | null> {
-  const title = encodeURIComponent(name.trim().replace(/ /g, '_'));
+export async function getWikipediaSummary(name: string, lang: string): Promise<WikiSummary | null> {
+  const title = encodeURIComponent(name.trim().replace(/ /g, "_"));
 
   const attempt = async (lang: string): Promise<WikiSummary | null> => {
     try {
       const res = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${title}`);
       if (!res.ok) return null;
-      const data = await res.json() as WikiSummary & { type?: string };
-      if (data.type === 'disambiguation') return null;
+      const data = (await res.json()) as WikiSummary & { type?: string };
+      if (data.type === "disambiguation") return null;
       return data;
     } catch {
       return null;
     }
   };
 
-  const fallback = lang === 'en' ? 'es' : 'en';
+  const fallback = lang === "en" ? "es" : "en";
   return (await attempt(lang)) ?? (await attempt(fallback));
 }
 
@@ -300,17 +311,14 @@ export async function fetchWorkEditionByLang(
   workKey: string,
   lang: string
 ): Promise<{ title: string; isbn?: string } | null> {
-  const langPath = `/languages/${getLangIso3Letters(lang)}`;  
+  const langPath = `/languages/${getLangIso3Letters(lang)}`;
 
   try {
-    const { data } = await openLibraryClient.get<WorkEditionsResponse>(
-      `${workKey}/editions.json`,
-      { params: { limit: 20 } }
-    );
+    const { data } = await openLibraryClient.get<WorkEditionsResponse>(`${workKey}/editions.json`, {
+      params: { limit: 20 },
+    });
 
-    const edition = data.entries?.find(e =>
-      e.languages?.some(l => l.key === langPath)
-    );
+    const edition = data.entries?.find((e) => e.languages?.some((l) => l.key === langPath));
 
     if (!edition?.title) return null;
 
@@ -331,8 +339,6 @@ export async function fetchOpenLibrarySynopsis(
     const work = await getWork(workKey, signal);
     return extractSynopsis(work);
   } catch {
-    return '';
+    return "";
   }
 }
-
-

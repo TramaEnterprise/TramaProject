@@ -1,4 +1,4 @@
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 .explore-banner {
   display: flex;
@@ -49,7 +49,9 @@
     flex-shrink: 0;
     @include transition(background);
 
-    &:hover { background: var(--color-brand-dark); }
+    &:hover {
+      background: var(--color-brand-dark);
+    }
 
     @include from($bp-md) {
       align-self: center;

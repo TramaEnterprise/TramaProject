@@ -1,22 +1,24 @@
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import BookCard from "@/components/book/cards/BookCard";
+import FeaturedBookCard from "@/components/book/cards/FeaturedBookCard";
 import ExploreGridSkeleton from "./ExploreGridSkeleton";
-import { useExploreSection } from "@/hooks/useExploreSection";
+import { useSectionBooks } from "@/pages/explore/hooks/useSectionBooks";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import type { ExploreSectionParams, ExploreSectionType } from "@/types/ExploreTypes";
 import { ChevronRight } from "lucide-react";
 import "./ExploreSection.scss";
-import type { SectionEntry } from "@/hooks/useExploreSections";
+import type { SectionEntry } from "@/pages/explore/hooks/useExploreFeed";
 
 type ExploreSectionProps = {
   type: ExploreSectionType;
   params?: ExploreSectionParams;
-  override?: Pick<SectionEntry, "books" | "isFallback">;  
+  override?: Pick<SectionEntry, "books" | "isFallback">;
   titleKey?: string;
   titleFallbackKey?: string;
   titleHighlight?: string;
   onNavigate?: () => void;
+  featured?: boolean;
 };
 
 function buildSectionUrl(type: ExploreSectionType, params: ExploreSectionParams = {}): string {
@@ -54,19 +56,29 @@ export default function ExploreSection({
   titleFallbackKey,
   titleHighlight,
   onNavigate,
+  featured = false,
 }: ExploreSectionProps) {
   const { t } = useTranslation();
   const { lang } = useCurrentLanguage();
   const navigate = useNavigate();
-  const result = useExploreSection(type, params, lang, 6, !!override);
-  const { books, loading, error, retry, isFallback } = override ? { books: override.books, loading: false, error: null, retry: () => {}, isFallback: override.isFallback } : result
+  const result = useSectionBooks(type, params, lang, 100, !!override);
+  const { books, loading, error, retry, isFallback, authorName } = override
+    ? {
+        books: override.books,
+        loading: false,
+        error: null,
+        retry: () => {},
+        isFallback: override.isFallback,
+        authorName: undefined,
+      }
+    : result;
 
   const resolvedTitleKey = isFallback && titleFallbackKey ? titleFallbackKey : titleKey;
   const title = resolvedTitleKey
     ? t(resolvedTitleKey, {
         title: params.referenceBookTitle,
         genre: params.favoriteGenreLabel ?? params.favoriteGenre,
-        author: params.favoriteAuthorName,
+        author: params.favoriteAuthorName ?? authorName,
       })
     : "";
 
@@ -82,11 +94,7 @@ export default function ExploreSection({
       <div className="explore-section__header">
         <h2 className="explore-section__title">{renderTitle(title, titleHighlight)}</h2>
         {!loading && !error && books.length > 0 && (
-          <button
-            type="button"
-            className="explore-section__see-more"
-            onClick={handleSeeMore}
-          >
+          <button type="button" className="explore-section__see-more" onClick={handleSeeMore}>
             {t("explore.seeMore")} <ChevronRight size={14} aria-hidden="true" />
           </button>
         )}
@@ -104,8 +112,9 @@ export default function ExploreSection({
       )}
 
       {!loading && !error && books.length > 0 && (
-        <div className="explore-section__grid">
-          {books.map(book => (
+        <div className="explore-section__scroll">
+          {featured && books[0] && <FeaturedBookCard book={books[0]} />}
+          {(featured ? books.slice(1) : books).map((book) => (
             <BookCard key={book.key} book={book} />
           ))}
         </div>

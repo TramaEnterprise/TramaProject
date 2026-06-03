@@ -1,7 +1,7 @@
 export type Book = {
   key: string;
   title: string;
-  titles?: Record<string, string>; 
+  titles?: Record<string, string>;
   authors: string[];
   authorKeys?: string[];
   first_publish_year: number;
@@ -11,10 +11,11 @@ export type Book = {
   genre?: string;
   genre2?: string;
   topics?: string[];
-  rating?: number;       
+  rating?: number;
   ratingCount?: number;
   isbn?: string;
-  isbns?: Record<string, string>; 
+  isbns?: Record<string, string>;
   pages?: number;
+  synopsis?: string;
   shelfCategory?: string;
-}
+};

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MoreHorizontal, Link, Ban } from "lucide-react";
 import "./ProfileActionsMenu.scss";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 type ProfileActionsMenuProps = {
   username: string;
@@ -9,32 +10,19 @@ type ProfileActionsMenuProps = {
   onBlock: () => void;
 };
 
-export default function ProfileActionsMenu({
-  username,
-  name,
-  onBlock,
-}: ProfileActionsMenuProps) {
+export default function ProfileActionsMenu({ username, name, onBlock }: ProfileActionsMenuProps) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  useClickOutside(menuRef, () => setOpen(false), open);
 
   useEffect(() => {
     if (!toastVisible) return;
     const id = window.setTimeout(() => setToastVisible(false), 2000);
     return () => window.clearTimeout(id);
   }, [toastVisible]);
-
-  useEffect(() => {
-    if (!open) return;
-    const handleOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleOutside);
-    return () => document.removeEventListener("mousedown", handleOutside);
-  }, [open]);
 
   const handleShareLink = useCallback(async () => {
     setOpen(false);

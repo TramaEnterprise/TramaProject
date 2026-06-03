@@ -11,5 +11,5 @@ export const googleBooksClient = axios.create({
 });
 
 export const libraryThingClient = axios.create({
-  baseURL: '/api/lt',
+  baseURL: "/api/lt",
 });

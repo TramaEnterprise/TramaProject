@@ -37,9 +37,7 @@ export default function FavoriteBooksSection({
 
       <div className="favorite-books__card">
         {favorites.length === 0 && isOwnProfile && (
-          <p className="favorite-books__empty">
-            {t("profile.favorites.emptyOwn")}
-          </p>
+          <p className="favorite-books__empty">{t("profile.favorites.emptyOwn")}</p>
         )}
         {favorites.length === 0 && !isOwnProfile && (
           <p className="favorite-books__empty">{t("profile.favorites.emptyOther")}</p>
@@ -54,11 +52,7 @@ export default function FavoriteBooksSection({
               aria-label={book.title}
             >
               {book.cover_url ? (
-                <img
-                  className="favorite-books__cover"
-                  src={book.cover_url}
-                  alt={book.title}
-                />
+                <img className="favorite-books__cover" src={book.cover_url} alt={book.title} />
               ) : (
                 <div className="favorite-books__cover favorite-books__cover--placeholder">
                   <span>{book.title.charAt(0)}</span>

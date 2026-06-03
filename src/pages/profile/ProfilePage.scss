@@ -1,5 +1,5 @@
 // src/pages/ProfilePage/ProfilePage.scss
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 .profile-page {
   @include container;
@@ -32,6 +32,10 @@
     @include from($bp-lg) {
       grid-template-columns: 3fr 2fr;
       align-items: stretch;
+    }
+
+    > * {
+      min-width: 0;
     }
   }
 }

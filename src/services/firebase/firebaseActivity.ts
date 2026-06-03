@@ -13,10 +13,7 @@ import {
 import { db } from "./firebaseInit";
 import type { ActivityEvent, ActivityItem } from "@/types/UserProfile";
 
-export async function logActivity(
-  uid: string,
-  event: ActivityEvent
-): Promise<void> {
+export async function logActivity(uid: string, event: ActivityEvent): Promise<void> {
   await addDoc(collection(db, "Users", uid, "activity"), {
     ...event,
     createdAt: Timestamp.now(),
@@ -52,10 +49,7 @@ export async function deleteProgressActivitiesAbove(
   await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
 }
 
-export async function getActivity(
-  uid: string,
-  maxResults = 10
-): Promise<ActivityItem[]> {
+export async function getActivity(uid: string, maxResults = 10): Promise<ActivityItem[]> {
   const q = query(
     collection(db, "Users", uid, "activity"),
     orderBy("createdAt", "desc"),

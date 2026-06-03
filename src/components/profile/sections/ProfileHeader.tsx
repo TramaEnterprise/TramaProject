@@ -60,16 +60,17 @@ export default function ProfileHeader({
       <div
         className={`profile-header__banner${isOwnProfile ? " profile-header__banner--editable" : ""}`}
         style={
-          profile.bannerImageUrl
-            ? { backgroundImage: `url(${profile.bannerImageUrl})` }
-            : undefined
+          profile.bannerImageUrl ? { backgroundImage: `url(${profile.bannerImageUrl})` } : undefined
         }
-        onClick={isOwnProfile ? onEditClick : undefined}
       >
         {isOwnProfile && (
-          <div className="profile-header__banner-overlay">
+          <button
+            type="button"
+            className="profile-header__banner-overlay"
+            onClick={onEditClick}
+          >
             <span>{t("profile.header.changeCover")}</span>
-          </div>
+          </button>
         )}
       </div>
 
@@ -78,7 +79,6 @@ export default function ProfileHeader({
           <div className="profile-header__avatar-wrap">
             <div
               className={`profile-header__avatar-frame${isOwnProfile ? " profile-header__avatar-frame--editable" : ""}`}
-              onClick={isOwnProfile ? onEditClick : undefined}
             >
               {profile.profilePhotoUrl ? (
                 <img
@@ -92,66 +92,59 @@ export default function ProfileHeader({
                 </div>
               )}
               {isOwnProfile && (
-                <div className="profile-header__avatar-overlay">
+                <button
+                  type="button"
+                  className="profile-header__avatar-overlay"
+                  onClick={onEditClick}
+                >
                   <span>{t("profile.header.editPhoto")}</span>
-                </div>
+                </button>
               )}
             </div>
           </div>
 
-          <div className="profile-header__identity">
-            <h2 className="profile-header__name">{displayName}</h2>
-            {profile.username && (
-              <p className="profile-header__handle">@{profile.username}</p>
-            )}
-          </div>
+          <div className="profile-header__mid">
+            <div className="profile-header__identity">
+              <h2 className="profile-header__name">{displayName}</h2>
+              {profile.username && <p className="profile-header__handle">@{profile.username}</p>}
+            </div>
 
-          <div className="profile-header__stats">
-            <button
-              type="button"
-              className="profile-header__stat"
-              onClick={onFollowersClick}
-            >
-              <span className="profile-header__stat-count">{profile.followersCount}</span>
-              <span className="profile-header__stat-label">
-                {t("profile.header.followers", { count: profile.followersCount })}
-              </span>
-            </button>
+            <div className="profile-header__stats">
+              <button type="button" className="profile-header__stat" onClick={onFollowersClick}>
+                <span className="profile-header__stat-count">{profile.followersCount}</span>
+                <span className="profile-header__stat-label">
+                  {t("profile.header.followers", { count: profile.followersCount })}
+                </span>
+              </button>
 
-            <div className="profile-header__stat-divider" aria-hidden="true" />
+              <div className="profile-header__stat-divider" aria-hidden="true" />
 
-            <button
-              type="button"
-              className="profile-header__stat"
-              onClick={onFollowingClick}
-            >
-              <span className="profile-header__stat-count">{profile.followingCount}</span>
-              <span className="profile-header__stat-label">
-                {t("profile.header.following", { count: profile.followingCount })}
-              </span>
-            </button>
+              <button type="button" className="profile-header__stat" onClick={onFollowingClick}>
+                <span className="profile-header__stat-count">{profile.followingCount}</span>
+                <span className="profile-header__stat-label">
+                  {t("profile.header.following", { count: profile.followingCount })}
+                </span>
+              </button>
 
-            <div className="profile-header__stat-divider" aria-hidden="true" />
+              <div className="profile-header__stat-divider" aria-hidden="true" />
 
-            <button
-              type="button"
-              className="profile-header__stat"
-              onClick={onBooksReadClick}
-              disabled={!onBooksReadClick}
-            >
-              <span className="profile-header__stat-count">{booksReadCount}</span>
-              <span className="profile-header__stat-label">
-                {t("profile.header.booksRead", { count: booksReadCount })}
-              </span>
-            </button>
+              <button
+                type="button"
+                className="profile-header__stat"
+                onClick={onBooksReadClick}
+                disabled={!onBooksReadClick}
+              >
+                <span className="profile-header__stat-count">{booksReadCount}</span>
+                <span className="profile-header__stat-label">
+                  {t("profile.header.booksRead", { count: booksReadCount })}
+                </span>
+              </button>
+            </div>
           </div>
 
           <div className="profile-header__actions">
             {isOwnProfile ? (
-              <ShareProfileButton
-                username={profile.username}
-                name={displayName}
-              />
+              <ShareProfileButton username={profile.username} name={displayName} />
             ) : (
               <ProfileActionsMenu
                 username={profile.username}
@@ -166,7 +159,9 @@ export default function ProfileHeader({
                     type="button"
                     className="profile-header__btn profile-header__btn--edit"
                     onClick={onRequestsClick}
-                  >{t("profile.header.requests")}</button>
+                  >
+                    {t("profile.header.requests")}
+                  </button>
                 )}
                 <button
                   type="button"
@@ -188,9 +183,7 @@ export default function ProfileHeader({
           </div>
         </div>
 
-        {profile.bio && (
-          <p className="profile-header__bio">{profile.bio}</p>
-        )}
+        {profile.bio && <p className="profile-header__bio">{profile.bio}</p>}
       </div>
     </div>
   );

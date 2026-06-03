@@ -1,4 +1,4 @@
-@use '../../styles/lib' as *;
+@use "../../styles/lib" as *;
 
 %shimmer {
   background: linear-gradient(
@@ -46,7 +46,11 @@
     @extend %shimmer;
     height: 11px;
 
-    &--title { width: 85%; }
-    &--author { width: 60%; }
+    &--title {
+      width: 85%;
+    }
+    &--author {
+      width: 60%;
+    }
   }
 }

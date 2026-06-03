@@ -1,4 +1,4 @@
-@use '../../../styles/lib' as *;
+@use "../../../styles/lib" as *;
 
 .shelf-section {
   width: 100%;
@@ -85,6 +85,7 @@
     background: none;
     border: none;
     padding: 0;
+    font-family: inherit;
     font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
     color: var(--color-text-secondary);
@@ -111,14 +112,18 @@
   }
 
   &__track {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(7, 145px);
+    grid-template-rows: repeat(2, 280px);
     gap: var(--space-6);
-    flex: 0 0 auto;
-    align-items: flex-start;
+    align-items: start;
+
+    &--single-row {
+      grid-template-rows: 280px;
+    }
   }
 
   &__item {
-    flex: 0 0 145px;
     min-width: 0;
 
     &--skeleton {
@@ -126,11 +131,6 @@
       border-radius: var(--radius-sm);
       background: var(--color-neutral-alpha-muted);
       @include shimmer-bg;
-    }
-
-    &--spacer {
-      visibility: hidden;
-      pointer-events: none;
     }
   }
 
@@ -159,7 +159,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color var(--transition-fast), background var(--transition-fast);
+    transition:
+      border-color var(--transition-fast),
+      background var(--transition-fast);
   }
 
   &__add-book-icon {
@@ -171,7 +173,9 @@
     align-items: center;
     justify-content: center;
     color: var(--color-text-secondary);
-    transition: border-color var(--transition-fast), color var(--transition-fast);
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast);
 
     svg {
       width: 16px;
@@ -202,6 +206,21 @@
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     text-align: center;
+    margin: 0;
+  }
+
+  &__empty-state {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8) var(--space-4);
+    text-align: center;
+  }
+
+  &__empty-state-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
     margin: 0;
   }
 

@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
+import { Link } from "react-router";
 import BookTile from "@/components/shelf/cards/BookTile";
 import type { Book } from "@/types/Book";
 import "./ShelfSection.scss";
@@ -9,9 +10,10 @@ import { ChevronRight, ChevronLeft, Plus } from "lucide-react";
 const SHELF_FILTER_KEYS = ["wantToRead", "reading", "finished", "didNotFinish"] as const;
 type ShelfFilterKey = (typeof SHELF_FILTER_KEYS)[number];
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 14;
+const COLUMNS = 7;
 
-type Slot = { type: "book"; book: Book } | { type: "add" } | { type: "spacer" };
+type Slot = { type: "book"; book: Book } | { type: "add" };
 
 type ShelfSectionProps = {
   books: Record<ShelfStatus, Book[]>;
@@ -20,7 +22,12 @@ type ShelfSectionProps = {
   onSeeAll?: () => void;
 };
 
-export default function ShelfSection({ books, loading = false, readOnly = false, onSeeAll }: ShelfSectionProps) {
+export default function ShelfSection({
+  books,
+  loading = false,
+  readOnly = false,
+  onSeeAll,
+}: ShelfSectionProps) {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState<ShelfFilterKey>(SHELF_FILTER_KEYS[0]);
   const [page, setPage] = useState(0);
@@ -31,12 +38,24 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
   const totalPages = Math.ceil((categoryBooks.length + (readOnly ? 0 : 1)) / PAGE_SIZE);
   const isLastPage = page === totalPages - 1;
 
-  const slots: Slot[] = useMemo(() => Array.from({ length: PAGE_SIZE }, (_, i) => {
-    const idx = page * PAGE_SIZE + i;
-    if (idx < categoryBooks.length) return { type: "book", book: categoryBooks[idx] };
-    if (!readOnly && idx === categoryBooks.length) return { type: "add" };
-    return { type: "spacer" };
-  }), [categoryBooks, page, readOnly]);
+  const slots: Slot[] = useMemo(() => {
+    const result: Slot[] = [];
+    for (let i = 0; i < PAGE_SIZE; i++) {
+      const idx = page * PAGE_SIZE + i;
+      if (idx < categoryBooks.length) {
+        result.push({ type: "book", book: categoryBooks[idx] });
+      } else if (!readOnly && idx === categoryBooks.length) {
+        result.push({ type: "add" });
+        break;
+      } else {
+        break;
+      }
+    }
+    return result;
+  }, [categoryBooks, page, readOnly]);
+
+  // Durante loading mostramos las 2 filas de skeletons; si no, se adapta a los slots reales
+  const singleRow = !loading && slots.length <= COLUMNS;
 
   function handleFilterChange(key: ShelfFilterKey) {
     setActiveFilter(key);
@@ -44,7 +63,7 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
   }
 
   function handleChevron() {
-    setPage(p => (p + 1) % totalPages);
+    setPage((p) => (p + 1) % totalPages);
   }
 
   return (
@@ -56,6 +75,7 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
           {SHELF_FILTER_KEYS.map((key) => (
             <button
               key={key}
+              type="button"
               className={`shelf-section__filter-tab ${activeFilter === key ? "shelf-section__filter-tab--active" : ""}`}
               onClick={() => handleFilterChange(key)}
             >
@@ -65,34 +85,44 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
           ))}
         </div>
         {onSeeAll && (
-          <a
-            role="button"
+          <button
+            type="button"
             className="shelf-section__see-all"
             onClick={onSeeAll}
-            style={{ cursor: "pointer" }}
           >
             {t("myLibrary.seeAll")} <ChevronRight size={14} aria-hidden="true" />
-          </a>
+          </button>
         )}
       </div>
 
       <div className="shelf-section__card">
         {!loading && categoryBooks.length === 0 && readOnly ? (
-          <p className="shelf-section__empty-readonly">Sin libros en esta estantería</p>
+          <p className="shelf-section__empty-readonly">{t("myLibrary.emptyShelfReadonly")}</p>
+        ) : !loading && categoryBooks.length === 0 ? (
+          <div className="shelf-section__empty-state">
+            <p className="shelf-section__empty-state-text">
+              <Trans i18nKey="myLibrary.emptyShelfCategory">
+                Esta categoría está vacía. ¡Añade libros desde <Link to="/explore">Explorar</Link>!
+              </Trans>
+            </p>
+          </div>
         ) : (
           <>
-            <div className="shelf-section__track">
+            <div
+              className={`shelf-section__track ${singleRow ? "shelf-section__track--single-row" : ""}`}
+            >
               {loading
                 ? Array.from({ length: PAGE_SIZE }).map((_, i) => (
                     <div key={i} className="shelf-section__item shelf-section__item--skeleton" />
                   ))
-                : slots.map((slot, i) => {
-                    if (slot.type === "book") return (
-                      <div key={slot.book.key} className="shelf-section__item">
-                        <BookTile book={slot.book} />
-                      </div>
-                    );
-                    if (slot.type === "add") return (
+                : slots.map((slot) => {
+                    if (slot.type === "book")
+                      return (
+                        <div key={slot.book.key} className="shelf-section__item">
+                          <BookTile book={slot.book} />
+                        </div>
+                      );
+                    return (
                       <div key="add" className="shelf-section__item">
                         <div className="shelf-section__add-book">
                           <div className="shelf-section__add-book-cover">
@@ -100,18 +130,21 @@ export default function ShelfSection({ books, loading = false, readOnly = false,
                               <Plus />
                             </div>
                           </div>
-                          <p className="shelf-section__add-book-title">{t("myLibrary.emptyShelf")}</p>
-                          <p className="shelf-section__add-book-author" aria-hidden="true">&nbsp;</p>
+                          <p className="shelf-section__add-book-title">
+                            {t("myLibrary.emptyShelf")}
+                          </p>
+                          <p className="shelf-section__add-book-author" aria-hidden="true">
+                            &nbsp;
+                          </p>
                         </div>
                       </div>
                     );
-                    return <div key={`spacer-${i}`} className="shelf-section__item shelf-section__item--spacer" />;
-                  })
-              }
+                  })}
             </div>
             {totalPages > 1 && (
               <div className="shelf-section__chevron-area">
                 <button
+                  type="button"
                   className="shelf-section__chevron"
                   onClick={handleChevron}
                 >

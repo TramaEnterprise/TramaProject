@@ -1,15 +1,15 @@
-@use 'variables/scss_variables';
-@use 'variables/custom_properties';
+@use "variables/scss_variables";
+@use "variables/custom_properties";
 
-@use 'lib/mixins';
-@use 'lib/helpers';
+@use "lib/mixins";
+@use "lib/helpers";
 
-@use 'base/typography';
-@use 'base/animations';
-@use 'base/site';
+@use "base/typography";
+@use "base/animations";
+@use "base/site";
 
-@use 'html/headers';
-@use 'html/forms';
+@use "html/headers";
+@use "html/forms";
 
-@use 'layouts/card';
-@use 'layouts/grid';
+@use "layouts/card";
+@use "layouts/grid";

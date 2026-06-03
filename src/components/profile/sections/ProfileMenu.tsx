@@ -1,43 +1,30 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
-import { useAuth } from "@/hooks/useAuth";
-import { useTheme } from "@/hooks/useTheme";
+import { Link, useNavigate } from "react-router";
+import { useAuth } from "@/context/auth/useAuth";
+import { useTheme } from "@/context/theme/useTheme";
 import { User, Settings, Moon, Sun, LogOut } from "lucide-react";
 import "./ProfileMenu.scss";
+import { useEscapeKey } from "@/hooks/useEscapeKey";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
-interface ProfileMenuProps {
+type ProfileMenuProps = {
   onClose: () => void;
-}
+};
 
 export default function ProfileMenu({ onClose }: ProfileMenuProps) {
   const { t } = useTranslation();
   const { logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) onClose();
-    };
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("mousedown", handleClick);
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [onClose]);
+  useEscapeKey(onClose);
+  useClickOutside(ref, onClose);
 
   return (
     <div className="profile-menu" ref={ref}>
-      <Link
-        className="profile-menu__item"
-        to="/profile"
-        onClick={onClose}
-      >
+      <Link className="profile-menu__item" to="/profile" onClick={onClose}>
         <User />
         {t("profile.menu.viewProfile")}
       </Link>
@@ -49,9 +36,7 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
 
       <button className="profile-menu__item" type="button" onClick={toggleTheme}>
         {theme === "light" ? <Moon /> : <Sun />}
-        {theme === "light"
-          ? t("profile.menu.darkTheme")
-          : t("profile.menu.lightTheme")}
+        {theme === "light" ? t("profile.menu.darkTheme") : t("profile.menu.lightTheme")}
       </button>
 
       <div className="profile-menu__divider" />
@@ -59,7 +44,11 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
       <button
         className="profile-menu__item profile-menu__item--danger"
         type="button"
-        onClick={() => { logout(); onClose(); }}
+        onClick={() => {
+          logout();
+          onClose();
+          navigate("/");
+        }}
       >
         <LogOut />
         {t("profile.menu.logout")}

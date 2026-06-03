@@ -1,9 +1,6 @@
 import type { SearchFilter } from "@/types/Search";
 
-export function getSearchParams(
-  query: string,
-  filter: SearchFilter
-): Record<string, string> {
+export function getSearchParams(query: string, filter: SearchFilter): Record<string, string> {
   switch (filter) {
     case "titulo":
       return { title: query };
