@@ -40,7 +40,8 @@
       "Bash(grep -E \"^/Users.*\\\\.tsx?$\")",
       "Bash(npx eslint *)",
       "Bash(grep *)",
-      "Bash(xargs ls -la)"
+      "Bash(xargs ls -la)",
+      "Bash(xargs cat -n)"
     ]
   }
 }
