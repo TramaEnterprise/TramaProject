@@ -80,6 +80,9 @@
       @include from($bp-lg) {
         width: calc(100% / 6 - var(--space-4));
       }
+      @include from($bp-xxl) {
+        width: calc(100% / 6 - var(--space-8));
+      }
     }
 
     .featured-book-card {
