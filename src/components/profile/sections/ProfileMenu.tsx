@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "@/context/auth/useAuth";
 import { useTheme } from "@/context/theme/useTheme";
 import { User, Settings, Moon, Sun, LogOut } from "lucide-react";
@@ -16,6 +16,7 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
   const { t } = useTranslation();
   const { logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
 
   useEscapeKey(onClose);
@@ -46,6 +47,7 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
         onClick={() => {
           logout();
           onClose();
+          navigate("/");
         }}
       >
         <LogOut />
