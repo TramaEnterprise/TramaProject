@@ -39,7 +39,8 @@
       "Bash(grep -E \"\\\\.\\(scss|css|tsx|ts\\)$\")",
       "Bash(grep -E \"^/Users.*\\\\.tsx?$\")",
       "Bash(npx eslint *)",
-      "Bash(grep *)"
+      "Bash(grep *)",
+      "Bash(xargs ls -la)"
     ]
   }
 }
