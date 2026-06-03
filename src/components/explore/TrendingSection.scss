@@ -66,6 +66,12 @@
     &:nth-child(n + 10) {
       margin-left: var(--space-10);
     }
+
+    &:nth-child(10) {
+      .trending-section__rank {
+        transform: translateX(-65%);
+      }
+    }
   }
 
   &__rank {
