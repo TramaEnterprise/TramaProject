@@ -173,6 +173,17 @@
 
     &.active {
       color: var(--color-text-primary);
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 6px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--color-text-primary);
+      }
     }
   }
 
