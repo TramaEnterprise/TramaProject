@@ -133,6 +133,9 @@
   }
 
   &__btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
     background: transparent;
     border: none;
     cursor: pointer;

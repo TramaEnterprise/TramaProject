@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import "./HeroSection.scss";
 
@@ -92,6 +93,7 @@ export default function HeroSection({ onRegister, onGuest }: Props) {
           </button>
           <button type="button" className="hero__btn-ghost" onClick={onGuest}>
             {t("landing.hero.guest")}
+            <ArrowRight size={13} aria-hidden="true" />
           </button>
         </div>
       </div>
