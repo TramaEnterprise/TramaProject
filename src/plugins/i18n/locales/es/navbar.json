@@ -3,6 +3,8 @@
     "brandName": "Trama",
     "register": "Registrar lectura",
     "login": "Iniciar Sesión",
+    "loginShort": "Iniciar sesión",
+    "signupShort": "Registrarse",
     "logout": "Cerrar Sesión",
     "notifications": "Notificaciones",
     "profile": "Perfil",
