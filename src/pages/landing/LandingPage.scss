@@ -582,16 +582,13 @@
     }
   }
 
-  // ── SECCIÓN: CTA final ────────────────────────────────
+  // ── CTA final (div dentro de social-proof) ───────────
   &__cta-final {
-    background: var(--color-bg-secondary);
-    padding: 0 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-6);
     width: 100%;
-    box-sizing: border-box;
     text-align: center;
   }
 

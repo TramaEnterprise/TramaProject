@@ -226,8 +226,20 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ── Testimonios ──────────────────────────────────── */}
+      {/* ── Testimonios + CTA final ──────────────────────── */}
       <section className="landing__social-proof">
+        <div className="landing__cta-final">
+          <h2 className="landing__cta-title">{t("landing.cta.title")}</h2>
+          <p className="landing__cta-subtitle">{t("landing.cta.subtitle")}</p>
+          <div className="landing__cta-buttons">
+            <button type="button" className="landing__btn-primary" onClick={handleRegister}>
+              {t("landing.cta.btn")}
+            </button>
+            <button type="button" className="landing__btn-ghost" onClick={handleGuest}>
+              {t("landing.cta.guest")}
+            </button>
+          </div>
+        </div>
         <div className="landing__quotes">
           <div className="landing__quote-card">
             <p className="landing__quote-stars">★★★★★</p>
@@ -259,20 +271,6 @@ function LandingPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA final ────────────────────────────────────── */}
-      <section className="landing__cta-final">
-        <h2 className="landing__cta-title">{t("landing.cta.title")}</h2>
-        <p className="landing__cta-subtitle">{t("landing.cta.subtitle")}</p>
-        <div className="landing__cta-buttons">
-          <button type="button" className="landing__btn-primary" onClick={handleRegister}>
-            {t("landing.cta.btn")}
-          </button>
-          <button type="button" className="landing__btn-ghost" onClick={handleGuest}>
-            {t("landing.cta.guest")}
-          </button>
         </div>
       </section>
     </div>
