@@ -244,7 +244,6 @@
     transition: background var(--transition-fast), border-color var(--transition-fast);
 
     &:hover {
-      background: var(--color-neutral-alpha-subtle);
       border-color: var(--color-text-primary);
     }
   }
