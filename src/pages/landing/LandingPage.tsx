@@ -230,7 +230,6 @@ function LandingPage() {
       <section className="landing__social-proof">
         <div className="landing__cta-final">
           <h2 className="landing__cta-title">{t("landing.cta.title")}</h2>
-          <p className="landing__cta-subtitle">{t("landing.cta.subtitle")}</p>
           <div className="landing__cta-buttons">
             <button type="button" className="landing__btn-primary" onClick={handleRegister}>
               {t("landing.cta.btn")}
