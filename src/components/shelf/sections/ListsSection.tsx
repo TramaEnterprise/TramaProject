@@ -31,7 +31,7 @@ export default function ListsSection({
     <section className="lists-section">
       <div className="lists-section__header">
         <h2 className="lists-section__title">{t("myLibrary.listsTitle")}</h2>
-        {(column || lists.length > previewCount) && (
+        {(column || lists.length > 0) && (
           <Link to={`/lists/${userId}`} className="lists-section__see-all">
             {t("myLibrary.seeAll")} <ChevronRight size={14} aria-hidden="true" />
           </Link>
