@@ -110,9 +110,9 @@
 
   &__cta {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-5);
   }
 
   &__btn-primary {
