@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--space-2);
-    padding: 8px var(--space-2);
+    padding: 8px calc(var(--space-1) + var(--space-2));
     border: 1px solid var(--color-dropdown-fg);
     border-radius: var(--radius-sm);
     background: var(--color-bg-page);
@@ -44,10 +44,10 @@
     box-shadow: var(--shadow-card-hover);
     list-style: none;
     margin: 0;
-    padding: var(--space-2);
+    padding: var(--space-2) var(--space-1);
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-2);
     animation: dropdownIn var(--transition-base) ease-out forwards;
   }
 
@@ -56,7 +56,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    padding: 10px var(--space-2);
+    padding: 8px var(--space-2);
     background: transparent;
     border: none;
     border-radius: var(--radius-md);
