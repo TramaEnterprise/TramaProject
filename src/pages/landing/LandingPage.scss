@@ -9,7 +9,7 @@
   margin-left: -2rem;
   margin-right: -2rem;
   margin-top: calc(-2rem - var(--space-2));
-  margin-bottom: -2rem;
+  margin-bottom: calc(-2rem - var(--space-40));
 
   // Estado de carga
   &__loading {
