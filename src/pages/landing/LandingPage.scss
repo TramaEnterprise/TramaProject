@@ -584,8 +584,8 @@
 
   // ── SECCIÓN: CTA final ────────────────────────────────
   &__cta-final {
-    background: var(--color-bg-darkest);
-    padding: var(--space-24) 80px;
+    background: var(--color-bg-secondary);
+    padding: 0 80px var(--space-24);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -597,17 +597,17 @@
 
   &__cta-title {
     font-family: var(--font-editorial);
-    font-size: clamp(36px, 5vw, 56px);
+    font-size: clamp(26px, 2.8vw, 40px);
     font-weight: var(--weight-regular);
-    color: var(--color-text-on-dark);
-    line-height: 1.15;
+    color: var(--color-text-primary);
+    line-height: 1.2;
     max-width: 900px;
     margin: 0;
   }
 
   &__cta-subtitle {
-    font-size: var(--text-lg);
-    color: var(--color-text-subtle);
+    font-size: clamp(var(--text-sm), 1.2vw, var(--text-md));
+    color: var(--color-text-secondary);
     margin: 0;
     max-width: 700px;
   }
