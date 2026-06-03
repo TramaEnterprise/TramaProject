@@ -28,4 +28,4 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BOOKPROJECT_C1FA0 }}
-          projectId: trama
+          projectId: bookproject-c1fa0
