@@ -23,10 +23,10 @@
 
   // ── Tipografía de sección (reutilizable) ──────────────
   &__section-title {
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(26px, 2.8vw, 40px);
     font-weight: var(--weight-regular);
-    font-family: var(--font-main);
-    line-height: 1.15;
+    font-family: var(--font-editorial);
+    line-height: 1.2;
     color: var(--color-text-primary);
     margin: 0;
 
@@ -36,7 +36,7 @@
   }
 
   &__section-subtitle {
-    font-size: clamp(var(--text-md), 2vw, 24px);
+    font-size: clamp(var(--text-sm), 1.2vw, var(--text-md));
     font-family: var(--font-main);
     color: var(--color-text-secondary);
     line-height: 1.6;
