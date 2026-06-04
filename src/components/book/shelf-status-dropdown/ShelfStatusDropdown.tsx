@@ -113,7 +113,7 @@ export default function ShelfStatusDropdown({
               className={bem(classNames?.item, { active: saved === opt })}
               onClick={(e) => handleStatusSelect(e, opt)}
             >
-              <Icon size={14} />
+              <Icon size={16} />
               {t(`myLibrary.shelf.${opt}`)}
             </button>
           </li>
@@ -125,7 +125,7 @@ export default function ShelfStatusDropdown({
           <li role="separator" aria-hidden="true" className="shelf-status-dropdown__separator" />
           <li>
             <button type="button" className={classNames?.item} onClick={handleOpenListModal}>
-              <ListPlus size={14} />
+              <ListPlus size={16} />
               {t("book.addToList")}
             </button>
           </li>
@@ -151,7 +151,7 @@ export default function ShelfStatusDropdown({
       >
         {StatusIcon && <StatusIcon size={16} />}
         <span>{saved ? t(`myLibrary.shelf.${saved}`) : t("book.add")}</span>
-        <ChevronDown size={13} className={bem("shelf-status-dropdown__chevron", { open })} />
+        <ChevronDown size={14} className={bem("shelf-status-dropdown__chevron", { open })} />
       </button>
 
       {open && (portal ? createPortal(dropdownContent, document.body) : dropdownContent)}
