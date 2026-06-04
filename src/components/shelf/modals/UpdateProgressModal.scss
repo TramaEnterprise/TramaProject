@@ -88,6 +88,7 @@
     &:hover {
       transform: translateY(-3px) scale(1.02);
       box-shadow: var(--shadow-book);
+      cursor: pointer;
     }
 
     &--placeholder {
@@ -344,22 +345,19 @@
 
   &__skip-btn {
     margin-right: auto;
-    background: transparent;
-    border: 1px solid transparent;
+    background: none;
+    border: 1.5px solid var(--color-border-medium);
     border-radius: var(--radius-sm);
     padding: var(--space-2) var(--space-5);
     font-family: var(--font-main);
     font-size: var(--text-sm);
     font-weight: var(--weight-regular);
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     cursor: pointer;
-    transition:
-      border-color var(--transition-fast),
-      color var(--transition-fast);
+    transition: border-color var(--transition-fast);
 
     &:hover {
-      border-color: var(--color-bg-darkest);
-      color: var(--color-bg-darkest);
+      border-color: var(--color-text-primary);
     }
   }
 }
