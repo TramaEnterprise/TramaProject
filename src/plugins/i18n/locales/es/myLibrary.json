@@ -36,6 +36,10 @@
       "statusMessage": "Pulsa «Guardar» para mover el libro a esta estantería.",
       "percentageLabel": "Porcentaje de lectura"
     },
+    "finishModal": {
+      "title": "Valorar libro",
+      "skip": "Saltar valoración"
+    },
     "createList": "Crear nueva lista",
     "listsTitle": "Listas",
     "listsCount": "{{count}} libros",

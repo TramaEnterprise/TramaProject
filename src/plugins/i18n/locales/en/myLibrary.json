@@ -36,6 +36,10 @@
       "statusMessage": "Press 'Save' to move the book to this shelf.",
       "percentageLabel": "Reading percentage"
     },
+    "finishModal": {
+      "title": "Rate book",
+      "skip": "Skip rating"
+    },
     "createList": "Create new list",
     "listsTitle": "Lists",
     "listsCount": "{{count}} books",
