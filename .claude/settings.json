@@ -1,7 +1,4 @@
 {
-  "enabledPlugins": {
-    "claude-code-setup@claude-plugins-official": true
-  },
   "hooks": {
     "PostToolBatch": [
       {
@@ -13,5 +10,9 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "claude-code-setup@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true
   }
 }

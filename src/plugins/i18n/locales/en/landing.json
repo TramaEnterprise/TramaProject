@@ -6,7 +6,7 @@
       "titleSecond": "all in one place",
       "subtitle": "Search for books, track your progress, celebrate your goals and connect with other readers.",
       "cta": "Get started free",
-      "guest": "Explore without an account →"
+      "guest": "Explore without an account"
     },
     "library": {
       "title": "Your personal library, always with you.",
@@ -63,7 +63,7 @@
     "cta": {
       "title": "Start your reading story today.",
       "subtitle": "Free and ad-free. Get started in less than a minute.",
-      "btn": "Create free account",
+      "btn": "Create your account now",
       "guest": "Explore without an account →"
     },
     "footer": {
