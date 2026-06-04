@@ -1,3 +1,11 @@
+import fantasy from "@/assets/genres/fantasy.png";
+import scifi from "@/assets/genres/scifi.jpg";
+import historic from "@/assets/genres/historic.png";
+import mystery from "@/assets/genres/mystery.png";
+import horror from "@/assets/genres/horror.png";
+import romance from "@/assets/genres/romance.png";
+import thriller from "@/assets/genres/thriller.jpg";
+
 export function genreToI18nKey(genre: string): string {
   return genre
     .toLowerCase()
@@ -39,6 +47,35 @@ const GENRE_MAP: Record<string, string[]> = {
   Literature: ["literature", "literary fiction", "classics"],
   Plays: ["plays", "theatre"],
 };
+
+const GENRE_IMAGE_MAP: Record<string, string> = {
+  Horror: horror,
+  Thriller: thriller,
+  "Mystery and detective stories": mystery,
+  Romance: romance,
+  "Science Fiction": scifi,
+  "Historical Fiction": historic,
+  Fantasy: fantasy,
+};
+
+const GENRE_POS_MAP: Record<string, string> = {
+  Horror: "center 30%",
+  Fantasy: "center top",
+  "Science Fiction": "center 15%",
+  "Mystery and detective stories": "center 55%",
+  "Historical Fiction": "center 25%",
+  Romance: "center 5%",
+};
+
+export function genreToPosition(genre: string): string | undefined {
+  return GENRE_POS_MAP[genre];
+}
+
+const GENRE_SIZE_MAP: Record<string, string> = {};
+
+export function genreToSize(genre: string): string | undefined {
+  return GENRE_SIZE_MAP[genre];
+}
 
 export function detectGenre(subjects: string[] | undefined): string | undefined {
   if (!subjects || subjects.length === 0) return undefined;
@@ -117,4 +154,8 @@ const MORE_GENRE_TITLE_KEYS: Record<string, string> = {
 
 export function moreGenreTitleKey(genre: string | undefined): string {
   return (genre && MORE_GENRE_TITLE_KEYS[genre]) ?? "explore.sections.moreGenre";
+}
+
+export function genreToImage(genre: string): string | undefined {
+  return GENRE_IMAGE_MAP[genre];
 }
