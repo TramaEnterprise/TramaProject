@@ -50,7 +50,7 @@ export default function ListsSection({
             onClick={onCreateList}
           >
             <div className="lists-section__create-icon">
-              <Plus size={18} aria-hidden="true" />
+              <Plus size={14} aria-hidden="true" />
             </div>
             <span className="lists-section__create-text">{t("myLibrary.createList")}</span>
           </button>
