@@ -59,6 +59,10 @@
     min-width: 0;
     max-width: 720px;
     margin: 0 auto;
+
+    .swiper-slide-shadow {
+      background: rgba(0, 0, 0, 0.05);
+    }
   }
 
   &__slide {
@@ -107,7 +111,7 @@
   width: 100%;
   overflow: hidden;
   padding: var(--space-5) var(--space-6);
-  background: var(--color-bg-card);
+  background: var(--color-bg-page);
   border: 1px solid var(--color-border-outline);
   border-radius: var(--radius-xl);
   box-shadow: none;
