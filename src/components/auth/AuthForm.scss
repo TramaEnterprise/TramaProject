@@ -187,8 +187,7 @@
     outline: none;
 
     &:focus {
-      border-color: var(--color-brand-primary);
-      box-shadow: 0 0 0 3px var(--color-brand-alpha-subtle);
+      border-color: var(--color-bg-darkest);
     }
 
     &[aria-invalid="true"] {
@@ -198,7 +197,6 @@
       &:focus {
         color: var(--color-text-primary);
         border-color: var(--color-error);
-        box-shadow: 0 0 0 3px var(--color-error-bg);
       }
     }
 
