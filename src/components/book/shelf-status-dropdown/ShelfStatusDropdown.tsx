@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Bookmark, BookOpen, BookCheck, BookX, ChevronDown, ListPlus } from "lucide-react";
+import { Bookmark, BookOpen, BookCheck, BookX, ChevronDown, ListPlus, Plus } from "lucide-react";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
 import { useAuth } from "@/context/auth/useAuth";
@@ -23,7 +23,6 @@ const STATUS_ICONS: Record<ShelfStatus, React.ElementType> = {
 type ShelfStatusDropdownProps = {
   book: Book;
   portal?: boolean;
-  addIcon?: React.ElementType;
   classNames?: Partial<{
     root: string;
     btn: string;
@@ -37,7 +36,6 @@ export default function ShelfStatusDropdown({
   book,
   classNames,
   portal = false,
-  addIcon,
 }: ShelfStatusDropdownProps) {
   const { t } = useTranslation();
   const { addBook, removeBook, getStatus } = useShelf();
@@ -93,7 +91,7 @@ export default function ShelfStatusDropdown({
     setListModalOpen(true);
   };
 
-  const StatusIcon = saved ? STATUS_ICONS[saved] : (addIcon ?? null);
+  const StatusIcon = saved ? STATUS_ICONS[saved] : Plus;
 
   const dropdownContent = (
     <ul
