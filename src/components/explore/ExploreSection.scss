@@ -120,6 +120,17 @@
           height: 100%;
         }
       }
+
+      @include from($bp-xxl) {
+        width: 780px;
+
+        .featured-book-card__cover-wrapper {
+          width: auto;
+          height: auto;
+          align-self: stretch;
+          aspect-ratio: 2 / 3;
+        }
+      }
     }
   }
 
