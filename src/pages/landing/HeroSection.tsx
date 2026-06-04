@@ -16,6 +16,7 @@ import book10 from "@/assets/landing-float-10.png";
 import book11 from "@/assets/landing-float-11.png";
 import book12 from "@/assets/landing-float-12.png";
 import book13 from "@/assets/landing-float-13.png";
+import book14 from "@/assets/landing-float-14.png";
 
 type BookConfig = {
   src: string;
@@ -26,22 +27,27 @@ type BookConfig = {
 };
 
 const LEFT_BOOKS: BookConfig[] = [
-  { src: book1,  pos: { left: "9%",   top: 65  }, rotate: -1,   duration: 5.2, delay: 0   },
-  { src: book2,  pos: { left: "5.5%", top: 280 }, rotate:  1,   duration: 6.5, delay: 1.1 },
-  { src: book3,  pos: { left: "21%",  top: 160 }, rotate: -0.5, duration: 4.8, delay: 0.6 },
-  { src: book4,  pos: { left: "23%",  top: 390 }, rotate:  1.2, duration: 5.8, delay: 1.8 },
-  { src: book5,  pos: { left: "11%",  top: 492 }, rotate: -0.8, duration: 6.1, delay: 0.3 },
-  { src: book6,  pos: { left: "25%",  top: 572 }, rotate:  0.6, duration: 5.4, delay: 2.2 },
-  { src: book7,  pos: { left: "13%",  top: 330 }, rotate:  0.4, duration: 5.9, delay: 1.6 },
+  // Columna A (izquierda, ~7-9%)
+  { src: book1, pos: { left: "8%",  top: 50  }, rotate: -1,   duration: 5.2, delay: 0   },
+  { src: book2, pos: { left: "6%",  top: 240 }, rotate:  1,   duration: 6.5, delay: 1.1 },
+  { src: book5, pos: { left: "9%",  top: 430 }, rotate: -0.8, duration: 6.1, delay: 0.3 },
+  { src: book6, pos: { left: "7%",  top: 610 }, rotate:  0.6, duration: 5.4, delay: 2.2 },
+  // Columna B (interior izquierda, ~20-23%)
+  { src: book3, pos: { left: "21%", top: 130 }, rotate: -0.5, duration: 4.8, delay: 0.6 },
+  { src: book7, pos: { left: "23%", top: 345 }, rotate:  0.4, duration: 5.9, delay: 1.6 },
+  { src: book4, pos: { left: "20%", top: 555 }, rotate:  1.2, duration: 5.8, delay: 1.8 },
 ];
 
 const RIGHT_BOOKS: BookConfig[] = [
-  { src: book8,  pos: { right: "5%",   top: 60  }, rotate:  1,   duration: 5.6, delay: 0.9 },
-  { src: book9,  pos: { right: "3.5%", top: 305 }, rotate: -1,   duration: 4.9, delay: 0.4 },
-  { src: book10, pos: { right: "17%",  top: 198 }, rotate:  0.5, duration: 6.3, delay: 1.5 },
-  { src: book11, pos: { right: "27%",  top: 380 }, rotate: -1.2, duration: 5.1, delay: 2.0 },
-  { src: book12, pos: { right: "15%",  top: 470 }, rotate:  0.8, duration: 5.7, delay: 0.7 },
-  { src: book13, pos: { right: "28%",  top: 570 }, rotate: -0.6, duration: 6.0, delay: 1.3 },
+  // Columna A (derecha exterior, ~6-9%)
+  { src: book8,  pos: { right: "8%",  top: 50  }, rotate:  1,   duration: 5.6, delay: 0.9 },
+  { src: book9,  pos: { right: "6%",  top: 240 }, rotate: -1,   duration: 4.9, delay: 0.4 },
+  { src: book12, pos: { right: "9%",  top: 430 }, rotate:  0.8, duration: 5.7, delay: 0.7 },
+  { src: book13, pos: { right: "7%",  top: 610 }, rotate: -0.6, duration: 6.0, delay: 1.3 },
+  // Columna B (interior derecha, ~20-23%)
+  { src: book10, pos: { right: "21%", top: 130 }, rotate:  0.5, duration: 6.3, delay: 1.5 },
+  { src: book14, pos: { right: "23%", top: 345 }, rotate: -0.7, duration: 5.3, delay: 0.2 },
+  { src: book11, pos: { right: "20%", top: 555 }, rotate: -1.2, duration: 5.1, delay: 2.0 },
 ];
 
 type Props = {
