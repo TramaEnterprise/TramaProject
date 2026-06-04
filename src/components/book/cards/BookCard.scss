@@ -163,13 +163,6 @@
       outline-offset: 2px;
     }
 
-    &--saved {
-      background: var(--color-bg-page);
-      border-color: var(--color-dropdown-border);
-      color: var(--color-text-primary);
-      box-shadow: none;
-    }
-
     &--open {
       background: var(--color-dropdown-bg);
       border-color: var(--color-dropdown-border);
