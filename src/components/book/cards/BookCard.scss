@@ -140,8 +140,6 @@
     &:focus-visible {
       padding: 8px var(--space-2);
       gap: var(--space-1);
-      outline: 2px solid var(--color-btn-primary-bg);
-      outline-offset: 2px;
 
       span {
         max-width: 140px;
@@ -152,6 +150,11 @@
         max-width: 20px;
         opacity: 1;
       }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-btn-primary-bg);
+      outline-offset: 2px;
     }
 
     &--saved {
