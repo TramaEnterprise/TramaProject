@@ -143,7 +143,6 @@
       padding: 8px var(--space-3);
       gap: var(--space-1);
       min-width: 155px;
-      justify-content: space-between;
 
       span {
         max-width: 140px;
@@ -153,6 +152,7 @@
       .shelf-status-dropdown__chevron {
         max-width: 20px;
         opacity: 1;
+        margin-left: auto;
       }
     }
 
