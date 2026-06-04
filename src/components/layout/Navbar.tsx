@@ -72,7 +72,7 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
 
   const searchEl = (
     <div className="navbar__search-wrap" role="search" ref={wrapRef}>
-      <Search size={20} className="navbar__search-wrap-icon" aria-hidden="true" />
+      <Search size={20} strokeWidth={1.5} className="navbar__search-wrap-icon" aria-hidden="true" />
       <input
         ref={searchInputRef}
         className="navbar__search-field-input"
@@ -192,7 +192,7 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
                   aria-expanded={menuOpen && !hidden}
                   onClick={() => setMenuOpen(o => !o)}
                 >
-                  <User size={18} />
+                  <User size={18} strokeWidth={1.5} />
                 </button>
                 {menuOpen && !hidden && <ProfileMenu onClose={() => setMenuOpen(false)} />}
               </>

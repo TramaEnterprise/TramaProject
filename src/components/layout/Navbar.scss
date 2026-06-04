@@ -47,7 +47,7 @@
   &__brand-name {
     font-family: var(--font-editorial);
     font-size: var(--text-2xl);
-    font-weight: var(--weight-bold);
+    font-weight: var(--weight-semibold);
     line-height: 1;
     color: var(--color-text-primary);
     white-space: nowrap;
@@ -236,7 +236,7 @@
     cursor: pointer;
     font-family: var(--font-main);
     font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
+    font-weight: var(--weight-regular);
     color: var(--color-text-secondary);
     border-radius: var(--radius-pill);
     padding: var(--space-2) var(--space-4);
