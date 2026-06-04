@@ -155,7 +155,7 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <span className="navbar__brand-name">Trama</span>
+            <span className="navbar__brand-name">trama</span>
           </Link>
           {!isAuthenticated && searchEl}
         </div>
@@ -201,7 +201,7 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
                 <button
                   type="button"
                   className="navbar__btn-login"
-                  onClick={() => navigate("/auth")}
+                  onClick={() => navigate("/auth", { state: { tab: "login" } })}
                 >
                   {t("navbar.loginShort")}
                 </button>
