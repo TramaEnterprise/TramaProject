@@ -23,6 +23,7 @@ const STATUS_ICONS: Record<ShelfStatus, React.ElementType> = {
 type ShelfStatusDropdownProps = {
   book: Book;
   portal?: boolean;
+  addIcon?: React.ElementType;
   classNames?: Partial<{
     root: string;
     btn: string;
@@ -36,6 +37,7 @@ export default function ShelfStatusDropdown({
   book,
   classNames,
   portal = false,
+  addIcon,
 }: ShelfStatusDropdownProps) {
   const { t } = useTranslation();
   const { addBook, removeBook, getStatus } = useShelf();
@@ -91,7 +93,7 @@ export default function ShelfStatusDropdown({
     setListModalOpen(true);
   };
 
-  const StatusIcon = saved ? STATUS_ICONS[saved] : null;
+  const StatusIcon = saved ? STATUS_ICONS[saved] : (addIcon ?? null);
 
   const dropdownContent = (
     <ul
