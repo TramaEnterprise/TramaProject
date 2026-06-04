@@ -5,7 +5,7 @@ import { resolveCoverSrc } from "@/utils/coverImage";
 import { useTranslation } from "react-i18next";
 import "./BookCard.scss";
 import { encodeKey } from "@/utils/bookPaths";
-import { BookOpen, Star } from "lucide-react";
+import { BookOpen, Star, Plus } from "lucide-react";
 import ShelfStatusDropdown from "@/components/book/shelf-status-dropdown/ShelfStatusDropdown";
 
 type BookCardProps = {
@@ -49,6 +49,7 @@ export default function BookCard({ book, rank }: BookCardProps) {
       <ShelfStatusDropdown
         book={book}
         portal
+        addIcon={Plus}
         classNames={{
           root: "book-card__save-wrapper",
           btn: "book-card__save-btn",
