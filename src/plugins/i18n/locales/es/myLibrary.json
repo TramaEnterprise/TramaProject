@@ -34,7 +34,7 @@
       "review": "Reseña",
       "reviewPlaceholder": "¿Qué te ha parecido el libro? ¿Lo recomendarías?",
       "wantToReadMessage": "Guarda el libro en tu estantería para continuar.",
-      "didNotFinishMessage": "Si quieres marcar como abandonado el libro pulsa a «Guardar».",
+      "didNotFinishMessage": "Si quieres marcar el libro como abandonado pulsa el botón de «Guardar».",
       "percentageLabel": "Porcentaje de lectura"
     },
     "finishModal": {
