@@ -149,7 +149,7 @@ export default function ShelfStatusDropdown({
         onClick={handleTriggerClick}
         aria-label={saved ? t(`myLibrary.shelf.${saved}`) : t("book.add")}
       >
-        {StatusIcon && <StatusIcon size={14} />}
+        {StatusIcon && <StatusIcon size={16} />}
         <span>{saved ? t(`myLibrary.shelf.${saved}`) : t("book.add")}</span>
         <ChevronDown size={13} className={bem("shelf-status-dropdown__chevron", { open })} />
       </button>
