@@ -129,15 +129,19 @@
       opacity: 0;
       overflow: hidden;
       flex-shrink: 0;
+      margin-left: 0;
       transition:
         max-width var(--transition-fast),
         opacity var(--transition-fast);
     }
 
     &:hover,
-    &--open {
+    &--open,
+    &:focus-visible {
       padding: 8px var(--space-2);
       gap: var(--space-1);
+      outline: 2px solid var(--color-btn-primary-bg);
+      outline-offset: 2px;
 
       span {
         max-width: 140px;
