@@ -35,17 +35,23 @@
   }
 
   &__tile {
+    background-color: var(--genre-color, var(--color-genre-default));
+    background-image: linear-gradient(var(--color-genre-veil), var(--color-genre-veil)), var(--genre-image, none);
+    background-size: var(--genre-size, cover);
+    background-position: var(--genre-pos, center);
+    background-repeat: no-repeat;
     border: none;
     border-radius: var(--radius-lg);
     cursor: pointer;
     padding: var(--space-4);
     display: flex;
     align-items: flex-end;
+    justify-content: flex-end;
     box-shadow: var(--shadow-card);
     transition:
       transform var(--transition-base),
       box-shadow var(--transition-base);
-    text-align: left;
+    text-align: right;
 
     &:hover {
       transform: translateY(-2px);
@@ -67,16 +73,18 @@
     font-weight: var(--weight-bold);
     color: var(--color-text-on-dark);
     line-height: 1.05;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 
     @include from($bp-md) {
-      font-size: var(--text-2xl);
+      font-size: var(--text-3xl);
     }
   }
 
   &__tile-name {
     font-family: var(--font-editorial);
-    font-size: var(--text-sm);
+    font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
     color: var(--color-text-on-dark);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   }
 }
