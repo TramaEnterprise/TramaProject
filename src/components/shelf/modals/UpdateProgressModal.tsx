@@ -205,9 +205,15 @@ export default function UpdateProgressModal({ entry, onClose, title, onSkip }: U
             </>
           )}
 
-          {(localStatus === "wantToRead" || localStatus === "didNotFinish") && (
+          {localStatus === "wantToRead" && (
             <div className="progress-modal__status-message">
-              <p>{t("myLibrary.updateProgressModal.statusMessage")}</p>
+              <p>{t("myLibrary.updateProgressModal.wantToReadMessage")}</p>
+            </div>
+          )}
+
+          {localStatus === "didNotFinish" && (
+            <div className="progress-modal__status-message">
+              <p>{t("myLibrary.updateProgressModal.didNotFinishMessage")}</p>
             </div>
           )}
         </div>
