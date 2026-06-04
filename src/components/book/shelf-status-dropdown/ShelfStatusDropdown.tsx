@@ -97,12 +97,8 @@ export default function ShelfStatusDropdown({
         return;
       }
       const existing = getEntry(book.key);
-      if (!existing) {
-        addBook(book, "finished");
-        setFinishEntry({ book, status: "finished" });
-      } else {
-        setFinishEntry({ ...existing, status: "finished" });
-      }
+      addBook(book, "finished");
+      setFinishEntry(existing ? { ...existing, status: "finished" } : { book, status: "finished" });
       setFinishModalOpen(true);
       setOpen(false);
       return;
