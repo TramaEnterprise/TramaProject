@@ -14,6 +14,17 @@
     position: absolute;
     width: 110px;
     height: 155px;
+    cursor: grab;
+    touch-action: none;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &__book-inner {
+    width: 100%;
+    height: 100%;
     border-radius: var(--radius-sm);
     overflow: hidden;
     box-shadow: var(--shadow-book);

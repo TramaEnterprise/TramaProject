@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 import "./HeroSection.scss";
 
 import book1 from "@/assets/landing-float-1.png";
@@ -57,29 +58,37 @@ type Props = {
 
 export default function HeroSection({ onRegister, onGuest }: Props) {
   const { t } = useTranslation();
+  const heroRef = useRef<HTMLElement>(null);
 
   const renderBook = (book: BookConfig, idx: number) => (
     <motion.div
       key={idx}
       className="hero__book"
-      style={{
-        ...book.pos,
-        rotate: book.rotate,
-      }}
-      animate={{ y: [0, -14, 0] }}
-      transition={{
-        repeat: Infinity,
-        ease: "easeInOut",
-        duration: book.duration,
-        delay: book.delay,
-      }}
+      style={book.pos}
+      drag
+      dragMomentum={false}
+      dragConstraints={heroRef}
+      dragElastic={0.08}
+      whileDrag={{ scale: 1.06, zIndex: 20, cursor: "grabbing" }}
     >
-      <img src={book.src} alt="" aria-hidden="true" />
+      <motion.div
+        className="hero__book-inner"
+        style={{ rotate: book.rotate }}
+        animate={{ y: [0, -14, 0] }}
+        transition={{
+          repeat: Infinity,
+          ease: "easeInOut",
+          duration: book.duration,
+          delay: book.delay,
+        }}
+      >
+        <img src={book.src} alt="" aria-hidden="true" />
+      </motion.div>
     </motion.div>
   );
 
   return (
-    <section className="hero">
+    <section className="hero" ref={heroRef}>
       {LEFT_BOOKS.map((book, i) => renderBook(book, i))}
       {RIGHT_BOOKS.map((book, i) => renderBook(book, LEFT_BOOKS.length + i))}
 
