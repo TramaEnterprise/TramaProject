@@ -21,7 +21,7 @@
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     width: 100vw;
-    min-height: 620px;
+    min-height: 560px;
     padding: var(--space-6) var(--space-5);
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@
 
     @include from($bp-md) {
       margin-top: calc(-1 * (var(--space-10) + var(--space-2) + 2rem));
-      min-height: 720px;
+      min-height: 660px;
       padding: var(--space-8) var(--space-7);
     }
   }
