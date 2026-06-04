@@ -97,7 +97,7 @@
     justify-content: center;
     gap: 0;
     min-width: 0;
-    padding: 8px 6px;
+    padding: 6px 10px;
     border-radius: var(--radius-md);
     border: 1px solid var(--color-btn-primary-bg);
     background: var(--color-btn-primary-bg);
@@ -140,7 +140,7 @@
     &:hover,
     &--open,
     &:focus-visible {
-      padding: 8px 6px;
+      padding: 6px 10px;
       gap: var(--space-1);
       min-width: 155px;
 
