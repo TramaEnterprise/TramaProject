@@ -96,6 +96,7 @@
     align-items: center;
     justify-content: center;
     gap: 0;
+    min-width: 0;
     padding: 8px;
     border-radius: var(--radius-md);
     border: 1px solid var(--color-btn-primary-bg);
@@ -109,6 +110,7 @@
     transition:
       gap var(--transition-fast),
       padding var(--transition-fast),
+      min-width var(--transition-fast),
       border-color var(--transition-base),
       background var(--transition-base),
       color var(--transition-base);
@@ -140,6 +142,8 @@
     &:focus-visible {
       padding: 8px var(--space-3);
       gap: var(--space-1);
+      min-width: 155px;
+      justify-content: space-between;
 
       span {
         max-width: 140px;
@@ -149,7 +153,6 @@
       .shelf-status-dropdown__chevron {
         max-width: 20px;
         opacity: 1;
-        margin-left: var(--space-2);
       }
     }
 
@@ -160,8 +163,8 @@
 
     &--saved {
       background: var(--color-bg-page);
-      border-color: var(--color-btn-primary-bg);
-      color: var(--color-btn-primary-bg);
+      border-color: var(--color-dropdown-border);
+      color: var(--color-text-primary);
     }
 
     &--open {
