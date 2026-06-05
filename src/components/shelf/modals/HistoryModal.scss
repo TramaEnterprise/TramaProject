@@ -30,6 +30,8 @@
 
   &__left {
     @include modal-left;
+    overflow: visible;
+    padding-top: 6px;
   }
 
   &__book-info {
@@ -46,7 +48,7 @@
     border-radius: var(--radius-md);
 
     &:hover .history-modal__cover {
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.02);
       box-shadow: var(--shadow-book);
     }
 

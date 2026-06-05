@@ -4,9 +4,9 @@
     "hero": {
       "title": "Tu historia literaria,",
       "titleSecond": "en un solo lugar",
-      "subtitle": "Busca libros, sigue tu progreso, celebra tus metas y conecta con otros lectores.",
+      "subtitle": "Descubre libros, sigue tu progreso, celebra tus metas y conecta con otros lectores.",
       "cta": "Empezar gratis",
-      "guest": "Explorar sin cuenta →"
+      "guest": "Explorar sin cuenta"
     },
     "library": {
       "title": "Tu biblioteca personal, siempre contigo.",
@@ -63,7 +63,7 @@
     "cta": {
       "title": "Empieza tu historia lectora hoy.",
       "subtitle": "Gratis y sin anuncios. Empieza en menos de un minuto.",
-      "btn": "Crear cuenta gratis",
+      "btn": "Crea tu cuenta ahora",
       "guest": "Explorar sin cuenta →"
     },
     "footer": {

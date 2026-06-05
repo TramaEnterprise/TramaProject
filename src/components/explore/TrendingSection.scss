@@ -57,6 +57,10 @@
     scroll-snap-align: start;
     overflow: visible;
 
+    @include from($bp-xxl) {
+      width: 230px;
+    }
+
     .book-card {
       position: relative;
       z-index: 1;

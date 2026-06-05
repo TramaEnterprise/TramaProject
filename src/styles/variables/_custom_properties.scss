@@ -4,7 +4,7 @@
   --font-editorial: "Libre Baskerville", Georgia, serif;
 
   // ─── LAYOUT ────────────────────────────────────────────
-  --max-width: 1400px;
+  --max-width: none; 
   --navbar-height: 80px;
   --navbar-padding: 30px;
   --page-padding-x: 40px;
@@ -76,6 +76,7 @@
   --color-bg-synopsis: rgba(248, 248, 248, 0.85);
   --color-bg-darkest: #1a1714;
   --color-bg-medium: #3a3530;
+  --color-genre-veil: rgba(255, 255, 255, 0.35); 
 
   // ─── TEXTO ─────────────────────────────────────────────
   --color-text-primary: #444340;
@@ -102,6 +103,7 @@
   --color-genre-scifi: #6b7f9e;
   --color-genre-default: #e3ddd5;
   --color-genre-historical: #a78a6e;
+  --color-text-on-genre: #000; /* texto sobre los tiles de género (imagen + velo) */
 
   // ─── BORDER RADIUS ─────────────────────────────────────
   --radius-sm: 4px;

@@ -40,7 +40,12 @@
       "Bash(grep -E \"^/Users.*\\\\.tsx?$\")",
       "Bash(npx eslint *)",
       "Bash(grep *)",
-      "Bash(xargs ls -la)"
+      "Bash(xargs ls -la)",
+      "Bash(xargs cat -n)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(npm list *)",
+      "Bash(cat)",
+      "Read(//tmp/**)"
     ]
   }
 }

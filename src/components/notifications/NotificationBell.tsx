@@ -24,7 +24,7 @@ export default function NotificationsBell() {
         }
         onClick={() => setOpen((o) => !o)}
       >
-        <Bell />
+        <Bell strokeWidth={1.5} />
         {unreadCount > 0 && (
           <span className="navbar__bell-badge" aria-hidden="true">
             {unreadCount > 9 ? "9+" : unreadCount}

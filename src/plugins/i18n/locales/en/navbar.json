@@ -3,6 +3,8 @@
     "brandName": "Trama",
     "register": "Log reading",
     "login": "Sign In",
+    "loginShort": "Log in",
+    "signupShort": "Sign up",
     "logout": "Sign Out",
     "notifications": "Notifications",
     "profile": "Profile",

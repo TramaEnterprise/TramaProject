@@ -33,8 +33,13 @@
       "rateBook": "Rating",
       "review": "Review",
       "reviewPlaceholder": "What did you think of the book? Would you recommend it?",
-      "statusMessage": "Press 'Save' to move the book to this shelf.",
+      "wantToReadMessage": "Save the book to your shelf to continue.",
+      "didNotFinishMessage": "If you want to mark the book as abandoned, press 'Save'.",
       "percentageLabel": "Reading percentage"
+    },
+    "finishModal": {
+      "title": "Rate book",
+      "skip": "Skip rating"
     },
     "createList": "Create new list",
     "listsTitle": "Lists",

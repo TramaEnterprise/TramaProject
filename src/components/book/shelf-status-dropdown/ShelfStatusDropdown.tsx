@@ -1,14 +1,16 @@
 import { createPortal } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Bookmark, BookOpen, BookCheck, BookX, ChevronDown, ListPlus } from "lucide-react";
+import { Bookmark, BookOpen, BookCheck, BookX, ChevronDown, ListPlus, Plus } from "lucide-react";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
+import type { ShelfEntry } from "@/services/firebase/firebaseLibrary";
 import { useAuth } from "@/context/auth/useAuth";
 import { useShelf } from "@/context/shelf/useShelf";
 import { useClickOutside, useClickOutsideMany } from "@/hooks/useClickOutside";
 import { bem } from "@/utils/className";
 import AddToListModal from "./AddToListModal";
+import UpdateProgressModal from "@/components/shelf/modals/UpdateProgressModal";
 import "./ShelfStatusDropdown.scss";
 
 const SHELF_OPTIONS: ShelfStatus[] = ["wantToRead", "reading", "finished", "didNotFinish"];
@@ -38,7 +40,7 @@ export default function ShelfStatusDropdown({
   portal = false,
 }: ShelfStatusDropdownProps) {
   const { t } = useTranslation();
-  const { addBook, removeBook, getStatus } = useShelf();
+  const { addBook, removeBook, getStatus, getEntry } = useShelf();
   const { isAuthenticated, user } = useAuth();
   const saved = getStatus(book.key);
 
@@ -46,6 +48,8 @@ export default function ShelfStatusDropdown({
   const [listModalOpen, setListModalOpen] = useState(false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
+  const [finishModalOpen, setFinishModalOpen] = useState(false);
+  const [finishEntry, setFinishEntry] = useState<ShelfEntry | null>(null);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -62,6 +66,12 @@ export default function ShelfStatusDropdown({
       if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (finishModalOpen && saved !== "finished") {
+      setFinishModalOpen(false);
+    }
+  }, [finishModalOpen, saved]);
 
   const handleTriggerClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -80,6 +90,19 @@ export default function ShelfStatusDropdown({
 
   const handleStatusSelect = (e: React.MouseEvent, status: ShelfStatus) => {
     e.stopPropagation();
+    if (status === "finished") {
+      if (saved === "finished") {
+        removeBook(book.key);
+        setOpen(false);
+        return;
+      }
+      const existing = getEntry(book.key);
+      addBook(book, "finished");
+      setFinishEntry(existing ? { ...existing, status: "finished" } : { book, status: "finished" });
+      setFinishModalOpen(true);
+      setOpen(false);
+      return;
+    }
     if (saved === status) removeBook(book.key);
     else addBook(book, status);
     setOpen(false);
@@ -91,7 +114,7 @@ export default function ShelfStatusDropdown({
     setListModalOpen(true);
   };
 
-  const StatusIcon = saved ? STATUS_ICONS[saved] : null;
+  const StatusIcon = saved ? STATUS_ICONS[saved] : Plus;
 
   const dropdownContent = (
     <ul
@@ -113,7 +136,7 @@ export default function ShelfStatusDropdown({
               className={bem(classNames?.item, { active: saved === opt })}
               onClick={(e) => handleStatusSelect(e, opt)}
             >
-              <Icon size={14} />
+              <Icon size={16} />
               {t(`myLibrary.shelf.${opt}`)}
             </button>
           </li>
@@ -125,7 +148,7 @@ export default function ShelfStatusDropdown({
           <li role="separator" aria-hidden="true" className="shelf-status-dropdown__separator" />
           <li>
             <button type="button" className={classNames?.item} onClick={handleOpenListModal}>
-              <ListPlus size={14} />
+              <ListPlus size={16} />
               {t("book.addToList")}
             </button>
           </li>
@@ -149,15 +172,24 @@ export default function ShelfStatusDropdown({
         onClick={handleTriggerClick}
         aria-label={saved ? t(`myLibrary.shelf.${saved}`) : t("book.add")}
       >
-        {StatusIcon && <StatusIcon size={14} />}
+        {StatusIcon && <StatusIcon size={16} />}
         <span>{saved ? t(`myLibrary.shelf.${saved}`) : t("book.add")}</span>
-        <ChevronDown size={13} className={bem("shelf-status-dropdown__chevron", { open })} />
+        <ChevronDown size={14} className={bem("shelf-status-dropdown__chevron", { open })} />
       </button>
 
       {open && (portal ? createPortal(dropdownContent, document.body) : dropdownContent)}
 
       {listModalOpen && user && (
         <AddToListModal book={book} userId={user.uid} onClose={() => setListModalOpen(false)} />
+      )}
+
+      {finishModalOpen && finishEntry && (
+        <UpdateProgressModal
+          entry={finishEntry}
+          title={t("myLibrary.finishModal.title")}
+          onClose={() => setFinishModalOpen(false)}
+          onSkip={() => setFinishModalOpen(false)}
+        />
       )}
     </div>
   );

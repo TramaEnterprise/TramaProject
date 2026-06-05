@@ -70,6 +70,82 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
     navigate(`/search?q=${encodeURIComponent(trimmed)}`);
   };
 
+  const searchEl = (
+    <div className="navbar__search-wrap" role="search" ref={wrapRef}>
+      <Search size={20} strokeWidth={1.5} className="navbar__search-wrap-icon" aria-hidden="true" />
+      <input
+        ref={searchInputRef}
+        className="navbar__search-field-input"
+        type="search"
+        aria-label={t("navbar.search")}
+        placeholder={t("navbar.search")}
+        value={searchValue}
+        onChange={(e) => {
+          const v = e.target.value;
+          setSearchValue(v);
+          if (v.trim().length >= 3) {
+            setOpen(true);
+            setLoadingSuggestions(true);
+          } else {
+            setOpen(false);
+            setSuggestions([]);
+          }
+        }}
+        onBlur={() => window.setTimeout(() => setOpen(false), 150)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") goToResults();
+          if (e.key === "Escape") setOpen(false);
+        }}
+      />
+      <button
+        className={`navbar__search-clear-btn${searchValue ? " navbar__search-clear-btn--visible" : ""}`}
+        type="button"
+        aria-label="Cerrar búsqueda"
+        onMouseDown={(e) => {
+          e.preventDefault();
+          setSearchValue("");
+          setSuggestions([]);
+          setOpen(false);
+          searchInputRef.current?.blur();
+        }}
+      >
+        <X size={16} />
+      </button>
+      {open && searchValue.trim().length >= 3 && (
+        <div className="navbar__search-dropdown" role="listbox">
+          {loadingSuggestions ? (
+            <p className="navbar__search-dropdown-status">{t("explore.searching")}</p>
+          ) : suggestions.length === 0 ? (
+            <p className="navbar__search-dropdown-status">{t("myLibrary.noResults")}</p>
+          ) : (
+            <>
+              {suggestions.map((book) => (
+                <Link
+                  key={book.key}
+                  to={`/books/${encodeKey(book.key)}`}
+                  className="navbar__search-dropdown-item"
+                  role="option"
+                  onClick={() => { setOpen(false); setSearchValue(""); }}
+                >
+                  {book.cover_url && (
+                    <img src={book.cover_url} alt="" className="navbar__search-dropdown-cover" />
+                  )}
+                  <span className="navbar__search-dropdown-text">
+                    <span className="navbar__search-dropdown-title">{book.title}</span>
+                    <span className="navbar__search-dropdown-author">{book.authors?.[0]}</span>
+                  </span>
+                </Link>
+              ))}
+              <button type="button" className="navbar__search-dropdown-more" onClick={goToResults}>
+                {t("search.seeAllResults")}
+              </button>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <header className={`navbar${hidden ? " navbar--hidden" : ""}`}>
       <div className="navbar__inner">
@@ -79,8 +155,9 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <span className="navbar__brand-name">Trama</span>
+            <span className="navbar__brand-name">trama</span>
           </Link>
+          {!isAuthenticated && searchEl}
         </div>
 
         <nav className="navbar__nav">
@@ -102,99 +179,41 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
         </nav>
 
         <div className="navbar__actions">
-          <div className="navbar__search-wrap" role="search" ref={wrapRef}>
-            <Search size={20} className="navbar__search-wrap-icon" aria-hidden="true" />
-            <input
-              ref={searchInputRef}
-              className="navbar__search-field-input"
-              type="search"
-              aria-label={t("navbar.search")}
-              placeholder={t("navbar.search")}
-              value={searchValue}
-              onChange={(e) => {
-                const v = e.target.value;
-                setSearchValue(v);
-                if (v.trim().length >= 3) {
-                  setOpen(true);
-                  setLoadingSuggestions(true);
-                } else {
-                  setOpen(false);
-                  setSuggestions([]);
-                }
-              }}
-              onBlur={() => window.setTimeout(() => setOpen(false), 150)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") goToResults();
-                if (e.key === "Escape") setOpen(false);
-              }}
-            />
-            <button
-              className={`navbar__search-clear-btn${searchValue ? " navbar__search-clear-btn--visible" : ""}`}
-              type="button"
-              aria-label="Cerrar búsqueda"
-              onMouseDown={(e) => {
-                e.preventDefault();
-                setSearchValue("");
-                setSuggestions([]);
-                setOpen(false);
-                searchInputRef.current?.blur();
-              }}
-            >
-              <X size={16} />
-            </button>
-
-            {open && searchValue.trim().length >= 3 && (
-              <div className="navbar__search-dropdown" role="listbox">
-                {loadingSuggestions ? (
-                  <p className="navbar__search-dropdown-status">{t("explore.searching")}</p>
-                ) : suggestions.length === 0 ? (
-                  <p className="navbar__search-dropdown-status">{t("myLibrary.noResults")}</p>
-                ) : (
-                  <>
-                    {suggestions.map((book) => (
-                      <Link
-                        key={book.key}
-                        to={`/books/${encodeKey(book.key)}`}
-                        className="navbar__search-dropdown-item"
-                        role="option"
-                        onClick={() => { setOpen(false); setSearchValue(""); }}
-                      >
-                        {book.cover_url && (
-                          <img src={book.cover_url} alt="" className="navbar__search-dropdown-cover" />
-                        )}
-                        <span className="navbar__search-dropdown-text">
-                          <span className="navbar__search-dropdown-title">{book.title}</span>
-                          <span className="navbar__search-dropdown-author">{book.authors?.[0]}</span>
-                        </span>
-                      </Link>
-                    ))}
-                    <button type="button" className="navbar__search-dropdown-more" onClick={goToResults}>
-                      {t("search.seeAllResults")}
-                    </button>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
+          {isAuthenticated && searchEl}
           {isAuthenticated && <NotificationsBell />}
           <div className="navbar__avatar-wrap">
             {isAuthenticated ? (
-              <button
-                className="navbar__btn-icon navbar__btn-icon--avatar"
-                type="button"
-                aria-label={t("navbar.profile")}
-                aria-haspopup="true"
-                aria-expanded={menuOpen && !hidden}
-                onClick={() => setMenuOpen(o => !o)}
-              >
-                <User size={18} />
-              </button>
+              <>
+                <button
+                  className="navbar__btn-icon navbar__btn-icon--avatar"
+                  type="button"
+                  aria-label={t("navbar.profile")}
+                  aria-haspopup="true"
+                  aria-expanded={menuOpen && !hidden}
+                  onClick={() => setMenuOpen(o => !o)}
+                >
+                  <User size={18} strokeWidth={1.5} />
+                </button>
+                {menuOpen && !hidden && <ProfileMenu onClose={() => setMenuOpen(false)} />}
+              </>
             ) : (
-              <NavLink to="/auth" className="navbar__btn-icon navbar__btn-icon--avatar">
-                <User size={18} />
-              </NavLink>
+              <div className="navbar__auth-btns">
+                <button
+                  type="button"
+                  className="navbar__btn-login"
+                  onClick={() => navigate("/auth", { state: { tab: "login" } })}
+                >
+                  {t("navbar.loginShort")}
+                </button>
+                <button
+                  type="button"
+                  className="navbar__btn-signup"
+                  onClick={() => navigate("/auth", { state: { tab: "register" } })}
+                >
+                  {t("navbar.signupShort")}
+                </button>
+              </div>
             )}
-            {menuOpen && !hidden && <ProfileMenu onClose={() => setMenuOpen(false)} />}
           </div>
         </div>
       </div>

@@ -17,6 +17,8 @@ const REVIEW_MAX = 600;
 type UpdateProgressModalProps = {
   entry: ShelfEntry;
   onClose: () => void;
+  title?: string;
+  onSkip?: () => void;
 };
 
 const TEXTAREA_CLASSNAMES = {
@@ -33,7 +35,7 @@ function derivePercent(page: number, total: number): string {
   return String(Math.round((page / total) * 100));
 }
 
-export default function UpdateProgressModal({ entry, onClose }: UpdateProgressModalProps) {
+export default function UpdateProgressModal({ entry, onClose, title, onSkip }: UpdateProgressModalProps) {
   const { t } = useTranslation();
   const { updateProgress, addBook } = useShelf();
   const totalPages = entry.book.pages ?? 0;
@@ -111,8 +113,8 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
 
   return (
     <Modal
-      title={t("myLibrary.updateProgressModal.title")}
-      ariaLabel={t("myLibrary.updateProgressModal.title")}
+      title={title ?? t("myLibrary.updateProgressModal.title")}
+      ariaLabel={title ?? t("myLibrary.updateProgressModal.title")}
       closeAriaLabel={t("myLibrary.updateProgressModal.close")}
       onClose={onClose}
       closeOnBackdrop={false}
@@ -203,15 +205,30 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
             </>
           )}
 
-          {(localStatus === "wantToRead" || localStatus === "didNotFinish") && (
+          {localStatus === "wantToRead" && (
             <div className="progress-modal__status-message">
-              <p>{t("myLibrary.updateProgressModal.statusMessage")}</p>
+              <p>{t("myLibrary.updateProgressModal.wantToReadMessage")}</p>
+            </div>
+          )}
+
+          {localStatus === "didNotFinish" && (
+            <div className="progress-modal__status-message">
+              <p>{t("myLibrary.updateProgressModal.didNotFinishMessage")}</p>
             </div>
           )}
         </div>
       </div>
 
       <div className="progress-modal__footer">
+        {onSkip && (
+          <button
+            type="button"
+            className="progress-modal__skip-btn"
+            onClick={onSkip}
+          >
+            {t("myLibrary.finishModal.skip")}
+          </button>
+        )}
         <button
           type="button"
           className="progress-modal__save-btn"

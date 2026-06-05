@@ -1,17 +1,23 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
-import { genreToColorVar, genreToI18nKey } from "@/utils/genreUtils";
+import {
+  genreToColorVar,
+  genreToI18nKey,
+  genreToImage,
+  genreToPosition,
+  genreToSize,
+} from "@/utils/genreUtils";
 import "./GenreSection.scss";
 
 const EXPLORE_GENRES = [
-  "Fiction",
-  "Non-Fiction",
+  "Horror",
+  "Thriller",
   "Mystery and detective stories",
   "Romance",
   "Science Fiction",
   "Historical Fiction",
   "Fantasy",
-  "Thriller",
+  //"Thriller",
 ];
 
 type Props = {
@@ -22,7 +28,7 @@ export default function GenreSection({ featuredGenre }: Props) {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const safeFeaturedGenre = EXPLORE_GENRES.includes(featuredGenre) ? featuredGenre : "Fiction";
+  const safeFeaturedGenre = EXPLORE_GENRES.includes(featuredGenre) ? featuredGenre : "Fantasy";
   const otherGenres = EXPLORE_GENRES.filter((g) => g !== safeFeaturedGenre);
 
   const handleClick = (genre: string) => {
@@ -30,6 +36,18 @@ export default function GenreSection({ featuredGenre }: Props) {
     navigate(
       `/explore/section/more-genre?genre=${encodeURIComponent(genre)}&genreLabel=${encodeURIComponent(label)}`
     );
+  };
+
+  const tileStyle = (genre: string): React.CSSProperties => {
+    const img = genreToImage(genre);
+    const pos = genreToPosition(genre);
+    const size = genreToSize(genre);
+    return {
+      "--genre-color": genreToColorVar(genre),
+      ...(img ? { "--genre-image": `url(${img})` } : {}),
+      ...(pos ? { "--genre-pos": pos } : {}),
+      ...(size ? { "--genre-size": size } : {}),
+    } as React.CSSProperties;
   };
 
   return (
@@ -41,7 +59,7 @@ export default function GenreSection({ featuredGenre }: Props) {
         <button
           type="button"
           className="genre-section__tile genre-section__tile--hero"
-          style={{ background: genreToColorVar(safeFeaturedGenre) }}
+          style={tileStyle(safeFeaturedGenre)}
           onClick={() => handleClick(safeFeaturedGenre)}
         >
           <span className="genre-section__tile-title">
@@ -56,7 +74,7 @@ export default function GenreSection({ featuredGenre }: Props) {
             key={genre}
             type="button"
             className="genre-section__tile"
-            style={{ background: genreToColorVar(genre) }}
+            style={tileStyle(genre)}
             onClick={() => handleClick(genre)}
           >
             <span className="genre-section__tile-name">

@@ -33,8 +33,13 @@
       "rateBook": "Valoración",
       "review": "Reseña",
       "reviewPlaceholder": "¿Qué te ha parecido el libro? ¿Lo recomendarías?",
-      "statusMessage": "Pulsa «Guardar» para mover el libro a esta estantería.",
+      "wantToReadMessage": "Guarda el libro en tu estantería para continuar.",
+      "didNotFinishMessage": "Si quieres marcar el libro como abandonado pulsa el botón de «Guardar».",
       "percentageLabel": "Porcentaje de lectura"
+    },
+    "finishModal": {
+      "title": "Valorar libro",
+      "skip": "Saltar valoración"
     },
     "createList": "Crear nueva lista",
     "listsTitle": "Listas",
