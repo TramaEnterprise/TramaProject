@@ -1,9 +1,9 @@
 .confetti-burst {
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 2000; 
+  z-index: 10;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
 
   &__piece {
     position: absolute;

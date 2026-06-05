@@ -9,7 +9,12 @@ type UndoFn = () => void | Promise<void>;
 
 const shelfLabel = (status: ShelfStatus): string => i18n.t(`myLibrary.shelf.${status}`);
 
-const renderShelfToast = (book: BookForToast, message: string, undo?: UndoFn): void => {
+const renderShelfToast = (
+  book: BookForToast,
+  message: string,
+  undo?: UndoFn,
+  celebrate = false
+): void => {
   sonnerToast.custom(
     (id) => (
       <ShelfToast
@@ -19,6 +24,7 @@ const renderShelfToast = (book: BookForToast, message: string, undo?: UndoFn): v
         message={message}
         actionLabel={undo ? i18n.t("toasts.shelf.undo") : undefined}
         onAction={undo}
+        celebrate={celebrate}
       />
     ),
     { duration: 5000 }
@@ -50,7 +56,7 @@ export function notifyShelfStatusChanged(
     title: book.title,
     shelf: shelfLabel(toStatus),
   });
-  renderShelfToast(book, message, undo);
+  renderShelfToast(book, message, undo, toStatus === "finished");
 }
 
 export function notifyShelfRemoved(
@@ -64,8 +70,6 @@ export function notifyShelfRemoved(
 
 export function notifyProgressUpdated(
   book: BookForToast,
-  _currentPage: number,
-  _totalPages?: number
 ): void {
   const message = i18n.t("toasts.shelf.progressUpdated", { title: book.title });
   renderShelfToast(book, message);

@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, type FormEvent } from "react";
+import { useState, useRef, type FormEvent } from "react";
 import { useSearchParams, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import BookCard from "@/components/book/cards/BookCard";
 import { Search, X } from "lucide-react";
-import "./SearchPage.scss";
+import "./Search.scss";
 import { useBookSearchInfinite } from "@/hooks/useBookSearchInfinite";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import LoadMore from "@/components/common/LoadMore";
@@ -16,12 +16,14 @@ export default function SearchPage() {
   const q = searchParams.get("q") ?? "";
 
   const [inputValue, setInputValue] = useState(q);
+  const [prevQ, setPrevQ] = useState(q);
   const inputRef = useRef<HTMLInputElement>(null);
   const { books, loading, error, totalResults, hasNextPage, isFetchingNextPage, fetchNextPage } = useBookSearchInfinite(q, "todo", lang);
 
-  useEffect(() => {
+  if (prevQ !== q) {
+    setPrevQ(q);
     setInputValue(q);
-  }, [q]);
+  }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -24,7 +24,6 @@ export function useBookSynopsis(book: Book, lang: string): string {
     if (book.synopsis) return;
     const key = cacheKey(book.key, lang);
     if (synopsisCache.has(key)) {
-      setSynopsis(synopsisCache.get(key)!);
       return;
     }
     const controller = new AbortController();

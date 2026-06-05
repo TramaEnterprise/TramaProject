@@ -22,11 +22,13 @@ export default function UsernameSetupModal({
 }: UsernameSetupModalProps) {
   const { t } = useTranslation();
   const [username, setUsername] = useState("");
+  const [wasOpen, setWasOpen] = useState(open);
   const status = useUsernameAvailability(username, uid);
 
-  useEffect(() => {
-    if (!open) setUsername("");
-  }, [open]);
+  if (wasOpen !== open) {
+    setWasOpen(open);
+    if (!open) setUsername("");   
+  }
 
   useEffect(() => {
     if (!open) return;

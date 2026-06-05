@@ -16,7 +16,6 @@ import AppToaster from "./components/common/Toaster/AppToaster";
 import { queryClient } from "./services/lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { CelebrationProvider } from "./context/celebration/CelebrationContext";
 
 const SCROLL_THRESHOLD = 80;
 
@@ -32,18 +31,21 @@ function AppShell() {
 
   useEffect(() => {
     if (!miniNavEnabled) {
-      setScrolled(false);
       return;
     }
     const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [miniNavEnabled]);
 
+  // Si el mini-nav está desactivado, nunca se considera "scrolled".
+  const effectiveScrolled = miniNavEnabled && scrolled;
+
   return (
     <>
-      <Navbar hidden={scrolled} onActiveClick={reloadCurrent} />
-      <NavbarMini visible={scrolled} onActiveClick={reloadCurrent} />
+      <Navbar hidden={effectiveScrolled} onActiveClick={reloadCurrent} />
+      <NavbarMini visible={effectiveScrolled} onActiveClick={reloadCurrent} />
       <main>
         <Outlet key={reloadCount} />
       </main>
@@ -72,9 +74,7 @@ export default function App() {
             <AuthProvider>
               <ShelfProvider>
                 <NotificationsProvider>
-                  <CelebrationProvider>
-                    <AppShell />
-                  </CelebrationProvider>
+                  <AppShell />
                 </NotificationsProvider>
               </ShelfProvider>
             </AuthProvider>
