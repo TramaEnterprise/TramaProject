@@ -16,6 +16,7 @@ import AppToaster from "./components/common/Toaster/AppToaster";
 import { queryClient } from "./services/lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { CelebrationProvider } from "./context/celebration/CelebrationContext";
 
 const SCROLL_THRESHOLD = 80;
 
@@ -71,7 +72,9 @@ export default function App() {
             <AuthProvider>
               <ShelfProvider>
                 <NotificationsProvider>
-                  <AppShell />
+                  <CelebrationProvider>
+                    <AppShell />
+                  </CelebrationProvider>
                 </NotificationsProvider>
               </ShelfProvider>
             </AuthProvider>
