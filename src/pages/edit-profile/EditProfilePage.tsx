@@ -51,6 +51,9 @@ export default function EditProfilePage() {
   const usernameValue = watch("username") ?? "";
   const isPublicProfile = watch("isPublic");
 
+  const { setUrl: setPhotoUrl } = photo;
+  const { setUrl: setBannerUrl } = banner;
+
   useEffect(() => {
     if (!user) return;
     getUserProfile(user.uid)
@@ -64,13 +67,13 @@ export default function EditProfilePage() {
             isPublic: profile.isPublic ?? true,
           });
           setOriginalUsername(profile.username ?? "");
-          if (profile.profilePhotoUrl) photo.setUrl(profile.profilePhotoUrl);
-          if (profile.bannerImageUrl) banner.setUrl(profile.bannerImageUrl);
+          if (profile.profilePhotoUrl) setPhotoUrl(profile.profilePhotoUrl);
+          if (profile.bannerImageUrl) setBannerUrl(profile.bannerImageUrl);
         }
       })
       .finally(() => setLoadingProfile(false));
-  }, [user, reset, photo, banner]);
-
+  }, [user, reset, setPhotoUrl, setBannerUrl]);
+  
   const handlePhotoSelected = (file: File) => {
     photoFileRef.current = file;   
     photo.setFile(file);
