@@ -16,8 +16,10 @@ import AllListsPage from "@/pages/lists/AllListsPage";
 import ListDetailPage from "@/pages/lists/ListDetailPage";
 import TermsPage from "@/pages/legal/TermsPage";
 import PrivacyPage from "@/pages/legal/PrivacyPage";
+import ReviewBooksPage from "@/pages/admin/ReviewNewBooksPage";
 
 export const ROUTES = [
+  { path: "/admin/review", element: <ReviewBooksPage /> },
   {
     path: "/",
     element: <App />,

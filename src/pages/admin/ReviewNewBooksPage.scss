@@ -1,0 +1,58 @@
+.review-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-4, 1rem);
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3, 0.75rem);
+    position: sticky;
+    top: 0;
+    background: var(--color-surface, #fff);
+    padding: var(--space-3, 0.75rem) 0;
+    z-index: 1;
+  }
+
+  &__list { list-style: none; padding: 0; display: grid; gap: var(--space-4, 1rem); }
+  &__more { margin: var(--space-4, 1rem) auto; display: block; padding: 0.5rem 1rem; }
+}
+
+.review-card {
+  border: 1px solid var(--color-border, #ddd);
+  border-radius: var(--radius-md, 8px);
+  padding: var(--space-3, 0.75rem);
+
+  &__head { display: flex; align-items: center; gap: var(--space-2, 0.5rem); }
+  &__priority { margin-left: auto; opacity: 0.6; font-size: 0.85rem; }
+
+  &__status {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    color: #fff;
+    &--auto-ok { background: #2e7d32; }
+    &--needs-claude { background: #c62828; }
+    &--claude-done { background: #1565c0; }
+  }
+
+  &__flags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0; }
+  &__flag { background: var(--color-surface-alt, #f3f3f3); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.75rem; }
+
+  &__cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3, 0.75rem); }
+  &__changes { font-size: 0.8rem; opacity: 0.75; margin-top: 0.5rem; }
+}
+
+.review-side {
+  &__label { font-weight: 700; font-size: 0.75rem; opacity: 0.6; }
+  &__cover { width: 90px; height: auto; display: block; margin: 0.3rem 0; }
+  &__cover--empty {
+    width: 90px; height: 130px;
+    display: grid; place-items: center;
+    background: var(--color-surface-alt, #f3f3f3);
+    font-size: 0.7rem; opacity: 0.6;
+  }
+  &__title, &__pages, &__syn { margin: 0.2rem 0; font-size: 0.85rem; }
+  &__syn { white-space: pre-wrap; }
+}
