@@ -1,6 +1,7 @@
 @use "@/styles/lib/mixins" as *;
 
 .shelf-toast {
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--space-3);

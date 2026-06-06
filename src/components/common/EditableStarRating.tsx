@@ -1,4 +1,5 @@
 import { useId, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 
 type EditableStarRatingProps = {
   rating: number;
@@ -33,12 +34,19 @@ export default function EditableStarRating({
   ariaLabel = "Valoración",
 }: EditableStarRatingProps) {
   const [hover, setHover] = useState(0);
+  const [spin, setSpin] = useState(0);
+  const reduce = useReducedMotion();
   const gradBase = useId();
   const display = hover || rating;
 
   const fractionFromEvent = (e: React.MouseEvent<HTMLSpanElement>, star: number): number => {
     const rect = e.currentTarget.getBoundingClientRect();
     return (e.clientX - rect.left) / rect.width < 0.5 ? star - 0.5 : star;
+  };
+
+  const handleSelect = (value: number) => {
+    onChange(value);
+    if (!reduce) setSpin((s) => s + 1);
   };
 
   return (
@@ -51,20 +59,22 @@ export default function EditableStarRating({
       {[1, 2, 3, 4, 5].map((star) => {
         const fill: 0 | 0.5 | 1 = display >= star ? 1 : display >= star - 0.5 ? 0.5 : 0;
         return (
-          <span
+          <motion.span
             key={star}
             className="star-rating__star"
             role="button"
             tabIndex={0}
             aria-label={`${star} estrellas`}
             onMouseMove={(e) => setHover(fractionFromEvent(e, star))}
-            onClick={(e) => onChange(fractionFromEvent(e, star))}
+            onClick={(e) => handleSelect(fractionFromEvent(e, star))}
             onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") onChange(star);
+              if (e.key === "Enter" || e.key === " ") handleSelect(star);
             }}
+            animate={reduce ? undefined : { rotate: spin * 360 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <StarSvg fill={fill} uid={`${gradBase}-${star}`} />
-          </span>
+          </motion.span>
         );
       })}
       {display > 0 && <span className="star-rating__value">{Math.round(display)} / 5</span>}

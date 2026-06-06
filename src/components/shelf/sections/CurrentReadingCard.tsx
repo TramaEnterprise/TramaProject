@@ -108,11 +108,9 @@ function CurrentReadingCard() {
     return found ?? topReading[0];
   }, [topReading, selectedKey]);
 
-  useEffect(() => {
-    if (activeEntry && activeEntry.book.key !== selectedKey) {
-      setSelectedKey(activeEntry.book.key);
-    }
-  }, [activeEntry, selectedKey]);
+  if (activeEntry && activeEntry.book.key !== selectedKey) {
+    setSelectedKey(activeEntry.book.key);
+  }
 
   useEffect(() => {
     if (selectedKey) localStorage.setItem(STORAGE_KEY, selectedKey);

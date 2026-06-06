@@ -10,6 +10,7 @@ import EditableStarRating from "@/components/common/EditableStarRating";
 import LimitedTextarea from "@/components/common/TextArea";
 import ProgressPageInput from "./components/ProgressPageInput";
 import ModalStatusSelect from "./components/ModalStatusSelect";
+import ConfettiBurst from "@/components/common/ConfettiBurst";
 
 const NOTE_MAX = 280;
 const REVIEW_MAX = 600;
@@ -35,14 +36,26 @@ function derivePercent(page: number, total: number): string {
   return String(Math.round((page / total) * 100));
 }
 
-export default function UpdateProgressModal({ entry, onClose, title, onSkip }: UpdateProgressModalProps) {
+export default function UpdateProgressModal({
+  entry,
+  onClose,
+  title,
+  onSkip,
+}: UpdateProgressModalProps) {
   const { t } = useTranslation();
   const { updateProgress, addBook } = useShelf();
+  const [modalBurst, setModalBurst] = useState(entry.status === "finished" ? 1 : 0);
   const totalPages = entry.book.pages ?? 0;
 
   const initialPage = entry.currentPage ?? 0;
 
   const [localStatus, setLocalStatus] = useState<ShelfStatus>(entry.status);
+  
+  const handleStatusChange = (status: ShelfStatus) => {
+    setLocalStatus(status);
+    if (status === "finished") setModalBurst((n) => n + 1);
+  };
+  
   const [pageInput, setPageInput] = useState(initialPage > 0 ? String(initialPage) : "");
   const [percentInput, setPercentInput] = useState(derivePercent(initialPage, totalPages));
   const [note, setNote] = useState("");
@@ -129,7 +142,7 @@ export default function UpdateProgressModal({ entry, onClose, title, onSkip }: U
     >
       <div className="progress-modal__body">
         <div className="progress-modal__left">
-          <ModalStatusSelect value={localStatus} onChange={setLocalStatus} />
+          <ModalStatusSelect value={localStatus} onChange={handleStatusChange} />
           {coverSrc ? (
             <img className="progress-modal__cover" src={coverSrc} alt="" />
           ) : (
@@ -221,11 +234,7 @@ export default function UpdateProgressModal({ entry, onClose, title, onSkip }: U
 
       <div className="progress-modal__footer">
         {onSkip && (
-          <button
-            type="button"
-            className="progress-modal__skip-btn"
-            onClick={onSkip}
-          >
+          <button type="button" className="progress-modal__skip-btn" onClick={onSkip}>
             {t("myLibrary.finishModal.skip")}
           </button>
         )}
@@ -238,6 +247,7 @@ export default function UpdateProgressModal({ entry, onClose, title, onSkip }: U
           {t("myLibrary.updateProgressModal.save")}
         </button>
       </div>
+      {modalBurst > 0 && <ConfettiBurst key={modalBurst} onComplete={() => setModalBurst(0)} />}
     </Modal>
   );
 }

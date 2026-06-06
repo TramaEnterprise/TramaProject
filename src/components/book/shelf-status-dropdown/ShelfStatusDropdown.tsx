@@ -67,11 +67,9 @@ export default function ShelfStatusDropdown({
     };
   }, []);
 
-  useEffect(() => {
-    if (finishModalOpen && saved !== "finished") {
-      setFinishModalOpen(false);
-    }
-  }, [finishModalOpen, saved]);
+  if (finishModalOpen && saved !== "finished") {
+    setFinishModalOpen(false);
+  }
 
   const handleTriggerClick = (e: React.MouseEvent) => {
     e.stopPropagation();

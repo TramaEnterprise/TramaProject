@@ -203,7 +203,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
             })
           );
         } else {
-          notifyProgressUpdated(localizedBook, currentPage, totalPages);
+          notifyProgressUpdated(localizedBook);
         }
       }
     } catch {
