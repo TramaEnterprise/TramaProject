@@ -1,0 +1,8187 @@
+[
+  {
+    "_id": "OL10255502W",
+    "authorKeys": [
+      "OL4214425A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2004,
+    "cover_url": "https://covers.openlibrary.org/b/id/3361548-M.jpg",
+    "isbn": "9789875641587",
+    "rating": null,
+    "cover_id": 3361548,
+    "ratingCount": null,
+    "pages": null,
+    "genre": null,
+    "langs": [
+      "es"
+    ],
+    "key": "/works/OL10255502W",
+    "authors": [
+      "Edgardo Otero"
+    ],
+    "isbns": {
+      "es": "9789875641587"
+    },
+    "titles": {
+      "es": "El Origen de Los Nombres de Los Paises del Mundo"
+    },
+    "synopsis": {
+      "es": "Muchas veces nos hemos preguntado por qué los países, algunas islas o ciertos lugares, llevan ese nombre o se los denominan de esa manera. El autor de esta obra intenta dar una respuesta a esos interrogantes llevando a cabo una exhaustiva investigación de los orígenes de las diferentes denominaciones que llevan todos los países, regiones e islas del mundo.En el transcurso del tiempo que le llevó este trabajo, se ha abierto un camino maravilloso, fascinante, con relatos de acontecimientos históricos relacionados con lo mitológico, antiguas religiones o civilizaciones ya desaparecidas. Lo mismo ha ocurrido con diversos personajes, no siempre por todos conocidos.La lectura de esta obra, escrita con estilo ameno y de rápido acceso, se ve facilitada ya que al encontrarse los países ordenados alfabéticamente, permiten su inmediata localización.Edgardo Otero en este libro deslumbrante y gracias a una investigación inédita, inicia al lector curioso en un viaje al pasado, de lectura entretenida, suministrándole datos y hechos insospechados. Además ha logrado dar un paso más, al agregar en algunos casos, el origen etimológico de algunos nombres históricos, que completa la información de este trabajo tan recomendable.EDGARDO D. OTERO nació en Buenos Aires, en diciembre de 1965. Luego de recibirse de Técnico en Electrónica, cursó paralelamente en el Círculo de Periodistas Deportivos, donde finalizó sus estudios con el título de Técnico Superior en Periodismo, y en la Facultad de Ingeniería de la Universidad de Buenos Aires, donde se recibió de Ingeniero Electrónico.Además de trabajar en ambos ámbitos, habla cinco idiomas (español, inglés, francés, portugués e italiano), lo cual le permite tener un contacto más directo con personas, instituciones y documentación internacional de actualización imprescindible en la materia.GÁRGOLA EDICIONES | ARGENTINA.Este libro contiene el desarrollo de los siguientes temas:*Capítulo 1: América del Sur*Capítulo 2: América Central*Capítulo 3: Caribe*Capítulo 4: América del Norte*Capítulo 5: África*Capítulo 6: Asia*Capítulo 7: Europa*Capítulo 8:Oceanía*Capítulo 9:AntártidaCon este libro usted podrá profundizar sus conocimientos de historia y geografía/b> ¡Descargue ya este libro y obtenga información sobre los orígenes de la denominación del los países Geografía, mapa, datos curiosos, historia, origen, etimología, planeta, países, nombres."
+    },
+    "addCount": 3,
+    "authorTokens": [
+      "edgardo",
+      "otero"
+    ],
+    "titleTokens": {
+      "es": [
+        "origen",
+        "nombres",
+        "paises",
+        "mundo"
+      ]
+    },
+    "topics": [],
+    "titleNorm": {
+      "es": "el origen de los nombres de los paises del mundo"
+    }
+  },
+  {
+    "_id": "OL10154084W",
+    "authorKeys": [
+      "OL4147448A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2000,
+    "cover_url": null,
+    "isbn": "9789688520901",
+    "rating": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "pages": null,
+    "genre": null,
+    "langs": [
+      "es"
+    ],
+    "key": "/works/OL10154084W",
+    "authors": [
+      "Rolo May"
+    ],
+    "isbns": {
+      "es": "9789688520901"
+    },
+    "titles": {
+      "es": "El Dilema del Hombre"
+    },
+    "addCount": 2,
+    "authorTokens": [
+      "rolo",
+      "may"
+    ],
+    "titleTokens": {
+      "es": [
+        "dilema",
+        "hombre"
+      ]
+    },
+    "topics": [],
+    "titleNorm": {
+      "es": "el dilema del hombre"
+    }
+  },
+  {
+    "_id": "OL10154085W",
+    "authorKeys": [
+      "OL4147448A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1990,
+    "cover_url": null,
+    "isbn": "9789505163298",
+    "rating": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "pages": null,
+    "genre": null,
+    "langs": [
+      "es"
+    ],
+    "key": "/works/OL10154085W",
+    "authors": [
+      "Rolo May"
+    ],
+    "isbns": {
+      "es": "9789505163298"
+    },
+    "titles": {
+      "es": "El Hombre En Busca de Si Mismo"
+    },
+    "addCount": 2,
+    "authorTokens": [
+      "rolo",
+      "may"
+    ],
+    "titleTokens": {
+      "es": [
+        "hombre",
+        "busca",
+        "si",
+        "mismo"
+      ]
+    },
+    "topics": [],
+    "titleNorm": {
+      "es": "el hombre en busca de si mismo"
+    }
+  },
+  {
+    "_id": "OL10453149W",
+    "authorKeys": [
+      "OL71303A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 1970,
+    "cover_url": null,
+    "topics": [],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "fernand",
+      "leger"
+    ],
+    "pages": 116,
+    "genre": null,
+    "key": "/works/OL10453149W",
+    "authors": [
+      "Fernand Léger"
+    ],
+    "titleNorm": {
+      "es": "f. le ger",
+      "en": "f. le ger"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "F. Le ger",
+      "en": "F. Le ger"
+    },
+    "titleTokens": {
+      "es": [
+        "f.",
+        "le",
+        "ger"
+      ],
+      "en": [
+        "f.",
+        "le",
+        "ger"
+      ]
+    }
+  },
+  {
+    "_id": "OL10453150W",
+    "authorKeys": [
+      "OL71303A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 1978,
+    "cover_url": null,
+    "topics": [],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "fernand",
+      "leger"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL10453150W",
+    "authors": [
+      "Fernand Léger"
+    ],
+    "titleNorm": {
+      "es": "le ger",
+      "en": "le ger"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Le ger",
+      "en": "Le ger"
+    },
+    "titleTokens": {
+      "es": [
+        "le",
+        "ger"
+      ],
+      "en": [
+        "le",
+        "ger"
+      ]
+    }
+  },
+  {
+    "_id": "OL1097684W",
+    "authorKeys": [
+      "OL113527A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 1922,
+    "cover_url": "https://covers.openlibrary.org/b/id/5558494-M.jpg",
+    "topics": [
+      "Description and travel",
+      "In art",
+      "Rome (Italy)",
+      "Description",
+      "Views"
+    ],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": 5558494,
+    "ratingCount": null,
+    "authorTokens": [
+      "arthur",
+      "magyer",
+      "hind"
+    ],
+    "pages": 95,
+    "genre": "Non-Fiction",
+    "key": "/works/OL1097684W",
+    "authors": [
+      "Arthur Magyer Hind"
+    ],
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Giovanni Battista Piranesi",
+      "en": "Giovanni Battista Piranesi"
+    },
+    "titleTokens": {
+      "es": [
+        "giovanni",
+        "battista",
+        "piranesi"
+      ],
+      "en": [
+        "giovanni",
+        "battista",
+        "piranesi"
+      ]
+    },
+    "titleNorm": {
+      "es": "giovanni battista piranesi",
+      "en": "giovanni battista piranesi"
+    }
+  },
+  {
+    "_id": "OL12523946W",
+    "authorKeys": [
+      "OL5551259A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1910,
+    "cover_url": null,
+    "topics": [],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "arthur",
+      "samuel"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL12523946W",
+    "authors": [
+      "Arthur Samuel"
+    ],
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Piranesi.",
+      "en": "Piranesi."
+    },
+    "titleTokens": {
+      "es": [
+        "piranesi."
+      ],
+      "en": [
+        "piranesi."
+      ]
+    },
+    "titleNorm": {
+      "es": "piranesi.",
+      "en": "piranesi."
+    }
+  },
+  {
+    "_id": "OL15088154W",
+    "authorKeys": [
+      "OL20371A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1985,
+    "cover_url": null,
+    "topics": [
+      "Continental european fiction (fictional works by one author)"
+    ],
+    "isbn": "9780374519193",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "marguerite",
+      "yourcenar"
+    ],
+    "pages": 240,
+    "genre": "Non-Fiction",
+    "key": "/works/OL15088154W",
+    "authors": [
+      "Marguerite Yourcenar"
+    ],
+    "isbns": {
+      "es": "9780374519193",
+      "en": "9780374519193"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The Dark Brain of Piranesi",
+      "en": "The Dark Brain of Piranesi"
+    },
+    "titleTokens": {
+      "es": [
+        "dark",
+        "brain",
+        "piranesi"
+      ],
+      "en": [
+        "dark",
+        "brain",
+        "piranesi"
+      ]
+    },
+    "titleNorm": {
+      "es": "the dark brain of piranesi",
+      "en": "the dark brain of piranesi"
+    }
+  },
+  {
+    "_id": "OL15088155W",
+    "authorKeys": [
+      "OL20371A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1984,
+    "cover_url": "https://covers.openlibrary.org/b/id/9525786-M.jpg",
+    "topics": [
+      "Translations into English",
+      "Continental european fiction (fictional works by one author)"
+    ],
+    "isbn": "0374177090",
+    "rating": 5,
+    "genre2": null,
+    "cover_id": 9525786,
+    "ratingCount": 1,
+    "authorTokens": [
+      "marguerite",
+      "yourcenar"
+    ],
+    "pages": 231,
+    "genre": "Non-Fiction",
+    "key": "/works/OL15088155W",
+    "authors": [
+      "Marguerite Yourcenar"
+    ],
+    "isbns": {
+      "es": "0374177090",
+      "en": "0374177090"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The dark brain of Piranesi and other essays",
+      "en": "The dark brain of Piranesi and other essays"
+    },
+    "titleTokens": {
+      "es": [
+        "dark",
+        "brain",
+        "piranesi",
+        "other",
+        "essays"
+      ],
+      "en": [
+        "dark",
+        "brain",
+        "piranesi",
+        "other",
+        "essays"
+      ]
+    },
+    "titleNorm": {
+      "es": "the dark brain of piranesi and other essays",
+      "en": "the dark brain of piranesi and other essays"
+    }
+  },
+  {
+    "_id": "OL18438555W",
+    "authorKeys": [
+      "OL727243A",
+      "OL19154A",
+      "OL3258184A",
+      "OL2664738A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 2007,
+    "cover_url": "https://covers.openlibrary.org/b/id/2684687-M.jpg",
+    "topics": [
+      "Exhibitions",
+      "Piranesi, giovanni battista, 1720-1778",
+      "Art, exhibitions",
+      "Architectural design"
+    ],
+    "isbn": "9780910503952",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 2684687,
+    "ratingCount": null,
+    "authorTokens": [
+      "john",
+      "wilton-ely",
+      "peter",
+      "eisenman",
+      "alvar",
+      "gonzalez-palacios",
+      "michael",
+      "graves"
+    ],
+    "pages": 359,
+    "genre": "Non-Fiction",
+    "key": "/works/OL18438555W",
+    "authors": [
+      "John Wilton-Ely",
+      "Peter Eisenman",
+      "Alvar Gonzalez-Palacios",
+      "Michael Graves"
+    ],
+    "isbns": {
+      "es": "9780910503952",
+      "en": "9780910503969"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Piranesi As Designer",
+      "en": "Piranesi As Designer"
+    },
+    "titleTokens": {
+      "es": [
+        "piranesi",
+        "as",
+        "designer"
+      ],
+      "en": [
+        "piranesi",
+        "as",
+        "designer"
+      ]
+    },
+    "titleNorm": {
+      "es": "piranesi as designer",
+      "en": "piranesi as designer"
+    }
+  },
+  {
+    "_id": "OL20478683W",
+    "authorKeys": [
+      "OL1585268A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 2016,
+    "cover_url": "https://covers.openlibrary.org/b/id/9143369-M.jpg",
+    "topics": [
+      "Prints",
+      "Ruins in art",
+      "Piranesi, giovanni battista, 1720-1778",
+      "Art, italian"
+    ],
+    "isbn": "9783836559409",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 9143369,
+    "ratingCount": null,
+    "authorTokens": [
+      "luigi",
+      "ficacci"
+    ],
+    "pages": 840,
+    "genre": "Non-Fiction",
+    "key": "/works/OL20478683W",
+    "authors": [
+      "Luigi Ficacci"
+    ],
+    "isbns": {
+      "es": "9783836559409",
+      "en": "9783836587617"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Piranesi. The Complete Etchings",
+      "en": "Piranesi. the Complete Etchings"
+    },
+    "titleTokens": {
+      "es": [
+        "piranesi.",
+        "complete",
+        "etchings"
+      ],
+      "en": [
+        "piranesi.",
+        "complete",
+        "etchings"
+      ]
+    },
+    "titleNorm": {
+      "es": "piranesi. the complete etchings",
+      "en": "piranesi. the complete etchings"
+    }
+  },
+  {
+    "_id": "OL3973745W",
+    "authorKeys": [
+      "OL727243A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1993,
+    "cover_url": "https://covers.openlibrary.org/b/id/159794-M.jpg",
+    "topics": [
+      "Piranesi, giovanni battista, 1720-1778",
+      "Contributions in architecture",
+      "Contributions in design",
+      "Criticism and interpretation"
+    ],
+    "isbn": "0875980996",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 159794,
+    "ratingCount": null,
+    "authorTokens": [
+      "john",
+      "wilton-ely"
+    ],
+    "pages": 186,
+    "genre": "Non-Fiction",
+    "key": "/works/OL3973745W",
+    "authors": [
+      "John Wilton-Ely"
+    ],
+    "isbns": {
+      "es": "0875980996",
+      "en": "0875980996"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Piranesi as architect and designer",
+      "en": "Piranesi as architect and designer"
+    },
+    "titleTokens": {
+      "es": [
+        "piranesi",
+        "as",
+        "architect",
+        "designer"
+      ],
+      "en": [
+        "piranesi",
+        "as",
+        "architect",
+        "designer"
+      ]
+    },
+    "titleNorm": {
+      "es": "piranesi as architect and designer",
+      "en": "piranesi as architect and designer"
+    }
+  },
+  {
+    "_id": "OL5982612W",
+    "authorKeys": [
+      "OL1489358A"
+    ],
+    "edition_count": 5,
+    "first_publish_year": 1999,
+    "cover_url": null,
+    "topics": [
+      "Criticism and interpretation",
+      "Piranesi, giovanni battista, 1720-1778"
+    ],
+    "isbn": "9781351196963",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "silvia",
+      "gavuzzo-stewart"
+    ],
+    "pages": 168,
+    "genre": "Non-Fiction",
+    "key": "/works/OL5982612W",
+    "authors": [
+      "Silvia Gavuzzo-Stewart"
+    ],
+    "isbns": {
+      "es": "9781351196963",
+      "en": "9781351196963"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Nelle Carceri Di G. B. Piranesi",
+      "en": "Nelle Carceri Di G. B. Piranesi"
+    },
+    "titleTokens": {
+      "es": [
+        "nelle",
+        "carceri",
+        "di",
+        "g.",
+        "b.",
+        "piranesi"
+      ],
+      "en": [
+        "nelle",
+        "carceri",
+        "di",
+        "g.",
+        "b.",
+        "piranesi"
+      ]
+    },
+    "titleNorm": {
+      "es": "nelle carceri di g. b. piranesi",
+      "en": "nelle carceri di g. b. piranesi"
+    }
+  },
+  {
+    "_id": "OL11314141W",
+    "authorKeys": [
+      "OL44231A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1970,
+    "cover_url": null,
+    "topics": [],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "aleister",
+      "crowley"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL11314141W",
+    "authors": [
+      "Aleister Crowley"
+    ],
+    "titleNorm": {
+      "es": "the dangers of mysticism [plus] liber hhh.",
+      "en": "the dangers of mysticism [plus] liber hhh."
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The dangers of mysticism [plus] Liber HHH.",
+      "en": "The dangers of mysticism [plus] Liber HHH."
+    },
+    "titleTokens": {
+      "es": [
+        "dangers",
+        "mysticism",
+        "[plus]",
+        "liber",
+        "hhh."
+      ],
+      "en": [
+        "dangers",
+        "mysticism",
+        "[plus]",
+        "liber",
+        "hhh."
+      ]
+    }
+  },
+  {
+    "_id": "OL11736412W",
+    "authorKeys": [
+      "OL4985885A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2004,
+    "cover_url": null,
+    "topics": [
+      "Congresses",
+      "History",
+      "History and criticism",
+      "Music",
+      "Slovenska filharmonija"
+    ],
+    "isbn": "9616500503",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "mednarodni",
+      "simpozij",
+      "\"300",
+      "let",
+      "academia",
+      "philharmonicorum",
+      "labacensium",
+      "1701-2001.\""
+    ],
+    "pages": 253,
+    "genre": "Historical Fiction",
+    "key": "/works/OL11736412W",
+    "authors": [
+      "Mednarodni simpozij \"300 let Academia Philharmonicorum Labacensium 1701-2001.\""
+    ],
+    "isbns": {
+      "es": "9616500503",
+      "en": "9616500503"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "300 let Academia Philharmonicorum Labacensium 1701-2001",
+      "en": "300 let Academia Philharmonicorum Labacensium 1701-2001"
+    },
+    "titleTokens": {
+      "es": [
+        "300",
+        "let",
+        "academia",
+        "philharmonicorum",
+        "labacensium",
+        "1701-2001"
+      ],
+      "en": [
+        "300",
+        "let",
+        "academia",
+        "philharmonicorum",
+        "labacensium",
+        "1701-2001"
+      ]
+    },
+    "titleNorm": {
+      "es": "300 let academia philharmonicorum labacensium 1701-2001",
+      "en": "300 let academia philharmonicorum labacensium 1701-2001"
+    }
+  },
+  {
+    "_id": "OL16457068W",
+    "authorKeys": [
+      "OL1011758A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1994,
+    "cover_url": "https://covers.openlibrary.org/b/id/662243-M.jpg",
+    "topics": [
+      "Philosophy",
+      "Women philosophers",
+      "Modern Philosophy",
+      "Philosophy, modern, 18th century",
+      "Philosophy, modern, 17th century"
+    ],
+    "isbn": "0872202607",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 662243,
+    "ratingCount": null,
+    "authorTokens": [
+      "margaret",
+      "atherton"
+    ],
+    "pages": 166,
+    "genre": "Non-Fiction",
+    "key": "/works/OL16457068W",
+    "authors": [
+      "Margaret Atherton"
+    ],
+    "isbns": {
+      "es": "0872202607",
+      "en": "0872202607"
+    },
+    "titleNorm": {
+      "es": "women philosophers of the early modern period",
+      "en": "women philosophers of the early modern period"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Women philosophers of the early modern period",
+      "en": "Women philosophers of the early modern period"
+    },
+    "titleTokens": {
+      "es": [
+        "women",
+        "philosophers",
+        "early",
+        "modern",
+        "period"
+      ],
+      "en": [
+        "women",
+        "philosophers",
+        "early",
+        "modern",
+        "period"
+      ]
+    }
+  },
+  {
+    "_id": "OL18946445W",
+    "authorKeys": [
+      "OL2061928A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1989,
+    "cover_url": null,
+    "topics": [
+      "Sources",
+      "Law",
+      "Concordances",
+      "Nobility",
+      "Legal status, laws",
+      "Castile (Kingdom)"
+    ],
+    "isbn": "0940639416",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "jerry",
+      "r.",
+      "craddock"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL18946445W",
+    "authors": [
+      "Jerry R. Craddock"
+    ],
+    "isbns": {
+      "es": "0940639416",
+      "en": "0940639416"
+    },
+    "titleNorm": {
+      "es": "text and concordance of the libro de los fueros de castiella",
+      "en": "text and concordance of the libro de los fueros de castiella"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Text and concordance of the Libro de los fueros de Castiella",
+      "en": "Text and concordance of the Libro de los fueros de Castiella"
+    },
+    "titleTokens": {
+      "es": [
+        "text",
+        "concordance",
+        "libro",
+        "fueros",
+        "castiella"
+      ],
+      "en": [
+        "text",
+        "concordance",
+        "libro",
+        "fueros",
+        "castiella"
+      ]
+    }
+  },
+  {
+    "_id": "OL4529199W",
+    "authorKeys": [
+      "OL910679A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 1971,
+    "cover_url": "https://covers.openlibrary.org/b/id/9994543-M.jpg",
+    "topics": [
+      "Lexicography"
+    ],
+    "isbn": "311099528X",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 9994543,
+    "ratingCount": null,
+    "authorTokens": [
+      "ladislav",
+      "zgusta"
+    ],
+    "pages": 360,
+    "genre": "Non-Fiction",
+    "key": "/works/OL4529199W",
+    "authors": [
+      "Ladislav Zgusta"
+    ],
+    "isbns": {
+      "es": "311099528X",
+      "en": "9783110995282"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Manual of lexicography",
+      "en": "Manual of Lexicography"
+    },
+    "titleTokens": {
+      "es": [
+        "manual",
+        "lexicography"
+      ],
+      "en": [
+        "manual",
+        "lexicography"
+      ]
+    },
+    "titleNorm": {
+      "es": "manual of lexicography",
+      "en": "manual of lexicography"
+    }
+  },
+  {
+    "_id": "OL4935071W",
+    "authorKeys": [
+      "OL1060481A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1973,
+    "cover_url": null,
+    "topics": [
+      "Iconoclasm",
+      "Iconoclasme",
+      "History"
+    ],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "stephen",
+      "gero"
+    ],
+    "pages": 220,
+    "genre": "Historical Fiction",
+    "key": "/works/OL4935071W",
+    "authors": [
+      "Stephen Gero"
+    ],
+    "titleNorm": {
+      "es": "byzantine iconoclasm during the reign of leo iii",
+      "en": "byzantine iconoclasm during the reign of leo iii"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Byzantine iconoclasm during the reign of Leo III",
+      "en": "Byzantine iconoclasm during the reign of Leo III"
+    },
+    "titleTokens": {
+      "es": [
+        "byzantine",
+        "iconoclasm",
+        "during",
+        "reign",
+        "leo",
+        "iii"
+      ],
+      "en": [
+        "byzantine",
+        "iconoclasm",
+        "during",
+        "reign",
+        "leo",
+        "iii"
+      ]
+    }
+  },
+  {
+    "_id": "OL38504645W",
+    "authorKeys": [
+      "OL1454553A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 1993,
+    "cover_url": null,
+    "topics": [
+      "Maya sculpture",
+      "Art collections",
+      "Databases",
+      "Indexes",
+      "Stele (Archaeology)",
+      "Rubbing",
+      "Rubbings of Maya sculpture (Computer file)"
+    ],
+    "isbn": "0934051054",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "merle",
+      "greene",
+      "robertson"
+    ],
+    "pages": 39,
+    "genre": "Non-Fiction",
+    "key": "/works/OL38504645W",
+    "authors": [
+      "Merle Greene Robertson"
+    ],
+    "isbns": {
+      "es": "0934051054",
+      "en": "0934051054"
+    },
+    "titleNorm": {
+      "es": "merle greene robertson's rubbings of maya sculpture",
+      "en": "merle greene robertson's rubbings of maya sculpture"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Merle Greene Robertson's rubbings of Maya sculpture",
+      "en": "Merle Greene Robertson's rubbings of Maya sculpture"
+    },
+    "titleTokens": {
+      "es": [
+        "merle",
+        "greene",
+        "robertson's",
+        "rubbings",
+        "maya",
+        "sculpture"
+      ],
+      "en": [
+        "merle",
+        "greene",
+        "robertson's",
+        "rubbings",
+        "maya",
+        "sculpture"
+      ]
+    }
+  },
+  {
+    "_id": "OL34016577W",
+    "authorKeys": [
+      "OL13956516A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2013,
+    "cover_url": null,
+    "topics": [
+      "Educational sociology",
+      "Multicultural education",
+      "Whites",
+      "Social change"
+    ],
+    "isbn": "9781443844734",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "john",
+      "preston"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL34016577W",
+    "authors": [
+      "John Preston"
+    ],
+    "isbns": {
+      "es": "9781443844734",
+      "en": "9781443844734"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Whiteness in Academia",
+      "en": "Whiteness in Academia"
+    },
+    "titleTokens": {
+      "es": [
+        "whiteness",
+        "academia"
+      ],
+      "en": [
+        "whiteness",
+        "academia"
+      ]
+    },
+    "titleNorm": {
+      "es": "whiteness in academia",
+      "en": "whiteness in academia"
+    }
+  },
+  {
+    "_id": "OL35267672W",
+    "authorKeys": [],
+    "edition_count": 1,
+    "first_publish_year": 2003,
+    "cover_url": "https://covers.openlibrary.org/b/id/14305127-M.jpg",
+    "topics": [
+      "Human rights",
+      "HUMAN RIGHTS",
+      "MULTILATERAL TREATIES",
+      "PERIODIC REPORTS",
+      "TREATY-MONITORING BODIES",
+      "International Covenant on Economic, Social and Cultural Rights (1966)",
+      "International Covenant on Civil and Political Rights (1966)",
+      "International Convention on the Elimination of All Forms of Racial Discrimination (1965)",
+      "Convention on the Elimination of All Forms of Discrimination against Women (1979)",
+      "Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment (1984)",
+      "Convention on the Rights of the Child (1989)"
+    ],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": 14305127,
+    "ratingCount": null,
+    "authorTokens": [
+      "autor",
+      "desconocido"
+    ],
+    "pages": 195,
+    "genre": "Non-Fiction",
+    "key": "/works/OL35267672W",
+    "authors": [
+      "Autor desconocido"
+    ],
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Recent reporting history under the principal international human rights instruments",
+      "en": "Recent reporting history under the principal international human rights instruments"
+    },
+    "titleTokens": {
+      "es": [
+        "recent",
+        "reporting",
+        "history",
+        "under",
+        "principal",
+        "international",
+        "human",
+        "rights",
+        "instruments"
+      ],
+      "en": [
+        "recent",
+        "reporting",
+        "history",
+        "under",
+        "principal",
+        "international",
+        "human",
+        "rights",
+        "instruments"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "recent reporting history under the principal international human rights instruments",
+      "en": "recent reporting history under the principal international human rights instruments"
+    }
+  },
+  {
+    "_id": "OL32340819W",
+    "authorKeys": [
+      "OL8789289A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2018,
+    "cover_url": null,
+    "topics": [
+      "Spanish American literature",
+      "Congresses",
+      "Women authors",
+      "History and criticism",
+      "Spanish literature",
+      "Feminism and literature"
+    ],
+    "isbn": "9789945802184",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "asociacion",
+      "internacional",
+      "literatura",
+      "cultura",
+      "femenina",
+      "hispanica.",
+      "congreso",
+      "anual"
+    ],
+    "pages": 401,
+    "genre": "Non-Fiction",
+    "key": "/works/OL32340819W",
+    "authors": [
+      "Asociación Internacional de Literatura y Cultura Femenina Hispánica. Congreso Anual"
+    ],
+    "isbns": {
+      "es": "9789945802184",
+      "en": "9789945802184"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Agencia, historia y empoderamiento femenino",
+      "en": "Agencia, historia y empoderamiento femenino"
+    },
+    "titleTokens": {
+      "es": [
+        "agencia,",
+        "historia",
+        "empoderamiento",
+        "femenino"
+      ],
+      "en": [
+        "agencia,",
+        "historia",
+        "empoderamiento",
+        "femenino"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "agencia, historia y empoderamiento femenino",
+      "en": "agencia, historia y empoderamiento femenino"
+    }
+  },
+  {
+    "_id": "OL37862493W",
+    "authorKeys": [
+      "OL13615319A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2023,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9798369300664",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "hol"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL37862493W",
+    "authors": [
+      "Höl"
+    ],
+    "isbns": {
+      "es": "9798369300664",
+      "en": "9798369300664"
+    },
+    "titleNorm": {
+      "es": "emergent practices of learning analytics in k-12 classrooms",
+      "en": "emergent practices of learning analytics in k-12 classrooms"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Emergent Practices of Learning Analytics in K-12 Classrooms",
+      "en": "Emergent Practices of Learning Analytics in K-12 Classrooms"
+    },
+    "titleTokens": {
+      "es": [
+        "emergent",
+        "practices",
+        "learning",
+        "analytics",
+        "k-12",
+        "classrooms"
+      ],
+      "en": [
+        "emergent",
+        "practices",
+        "learning",
+        "analytics",
+        "k-12",
+        "classrooms"
+      ]
+    }
+  },
+  {
+    "_id": "OL39177041W",
+    "authorKeys": [
+      "OL9793831A",
+      "OL14056263A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2024,
+    "cover_url": null,
+    "topics": [
+      "Fiction, religious",
+      "Spirituality"
+    ],
+    "isbn": "9780988472839",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "m.",
+      "s.",
+      "muse",
+      "roberto",
+      "grego",
+      "acuna"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL39177041W",
+    "authors": [
+      "M. S. Muse",
+      "Roberto Grego Acuna"
+    ],
+    "isbns": {
+      "es": "9780988472839",
+      "en": "9780988472839"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Secretos de la Parábola Del Sembrador",
+      "en": "Secretos de la Parábola Del Sembrador"
+    },
+    "titleTokens": {
+      "es": [
+        "secretos",
+        "parabola",
+        "sembrador"
+      ],
+      "en": [
+        "secretos",
+        "parabola",
+        "sembrador"
+      ]
+    },
+    "titleNorm": {
+      "es": "secretos de la parabola del sembrador",
+      "en": "secretos de la parabola del sembrador"
+    }
+  },
+  {
+    "_id": "OL759809W",
+    "authorKeys": [
+      "OL62328A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1989,
+    "cover_url": "https://covers.openlibrary.org/b/id/8492061-M.jpg",
+    "topics": [
+      "Antiaircraft missiles",
+      "Surface-to-air missiles",
+      "Air defenses"
+    ],
+    "isbn": "0710605897",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 8492061,
+    "ratingCount": null,
+    "authorTokens": [
+      "steve",
+      "j.",
+      "zaloga"
+    ],
+    "pages": 384,
+    "genre": "Non-Fiction",
+    "key": "/works/OL759809W",
+    "authors": [
+      "Steve J. Zaloga"
+    ],
+    "isbns": {
+      "es": "0710605897",
+      "en": "0710605897"
+    },
+    "titleNorm": {
+      "es": "soviet air defence missiles",
+      "en": "soviet air defence missiles"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Soviet air defence missiles",
+      "en": "Soviet air defence missiles"
+    },
+    "titleTokens": {
+      "es": [
+        "soviet",
+        "air",
+        "defence",
+        "missiles"
+      ],
+      "en": [
+        "soviet",
+        "air",
+        "defence",
+        "missiles"
+      ]
+    }
+  },
+  {
+    "_id": "OL9321604W",
+    "authorKeys": [
+      "OL3369430A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 1993,
+    "cover_url": "https://covers.openlibrary.org/b/id/5033191-M.jpg",
+    "topics": [
+      "Polymers",
+      "Polymères",
+      "35.80 macromolecular chemistry",
+      "Einführung",
+      "Makromolekulare Chemie",
+      "Polymere",
+      "Polymeren",
+      "Additiereacties",
+      "Condensatie",
+      "Fysische eigenschappen",
+      "Polymérisation",
+      "Copolymères"
+    ],
+    "isbn": "9780134896915",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 5033191,
+    "ratingCount": null,
+    "authorTokens": [
+      "ger",
+      "challa"
+    ],
+    "pages": 170,
+    "genre": "Non-Fiction",
+    "key": "/works/OL9321604W",
+    "authors": [
+      "Ger Challa"
+    ],
+    "isbns": {
+      "es": "9780134896915",
+      "en": "9780134896915"
+    },
+    "titleNorm": {
+      "es": "polymer chemistry",
+      "en": "polymer chemistry"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Polymer Chemistry",
+      "en": "Polymer Chemistry"
+    },
+    "titleTokens": {
+      "es": [
+        "polymer",
+        "chemistry"
+      ],
+      "en": [
+        "polymer",
+        "chemistry"
+      ]
+    }
+  },
+  {
+    "_id": "OL25746356W",
+    "authorKeys": [
+      "OL9732865A"
+    ],
+    "edition_count": 5,
+    "first_publish_year": 2018,
+    "cover_url": null,
+    "topics": [
+      "Data protection",
+      "Computer networks, security measures",
+      "Information technology",
+      "Computer security",
+      "Management",
+      "Sécurité informatique",
+      "Gestion",
+      "BUSINESS & ECONOMICS",
+      "Production & Operations Management",
+      "COMPUTERS",
+      "Information Technology",
+      "Security",
+      "General"
+    ],
+    "isbn": "9780429791253",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "andrej",
+      "volchkov"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL25746356W",
+    "authors": [
+      "Andrej Volchkov"
+    ],
+    "isbns": {
+      "es": "9780429791253",
+      "en": "9780429791239"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Information Security Governance",
+      "en": "Information Security Governance"
+    },
+    "titleTokens": {
+      "es": [
+        "information",
+        "security",
+        "governance"
+      ],
+      "en": [
+        "information",
+        "security",
+        "governance"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "information security governance",
+      "en": "information security governance"
+    }
+  },
+  {
+    "_id": "OL25458977W",
+    "authorKeys": [
+      "OL2646614A",
+      "OL2879687A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2021,
+    "cover_url": "https://covers.openlibrary.org/b/id/13985758-M.jpg",
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "isbn": "9781933820538",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 13985758,
+    "ratingCount": null,
+    "authorTokens": [
+      "caroline",
+      "jarrett",
+      "steve",
+      "krug"
+    ],
+    "pages": 368,
+    "genre": "Non-Fiction",
+    "key": "/works/OL25458977W",
+    "authors": [
+      "Caroline Jarrett",
+      "Steve Krug"
+    ],
+    "isbns": {
+      "es": "9781933820538",
+      "en": "9781933820538"
+    },
+    "titleNorm": {
+      "es": "surveys that work",
+      "en": "surveys that work"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Surveys That Work",
+      "en": "Surveys That Work"
+    },
+    "titleTokens": {
+      "es": [
+        "surveys",
+        "that",
+        "work"
+      ],
+      "en": [
+        "surveys",
+        "that",
+        "work"
+      ]
+    }
+  },
+  {
+    "_id": "OL2684163W",
+    "authorKeys": [
+      "OL391962A"
+    ],
+    "edition_count": 8,
+    "first_publish_year": 1997,
+    "cover_url": "https://covers.openlibrary.org/b/id/86698-M.jpg",
+    "topics": [
+      "Brand name products",
+      "Management",
+      "Merken",
+      "Marketing",
+      "Strategisch management",
+      "Brand name products--management",
+      "Hd69.b7 k45 2008",
+      "658.8/27",
+      "85.40"
+    ],
+    "isbn": "0131201158",
+    "rating": 4,
+    "genre2": null,
+    "cover_id": 86698,
+    "ratingCount": 1,
+    "authorTokens": [
+      "kevin",
+      "lane",
+      "keller"
+    ],
+    "pages": 784,
+    "genre": "Non-Fiction",
+    "key": "/works/OL2684163W",
+    "authors": [
+      "Kevin Lane Keller"
+    ],
+    "isbns": {
+      "es": "0131201158",
+      "en": "0131201158"
+    },
+    "titleNorm": {
+      "es": "strategic brand management",
+      "en": "strategic brand management"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Strategic brand management",
+      "en": "Strategic brand management"
+    },
+    "titleTokens": {
+      "es": [
+        "strategic",
+        "brand",
+        "management"
+      ],
+      "en": [
+        "strategic",
+        "brand",
+        "management"
+      ]
+    }
+  },
+  {
+    "_id": "OL19720097W",
+    "authorKeys": [
+      "OL1436692A"
+    ],
+    "edition_count": 16,
+    "first_publish_year": 2008,
+    "cover_url": "https://covers.openlibrary.org/b/id/14801868-M.jpg",
+    "topics": [
+      "Branding (Marketing)",
+      "Brand name products",
+      "Design",
+      "Advertising",
+      "Trademarks",
+      "Marketing",
+      "Industrial design coordination"
+    ],
+    "isbn": "9781119984818",
+    "rating": 5,
+    "genre2": null,
+    "cover_id": 14801868,
+    "ratingCount": 1,
+    "authorTokens": [
+      "alina",
+      "wheeler"
+    ],
+    "pages": 330,
+    "genre": "Non-Fiction",
+    "key": "/works/OL19720097W",
+    "authors": [
+      "Alina Wheeler"
+    ],
+    "isbns": {
+      "es": "9781119984818",
+      "en": "9781119984825"
+    },
+    "titleNorm": {
+      "es": "designing brand identity",
+      "en": "designing brand identity"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Designing Brand Identity",
+      "en": "Designing Brand Identity"
+    },
+    "titleTokens": {
+      "es": [
+        "designing",
+        "brand",
+        "identity"
+      ],
+      "en": [
+        "designing",
+        "brand",
+        "identity"
+      ]
+    }
+  },
+  {
+    "_id": "OL17883121W",
+    "authorKeys": [
+      "OL2571373A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2018,
+    "cover_url": "https://covers.openlibrary.org/b/id/8193589-M.jpg",
+    "topics": [
+      "Brand name products",
+      "Advertising",
+      "Selling",
+      "Product management",
+      "Marketing",
+      "Branding (Marketing)",
+      "Customer relations",
+      "Consumer behavior",
+      "BUSINESS & ECONOMICS / Marketing / General",
+      "BUSINESS & ECONOMICS / Sales & Selling / General",
+      "BUSINESS & ECONOMICS / Business Communication / General",
+      "Business and Management",
+      "Business & management"
+    ],
+    "isbn": "9780718033323",
+    "rating": 3.8,
+    "genre2": null,
+    "cover_id": 8193589,
+    "ratingCount": 5,
+    "authorTokens": [
+      "donald",
+      "miller"
+    ],
+    "pages": 228,
+    "genre": "Non-Fiction",
+    "key": "/works/OL17883121W",
+    "authors": [
+      "Donald Miller"
+    ],
+    "isbns": {
+      "es": "9780718033323",
+      "en": "9780718033323"
+    },
+    "titleNorm": {
+      "es": "building a story brand",
+      "en": "building a story brand"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Building a Story Brand",
+      "en": "Building a Story Brand"
+    },
+    "titleTokens": {
+      "es": [
+        "building",
+        "story",
+        "brand"
+      ],
+      "en": [
+        "building",
+        "story",
+        "brand"
+      ]
+    }
+  },
+  {
+    "_id": "OL823146W",
+    "authorKeys": [
+      "OL69677A"
+    ],
+    "edition_count": 6,
+    "first_publish_year": 1994,
+    "cover_url": "https://covers.openlibrary.org/b/id/6513448-M.jpg",
+    "topics": [
+      "Buildings",
+      "Performance",
+      "Human factors",
+      "Architecture",
+      "Utilization",
+      "Long Now Manual for Civilization",
+      "Architecture, conservation and restoration",
+      "Building",
+      "Conservation and restoration"
+    ],
+    "isbn": "0140139966",
+    "rating": 4.2,
+    "genre2": null,
+    "cover_id": 6513448,
+    "ratingCount": 5,
+    "authorTokens": [
+      "stewart",
+      "brand"
+    ],
+    "pages": 243,
+    "genre": "Non-Fiction",
+    "key": "/works/OL823146W",
+    "authors": [
+      "Stewart Brand"
+    ],
+    "isbns": {
+      "es": "0140139966",
+      "en": "9780613920094"
+    },
+    "titleNorm": {
+      "es": "how buildings learn",
+      "en": "how buildings learn"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "How buildings learn",
+      "en": "How Buildings Learn"
+    },
+    "titleTokens": {
+      "es": [
+        "how",
+        "buildings",
+        "learn"
+      ],
+      "en": [
+        "how",
+        "buildings",
+        "learn"
+      ]
+    }
+  },
+  {
+    "_id": "OL17363110W",
+    "authorKeys": [
+      "OL2879687A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 2009,
+    "cover_url": "https://covers.openlibrary.org/b/id/7440858-M.jpg",
+    "topics": [
+      "Internet searching",
+      "Computer architecture"
+    ],
+    "isbn": "9780321657299",
+    "rating": 5,
+    "genre2": null,
+    "cover_id": 7440858,
+    "ratingCount": 2,
+    "authorTokens": [
+      "steve",
+      "krug"
+    ],
+    "pages": 137,
+    "genre": "Non-Fiction",
+    "key": "/works/OL17363110W",
+    "authors": [
+      "Steve Krug"
+    ],
+    "isbns": {
+      "es": "9780321657299",
+      "en": "9780321702845"
+    },
+    "titleNorm": {
+      "es": "rocket surgery made easy",
+      "en": "rocket surgery made easy"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Rocket Surgery Made Easy",
+      "en": "Rocket Surgery Made Easy"
+    },
+    "titleTokens": {
+      "es": [
+        "rocket",
+        "surgery",
+        "made",
+        "easy"
+      ],
+      "en": [
+        "rocket",
+        "surgery",
+        "made",
+        "easy"
+      ]
+    }
+  },
+  {
+    "_id": "OL5851704W",
+    "authorKeys": [
+      "OL1436260A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 2006,
+    "cover_url": "https://covers.openlibrary.org/b/id/872299-M.jpg",
+    "topics": [
+      "Business",
+      "Discount houses (Retail trade)",
+      "Management",
+      "Nonfiction",
+      "Sociology",
+      "Wal-Mart (Firm)",
+      "Grandes surfaces (Commerce)",
+      "Gestion",
+      "Wal-Mart (Firme)",
+      "Hypermarkets",
+      "Social aspects",
+      "Influence",
+      "Discount-houses (Retail trade)",
+      "Social responsibility of business",
+      "Retail trade, management",
+      "Discount houses (retail trade)--management",
+      "Discount houses (retail trade)--united states--management",
+      "Hf5429.215.u6 f56 2006",
+      "381/.1490973"
+    ],
+    "isbn": "9781429513791",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 872299,
+    "ratingCount": null,
+    "authorTokens": [
+      "charles",
+      "fishman"
+    ],
+    "pages": 294,
+    "genre": "Non-Fiction",
+    "key": "/works/OL5851704W",
+    "authors": [
+      "Charles Fishman"
+    ],
+    "isbns": {
+      "es": "9781429513791",
+      "en": "9781429513791"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The Wal-Mart Effect",
+      "en": "The Wal-Mart Effect"
+    },
+    "titleTokens": {
+      "es": [
+        "wal-mart",
+        "effect"
+      ],
+      "en": [
+        "wal-mart",
+        "effect"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "the wal-mart effect",
+      "en": "the wal-mart effect"
+    }
+  },
+  {
+    "_id": "OL10566147W",
+    "authorKeys": [
+      "OL3159978A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2004,
+    "cover_url": "https://covers.openlibrary.org/b/id/7428364-M.jpg",
+    "topics": [
+      "Raw food diet",
+      "Raw foods",
+      "Crudivorisme",
+      "Aliments crus"
+    ],
+    "isbn": "1856230244",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 7428364,
+    "ratingCount": null,
+    "authorTokens": [
+      "steve",
+      "charter"
+    ],
+    "pages": 171,
+    "genre": "Non-Fiction",
+    "key": "/works/OL10566147W",
+    "authors": [
+      "Steve Charter"
+    ],
+    "isbns": {
+      "es": "1856230244",
+      "en": "1856230244"
+    },
+    "titleNorm": {
+      "es": "eat more raw",
+      "en": "eat more raw"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Eat More Raw",
+      "en": "Eat More Raw"
+    },
+    "titleTokens": {
+      "es": [
+        "eat",
+        "more",
+        "raw"
+      ],
+      "en": [
+        "eat",
+        "more",
+        "raw"
+      ]
+    }
+  },
+  {
+    "_id": "OL2016079W",
+    "authorKeys": [
+      "OL243151A"
+    ],
+    "edition_count": 10,
+    "first_publish_year": 1968,
+    "cover_url": "https://covers.openlibrary.org/b/id/6569595-M.jpg",
+    "topics": [
+      "Authors' spouses",
+      "Biography",
+      "English Authors",
+      "Laura Archera Huxley",
+      "Marriage",
+      "Married people",
+      "Biographies",
+      "Écrivains anglais",
+      "LSD (Drug)",
+      "Mescaline"
+    ],
+    "isbn": "9781199770660",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 6569595,
+    "ratingCount": null,
+    "authorTokens": [
+      "laura",
+      "archera",
+      "huxley"
+    ],
+    "pages": 330,
+    "genre": "Non-Fiction",
+    "key": "/works/OL2016079W",
+    "authors": [
+      "Laura Archera Huxley"
+    ],
+    "isbns": {
+      "es": "9781199770660",
+      "en": "9780701114398"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "This timeless moment",
+      "en": "This Timeless Moment"
+    },
+    "titleTokens": {
+      "es": [
+        "this",
+        "timeless",
+        "moment"
+      ],
+      "en": [
+        "this",
+        "timeless",
+        "moment"
+      ]
+    },
+    "titleNorm": {
+      "es": "this timeless moment",
+      "en": "this timeless moment"
+    }
+  },
+  {
+    "_id": "OL161752W",
+    "authorKeys": [
+      "OL2123021A"
+    ],
+    "edition_count": 6,
+    "first_publish_year": 1884,
+    "cover_url": "https://covers.openlibrary.org/b/id/5854701-M.jpg",
+    "topics": [
+      "History",
+      "Michigan History",
+      "Detroit History"
+    ],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": 5854701,
+    "ratingCount": null,
+    "authorTokens": [
+      "silas",
+      "farmer"
+    ],
+    "pages": 1024,
+    "genre": "Historical Fiction",
+    "key": "/works/OL161752W",
+    "authors": [
+      "Silas Farmer"
+    ],
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The History Of Detroit And Michigan",
+      "en": "The History Of Detroit And Michigan"
+    },
+    "titleTokens": {
+      "es": [
+        "history",
+        "detroit",
+        "michigan"
+      ],
+      "en": [
+        "history",
+        "detroit",
+        "michigan"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "the history of detroit and michigan",
+      "en": "the history of detroit and michigan"
+    }
+  },
+  {
+    "_id": "OL6439100W",
+    "authorKeys": [
+      "OL1706871A",
+      "OL4641301A"
+    ],
+    "edition_count": 7,
+    "first_publish_year": 1965,
+    "cover_url": "https://covers.openlibrary.org/b/id/10774334-M.jpg",
+    "topics": [
+      "Biography",
+      "Election",
+      "Mayors",
+      "Politics and government",
+      "Practical Politics",
+      "Administration",
+      "Metropolitan Museum of Art",
+      "Politique",
+      "Case studies",
+      "Politics, Practical",
+      "1848-1961",
+      "La Guardia, Fiorello Henry, 1882-1947",
+      "La guardia, fiorello h. (fiorello henry), 1882-1947",
+      "New york (n.y.), politics and government",
+      "New york (n.y.), biography"
+    ],
+    "isbn": "031322787X",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 10774334,
+    "ratingCount": null,
+    "authorTokens": [
+      "arthur",
+      "mann"
+    ],
+    "pages": 199,
+    "genre": "Non-Fiction",
+    "key": "/works/OL6439100W",
+    "authors": [
+      "Arthur Mann",
+      "Arthur Mann"
+    ],
+    "isbns": {
+      "es": "031322787X"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "La Guardia comes to power: 1933.",
+      "en": "La Guardia comes to power: 1933."
+    },
+    "titleTokens": {
+      "es": [
+        "guardia",
+        "comes",
+        "power:",
+        "1933."
+      ],
+      "en": [
+        "guardia",
+        "comes",
+        "power:",
+        "1933."
+      ]
+    },
+    "titleNorm": {
+      "es": "la guardia comes to power: 1933.",
+      "en": "la guardia comes to power: 1933."
+    }
+  },
+  {
+    "_id": "OL7400502W",
+    "authorKeys": [
+      "OL2223869A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 1962,
+    "cover_url": "https://covers.openlibrary.org/b/id/10755269-M.jpg",
+    "topics": [],
+    "isbn": "1014997895",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 10755269,
+    "ratingCount": null,
+    "authorTokens": [
+      "bella",
+      "rodman"
+    ],
+    "pages": 246,
+    "genre": null,
+    "key": "/works/OL7400502W",
+    "authors": [
+      "Bella Rodman"
+    ],
+    "isbns": {
+      "es": "1014997895",
+      "en": "9781014997890"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Fiorello La Guardia",
+      "en": "Fiorello la Guardia"
+    },
+    "titleTokens": {
+      "es": [
+        "fiorello",
+        "guardia"
+      ],
+      "en": [
+        "fiorello",
+        "guardia"
+      ]
+    },
+    "titleNorm": {
+      "es": "fiorello la guardia",
+      "en": "fiorello la guardia"
+    }
+  },
+  {
+    "_id": "OL542013W",
+    "authorKeys": [
+      "OL38388A"
+    ],
+    "edition_count": 6,
+    "first_publish_year": 1993,
+    "cover_url": "https://covers.openlibrary.org/b/id/12151726-M.jpg",
+    "topics": [
+      "History",
+      "Transport planes",
+      "Aircraft accidents",
+      "Commercial Aeronautics",
+      "Accidents",
+      "Aeronautics, safety measures",
+      "Aeronautics, history",
+      "Directories"
+    ],
+    "isbn": "9781852603793",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 12151726,
+    "ratingCount": null,
+    "authorTokens": [
+      "david",
+      "gero"
+    ],
+    "pages": 262,
+    "genre": "Historical Fiction",
+    "key": "/works/OL542013W",
+    "authors": [
+      "David Gero"
+    ],
+    "isbns": {
+      "es": "9781852603793",
+      "en": "9780750966337"
+    },
+    "titleNorm": {
+      "es": "aviation disasters",
+      "en": "aviation disasters"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Aviation Disasters",
+      "en": "Aviation Disasters"
+    },
+    "titleTokens": {
+      "es": [
+        "aviation",
+        "disasters"
+      ],
+      "en": [
+        "aviation",
+        "disasters"
+      ]
+    }
+  },
+  {
+    "_id": "OL6606433W",
+    "authorKeys": [
+      "OL1776173A"
+    ],
+    "edition_count": 8,
+    "first_publish_year": 1846,
+    "cover_url": "https://covers.openlibrary.org/b/id/6043533-M.jpg",
+    "topics": [
+      "Description and travel",
+      "History",
+      "Juaneño Indians",
+      "Missions",
+      "Spanish Missions",
+      "Zamorano 80"
+    ],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": 6043533,
+    "ratingCount": null,
+    "authorTokens": [
+      "alfred",
+      "robinson"
+    ],
+    "pages": 341,
+    "genre": "Historical Fiction",
+    "key": "/works/OL6606433W",
+    "authors": [
+      "Alfred Robinson"
+    ],
+    "titleNorm": {
+      "es": "life in california",
+      "en": "life in california"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Life in California",
+      "en": "Life in California"
+    },
+    "titleTokens": {
+      "es": [
+        "life",
+        "california"
+      ],
+      "en": [
+        "life",
+        "california"
+      ]
+    }
+  },
+  {
+    "_id": "OL19996784W",
+    "authorKeys": [
+      "OL19260A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2015,
+    "cover_url": "https://covers.openlibrary.org/b/id/12482271-M.jpg",
+    "topics": [
+      "Social life and customs",
+      "Successful people",
+      "Oral history",
+      "Children",
+      "Biography",
+      "New york (n.y.), biography",
+      "Children, united states",
+      "New york (n.y.), social life and customs",
+      "Bronx (new york, n.y.), history",
+      "Biography,",
+      "BIOGRAPHY & AUTOBIOGRAPHY / Cultural Heritage",
+      "BIOGRAPHY & AUTOBIOGRAPHY / Entertainment & Performing Arts",
+      "nyt:celebrities=2015-04-12",
+      "New York Times bestseller",
+      "Manners and customs"
+    ],
+    "isbn": "9781627790956",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 12482271,
+    "ratingCount": null,
+    "authorTokens": [
+      "arlene",
+      "alda"
+    ],
+    "pages": 310,
+    "genre": "Non-Fiction",
+    "key": "/works/OL19996784W",
+    "authors": [
+      "Arlene Alda"
+    ],
+    "isbns": {
+      "es": "9781627790956",
+      "en": "9781627790956"
+    },
+    "titleNorm": {
+      "es": "just kids from the bronx",
+      "en": "just kids from the bronx"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Just kids from the Bronx",
+      "en": "Just kids from the Bronx"
+    },
+    "titleTokens": {
+      "es": [
+        "just",
+        "kids",
+        "from",
+        "bronx"
+      ],
+      "en": [
+        "just",
+        "kids",
+        "from",
+        "bronx"
+      ]
+    }
+  },
+  {
+    "_id": "OL20652728W",
+    "authorKeys": [
+      "OL7166868A"
+    ],
+    "edition_count": 10,
+    "first_publish_year": 2017,
+    "cover_url": "https://covers.openlibrary.org/b/id/9296952-M.jpg",
+    "topics": [
+      "Psychology",
+      "Self-acceptance",
+      "Self-esteem",
+      "Self-realization"
+    ],
+    "isbn": "9780062992307",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 9296952,
+    "ratingCount": null,
+    "authorTokens": [
+      "kamal",
+      "ravikant"
+    ],
+    "pages": 168,
+    "genre": "Non-Fiction",
+    "key": "/works/OL20652728W",
+    "authors": [
+      "Kamal Ravikant"
+    ],
+    "isbns": {
+      "es": "9780062992307",
+      "en": "9780008374686"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Love Yourself Like Your Life Depends on It",
+      "en": "Love Yourself Like Your Life Depends on It"
+    },
+    "titleTokens": {
+      "es": [
+        "love",
+        "yourself",
+        "like",
+        "your",
+        "life",
+        "depends",
+        "it"
+      ],
+      "en": [
+        "love",
+        "yourself",
+        "like",
+        "your",
+        "life",
+        "depends",
+        "it"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "love yourself like your life depends on it",
+      "en": "love yourself like your life depends on it"
+    }
+  },
+  {
+    "_id": "OL21975693W",
+    "authorKeys": [
+      "OL8406950A"
+    ],
+    "edition_count": 5,
+    "first_publish_year": 2021,
+    "cover_url": "https://covers.openlibrary.org/b/id/14780753-M.jpg",
+    "topics": [
+      "New York Times reviewed",
+      "Homosexuality, history",
+      "Gay men",
+      "Gays, biography",
+      "Homosexuality",
+      "History",
+      "Gay bars",
+      "Bars (LGBTQ)",
+      "LGBTQ spaces and places",
+      "collection:randy_shilts_award=finalist"
+    ],
+    "isbn": "9781783785834",
+    "rating": 4.5,
+    "genre2": null,
+    "cover_id": 14780753,
+    "ratingCount": 2,
+    "authorTokens": [
+      "jeremy",
+      "atherton",
+      "lin"
+    ],
+    "pages": 320,
+    "genre": "Historical Fiction",
+    "key": "/works/OL21975693W",
+    "authors": [
+      "Jeremy Atherton Lin"
+    ],
+    "isbns": {
+      "es": "9781783785834",
+      "en": "9781783785834"
+    },
+    "titleNorm": {
+      "es": "gay bar",
+      "en": "gay bar"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Gay Bar",
+      "en": "Gay Bar"
+    },
+    "titleTokens": {
+      "es": [
+        "gay",
+        "bar"
+      ],
+      "en": [
+        "gay",
+        "bar"
+      ]
+    }
+  },
+  {
+    "_id": "OL24144939W",
+    "authorKeys": [
+      "OL9082858A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 2021,
+    "cover_url": "https://covers.openlibrary.org/b/id/11150504-M.jpg",
+    "isbn": "9781797128009",
+    "rating": null,
+    "cover_id": 11150504,
+    "ratingCount": null,
+    "pages": 224,
+    "genre": "Non-Fiction",
+    "key": "/works/OL24144939W",
+    "authors": [
+      "John Paul Brammer"
+    ],
+    "isbns": {
+      "es": "9781797128009",
+      "en": "9781982141523"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Hola Papi",
+      "en": "Hola Papi"
+    },
+    "titleTokens": {
+      "es": [
+        "hola",
+        "papi"
+      ],
+      "en": [
+        "hola",
+        "papi"
+      ]
+    },
+    "authorTokens": [
+      "john",
+      "paul",
+      "brammer"
+    ],
+    "topics": [
+      "New York Times reviewed",
+      "Gay men",
+      "Biography",
+      "Anecdotes",
+      "Advice columnists",
+      "Racially mixed people",
+      "Hispanic Americans",
+      "Sexual minorities",
+      "Homosexuels masculins",
+      "Biographies",
+      "Courriéristes du cœur",
+      "Américains d'origine latino-américaine",
+      "BIOGRAPHY & AUTOBIOGRAPHY / Cultural, Ethnic & Regional / Hispanic & Latino",
+      "BIOGRAPHY & AUTOBIOGRAPHY / LGBT",
+      "HUMOR / Form / Essays",
+      "LGBTQ biracial people",
+      "Latinx (LGBTQ)"
+    ],
+    "genre2": null,
+    "addCount": 0,
+    "titleNorm": {
+      "es": "hola papi",
+      "en": "hola papi"
+    }
+  },
+  {
+    "_id": "OL282274W",
+    "authorKeys": [
+      "OL2636352A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 2008,
+    "cover_url": "https://covers.openlibrary.org/b/id/12778525-M.jpg",
+    "topics": [
+      "Psychological aspects of Baseball",
+      "Baseball",
+      "Psychological aspects",
+      "Nonfiction",
+      "Sports & Recreations",
+      "Sports, psychological aspects"
+    ],
+    "isbn": "9780071545150",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 12778525,
+    "ratingCount": null,
+    "authorTokens": [
+      "mark",
+      "gola"
+    ],
+    "pages": 153,
+    "genre": "Non-Fiction",
+    "key": "/works/OL282274W",
+    "authors": [
+      "Mark Gola"
+    ],
+    "isbns": {
+      "es": "9780071545150",
+      "en": "9780071545150"
+    },
+    "titleNorm": {
+      "es": "baseball's sixth tool",
+      "en": "baseball's sixth tool"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Baseball's sixth tool",
+      "en": "Baseball's sixth tool"
+    },
+    "titleTokens": {
+      "es": [
+        "baseball's",
+        "sixth",
+        "tool"
+      ],
+      "en": [
+        "baseball's",
+        "sixth",
+        "tool"
+      ]
+    }
+  },
+  {
+    "_id": "OL282275W",
+    "authorKeys": [
+      "OL2636352A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 2007,
+    "cover_url": "https://covers.openlibrary.org/b/id/9543857-M.jpg",
+    "topics": [
+      "Scouting",
+      "Baseball",
+      "Nonfiction",
+      "Sports & Recreations"
+    ],
+    "isbn": "9780071476218",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 9543857,
+    "ratingCount": null,
+    "authorTokens": [
+      "mark",
+      "gola"
+    ],
+    "pages": 224,
+    "genre": "Non-Fiction",
+    "key": "/works/OL282275W",
+    "authors": [
+      "Mark Gola"
+    ],
+    "isbns": {
+      "es": "9780071476218",
+      "en": "9780071476218"
+    },
+    "titleNorm": {
+      "es": "the five-tool player",
+      "en": "the five-tool player"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The five-tool player",
+      "en": "The five-tool player"
+    },
+    "titleTokens": {
+      "es": [
+        "five-tool",
+        "player"
+      ],
+      "en": [
+        "five-tool",
+        "player"
+      ]
+    }
+  },
+  {
+    "_id": "OL27737472W",
+    "authorKeys": [
+      "OL8176853A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [
+      "Crime"
+    ],
+    "isbn": "9781734842241",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "betsy",
+      "phillips"
+    ],
+    "pages": 200,
+    "genre": "Non-Fiction",
+    "key": "/works/OL27737472W",
+    "authors": [
+      "Betsy Phillips"
+    ],
+    "isbns": {
+      "es": "9781734842241",
+      "en": "9798989908950"
+    },
+    "titleNorm": {
+      "es": "dynamite nashville",
+      "en": "dynamite nashville"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Dynamite Nashville",
+      "en": "Dynamite Nashville"
+    },
+    "titleTokens": {
+      "es": [
+        "dynamite",
+        "nashville"
+      ],
+      "en": [
+        "dynamite",
+        "nashville"
+      ]
+    }
+  },
+  {
+    "_id": "OL34488877W",
+    "authorKeys": [
+      "OL11381104A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2023,
+    "cover_url": null,
+    "topics": [
+      "Education"
+    ],
+    "isbn": "9798887643946",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "helene",
+      "z.",
+      "hill"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL34488877W",
+    "authors": [
+      "Helene Z. Hill"
+    ],
+    "isbns": {
+      "es": "9798887643946",
+      "en": "9798887643939"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cover-Up",
+      "en": "Cover-Up"
+    },
+    "titleTokens": {
+      "es": [
+        "cover-up"
+      ],
+      "en": [
+        "cover-up"
+      ]
+    },
+    "titleNorm": {
+      "es": "cover-up",
+      "en": "cover-up"
+    }
+  },
+  {
+    "_id": "OL45430550W",
+    "authorKeys": [
+      "OL646181A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1772,
+    "cover_url": null,
+    "topics": [
+      "Early works to 1800",
+      "Trials (Poisoning)",
+      "Parricide"
+    ],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "mary",
+      "blandy"
+    ],
+    "pages": 24,
+    "genre": "Non-Fiction",
+    "key": "/works/OL45430550W",
+    "authors": [
+      "Mary Blandy"
+    ],
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The female parricide",
+      "en": "The female parricide"
+    },
+    "titleTokens": {
+      "es": [
+        "female",
+        "parricide"
+      ],
+      "en": [
+        "female",
+        "parricide"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "the female parricide",
+      "en": "the female parricide"
+    }
+  },
+  {
+    "_id": "OL43368667W",
+    "authorKeys": [
+      "OL2646218A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1687,
+    "cover_url": null,
+    "topics": [
+      "Teeth",
+      "Early works to 1800",
+      "Pulse"
+    ],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "charles",
+      "allen"
+    ],
+    "pages": 58,
+    "genre": "Non-Fiction",
+    "key": "/works/OL43368667W",
+    "authors": [
+      "Charles Allen"
+    ],
+    "titleNorm": {
+      "es": "curious observations in that difficult part of chirurgery, relating to the teeth",
+      "en": "curious observations in that difficult part of chirurgery, relating to the teeth"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Curious observations in that difficult part of chirurgery, relating to the teeth",
+      "en": "Curious observations in that difficult part of chirurgery, relating to the teeth"
+    },
+    "titleTokens": {
+      "es": [
+        "curious",
+        "observations",
+        "that",
+        "difficult",
+        "part",
+        "chirurgery,",
+        "relating",
+        "teeth"
+      ],
+      "en": [
+        "curious",
+        "observations",
+        "that",
+        "difficult",
+        "part",
+        "chirurgery,",
+        "relating",
+        "teeth"
+      ]
+    }
+  },
+  {
+    "_id": "OL7936501W",
+    "authorKeys": [
+      "OL2646218A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 1686,
+    "cover_url": null,
+    "topics": [
+      "Early works to 1800",
+      "Dentistry",
+      "Tooth"
+    ],
+    "isbn": "9780712903660",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "charles",
+      "allen"
+    ],
+    "pages": 40,
+    "genre": "Non-Fiction",
+    "key": "/works/OL7936501W",
+    "authors": [
+      "Charles Allen"
+    ],
+    "isbns": {
+      "es": "9780712903660",
+      "en": "0712903666"
+    },
+    "titleNorm": {
+      "es": "the operator for the teeth",
+      "en": "the operator for the teeth"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The operator for the teeth",
+      "en": "The operator for the teeth"
+    },
+    "titleTokens": {
+      "es": [
+        "operator",
+        "teeth"
+      ],
+      "en": [
+        "operator",
+        "teeth"
+      ]
+    }
+  },
+  {
+    "_id": "OL893522W",
+    "authorKeys": [
+      "OL79034A"
+    ],
+    "edition_count": 18,
+    "first_publish_year": 1846,
+    "cover_url": "https://covers.openlibrary.org/b/id/11902445-M.jpg",
+    "topics": [
+      "speculative fiction",
+      "Cults",
+      "Hallucinogenic drugs",
+      "Fiction",
+      "Tooth",
+      "Tooth Diseases",
+      "Dentistry",
+      "Fiction, science fiction, general",
+      "Fiction, science fiction, space opera"
+    ],
+    "isbn": "9780425033371",
+    "rating": 4.5,
+    "genre2": null,
+    "cover_id": 11902445,
+    "ratingCount": 2,
+    "authorTokens": [
+      "frank",
+      "herbert"
+    ],
+    "pages": 255,
+    "genre": "Fiction",
+    "key": "/works/OL893522W",
+    "authors": [
+      "Frank Herbert"
+    ],
+    "isbns": {
+      "es": "9780425033371"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The Natural History and Diseases of the Human Teeth",
+      "en": "The Natural History and Diseases of the Human Teeth"
+    },
+    "titleTokens": {
+      "es": [
+        "natural",
+        "history",
+        "diseases",
+        "human",
+        "teeth"
+      ],
+      "en": [
+        "natural",
+        "history",
+        "diseases",
+        "human",
+        "teeth"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "the natural history and diseases of the human teeth",
+      "en": "the natural history and diseases of the human teeth"
+    }
+  },
+  {
+    "_id": "OL9420956W",
+    "authorKeys": [
+      "OL3453804A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 1871,
+    "cover_url": "https://covers.openlibrary.org/b/id/10033748-M.jpg",
+    "topics": [
+      "Social life and customs",
+      "Description and travel"
+    ],
+    "isbn": "1430474599",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 10033748,
+    "ratingCount": null,
+    "authorTokens": [
+      "mary",
+      "e.",
+      "parker",
+      "bouligny"
+    ],
+    "pages": 375,
+    "genre": "Non-Fiction",
+    "key": "/works/OL9420956W",
+    "authors": [
+      "Mary E. Parker Bouligny"
+    ],
+    "isbns": {
+      "es": "1430474599"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Bubbles And Ballast",
+      "en": "Bubbles And Ballast"
+    },
+    "titleTokens": {
+      "es": [
+        "bubbles",
+        "ballast"
+      ],
+      "en": [
+        "bubbles",
+        "ballast"
+      ]
+    },
+    "titleNorm": {
+      "es": "bubbles and ballast",
+      "en": "bubbles and ballast"
+    }
+  },
+  {
+    "_id": "OL9122423W",
+    "authorKeys": [
+      "OL3210285A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 1998,
+    "cover_url": null,
+    "isbn": "8476646224",
+    "rating": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "pages": 195,
+    "genre": "Historical Fiction",
+    "key": "/works/OL9122423W",
+    "authors": [
+      "Fundaci O"
+    ],
+    "isbns": {
+      "es": "8476646224",
+      "en": "8476646224"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "La fotografía pictorialista en España",
+      "en": "La fotografía pictorialista en España"
+    },
+    "authorTokens": [
+      "fundaci"
+    ],
+    "titleTokens": {
+      "es": [
+        "fotografia",
+        "pictorialista",
+        "espana"
+      ],
+      "en": [
+        "fotografia",
+        "pictorialista",
+        "espana"
+      ]
+    },
+    "topics": [
+      "Photography",
+      "Artistic Photography",
+      "Exhibitions",
+      "Pictorialism (Photography movement)",
+      "History"
+    ],
+    "genre2": null,
+    "addCount": 0,
+    "titleNorm": {
+      "es": "la fotografia pictorialista en espana",
+      "en": "la fotografia pictorialista en espana"
+    }
+  },
+  {
+    "_id": "OL9122424W",
+    "authorKeys": [
+      "OL3210285A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 1998,
+    "cover_url": null,
+    "isbn": "9788476646137",
+    "rating": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "pages": 227,
+    "genre": "Historical Fiction",
+    "key": "/works/OL9122424W",
+    "authors": [
+      "Fundaci O"
+    ],
+    "isbns": {
+      "es": "9788476646137",
+      "en": "9788476646137"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Mallorca I El Comerc de La Ceramica a la Mediterrania",
+      "en": "Mallorca I El Comerc de La Ceramica a la Mediterrania"
+    },
+    "authorTokens": [
+      "fundaci"
+    ],
+    "titleTokens": {
+      "es": [
+        "mallorca",
+        "comerc",
+        "ceramica",
+        "mediterrania"
+      ],
+      "en": [
+        "mallorca",
+        "comerc",
+        "ceramica",
+        "mediterrania"
+      ]
+    },
+    "topics": [
+      "Commerce",
+      "Ceramic industries",
+      "Exhibitions",
+      "History",
+      "Spanish Pottery"
+    ],
+    "genre2": null,
+    "addCount": 0,
+    "titleNorm": {
+      "es": "mallorca i el comerc de la ceramica a la mediterrania",
+      "en": "mallorca i el comerc de la ceramica a la mediterrania"
+    }
+  },
+  {
+    "_id": "OL550909W",
+    "authorKeys": [
+      "OL39219A",
+      "OL1121315A",
+      "OL8475402A"
+    ],
+    "edition_count": 12,
+    "first_publish_year": 2000,
+    "cover_url": "https://covers.openlibrary.org/b/id/12368972-M.jpg",
+    "isbn": "9781417748495",
+    "rating": null,
+    "cover_id": 12368972,
+    "ratingCount": null,
+    "pages": 196,
+    "genre": "Non-Fiction",
+    "key": "/works/OL550909W",
+    "authors": [
+      "Tarbox, Katherine.",
+      "Katherine Tarbox",
+      "Katherine Tarbox"
+    ],
+    "isbns": {
+      "es": "9781417748495",
+      "en": "0525945431"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Katie.com",
+      "en": "Katie.com"
+    },
+    "titleTokens": {
+      "es": [
+        "katie.com"
+      ],
+      "en": [
+        "katie.com"
+      ]
+    },
+    "authorTokens": [
+      "tarbox,",
+      "katherine.",
+      "katherine",
+      "tarbox"
+    ],
+    "topics": [
+      "Teenage girls",
+      "Sexually abused teenagers",
+      "Weibliche Jugend",
+      "Verlieben",
+      "Sexual harassment",
+      "Internet and teenagers",
+      "Case studies",
+      "Chatten <Kommunikation>",
+      "Internet",
+      "Child molesters",
+      "Biography",
+      "New York Times reviewed",
+      "Online chat groups",
+      "Internet, security measures",
+      "Computer crimes",
+      "Internet and children",
+      "Girls, biography"
+    ],
+    "genre2": null,
+    "addCount": 0,
+    "titleNorm": {
+      "es": "katie.com",
+      "en": "katie.com"
+    }
+  },
+  {
+    "_id": "OL16667165W",
+    "authorKeys": [
+      "OL29809A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2001,
+    "cover_url": "https://covers.openlibrary.org/b/id/555580-M.jpg",
+    "topics": [
+      "American Science fiction",
+      "Book burning in literature",
+      "History and criticism"
+    ],
+    "isbn": "0791059294",
+    "rating": 4,
+    "genre2": null,
+    "cover_id": 555580,
+    "ratingCount": 2,
+    "authorTokens": [
+      "harold",
+      "bloom"
+    ],
+    "pages": 147,
+    "genre": "Non-Fiction",
+    "key": "/works/OL16667165W",
+    "authors": [
+      "Harold Bloom"
+    ],
+    "isbns": {
+      "es": "0791059294",
+      "en": "0791059294"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Ray Bradbury's Fahrenheit 451",
+      "en": "Ray Bradbury's Fahrenheit 451"
+    },
+    "titleTokens": {
+      "es": [
+        "ray",
+        "bradbury's",
+        "fahrenheit",
+        "451"
+      ],
+      "en": [
+        "ray",
+        "bradbury's",
+        "fahrenheit",
+        "451"
+      ]
+    },
+    "titleNorm": {
+      "es": "ray bradbury's fahrenheit 451",
+      "en": "ray bradbury's fahrenheit 451"
+    }
+  },
+  {
+    "_id": "OL17850405W",
+    "authorKeys": [
+      "OL3519429A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1988,
+    "cover_url": "https://covers.openlibrary.org/b/id/10651642-M.jpg",
+    "topics": [
+      "Study Guides",
+      "Fahrenheit 451 (Bradbury, Ray)"
+    ],
+    "isbn": "9780774032889",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 10651642,
+    "ratingCount": null,
+    "authorTokens": [
+      "coles",
+      "editorial",
+      "board"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL17850405W",
+    "authors": [
+      "Coles Editorial Board"
+    ],
+    "isbns": {
+      "es": "9780774032889",
+      "en": "9780774032889"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Ray Bradbury",
+      "en": "Ray Bradbury"
+    },
+    "titleTokens": {
+      "es": [
+        "ray",
+        "bradbury"
+      ],
+      "en": [
+        "ray",
+        "bradbury"
+      ]
+    },
+    "titleNorm": {
+      "es": "ray bradbury",
+      "en": "ray bradbury"
+    }
+  },
+  {
+    "_id": "OL18023192W",
+    "authorKeys": [
+      "OL1426439A",
+      "OL2861801A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2006,
+    "cover_url": "https://covers.openlibrary.org/b/id/1460869-M.jpg",
+    "topics": [
+      "Literature",
+      "Criticism, interpretation",
+      "Christianity in literature",
+      "Bible",
+      "Da Vinci code (Brown, Dan)",
+      "In literature"
+    ],
+    "isbn": "9780781444408",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 1460869,
+    "ratingCount": null,
+    "authorTokens": [
+      "jeff",
+      "dunn",
+      "craig",
+      "bubeck"
+    ],
+    "pages": 237,
+    "genre": "Literature",
+    "key": "/works/OL18023192W",
+    "authors": [
+      "Jeff Dunn",
+      "Craig Bubeck"
+    ],
+    "isbns": {
+      "es": "9780781444408",
+      "en": "9780781444408"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The Gospel According to Dan Brown",
+      "en": "The Gospel According to Dan Brown"
+    },
+    "titleTokens": {
+      "es": [
+        "gospel",
+        "according",
+        "dan",
+        "brown"
+      ],
+      "en": [
+        "gospel",
+        "according",
+        "dan",
+        "brown"
+      ]
+    },
+    "titleNorm": {
+      "es": "the gospel according to dan brown",
+      "en": "the gospel according to dan brown"
+    }
+  },
+  {
+    "_id": "OL19238607W",
+    "authorKeys": [
+      "OL527565A",
+      "OL883612A"
+    ],
+    "edition_count": 6,
+    "first_publish_year": 1999,
+    "cover_url": "https://covers.openlibrary.org/b/id/833966-M.jpg",
+    "topics": [
+      "In literature",
+      "Criticism and interpretation",
+      "Mccarthy, cormac, 1933-"
+    ],
+    "isbn": "1578061040",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 833966,
+    "ratingCount": null,
+    "authorTokens": [
+      "edwin",
+      "t.",
+      "arnold",
+      "dianne",
+      "c.",
+      "luce"
+    ],
+    "pages": 256,
+    "genre": "Non-Fiction",
+    "key": "/works/OL19238607W",
+    "authors": [
+      "Edwin T. Arnold",
+      "Dianne C. Luce"
+    ],
+    "isbns": {
+      "es": "1578061040",
+      "en": "9781621036227"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Perspectives on Cormac McCarthy",
+      "en": "Perspectives on Cormac Mccarthy"
+    },
+    "titleTokens": {
+      "es": [
+        "perspectives",
+        "cormac",
+        "mccarthy"
+      ],
+      "en": [
+        "perspectives",
+        "cormac",
+        "mccarthy"
+      ]
+    },
+    "titleNorm": {
+      "es": "perspectives on cormac mccarthy",
+      "en": "perspectives on cormac mccarthy"
+    }
+  },
+  {
+    "_id": "OL3287034W",
+    "authorKeys": [
+      "OL537245A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1997,
+    "cover_url": "https://covers.openlibrary.org/b/id/1521042-M.jpg",
+    "topics": [
+      "In literature",
+      "Criticism and interpretation",
+      "Mccarthy, cormac, 1933-2023",
+      "American Young adult fiction",
+      "History and criticism",
+      "Women and literature",
+      "History",
+      "American Science fiction"
+    ],
+    "isbn": "080574567X",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 1521042,
+    "ratingCount": null,
+    "authorTokens": [
+      "robert",
+      "l.",
+      "jarrett"
+    ],
+    "pages": 175,
+    "genre": "Historical Fiction",
+    "key": "/works/OL3287034W",
+    "authors": [
+      "Robert L. Jarrett"
+    ],
+    "isbns": {
+      "es": "080574567X",
+      "en": "080574567X"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cormac McCarthy",
+      "en": "Cormac McCarthy"
+    },
+    "titleTokens": {
+      "es": [
+        "cormac",
+        "mccarthy"
+      ],
+      "en": [
+        "cormac",
+        "mccarthy"
+      ]
+    },
+    "titleNorm": {
+      "es": "cormac mccarthy",
+      "en": "cormac mccarthy"
+    }
+  },
+  {
+    "_id": "OL6209776W",
+    "authorKeys": [
+      "OL1602290A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 2009,
+    "cover_url": "https://covers.openlibrary.org/b/id/6306490-M.jpg",
+    "topics": [
+      "In literature",
+      "Criticism and interpretation",
+      "Mccarthy, cormac, 1933-",
+      "Southern states, in literature",
+      "West (u.s.), in literature",
+      "American literature, history and criticism, 20th century"
+    ],
+    "isbn": "9781570038396",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 6306490,
+    "ratingCount": null,
+    "authorTokens": [
+      "steven",
+      "frye"
+    ],
+    "pages": 224,
+    "genre": "Non-Fiction",
+    "key": "/works/OL6209776W",
+    "authors": [
+      "Steven Frye"
+    ],
+    "isbns": {
+      "es": "9781570038396",
+      "en": "9781283576215"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Understanding Cormac McCarthy",
+      "en": "Understanding Cormac Mccarthy"
+    },
+    "titleTokens": {
+      "es": [
+        "understanding",
+        "cormac",
+        "mccarthy"
+      ],
+      "en": [
+        "understanding",
+        "cormac",
+        "mccarthy"
+      ]
+    },
+    "titleNorm": {
+      "es": "understanding cormac mccarthy",
+      "en": "understanding cormac mccarthy"
+    }
+  },
+  {
+    "_id": "OL4212433W",
+    "authorKeys": [
+      "OL803983A"
+    ],
+    "edition_count": 10,
+    "first_publish_year": 1973,
+    "cover_url": "https://covers.openlibrary.org/b/id/807718-M.jpg",
+    "topics": [
+      "Biography",
+      "English Authors",
+      "Authors, english"
+    ],
+    "isbn": "9780881841459",
+    "rating": 5,
+    "genre2": null,
+    "cover_id": 807718,
+    "ratingCount": 1,
+    "authorTokens": [
+      "sybille",
+      "bedford"
+    ],
+    "pages": 597,
+    "genre": "Non-Fiction",
+    "key": "/works/OL4212433W",
+    "authors": [
+      "Sybille Bedford"
+    ],
+    "isbns": {
+      "es": "9780881841459",
+      "en": "9780704332416"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Aldous Huxley",
+      "en": "Aldous Huxley"
+    },
+    "titleTokens": {
+      "es": [
+        "aldous",
+        "huxley"
+      ],
+      "en": [
+        "aldous",
+        "huxley"
+      ]
+    },
+    "titleNorm": {
+      "es": "aldous huxley",
+      "en": "aldous huxley"
+    }
+  },
+  {
+    "_id": "OL37836358W",
+    "authorKeys": [
+      "OL13533737A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2024,
+    "cover_url": "https://covers.openlibrary.org/b/id/14668622-M.jpg",
+    "topics": [],
+    "isbn": "9780711288522",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 14668622,
+    "ratingCount": null,
+    "authorTokens": [
+      "tom",
+      "huddleston"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL37836358W",
+    "authors": [
+      "Tom Huddleston"
+    ],
+    "isbns": {
+      "es": "9780711288522",
+      "en": "9780711288522"
+    },
+    "titleNorm": {
+      "es": "worlds of george rr martin",
+      "en": "worlds of george rr martin"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Worlds of George RR Martin",
+      "en": "Worlds of George RR Martin"
+    },
+    "titleTokens": {
+      "es": [
+        "worlds",
+        "george",
+        "rr",
+        "martin"
+      ],
+      "en": [
+        "worlds",
+        "george",
+        "rr",
+        "martin"
+      ]
+    }
+  },
+  {
+    "_id": "OL27818483W",
+    "authorKeys": [
+      "OL585189A",
+      "OL8233323A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2022,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781350269590",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "carolyne",
+      "larrington",
+      "anna",
+      "czarnowus"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL27818483W",
+    "authors": [
+      "Carolyne Larrington",
+      "Anna Czarnowus"
+    ],
+    "isbns": {
+      "es": "9781350269590",
+      "en": "9781350269590"
+    },
+    "titleNorm": {
+      "es": "memory and medievalism in george rr martin and game of thrones",
+      "en": "memory and medievalism in george rr martin and game of thrones"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Memory and Medievalism in George RR Martin and Game of Thrones",
+      "en": "Memory and Medievalism in George RR Martin and Game of Thrones"
+    },
+    "titleTokens": {
+      "es": [
+        "memory",
+        "medievalism",
+        "george",
+        "rr",
+        "martin",
+        "game",
+        "thrones"
+      ],
+      "en": [
+        "memory",
+        "medievalism",
+        "george",
+        "rr",
+        "martin",
+        "game",
+        "thrones"
+      ]
+    }
+  },
+  {
+    "_id": "OL20710069W",
+    "authorKeys": [
+      "OL7389975A",
+      "OL7869597A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 2011,
+    "cover_url": "https://covers.openlibrary.org/b/id/11301211-M.jpg",
+    "topics": [
+      "Vampires",
+      "Comics",
+      "Comics & graphic novels, horror"
+    ],
+    "isbn": "9781592911196",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 11301211,
+    "ratingCount": null,
+    "authorTokens": [
+      "daniel",
+      "abraham",
+      "rafa",
+      "lopez"
+    ],
+    "pages": 256,
+    "genre": "Non-Fiction",
+    "key": "/works/OL20710069W",
+    "authors": [
+      "Daniel Abraham",
+      "Rafa Lopez"
+    ],
+    "isbns": {
+      "es": "9781592911196",
+      "en": "9781592911196"
+    },
+    "titleNorm": {
+      "es": "george r.r. martin's fevre dream",
+      "en": "george r.r. martin's fevre dream"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "George R.R. Martin's Fevre Dream",
+      "en": "George R.R. Martin's Fevre Dream"
+    },
+    "titleTokens": {
+      "es": [
+        "george",
+        "r.r.",
+        "martin's",
+        "fevre",
+        "dream"
+      ],
+      "en": [
+        "george",
+        "r.r.",
+        "martin's",
+        "fevre",
+        "dream"
+      ]
+    }
+  },
+  {
+    "_id": "OL17307700W",
+    "authorKeys": [
+      "OL444620A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1980,
+    "cover_url": "https://covers.openlibrary.org/b/id/7386793-M.jpg",
+    "topics": [
+      "History",
+      "Fiction"
+    ],
+    "isbn": "0689105657",
+    "rating": 5,
+    "genre2": null,
+    "cover_id": 7386793,
+    "ratingCount": 2,
+    "authorTokens": [
+      "james",
+      "clavell"
+    ],
+    "pages": 802,
+    "genre": "Historical Fiction",
+    "key": "/works/OL17307700W",
+    "authors": [
+      "James Clavell"
+    ],
+    "isbns": {
+      "es": "0689105657",
+      "en": "0689105657"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Shogun:  a novel of Japan",
+      "en": "Shogun:  a novel of Japan"
+    },
+    "titleTokens": {
+      "es": [
+        "shogun:",
+        "novel",
+        "japan"
+      ],
+      "en": [
+        "shogun:",
+        "novel",
+        "japan"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "shogun:  a novel of japan",
+      "en": "shogun:  a novel of japan"
+    }
+  },
+  {
+    "_id": "OL2918724W",
+    "authorKeys": [
+      "OL444620A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1975,
+    "cover_url": null,
+    "topics": [
+      "History",
+      "Fiction"
+    ],
+    "isbn": "044008721X",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "james",
+      "clavell"
+    ],
+    "pages": 802,
+    "genre": "Historical Fiction",
+    "key": "/works/OL2918724W",
+    "authors": [
+      "James Clavell"
+    ],
+    "isbns": {
+      "es": "044008721X",
+      "en": "044008721X"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "James Clavell's Shōgun.",
+      "en": "James Clavell's Shōgun."
+    },
+    "titleTokens": {
+      "es": [
+        "james",
+        "clavell's",
+        "shogun."
+      ],
+      "en": [
+        "james",
+        "clavell's",
+        "shogun."
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "james clavell's shogun.",
+      "en": "james clavell's shogun."
+    }
+  },
+  {
+    "_id": "OL29287792W",
+    "authorKeys": [
+      "OL444620A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1975,
+    "cover_url": "https://covers.openlibrary.org/b/id/15061997-M.jpg",
+    "topics": [],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": 15061997,
+    "ratingCount": null,
+    "authorTokens": [
+      "james",
+      "clavell"
+    ],
+    "pages": 582,
+    "genre": null,
+    "key": "/works/OL29287792W",
+    "authors": [
+      "James Clavell"
+    ],
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Shogun, Volume Two",
+      "en": "Shogun, Volume Two"
+    },
+    "titleTokens": {
+      "es": [
+        "shogun,",
+        "volume",
+        "two"
+      ],
+      "en": [
+        "shogun,",
+        "volume",
+        "two"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "shogun, volume two",
+      "en": "shogun, volume two"
+    }
+  },
+  {
+    "_id": "OL15102461W",
+    "authorKeys": [
+      "OL243783A"
+    ],
+    "edition_count": 5,
+    "first_publish_year": 2010,
+    "cover_url": "https://covers.openlibrary.org/b/id/12946924-M.jpg",
+    "topics": [
+      "History",
+      "Samurai",
+      "Nihon-Rekishi-Bakumatsuki",
+      "Japan, history",
+      "Japan",
+      "Restoration, 1853-1870",
+      "Samouraï",
+      "Histoire",
+      "Nihon -- rekishi -- bakumatsuki"
+    ],
+    "isbn": "9784805311233",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 12946924,
+    "ratingCount": null,
+    "authorTokens": [
+      "romulus",
+      "hillsborough"
+    ],
+    "pages": 256,
+    "genre": "Historical Fiction",
+    "key": "/works/OL15102461W",
+    "authors": [
+      "Romulus Hillsborough"
+    ],
+    "isbns": {
+      "es": "9784805311233",
+      "en": "9781462900817"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Samurai tales",
+      "en": "Samurai Tales"
+    },
+    "titleTokens": {
+      "es": [
+        "samurai",
+        "tales"
+      ],
+      "en": [
+        "samurai",
+        "tales"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "samurai tales",
+      "en": "samurai tales"
+    }
+  },
+  {
+    "_id": "OL2020241W",
+    "authorKeys": [
+      "OL243783A"
+    ],
+    "edition_count": 6,
+    "first_publish_year": 2005,
+    "cover_url": "https://covers.openlibrary.org/b/id/8096138-M.jpg",
+    "topics": [
+      "History",
+      "Shinsengumi",
+      "Samurai",
+      "Shoguns",
+      "Japan, history",
+      "Swordplay, japan",
+      "Japan, history, military"
+    ],
+    "isbn": "0804836272",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 8096138,
+    "ratingCount": null,
+    "authorTokens": [
+      "romulus",
+      "hillsborough"
+    ],
+    "pages": 256,
+    "genre": "Historical Fiction",
+    "key": "/works/OL2020241W",
+    "authors": [
+      "Romulus Hillsborough"
+    ],
+    "isbns": {
+      "es": "0804836272",
+      "en": "9781462913589"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Shinsengumi",
+      "en": "Shinsengumi"
+    },
+    "titleTokens": {
+      "es": [
+        "shinsengumi"
+      ],
+      "en": [
+        "shinsengumi"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "shinsengumi",
+      "en": "shinsengumi"
+    }
+  },
+  {
+    "_id": "OL20994108W",
+    "authorKeys": [
+      "OL8028260A"
+    ],
+    "edition_count": 6,
+    "first_publish_year": 2020,
+    "cover_url": "https://covers.openlibrary.org/b/id/12381089-M.jpg",
+    "topics": [
+      "Sociology",
+      "Asia, history",
+      "Women",
+      "Social life and customs",
+      "Divorced women",
+      "Biography",
+      "History",
+      "HISTORY / Asia / Japan"
+    ],
+    "isbn": "9781501188534",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 12381089,
+    "ratingCount": null,
+    "authorTokens": [
+      "amy",
+      "stanley"
+    ],
+    "pages": 352,
+    "genre": "Historical Fiction",
+    "key": "/works/OL20994108W",
+    "authors": [
+      "Amy Stanley"
+    ],
+    "isbns": {
+      "es": "9781501188534",
+      "en": "9781784708139"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Stranger in the Shogun's City",
+      "en": "Stranger in the Shogun's City"
+    },
+    "titleTokens": {
+      "es": [
+        "stranger",
+        "shogun's",
+        "city"
+      ],
+      "en": [
+        "stranger",
+        "shogun's",
+        "city"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "stranger in the shogun's city",
+      "en": "stranger in the shogun's city"
+    }
+  },
+  {
+    "_id": "OL21148590W",
+    "authorKeys": [
+      "OL334772A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 2016,
+    "cover_url": "https://covers.openlibrary.org/b/id/14517453-M.jpg",
+    "topics": [
+      "Japan, fiction",
+      "Fiction, historical",
+      "Japan -- History -- 1787-1868 -- Fiction",
+      "Japan"
+    ],
+    "isbn": "9780552163491",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 14517453,
+    "ratingCount": null,
+    "authorTokens": [
+      "lesley",
+      "downer"
+    ],
+    "pages": 400,
+    "genre": "Non-Fiction",
+    "key": "/works/OL21148590W",
+    "authors": [
+      "Lesley Downer"
+    ],
+    "isbns": {
+      "es": "9780552163491",
+      "en": "9780593066867"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Shogun's Queen",
+      "en": "Shogun's Queen"
+    },
+    "titleTokens": {
+      "es": [
+        "shogun's",
+        "queen"
+      ],
+      "en": [
+        "shogun's",
+        "queen"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "shogun's queen",
+      "en": "shogun's queen"
+    }
+  },
+  {
+    "_id": "OL64248W",
+    "authorKeys": [
+      "OL19737A"
+    ],
+    "edition_count": 9,
+    "first_publish_year": 2005,
+    "cover_url": "https://covers.openlibrary.org/b/id/1344309-M.jpg",
+    "topics": [
+      "History",
+      "Social life and customs",
+      "Titsingh, isaac, 1744-1812",
+      "Japan, history",
+      "Japan, social life and customs",
+      "Manners and customs"
+    ],
+    "isbn": "9781280376924",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 1344309,
+    "ratingCount": null,
+    "authorTokens": [
+      "timon",
+      "screech"
+    ],
+    "pages": 272,
+    "genre": "Historical Fiction",
+    "key": "/works/OL64248W",
+    "authors": [
+      "Timon Screech"
+    ],
+    "isbns": {
+      "es": "9781280376924",
+      "en": "9781135787332"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Secret Memoirs of the Shoguns",
+      "en": "Secret Memoirs of the Shoguns"
+    },
+    "titleTokens": {
+      "es": [
+        "secret",
+        "memoirs",
+        "shoguns"
+      ],
+      "en": [
+        "secret",
+        "memoirs",
+        "shoguns"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "secret memoirs of the shoguns",
+      "en": "secret memoirs of the shoguns"
+    }
+  },
+  {
+    "_id": "OL96113W",
+    "authorKeys": [
+      "OL1181662A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 1910,
+    "cover_url": "https://covers.openlibrary.org/b/id/5735091-M.jpg",
+    "topics": [],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": 5735091,
+    "ratingCount": null,
+    "authorTokens": [
+      "robert",
+      "ames",
+      "bennet"
+    ],
+    "pages": 420,
+    "genre": null,
+    "key": "/works/OL96113W",
+    "authors": [
+      "Robert Ames Bennet"
+    ],
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "shogun's daughter",
+      "en": "The shogun's daughter"
+    },
+    "titleTokens": {
+      "es": [
+        "shogun's",
+        "daughter"
+      ],
+      "en": [
+        "shogun's",
+        "daughter"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "shogun's daughter",
+      "en": "the shogun's daughter"
+    }
+  },
+  {
+    "_id": "OL2724115W",
+    "authorKeys": [
+      "OL398844A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 1998,
+    "cover_url": "https://covers.openlibrary.org/b/id/811299-M.jpg",
+    "topics": [
+      "Fiction"
+    ],
+    "isbn": "1568362463",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 811299,
+    "ratingCount": null,
+    "authorTokens": [
+      "shiba,",
+      "ryotaro"
+    ],
+    "pages": 255,
+    "genre": "Fiction",
+    "key": "/works/OL2724115W",
+    "authors": [
+      "Shiba, Ryōtarō"
+    ],
+    "isbns": {
+      "es": "1568362463",
+      "en": "1568362463"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The last shogun",
+      "en": "The last shogun"
+    },
+    "titleTokens": {
+      "es": [
+        "last",
+        "shogun"
+      ],
+      "en": [
+        "last",
+        "shogun"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "the last shogun",
+      "en": "the last shogun"
+    }
+  },
+  {
+    "_id": "OL15844150W",
+    "authorKeys": [
+      "OL241782A"
+    ],
+    "edition_count": 5,
+    "first_publish_year": 2003,
+    "cover_url": "https://covers.openlibrary.org/b/id/771937-M.jpg",
+    "topics": [
+      "Toy and movable books",
+      "Specimens",
+      "Lettres fictives",
+      "Imaginary letters",
+      "Fiction, romance, general"
+    ],
+    "isbn": "9781551926216",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 771937,
+    "ratingCount": null,
+    "authorTokens": [
+      "nick",
+      "bantock"
+    ],
+    "pages": 56,
+    "genre": "Non-Fiction",
+    "key": "/works/OL15844150W",
+    "authors": [
+      "Nick Bantock"
+    ],
+    "isbns": {
+      "es": "9781551926216",
+      "en": "9781551926216"
+    },
+    "titleNorm": {
+      "es": "the morning star",
+      "en": "the morning star"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The Morning Star",
+      "en": "The Morning Star"
+    },
+    "titleTokens": {
+      "es": [
+        "morning",
+        "star"
+      ],
+      "en": [
+        "morning",
+        "star"
+      ]
+    }
+  },
+  {
+    "_id": "OL16044521W",
+    "authorKeys": [
+      "OL607882A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1992,
+    "cover_url": "https://covers.openlibrary.org/b/id/6906564-M.jpg",
+    "topics": [
+      "collectionID:CDarkromance",
+      "Gothic romance",
+      "Fiction, romance, suspense"
+    ],
+    "isbn": "9780821739389",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 6906564,
+    "ratingCount": null,
+    "authorTokens": [
+      "joyce",
+      "c.",
+      "ware"
+    ],
+    "pages": 320,
+    "genre": "Non-Fiction",
+    "key": "/works/OL16044521W",
+    "authors": [
+      "Joyce C. Ware"
+    ],
+    "isbns": {
+      "es": "9780821739389",
+      "en": "9780821739389"
+    },
+    "titleNorm": {
+      "es": "darkness at morning star",
+      "en": "darkness at morning star"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Darkness at Morning Star",
+      "en": "Darkness at Morning Star"
+    },
+    "titleTokens": {
+      "es": [
+        "darkness",
+        "morning",
+        "star"
+      ],
+      "en": [
+        "darkness",
+        "morning",
+        "star"
+      ]
+    }
+  },
+  {
+    "_id": "OL17679306W",
+    "authorKeys": [
+      "OL6780147A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 2014,
+    "cover_url": "https://covers.openlibrary.org/b/id/7982755-M.jpg",
+    "topics": [
+      "Love & Romance",
+      "Girls & Women",
+      "Household employees",
+      "Family life",
+      "Mistaken identity",
+      "Romance fiction",
+      "Humorous Stories",
+      "Historical",
+      "Love",
+      "Social classes",
+      "Romance-language fiction",
+      "History",
+      "Europe",
+      "Families",
+      "JUVENILE FICTION",
+      "Fiction",
+      "Children's fiction",
+      "Family life, fiction",
+      "Household employees, fiction",
+      "Love, fiction",
+      "Great britain, history, fiction",
+      "JUVENILE FICTION / Love & Romance",
+      "JUVENILE FICTION / Humorous Stories",
+      "JUVENILE FICTION / Historical / Europe",
+      "JUVENILE FICTION / Girls & Women",
+      "Love stories"
+    ],
+    "isbn": "9780547689517",
+    "rating": null,
+    "genre2": "Young Adult",
+    "cover_id": 7982755,
+    "ratingCount": null,
+    "authorTokens": [
+      "laura",
+      "l.",
+      "sullivan"
+    ],
+    "pages": 320,
+    "genre": "Historical Fiction",
+    "key": "/works/OL17679306W",
+    "authors": [
+      "Laura L. Sullivan"
+    ],
+    "isbns": {
+      "es": "9780547689517",
+      "en": "9780544542594"
+    },
+    "titleNorm": {
+      "es": "love by the morning star",
+      "en": "love by the morning star"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Love by the Morning Star",
+      "en": "Love by the Morning Star"
+    },
+    "titleTokens": {
+      "es": [
+        "love",
+        "morning",
+        "star"
+      ],
+      "en": [
+        "love",
+        "morning",
+        "star"
+      ]
+    }
+  },
+  {
+    "_id": "OL38389308W",
+    "authorKeys": [
+      "OL13818368A",
+      "OL8330750A",
+      "OL13818369A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2024,
+    "cover_url": "https://covers.openlibrary.org/b/id/14639921-M.jpg",
+    "topics": [
+      "Biography",
+      "Medicine"
+    ],
+    "isbn": "9781685711528",
+    "rating": 3,
+    "genre2": null,
+    "cover_id": 14639921,
+    "ratingCount": 2,
+    "authorTokens": [
+      "dorothea",
+      "buck",
+      "susanne",
+      "antonetta",
+      "eva",
+      "lipton-ormond"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL38389308W",
+    "authors": [
+      "Dorothea Buck",
+      "Susanne Antonetta",
+      "Eva Lipton-Ormond"
+    ],
+    "isbns": {
+      "es": "9781685711528",
+      "en": "9781685711535"
+    },
+    "titleNorm": {
+      "es": "on the trail of the morning star",
+      "en": "on the trail of the morning star"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "On the Trail of the Morning Star",
+      "en": "On the Trail of the Morning Star"
+    },
+    "titleTokens": {
+      "es": [
+        "trail",
+        "morning",
+        "star"
+      ],
+      "en": [
+        "trail",
+        "morning",
+        "star"
+      ]
+    }
+  },
+  {
+    "_id": "OL2673192W",
+    "authorKeys": [
+      "OL390053A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2000,
+    "cover_url": "https://covers.openlibrary.org/b/id/434443-M.jpg",
+    "topics": [
+      "Religion - Bible - Stories",
+      "Purim",
+      "Esther",
+      "English Bible stories",
+      "Old Testament",
+      "Bible stories",
+      "Juvenile literature",
+      "Esther, queen of persia, juvenile literature",
+      "Bible stories, o.t.",
+      "Esther, queen of persia"
+    ],
+    "isbn": "9780689813726",
+    "rating": 4,
+    "genre2": null,
+    "cover_id": 434443,
+    "ratingCount": 1,
+    "authorTokens": [
+      "mordicai",
+      "gerstein"
+    ],
+    "pages": 32,
+    "genre": "Non-Fiction",
+    "key": "/works/OL2673192W",
+    "authors": [
+      "Mordicai Gerstein"
+    ],
+    "isbns": {
+      "es": "9780689813726",
+      "en": "9780689813726"
+    },
+    "titleNorm": {
+      "es": "queen esther the morning star",
+      "en": "queen esther the morning star"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Queen Esther The Morning Star",
+      "en": "Queen Esther The Morning Star"
+    },
+    "titleTokens": {
+      "es": [
+        "queen",
+        "esther",
+        "morning",
+        "star"
+      ],
+      "en": [
+        "queen",
+        "esther",
+        "morning",
+        "star"
+      ]
+    }
+  },
+  {
+    "_id": "OL3589968W",
+    "authorKeys": [
+      "OL607226A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1993,
+    "cover_url": "https://covers.openlibrary.org/b/id/408222-M.jpg",
+    "topics": [
+      "Fiction, romance, historical, general",
+      "Fiction, romance, paranormal, general"
+    ],
+    "isbn": "0671745638",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 408222,
+    "ratingCount": null,
+    "authorTokens": [
+      "marylyle",
+      "rogers"
+    ],
+    "pages": 305,
+    "genre": "Non-Fiction",
+    "key": "/works/OL3589968W",
+    "authors": [
+      "Marylyle Rogers"
+    ],
+    "isbns": {
+      "es": "0671745638",
+      "en": "0671745638"
+    },
+    "titleNorm": {
+      "es": "chanting the morning star",
+      "en": "chanting the morning star"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Chanting the morning star",
+      "en": "Chanting the morning star"
+    },
+    "titleTokens": {
+      "es": [
+        "chanting",
+        "morning",
+        "star"
+      ],
+      "en": [
+        "chanting",
+        "morning",
+        "star"
+      ]
+    }
+  },
+  {
+    "_id": "OL4535149W",
+    "authorKeys": [
+      "OL912966A"
+    ],
+    "edition_count": 6,
+    "first_publish_year": 1988,
+    "cover_url": "https://covers.openlibrary.org/b/id/687634-M.jpg",
+    "topics": [
+      "Reformation",
+      "Clergy",
+      "Early movements",
+      "Catholic Church",
+      "Biography",
+      "Fiction"
+    ],
+    "isbn": "9780890844533",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 687634,
+    "ratingCount": null,
+    "authorTokens": [
+      "andy",
+      "thomson"
+    ],
+    "pages": 135,
+    "genre": "Fiction",
+    "key": "/works/OL4535149W",
+    "authors": [
+      "Andy Thomson"
+    ],
+    "isbns": {
+      "es": "9780890844533",
+      "en": "9780890844533"
+    },
+    "titleNorm": {
+      "es": "morning star of the reformation",
+      "en": "morning star of the reformation"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Morning star of the Reformation",
+      "en": "Morning star of the Reformation"
+    },
+    "titleTokens": {
+      "es": [
+        "morning",
+        "star",
+        "reformation"
+      ],
+      "en": [
+        "morning",
+        "star",
+        "reformation"
+      ]
+    }
+  },
+  {
+    "_id": "OL17880385W",
+    "authorKeys": [
+      "OL26275A"
+    ],
+    "edition_count": 5,
+    "first_publish_year": 2017,
+    "cover_url": "https://covers.openlibrary.org/b/id/8189793-M.jpg",
+    "topics": [
+      "Race relations",
+      "Hate groups",
+      "Ku Klux Klan (1915- )",
+      "Political culture",
+      "Racism",
+      "History",
+      "New York Times reviewed",
+      "Ku klux klan (1915-)",
+      "United states, race relations",
+      "United states, history, 1919-1933",
+      "SOCIAL SCIENCE / Discrimination & Race Relations",
+      "SOCIAL SCIENCE / Social Classes",
+      "POLITICAL SCIENCE / Political Ideologies / Nationalism & Patriotism",
+      "Ku Klux Klan (1915- .)",
+      "Ku Klux Klan (1915- ) -- History -- 20th century",
+      "Racism -- United States -- History -- 20th century",
+      "Hate groups -- United States -- History -- 20th century",
+      "Political culture -- United States -- History -- 20th century",
+      "United States -- Race relations -- History -- 20th century"
+    ],
+    "isbn": "9781631493690",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 8189793,
+    "ratingCount": null,
+    "authorTokens": [
+      "linda",
+      "gordon"
+    ],
+    "pages": 272,
+    "genre": "Historical Fiction",
+    "key": "/works/OL17880385W",
+    "authors": [
+      "Linda Gordon"
+    ],
+    "isbns": {
+      "es": "9781631493690",
+      "en": "9781631493706"
+    },
+    "titleNorm": {
+      "es": "the second coming of the kkk",
+      "en": "second coming of the kkk"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The second coming of the KKK",
+      "en": "Second Coming of the KKK"
+    },
+    "titleTokens": {
+      "es": [
+        "second",
+        "coming",
+        "kkk"
+      ],
+      "en": [
+        "second",
+        "coming",
+        "kkk"
+      ]
+    }
+  },
+  {
+    "_id": "OL23935205W",
+    "authorKeys": [
+      "OL2074562A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2005,
+    "cover_url": "https://covers.openlibrary.org/b/id/1476441-M.jpg",
+    "topics": [
+      "History",
+      "United States. Federal Bureau of Investigation",
+      "United States",
+      "Ku Klux Klan (1915- )"
+    ],
+    "isbn": "9780786422548",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 1476441,
+    "ratingCount": null,
+    "authorTokens": [
+      "michael",
+      "newton"
+    ],
+    "pages": 248,
+    "genre": "Historical Fiction",
+    "key": "/works/OL23935205W",
+    "authors": [
+      "Michael Newton"
+    ],
+    "isbns": {
+      "es": "9780786422548",
+      "en": "9780786422548"
+    },
+    "titleNorm": {
+      "es": "the fbi and the kkk",
+      "en": "the fbi and the kkk"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The FBI and the KKK",
+      "en": "The FBI and the KKK"
+    },
+    "titleTokens": {
+      "es": [
+        "fbi",
+        "kkk"
+      ],
+      "en": [
+        "fbi",
+        "kkk"
+      ]
+    }
+  },
+  {
+    "_id": "OL25676319W",
+    "authorKeys": [
+      "OL9701236A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2012,
+    "cover_url": null,
+    "topics": [
+      "Fiction, humorous, general"
+    ],
+    "isbn": "9781477138120",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "henry",
+      "gornowicz"
+    ],
+    "pages": 106,
+    "genre": "Non-Fiction",
+    "key": "/works/OL25676319W",
+    "authors": [
+      "Henry Gornowicz"
+    ],
+    "isbns": {
+      "es": "9781477138120",
+      "en": "9781477138120"
+    },
+    "titleNorm": {
+      "es": "henry's letters to the kkk",
+      "en": "henry's letters to the kkk"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Henry's Letters to the Kkk",
+      "en": "Henry's Letters to the Kkk"
+    },
+    "titleTokens": {
+      "es": [
+        "henry's",
+        "letters",
+        "kkk"
+      ],
+      "en": [
+        "henry's",
+        "letters",
+        "kkk"
+      ]
+    }
+  },
+  {
+    "_id": "OL29453526W",
+    "authorKeys": [
+      "OL6270077A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2018,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781980675211",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "james",
+      "stern"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL29453526W",
+    "authors": [
+      "James Stern"
+    ],
+    "isbns": {
+      "es": "9781980675211",
+      "en": "9781980675211"
+    },
+    "titleNorm": {
+      "es": "james stern killen the kkk",
+      "en": "james stern killen the kkk"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "James Stern Killen the Kkk",
+      "en": "James Stern Killen the Kkk"
+    },
+    "titleTokens": {
+      "es": [
+        "james",
+        "stern",
+        "killen",
+        "kkk"
+      ],
+      "en": [
+        "james",
+        "stern",
+        "killen",
+        "kkk"
+      ]
+    }
+  },
+  {
+    "_id": "OL31849482W",
+    "authorKeys": [
+      "OL379025A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2017,
+    "cover_url": null,
+    "topics": [
+      "Historians",
+      "Biography",
+      "History",
+      "15.04 teaching, profession and organizations of history"
+    ],
+    "isbn": "9789671493007",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "khoo,",
+      "kay",
+      "kim"
+    ],
+    "pages": 137,
+    "genre": "Historical Fiction",
+    "key": "/works/OL31849482W",
+    "authors": [
+      "Khoo, Kay Kim"
+    ],
+    "isbns": {
+      "es": "9789671493007",
+      "en": "9789671493007"
+    },
+    "titleNorm": {
+      "es": "i, kkk",
+      "en": "i, kkk"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "I, KKK",
+      "en": "I, KKK"
+    },
+    "titleTokens": {
+      "es": [
+        "i,",
+        "kkk"
+      ],
+      "en": [
+        "i,",
+        "kkk"
+      ]
+    }
+  },
+  {
+    "_id": "OL7133809W",
+    "authorKeys": [
+      "OL2029281A"
+    ],
+    "edition_count": 4,
+    "first_publish_year": 1902,
+    "cover_url": "https://covers.openlibrary.org/b/id/8001954-M.jpg",
+    "topics": [
+      "African Americans",
+      "Fiction",
+      "Ku-Klux Klan (1866-1869)",
+      "Ku-Klux Klan (19th cent.)",
+      "Ku Klux Klan (19th century)"
+    ],
+    "isbn": "0836990722",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 8001954,
+    "ratingCount": null,
+    "authorTokens": [
+      "c.",
+      "w.",
+      "tyler"
+    ],
+    "pages": 359,
+    "genre": "Fiction",
+    "key": "/works/OL7133809W",
+    "authors": [
+      "C. W. Tyler"
+    ],
+    "isbns": {
+      "es": "0836990722"
+    },
+    "titleNorm": {
+      "es": "the k.k.k.",
+      "en": "the k.k.k."
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The K.K.K.",
+      "en": "The K.K.K."
+    },
+    "titleTokens": {
+      "es": [
+        "k.k.k."
+      ],
+      "en": [
+        "k.k.k."
+      ]
+    }
+  },
+  {
+    "_id": "OL8719909W",
+    "authorKeys": [
+      "OL160379A"
+    ],
+    "edition_count": 5,
+    "first_publish_year": 1924,
+    "cover_url": "https://covers.openlibrary.org/b/id/2850205-M.jpg",
+    "topics": [],
+    "isbn": "9781428618213",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 2850205,
+    "ratingCount": null,
+    "authorTokens": [
+      "e.",
+      "haldeman-julius"
+    ],
+    "pages": 64,
+    "genre": null,
+    "key": "/works/OL8719909W",
+    "authors": [
+      "E. Haldeman-Julius"
+    ],
+    "isbns": {
+      "es": "9781428618213",
+      "en": "9781428618213"
+    },
+    "titleNorm": {
+      "es": "kkk",
+      "en": "kkk"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "KKK",
+      "en": "KKK"
+    },
+    "titleTokens": {
+      "es": [
+        "kkk"
+      ],
+      "en": [
+        "kkk"
+      ]
+    }
+  },
+  {
+    "_id": "OL9473291W",
+    "authorKeys": [
+      "OL3491362A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2005,
+    "cover_url": "https://covers.openlibrary.org/b/id/2534796-M.jpg",
+    "topics": [],
+    "isbn": "9780595669622",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 2534796,
+    "ratingCount": null,
+    "authorTokens": [
+      "vivian",
+      "andrews"
+    ],
+    "pages": 184,
+    "genre": null,
+    "key": "/works/OL9473291W",
+    "authors": [
+      "Vivian Andrews"
+    ],
+    "isbns": {
+      "es": "9780595669622",
+      "en": "9780595669622"
+    },
+    "titleNorm": {
+      "es": "god vs kkk",
+      "en": "god vs kkk"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "GOD vs KKK",
+      "en": "GOD vs KKK"
+    },
+    "titleTokens": {
+      "es": [
+        "god",
+        "vs",
+        "kkk"
+      ],
+      "en": [
+        "god",
+        "vs",
+        "kkk"
+      ]
+    }
+  },
+  {
+    "_id": "OL24594044W",
+    "authorKeys": [
+      "OL3860589A"
+    ],
+    "edition_count": 14,
+    "first_publish_year": 2017,
+    "cover_url": "https://covers.openlibrary.org/b/id/13113285-M.jpg",
+    "topics": [],
+    "isbn": "9784867453032",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 13113285,
+    "ratingCount": null,
+    "authorTokens": [
+      "stephen",
+      "drake"
+    ],
+    "pages": 332,
+    "genre": null,
+    "key": "/works/OL24594044W",
+    "authors": [
+      "Stephen Drake"
+    ],
+    "isbns": {
+      "es": "9784867453032",
+      "en": "9781548058326"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Blackwing",
+      "en": "Blackwing"
+    },
+    "titleTokens": {
+      "es": [
+        "blackwing"
+      ],
+      "en": [
+        "blackwing"
+      ]
+    },
+    "titleNorm": {
+      "es": "blackwing",
+      "en": "blackwing"
+    }
+  },
+  {
+    "_id": "OL29597519W",
+    "authorKeys": [
+      "OL426697A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2019,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781794502468",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "john",
+      "lee"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL29597519W",
+    "authors": [
+      "John Lee"
+    ],
+    "isbns": {
+      "es": "9781794502468",
+      "en": "9781794502468"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Blackwing Bird",
+      "en": "Blackwing Bird"
+    },
+    "titleTokens": {
+      "es": [
+        "blackwing",
+        "bird"
+      ],
+      "en": [
+        "blackwing",
+        "bird"
+      ]
+    },
+    "titleNorm": {
+      "es": "blackwing bird",
+      "en": "blackwing bird"
+    }
+  },
+  {
+    "_id": "OL31147957W",
+    "authorKeys": [
+      "OL10680854A",
+      "OL10680855A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2022,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781088027097",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "bk",
+      "staples",
+      "theo",
+      "moon"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL31147957W",
+    "authors": [
+      "Bk Staples",
+      "Theo Moon"
+    ],
+    "isbns": {
+      "es": "9781088027097",
+      "en": "9781088027097"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Blackwing Keep",
+      "en": "Blackwing Keep"
+    },
+    "titleTokens": {
+      "es": [
+        "blackwing",
+        "keep"
+      ],
+      "en": [
+        "blackwing",
+        "keep"
+      ]
+    },
+    "titleNorm": {
+      "es": "blackwing keep",
+      "en": "blackwing keep"
+    }
+  },
+  {
+    "_id": "OL35306542W",
+    "authorKeys": [
+      "OL12772499A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2016,
+    "cover_url": "https://covers.openlibrary.org/b/id/14477376-M.jpg",
+    "topics": [],
+    "isbn": "9781988186504",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 14477376,
+    "ratingCount": null,
+    "authorTokens": [
+      "kathy",
+      "blackwing"
+    ],
+    "pages": 38,
+    "genre": null,
+    "key": "/works/OL35306542W",
+    "authors": [
+      "Kathy Blackwing"
+    ],
+    "isbns": {
+      "es": "9781988186504",
+      "en": "9781773020006"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "I Am Horse",
+      "en": "I Am Horse"
+    },
+    "titleTokens": {
+      "es": [
+        "am",
+        "horse"
+      ],
+      "en": [
+        "am",
+        "horse"
+      ]
+    },
+    "titleNorm": {
+      "es": "i am horse",
+      "en": "i am horse"
+    }
+  },
+  {
+    "_id": "OL38330325W",
+    "authorKeys": [
+      "OL3860589A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2020,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781715631840",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "stephen",
+      "drake"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL38330325W",
+    "authors": [
+      "Stephen Drake"
+    ],
+    "isbns": {
+      "es": "9781715631840",
+      "en": "9781715631840"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Blackwing (Blackwing Saga Book 1)",
+      "en": "Blackwing (Blackwing Saga Book 1)"
+    },
+    "titleTokens": {
+      "es": [
+        "blackwing",
+        "(blackwing",
+        "saga",
+        "book",
+        "1)"
+      ],
+      "en": [
+        "blackwing",
+        "(blackwing",
+        "saga",
+        "book",
+        "1)"
+      ]
+    },
+    "titleNorm": {
+      "es": "blackwing (blackwing saga book 1)",
+      "en": "blackwing (blackwing saga book 1)"
+    }
+  },
+  {
+    "_id": "OL39784487W",
+    "authorKeys": [
+      "OL8099094A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2013,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781490503066",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "heather",
+      "choate"
+    ],
+    "pages": 300,
+    "genre": null,
+    "key": "/works/OL39784487W",
+    "authors": [
+      "Heather Choate"
+    ],
+    "isbns": {
+      "es": "9781490503066",
+      "en": "9781490503066"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Meta Blackwing",
+      "en": "Meta Blackwing"
+    },
+    "titleTokens": {
+      "es": [
+        "meta",
+        "blackwing"
+      ],
+      "en": [
+        "meta",
+        "blackwing"
+      ]
+    },
+    "titleNorm": {
+      "es": "meta blackwing",
+      "en": "meta blackwing"
+    }
+  },
+  {
+    "_id": "OL8741071W",
+    "authorKeys": [
+      "OL2970451A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2004,
+    "cover_url": "https://covers.openlibrary.org/b/id/1776579-M.jpg",
+    "topics": [
+      "Fiction, thrillers, general"
+    ],
+    "isbn": "9781413726183",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 1776579,
+    "ratingCount": null,
+    "authorTokens": [
+      "v.l.",
+      "killkenny"
+    ],
+    "pages": 317,
+    "genre": "Non-Fiction",
+    "key": "/works/OL8741071W",
+    "authors": [
+      "V.L. Killkenny"
+    ],
+    "isbns": {
+      "es": "9781413726183",
+      "en": "9781413726183"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Blackwings",
+      "en": "Blackwings"
+    },
+    "titleTokens": {
+      "es": [
+        "blackwings"
+      ],
+      "en": [
+        "blackwings"
+      ]
+    },
+    "titleNorm": {
+      "es": "blackwings",
+      "en": "blackwings"
+    }
+  },
+  {
+    "_id": "OL25443785W",
+    "authorKeys": [
+      "OL7044246A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781945863714",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣"
+    ],
+    "pages": 72,
+    "genre": null,
+    "key": "/works/OL25443785W",
+    "authors": [
+      "刘慈欣"
+    ],
+    "isbns": {
+      "es": "9781945863714",
+      "en": "9781945863721"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Yuanyuan's Bubbles",
+      "en": "Yuanyuan's Bubbles"
+    },
+    "titleTokens": {
+      "es": [
+        "yuanyuan's",
+        "bubbles"
+      ],
+      "en": [
+        "yuanyuan's",
+        "bubbles"
+      ]
+    },
+    "titleNorm": {
+      "es": "yuanyuan's bubbles",
+      "en": "yuanyuan's bubbles"
+    }
+  },
+  {
+    "_id": "OL25464626W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL8266922A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781945863707",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "zhang",
+      "xiaoyu"
+    ],
+    "pages": 108,
+    "genre": null,
+    "key": "/works/OL25464626W",
+    "authors": [
+      "刘慈欣",
+      "Zhang Xiaoyu"
+    ],
+    "isbns": {
+      "es": "9781945863707",
+      "en": "9781945863707"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Village Teacher",
+      "en": "Village Teacher"
+    },
+    "titleTokens": {
+      "es": [
+        "village",
+        "teacher"
+      ],
+      "en": [
+        "village",
+        "teacher"
+      ]
+    },
+    "titleNorm": {
+      "es": "village teacher",
+      "en": "village teacher"
+    }
+  },
+  {
+    "_id": "OL25770833W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL8266922A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [
+      "Literature"
+    ],
+    "isbn": "9781800249998",
+    "rating": 5,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": 1,
+    "authorTokens": [
+      "刘慈欣",
+      "zhang",
+      "xiaoyu"
+    ],
+    "pages": null,
+    "genre": "Literature",
+    "key": "/works/OL25770833W",
+    "authors": [
+      "刘慈欣",
+      "Zhang Xiaoyu"
+    ],
+    "isbns": {
+      "es": "9781800249998",
+      "en": "9781800249998"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu The Village Teacher",
+      "en": "Cixin Liu The Village Teacher"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu",
+        "village",
+        "teacher"
+      ],
+      "en": [
+        "cixin",
+        "liu",
+        "village",
+        "teacher"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu the village teacher",
+      "en": "cixin liu the village teacher"
+    }
+  },
+  {
+    "_id": "OL25770834W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL9745288A",
+      "OL3952420A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [
+      "Literature"
+    ],
+    "isbn": "9781801100038",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "valerie",
+      "manguin",
+      "steven",
+      "dupre"
+    ],
+    "pages": null,
+    "genre": "Literature",
+    "key": "/works/OL25770834W",
+    "authors": [
+      "刘慈欣",
+      "Valérie Manguin",
+      "Steven Dupré"
+    ],
+    "isbns": {
+      "es": "9781801100038",
+      "en": "9781801100038"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu's Yuanyuan's Bubbles",
+      "en": "Cixin Liu's Yuanyuan's Bubbles"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu's",
+        "yuanyuan's",
+        "bubbles"
+      ],
+      "en": [
+        "cixin",
+        "liu's",
+        "yuanyuan's",
+        "bubbles"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu's yuanyuan's bubbles",
+      "en": "cixin liu's yuanyuan's bubbles"
+    }
+  },
+  {
+    "_id": "OL25770836W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL9745289A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [
+      "Literature"
+    ],
+    "isbn": "9781800249974",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "jok"
+    ],
+    "pages": null,
+    "genre": "Literature",
+    "key": "/works/OL25770836W",
+    "authors": [
+      "刘慈欣",
+      "JOK"
+    ],
+    "isbns": {
+      "es": "9781800249974",
+      "en": "9781800249981"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu's Sea of Dreams",
+      "en": "Cixin Liu's Sea of Dreams"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu's",
+        "sea",
+        "dreams"
+      ],
+      "en": [
+        "cixin",
+        "liu's",
+        "sea",
+        "dreams"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu's sea of dreams",
+      "en": "cixin liu's sea of dreams"
+    }
+  },
+  {
+    "_id": "OL25903751W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL6781462A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [
+      "Ice carving",
+      "Comic books, strips",
+      "Human-alien encounters",
+      "Survival",
+      "Translations into English"
+    ],
+    "isbn": "9781945863684",
+    "rating": 4,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": 1,
+    "authorTokens": [
+      "刘慈欣",
+      "rodolfo",
+      "santullo"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL25903751W",
+    "authors": [
+      "刘慈欣",
+      "Rodolfo Santullo"
+    ],
+    "isbns": {
+      "es": "9781945863684",
+      "en": "9781945863684"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Sea of Dreams",
+      "en": "Sea of Dreams"
+    },
+    "titleTokens": {
+      "es": [
+        "sea",
+        "dreams"
+      ],
+      "en": [
+        "sea",
+        "dreams"
+      ]
+    },
+    "titleNorm": {
+      "es": "sea of dreams",
+      "en": "sea of dreams"
+    }
+  },
+  {
+    "_id": "OL26353540W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL3125940A",
+      "OL9934822A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2022,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781803282817",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "jean-david",
+      "morvan",
+      "yang",
+      "wei-lin"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL26353540W",
+    "authors": [
+      "刘慈欣",
+      "Jean-David Morvan",
+      "Yang Wei-Lin"
+    ],
+    "isbns": {
+      "es": "9781803282817",
+      "en": "9781803282817"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu's the Devourer",
+      "en": "Cixin Liu's the Devourer"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu's",
+        "devourer"
+      ],
+      "en": [
+        "cixin",
+        "liu's",
+        "devourer"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu's the devourer",
+      "en": "cixin liu's the devourer"
+    }
+  },
+  {
+    "_id": "OL26512691W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL7991002A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2022,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781803282800",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "xavier",
+      "besse"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL26512691W",
+    "authors": [
+      "刘慈欣",
+      "Xavier Besse"
+    ],
+    "isbns": {
+      "es": "9781803282800",
+      "en": "9781803282794"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu's the Circle",
+      "en": "Cixin Liu's the Circle"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu's",
+        "circle"
+      ],
+      "en": [
+        "cixin",
+        "liu's",
+        "circle"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu's the circle",
+      "en": "cixin liu's the circle"
+    }
+  },
+  {
+    "_id": "OL26514807W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL2938293A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2022,
+    "cover_url": "https://covers.openlibrary.org/b/id/14764916-M.jpg",
+    "topics": [],
+    "isbn": "9781803282787",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 14764916,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "dan",
+      "panosian"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL26514807W",
+    "authors": [
+      "刘慈欣",
+      "Dan Panosian"
+    ],
+    "isbns": {
+      "es": "9781803282787",
+      "en": "9781803282770"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu's the Butterfly",
+      "en": "Cixin Liu's the Butterfly"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu's",
+        "butterfly"
+      ],
+      "en": [
+        "cixin",
+        "liu's",
+        "butterfly"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu's the butterfly",
+      "en": "cixin liu's the butterfly"
+    }
+  },
+  {
+    "_id": "OL26520591W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL7246605A",
+      "OL9995180A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2022,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781803282756",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "sylvain",
+      "runberg",
+      "miki",
+      "montllo"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL26520591W",
+    "authors": [
+      "刘慈欣",
+      "Sylvain Runberg",
+      "Miki Montllò"
+    ],
+    "isbns": {
+      "es": "9781803282756",
+      "en": "9781803282756"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu's for the Benefit of Mankind",
+      "en": "Cixin Liu's for the Benefit of Mankind"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu's",
+        "benefit",
+        "mankind"
+      ],
+      "en": [
+        "cixin",
+        "liu's",
+        "benefit",
+        "mankind"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu's for the benefit of mankind",
+      "en": "cixin liu's for the benefit of mankind"
+    }
+  },
+  {
+    "_id": "OL27413168W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL8266922A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781800240018",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "zhang",
+      "xiaoyu"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL27413168W",
+    "authors": [
+      "刘慈欣",
+      "Zhang Xiaoyu"
+    ],
+    "isbns": {
+      "es": "9781800240018",
+      "en": "9781800240018"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu's the Village Teacher",
+      "en": "Cixin Liu's the Village Teacher"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu's",
+        "village",
+        "teacher"
+      ],
+      "en": [
+        "cixin",
+        "liu's",
+        "village",
+        "teacher"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu's the village teacher",
+      "en": "cixin liu's the village teacher"
+    }
+  },
+  {
+    "_id": "OL27413174W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL3100795A",
+      "OL2944011A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781801100014",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "christophe",
+      "bec",
+      "stefano",
+      "raffaele"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL27413174W",
+    "authors": [
+      "刘慈欣",
+      "Christophe Bec",
+      "Stefano Raffaele"
+    ],
+    "isbns": {
+      "es": "9781801100014",
+      "en": "9781801100014"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Cixin Liu's the Wandering Earth",
+      "en": "Cixin Liu's the Wandering Earth"
+    },
+    "titleTokens": {
+      "es": [
+        "cixin",
+        "liu's",
+        "wandering",
+        "earth"
+      ],
+      "en": [
+        "cixin",
+        "liu's",
+        "wandering",
+        "earth"
+      ]
+    },
+    "titleNorm": {
+      "es": "cixin liu's the wandering earth",
+      "en": "cixin liu's the wandering earth"
+    }
+  },
+  {
+    "_id": "OL28846166W",
+    "authorKeys": [
+      "OL7044246A",
+      "OL7991002A",
+      "OL10675260A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2022,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781945863776",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "刘慈欣",
+      "xavier",
+      "besse",
+      "nicholas",
+      "blackburn",
+      "smith"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL28846166W",
+    "authors": [
+      "刘慈欣",
+      "Xavier Besse",
+      "Nicholas Blackburn Smith"
+    ],
+    "isbns": {
+      "es": "9781945863776",
+      "en": "9781945863776"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Circle",
+      "en": "Circle"
+    },
+    "titleTokens": {
+      "es": [
+        "circle"
+      ],
+      "en": [
+        "circle"
+      ]
+    },
+    "titleNorm": {
+      "es": "circle",
+      "en": "circle"
+    }
+  },
+  {
+    "_id": "OL20328681W",
+    "authorKeys": [
+      "OL22242A"
+    ],
+    "edition_count": 5,
+    "first_publish_year": 1988,
+    "cover_url": "https://covers.openlibrary.org/b/id/666585-M.jpg",
+    "topics": [
+      "Religion",
+      "Translations into English",
+      "Literature, collections",
+      "Dostoyevsky, fyodor, 1821-1881",
+      "Religion in literature"
+    ],
+    "isbn": "087486187X",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 666585,
+    "ratingCount": null,
+    "authorTokens": [
+      "федор",
+      "михаилович",
+      "достоевскии"
+    ],
+    "pages": 258,
+    "genre": "Non-Fiction",
+    "key": "/works/OL20328681W",
+    "authors": [
+      "Фёдор Михайлович Достоевский"
+    ],
+    "isbns": {
+      "es": "087486187X",
+      "en": "087486187X"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The gospel in Dostoyevsky",
+      "en": "The gospel in Dostoyevsky"
+    },
+    "titleTokens": {
+      "es": [
+        "gospel",
+        "dostoyevsky"
+      ],
+      "en": [
+        "gospel",
+        "dostoyevsky"
+      ]
+    },
+    "titleNorm": {
+      "es": "the gospel in dostoyevsky",
+      "en": "the gospel in dostoyevsky"
+    }
+  },
+  {
+    "_id": "OL20738908W",
+    "authorKeys": [
+      "OL22242A",
+      "OL1652556A",
+      "OL1654219A",
+      "OL2769432A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 1987,
+    "cover_url": "https://covers.openlibrary.org/b/id/9438531-M.jpg",
+    "topics": [
+      "Biography: general",
+      "Other prose: 19th century",
+      "Literature - Classics / Criticism",
+      "Biography/Autobiography",
+      "Translations into English",
+      "Novelists, Russian",
+      "Russian & Former Soviet Union",
+      "19th century",
+      "1821-1881",
+      "Correspondence",
+      "Dostoyevsky, Fyodor,",
+      "Dostoyevsky, fyodor, 1821-1881",
+      "Russian Novelists"
+    ],
+    "isbn": "0813511852",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 9438531,
+    "ratingCount": null,
+    "authorTokens": [
+      "федор",
+      "михаилович",
+      "достоевскии",
+      "frank,",
+      "joseph",
+      "david",
+      "i.",
+      "goldstein",
+      "frank"
+    ],
+    "pages": 543,
+    "genre": "Non-Fiction",
+    "key": "/works/OL20738908W",
+    "authors": [
+      "Фёдор Михайлович Достоевский",
+      "Frank, Joseph",
+      "David I. Goldstein",
+      "Joseph Frank"
+    ],
+    "isbns": {
+      "es": "0813511852",
+      "en": "0813511852"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Selected letters of Fyodor Dostoyevsky",
+      "en": "Selected letters of Fyodor Dostoyevsky"
+    },
+    "titleTokens": {
+      "es": [
+        "selected",
+        "letters",
+        "fyodor",
+        "dostoyevsky"
+      ],
+      "en": [
+        "selected",
+        "letters",
+        "fyodor",
+        "dostoyevsky"
+      ]
+    },
+    "titleNorm": {
+      "es": "selected letters of fyodor dostoyevsky",
+      "en": "selected letters of fyodor dostoyevsky"
+    }
+  },
+  {
+    "_id": "OL21796070W",
+    "authorKeys": [
+      "OL1394250A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2014,
+    "cover_url": null,
+    "topics": [
+      "Fiction, fantasy, general"
+    ],
+    "isbn": "9780765376855",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "steven",
+      "erikson"
+    ],
+    "pages": 7392,
+    "genre": "Non-Fiction",
+    "key": "/works/OL21796070W",
+    "authors": [
+      "Steven Erikson"
+    ],
+    "isbns": {
+      "es": "9780765376855",
+      "en": "9780765376855"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Complete Malazan Book of the Fallen",
+      "en": "Complete Malazan Book of the Fallen"
+    },
+    "titleTokens": {
+      "es": [
+        "complete",
+        "malazan",
+        "book",
+        "fallen"
+      ],
+      "en": [
+        "complete",
+        "malazan",
+        "book",
+        "fallen"
+      ]
+    },
+    "titleNorm": {
+      "es": "complete malazan book of the fallen",
+      "en": "complete malazan book of the fallen"
+    }
+  },
+  {
+    "_id": "OL25891515W",
+    "authorKeys": [
+      "OL2988930A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2019,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9780316456715",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "brian",
+      "mcclellan"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL25891515W",
+    "authors": [
+      "Brian McClellan"
+    ],
+    "isbns": {
+      "es": "9780316456715",
+      "en": "9780316456715"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Powder Mage Trilogy",
+      "en": "Powder Mage Trilogy"
+    },
+    "titleTokens": {
+      "es": [
+        "powder",
+        "mage",
+        "trilogy"
+      ],
+      "en": [
+        "powder",
+        "mage",
+        "trilogy"
+      ]
+    },
+    "titleNorm": {
+      "es": "powder mage trilogy",
+      "en": "powder mage trilogy"
+    }
+  },
+  {
+    "_id": "OL35923597W",
+    "authorKeys": [
+      "OL7486601A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 2023,
+    "cover_url": "https://covers.openlibrary.org/b/id/15177893-M.jpg",
+    "topics": [
+      "form:novel collection",
+      "genre:grimdark",
+      "genre:high fantasy",
+      "series:The Poppy War"
+    ],
+    "isbn": "9780063347762",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 15177893,
+    "ratingCount": null,
+    "authorTokens": [
+      "r.",
+      "f.",
+      "kuang"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL35923597W",
+    "authors": [
+      "R. F. Kuang"
+    ],
+    "isbns": {
+      "es": "9780063347762",
+      "en": "9780063347762"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "The Complete Poppy War Trilogy",
+      "en": "The Complete Poppy War Trilogy"
+    },
+    "titleTokens": {
+      "es": [
+        "complete",
+        "poppy",
+        "war",
+        "trilogy"
+      ],
+      "en": [
+        "complete",
+        "poppy",
+        "war",
+        "trilogy"
+      ]
+    },
+    "titleNorm": {
+      "es": "the complete poppy war trilogy",
+      "en": "the complete poppy war trilogy"
+    }
+  },
+  {
+    "_id": "OL15048356W",
+    "authorKeys": [
+      "OL31852A",
+      "OL2629991A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2002,
+    "cover_url": "https://covers.openlibrary.org/b/id/1968590-M.jpg",
+    "topics": [
+      "Fiction",
+      "Toy and movable books",
+      "Opossums",
+      "Helpfulness",
+      "Specimens",
+      "Christmas",
+      "Picture books",
+      "Holidays & Celebrations - Christmas",
+      "Family - General",
+      "Juvenile Fiction",
+      "Children's Books/Baby-Preschool",
+      "Children: Kindergarten",
+      "Humorous Stories",
+      "General",
+      "Non-Classifiable",
+      "Holidays & Celebrations - Christmas & Advent"
+    ],
+    "isbn": "1590140818",
+    "rating": 2,
+    "genre2": null,
+    "cover_id": 1968590,
+    "ratingCount": 1,
+    "authorTokens": [
+      "diane",
+      "groat",
+      "degroat"
+    ],
+    "pages": 16,
+    "genre": "Young Adult",
+    "key": "/works/OL15048356W",
+    "authors": [
+      "Diane De Groat",
+      "Diane deGroat"
+    ],
+    "isbns": {
+      "es": "1590140818",
+      "en": "9781590140819"
+    },
+    "titleNorm": {
+      "es": "lola the elf",
+      "en": "lola the elf"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Lola the elf",
+      "en": "Lola the Elf"
+    },
+    "titleTokens": {
+      "es": [
+        "lola",
+        "elf"
+      ],
+      "en": [
+        "lola",
+        "elf"
+      ]
+    }
+  },
+  {
+    "_id": "OL19984167W",
+    "authorKeys": [
+      "OL1425595A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2014,
+    "cover_url": "https://covers.openlibrary.org/b/id/8983439-M.jpg",
+    "topics": [
+      "Flower gardening",
+      "Juvenile fiction",
+      "African American families",
+      "Family life",
+      "Fiction",
+      "African American girls",
+      "Gardening",
+      "African Americans",
+      "Flowers",
+      "Family",
+      "Books & Libraries",
+      "Nature & the Natural World",
+      "JUVENILE FICTION",
+      "Children's fiction",
+      "Gardens, fiction",
+      "African americans, fiction",
+      "Gardening, fiction",
+      "Family life, fiction"
+    ],
+    "isbn": "9781580896948",
+    "rating": 5,
+    "genre2": null,
+    "cover_id": 8983439,
+    "ratingCount": 1,
+    "authorTokens": [
+      "anna",
+      "mcquinn"
+    ],
+    "pages": 27,
+    "genre": "Young Adult",
+    "key": "/works/OL19984167W",
+    "authors": [
+      "Anna McQuinn"
+    ],
+    "isbns": {
+      "es": "9781580896948",
+      "en": "9781580896948"
+    },
+    "titleNorm": {
+      "es": "lola plants a garden",
+      "en": "lola plants a garden"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Lola plants a garden",
+      "en": "Lola plants a garden"
+    },
+    "titleTokens": {
+      "es": [
+        "lola",
+        "plants",
+        "garden"
+      ],
+      "en": [
+        "lola",
+        "plants",
+        "garden"
+      ]
+    }
+  },
+  {
+    "_id": "OL36391W",
+    "authorKeys": [
+      "OL34004A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 1945,
+    "cover_url": "https://covers.openlibrary.org/b/id/9453137-M.jpg",
+    "topics": [
+      "Donkeys",
+      "Grandmothers",
+      "Fiction",
+      "Children's fiction",
+      "Animals, fiction"
+    ],
+    "isbn": "1558581839",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 9453137,
+    "ratingCount": null,
+    "authorTokens": [
+      "coby",
+      "hol"
+    ],
+    "pages": 17,
+    "genre": "Fiction",
+    "key": "/works/OL36391W",
+    "authors": [
+      "Coby Hol"
+    ],
+    "isbns": {
+      "es": "1558581839",
+      "en": "9781558581838"
+    },
+    "titleNorm": {
+      "es": "niki's little donkey",
+      "en": "niki's little donkey"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Niki's little donkey",
+      "en": "Niki's Little Donkey"
+    },
+    "titleTokens": {
+      "es": [
+        "niki's",
+        "little",
+        "donkey"
+      ],
+      "en": [
+        "niki's",
+        "little",
+        "donkey"
+      ]
+    }
+  },
+  {
+    "_id": "OL55868W",
+    "authorKeys": [
+      "OL31185A"
+    ],
+    "edition_count": 3,
+    "first_publish_year": 1996,
+    "cover_url": "https://covers.openlibrary.org/b/id/2078354-M.jpg",
+    "isbn": "1880000296",
+    "rating": 5,
+    "cover_id": 2078354,
+    "ratingCount": 1,
+    "pages": 32,
+    "genre": "Non-Fiction",
+    "key": "/works/OL55868W",
+    "authors": [
+      "Susan Middleton Elya"
+    ],
+    "isbns": {
+      "es": "1880000296",
+      "en": "0590273396"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Say hola to Spanish",
+      "en": "Say hola to Spanish"
+    },
+    "authorTokens": [
+      "susan",
+      "middleton",
+      "elya"
+    ],
+    "titleTokens": {
+      "es": [
+        "say",
+        "hola",
+        "spanish"
+      ],
+      "en": [
+        "say",
+        "hola",
+        "spanish"
+      ]
+    },
+    "topics": [
+      "Spanish language",
+      "Vocabulary",
+      "Juvenile literature",
+      "Spanish language, juvenile literature"
+    ],
+    "genre2": null,
+    "addCount": 0,
+    "titleNorm": {
+      "es": "say hola to spanish",
+      "en": "say hola to spanish"
+    }
+  },
+  {
+    "_id": "OL530870W",
+    "authorKeys": [
+      "OL37414A"
+    ],
+    "edition_count": 8,
+    "first_publish_year": 1985,
+    "cover_url": "https://covers.openlibrary.org/b/id/6607328-M.jpg",
+    "isbn": "0618011838",
+    "rating": null,
+    "cover_id": 6607328,
+    "ratingCount": null,
+    "pages": 412,
+    "genre": "Non-Fiction",
+    "key": "/works/OL530870W",
+    "authors": [
+      "Ana C. Jarvis"
+    ],
+    "isbns": {
+      "es": "0618011838"
+    },
+    "authorTokens": [
+      "ana",
+      "c.",
+      "jarvis"
+    ],
+    "topics": [
+      "Espagnol (Langue)",
+      "Grammar",
+      "Textbooks for foreign speakers",
+      "Spanish language",
+      "English",
+      "Spanish language, textbooks for foreign speakers",
+      "Spanish language, grammar",
+      "Spanish language, conversation and phrase books"
+    ],
+    "genre2": null,
+    "addCount": 0,
+    "titleNorm": {
+      "es": "hola, amigos!",
+      "en": "hola, amigos!"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Hola, amigos!",
+      "en": "Hola, amigos!"
+    },
+    "titleTokens": {
+      "es": [
+        "hola,",
+        "amigos!"
+      ],
+      "en": [
+        "hola,",
+        "amigos!"
+      ]
+    }
+  },
+  {
+    "_id": "OL64945W",
+    "authorKeys": [
+      "OL35037A"
+    ],
+    "edition_count": 9,
+    "first_publish_year": 1998,
+    "cover_url": "https://covers.openlibrary.org/b/id/2359874-M.jpg",
+    "isbn": "0307263266",
+    "rating": 5,
+    "cover_id": 2359874,
+    "ratingCount": 2,
+    "pages": 48,
+    "genre": "Young Adult",
+    "key": "/works/OL64945W",
+    "authors": [
+      "Barbara Richards"
+    ],
+    "isbns": {
+      "es": "0307263266",
+      "en": "0307263266"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Barbie.com",
+      "en": "Barbie.com"
+    },
+    "titleTokens": {
+      "es": [
+        "barbie.com"
+      ],
+      "en": [
+        "barbie.com"
+      ]
+    },
+    "authorTokens": [
+      "barbara",
+      "richards"
+    ],
+    "topics": [
+      "Barbie (Fictitious character)",
+      "Computers",
+      "Space and time",
+      "Fiction",
+      "Cats",
+      "Babies",
+      "Best friends",
+      "Dolls",
+      "Juvenile fiction",
+      "Infants"
+    ],
+    "genre2": null,
+    "addCount": 0,
+    "titleNorm": {
+      "es": "barbie.com",
+      "en": "barbie.com"
+    }
+  },
+  {
+    "_id": "OL28411236W",
+    "authorKeys": [
+      "OL10415655A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2021,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9798780313663",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "pam",
+      "bar"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL28411236W",
+    "authors": [
+      "Pam Bar"
+    ],
+    "isbns": {
+      "es": "9798780313663",
+      "en": "9798780313663"
+    },
+    "titleNorm": {
+      "es": "hhh",
+      "en": "hhh"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Hhh",
+      "en": "Hhh"
+    },
+    "titleTokens": {
+      "es": [
+        "hhh"
+      ],
+      "en": [
+        "hhh"
+      ]
+    }
+  },
+  {
+    "_id": "OL40212957W",
+    "authorKeys": [
+      "OL11114488A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2018,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781986795319",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "mellie",
+      "campbell"
+    ],
+    "pages": 286,
+    "genre": null,
+    "key": "/works/OL40212957W",
+    "authors": [
+      "Mellie Campbell"
+    ],
+    "isbns": {
+      "es": "9781986795319",
+      "en": "9781986795319"
+    },
+    "titleNorm": {
+      "es": "gola",
+      "en": "gola"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Gola",
+      "en": "Gola"
+    },
+    "titleTokens": {
+      "es": [
+        "gola"
+      ],
+      "en": [
+        "gola"
+      ]
+    }
+  },
+  {
+    "_id": "OL36857913W",
+    "authorKeys": [
+      "OL10028336A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2023,
+    "cover_url": null,
+    "topics": [
+      "Fiction, fantasy, general"
+    ],
+    "isbn": "9781962403023",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "y.",
+      "d.",
+      "mar"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL36857913W",
+    "authors": [
+      "Y. D. La Mar"
+    ],
+    "isbns": {
+      "es": "9781962403023",
+      "en": "9781962403023"
+    },
+    "titleNorm": {
+      "es": "gero",
+      "en": "gero"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Gero",
+      "en": "Gero"
+    },
+    "titleTokens": {
+      "es": [
+        "gero"
+      ],
+      "en": [
+        "gero"
+      ]
+    }
+  },
+  {
+    "_id": "OL7958749W",
+    "authorKeys": [
+      "OL2655350A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2008,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9780756633226",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "dk",
+      "publishing"
+    ],
+    "pages": 16,
+    "genre": null,
+    "key": "/works/OL7958749W",
+    "authors": [
+      "DK Publishing"
+    ],
+    "isbns": {
+      "es": "9780756633226",
+      "en": "9780756633226"
+    },
+    "titleNorm": {
+      "es": "h20hhh",
+      "en": "h20hhh"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "H20HHH",
+      "en": "H20HHH"
+    },
+    "titleTokens": {
+      "es": [
+        "h20hhh"
+      ],
+      "en": [
+        "h20hhh"
+      ]
+    }
+  },
+  {
+    "_id": "OL44730239W",
+    "authorKeys": [
+      "OL16100591A",
+      "OL371229A",
+      "OL1351036A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 1985,
+    "cover_url": null,
+    "topics": [],
+    "isbn": null,
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "jean",
+      "jones",
+      "jackson",
+      "james",
+      "ingram",
+      "merrill",
+      "john",
+      "bernard",
+      "myers"
+    ],
+    "pages": 18,
+    "genre": null,
+    "key": "/works/OL44730239W",
+    "authors": [
+      "Jean Jones Jackson",
+      "James Ingram Merrill",
+      "John Bernard Myers"
+    ],
+    "titleNorm": {
+      "es": "to remember j.j.j.",
+      "en": "to remember j.j.j."
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "To remember J.J.J.",
+      "en": "To remember J.J.J."
+    },
+    "titleTokens": {
+      "es": [
+        "remember",
+        "j.j.j."
+      ],
+      "en": [
+        "remember",
+        "j.j.j."
+      ]
+    }
+  },
+  {
+    "_id": "OL32871273W",
+    "authorKeys": [
+      "OL2952435A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2014,
+    "cover_url": "https://covers.openlibrary.org/b/id/14304311-M.jpg",
+    "topics": [],
+    "isbn": "9781940092089",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 14304311,
+    "ratingCount": null,
+    "authorTokens": [
+      "chris",
+      "mccreary"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL32871273W",
+    "authors": [
+      "Chris McCreary"
+    ],
+    "isbns": {
+      "es": "9781940092089",
+      "en": "9781940092089"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "[ neüro/mäntic ]",
+      "en": "[ neüro/mäntic ]"
+    },
+    "titleTokens": {
+      "es": [
+        "neuro/mantic"
+      ],
+      "en": [
+        "neuro/mantic"
+      ]
+    },
+    "titleNorm": {
+      "es": "[ neuro/mantic ]",
+      "en": "[ neuro/mantic ]"
+    }
+  },
+  {
+    "_id": "OL31102349W",
+    "authorKeys": [
+      "OL10686899A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2022,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9798355767006",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "khani"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL31102349W",
+    "authors": [
+      "Khani"
+    ],
+    "isbns": {
+      "es": "9798355767006",
+      "en": "9798355767006"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Ready Player One Fantasy Story",
+      "en": "Ready Player One Fantasy Story"
+    },
+    "titleTokens": {
+      "es": [
+        "ready",
+        "player",
+        "one",
+        "fantasy",
+        "story"
+      ],
+      "en": [
+        "ready",
+        "player",
+        "one",
+        "fantasy",
+        "story"
+      ]
+    },
+    "titleNorm": {
+      "es": "ready player one fantasy story",
+      "en": "ready player one fantasy story"
+    }
+  },
+  {
+    "_id": "OL42557125W",
+    "authorKeys": [
+      "OL13533108A",
+      "OL9653318A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2025,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781665973564",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "andy",
+      "nonamus",
+      "amy",
+      "jindra"
+    ],
+    "pages": 128,
+    "genre": null,
+    "key": "/works/OL42557125W",
+    "authors": [
+      "Andy Nonamus",
+      "Amy Jindra"
+    ],
+    "isbns": {
+      "es": "9781665973564",
+      "en": "9781665973588"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Not Ready Player One",
+      "en": "Not Ready Player One"
+    },
+    "titleTokens": {
+      "es": [
+        "not",
+        "ready",
+        "player",
+        "one"
+      ],
+      "en": [
+        "not",
+        "ready",
+        "player",
+        "one"
+      ]
+    },
+    "titleNorm": {
+      "es": "not ready player one",
+      "en": "not ready player one"
+    }
+  },
+  {
+    "_id": "OL30729644W",
+    "authorKeys": [
+      "OL9660325A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2020,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9798668893119",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "scott",
+      "donnelly"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL30729644W",
+    "authors": [
+      "Scott Donnelly"
+    ],
+    "isbns": {
+      "es": "9798668893119",
+      "en": "9798668893119"
+    },
+    "titleNorm": {
+      "es": "whool",
+      "en": "whool"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Whool",
+      "en": "Whool"
+    },
+    "titleTokens": {
+      "es": [
+        "whool"
+      ],
+      "en": [
+        "whool"
+      ]
+    }
+  },
+  {
+    "_id": "OL28234032W",
+    "authorKeys": [
+      "OL3273912A"
+    ],
+    "edition_count": 16,
+    "first_publish_year": 2000,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9780582335134",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "abbs"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL28234032W",
+    "authors": [
+      "B Abbs"
+    ],
+    "isbns": {
+      "es": "9780582335134",
+      "en": "9780582335257"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Snapshot for Eso",
+      "en": "Snapshot for Eso"
+    },
+    "titleTokens": {
+      "es": [
+        "snapshot",
+        "eso"
+      ],
+      "en": [
+        "snapshot",
+        "eso"
+      ]
+    },
+    "addCount": 0,
+    "titleNorm": {
+      "es": "snapshot for eso",
+      "en": "snapshot for eso"
+    }
+  },
+  {
+    "_id": "OL20764056W",
+    "authorKeys": [
+      "OL7909330A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2020,
+    "cover_url": "https://covers.openlibrary.org/b/id/12602602-M.jpg",
+    "topics": [
+      "Fiction, romance, general",
+      "Fiction, suspense"
+    ],
+    "isbn": "9781951704025",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 12602602,
+    "ratingCount": null,
+    "authorTokens": [
+      "teagan",
+      "brooks"
+    ],
+    "pages": 362,
+    "genre": "Non-Fiction",
+    "key": "/works/OL20764056W",
+    "authors": [
+      "Teagan Brooks"
+    ],
+    "isbns": {
+      "es": "9781951704025",
+      "en": "9781951704025"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Batta",
+      "en": "Batta"
+    },
+    "titleTokens": {
+      "es": [
+        "batta"
+      ],
+      "en": [
+        "batta"
+      ]
+    },
+    "titleNorm": {
+      "es": "batta",
+      "en": "batta"
+    }
+  },
+  {
+    "_id": "OL29175628W",
+    "authorKeys": [
+      "OL7909330A"
+    ],
+    "edition_count": 2,
+    "first_publish_year": 2022,
+    "cover_url": null,
+    "topics": [
+      "Fiction, romance, general",
+      "Fiction, thrillers, general"
+    ],
+    "isbn": "9781951704216",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "teagan",
+      "brooks"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL29175628W",
+    "authors": [
+      "Teagan Brooks"
+    ],
+    "isbns": {
+      "es": "9781951704216",
+      "en": "9781951704216"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Bear",
+      "en": "Bear"
+    },
+    "titleTokens": {
+      "es": [
+        "bear"
+      ],
+      "en": [
+        "bear"
+      ]
+    },
+    "titleNorm": {
+      "es": "bear",
+      "en": "bear"
+    }
+  },
+  {
+    "_id": "OL12428348W",
+    "authorKeys": [
+      "OL5481566A",
+      "OL2649382A",
+      "OL2649383A"
+    ],
+    "edition_count": 8,
+    "first_publish_year": 2002,
+    "cover_url": "https://covers.openlibrary.org/b/id/13351568-M.jpg",
+    "isbn": "9780757570902",
+    "rating": null,
+    "cover_id": 13351568,
+    "ratingCount": null,
+    "pages": 335,
+    "genre": "Non-Fiction",
+    "key": "/works/OL12428348W",
+    "authors": [
+      "Cathryn Collopy O'Donnell",
+      "Cathryn Collopy O'Donnell",
+      "Kathryn E. Kelly"
+    ],
+    "isbns": {
+      "es": "9780757570902",
+      "en": "9781465278531"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Portales",
+      "en": "Portales"
+    },
+    "titleTokens": {
+      "es": [
+        "portales"
+      ],
+      "en": [
+        "portales"
+      ]
+    },
+    "authorTokens": [
+      "cathryn",
+      "collopy",
+      "o'donnell",
+      "kathryn",
+      "e.",
+      "kelly"
+    ],
+    "topics": [
+      "Textbooks for foreign speakers",
+      "Spanish language",
+      "English",
+      "Spanish language, textbooks for foreign speakers",
+      "Problems, exercises",
+      "Grammar",
+      "Spoken Spanish"
+    ],
+    "genre2": null,
+    "addCount": 0,
+    "titleNorm": {
+      "es": "portales",
+      "en": "portales"
+    }
+  },
+  {
+    "_id": "OL42434087W",
+    "authorKeys": [
+      "OL7825177A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2025,
+    "cover_url": "https://covers.openlibrary.org/b/id/15103233-M.jpg",
+    "topics": [
+      "book_set"
+    ],
+    "isbn": "9781637997932",
+    "rating": null,
+    "genre2": null,
+    "cover_id": 15103233,
+    "ratingCount": null,
+    "authorTokens": [
+      "rebecca",
+      "yarros"
+    ],
+    "pages": null,
+    "genre": "Non-Fiction",
+    "key": "/works/OL42434087W",
+    "authors": [
+      "Rebecca Yarros"
+    ],
+    "isbns": {
+      "es": "9781637997932",
+      "en": "9781637997932"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Empyrean Series, 3 Books Collection Set, Fourth Wing, Iron Flame, Onyx Storm, by Rebecca Yarros",
+      "en": "Empyrean Series, 3 Books Collection Set, Fourth Wing, Iron Flame, Onyx Storm, by Rebecca Yarros"
+    },
+    "titleTokens": {
+      "es": [
+        "empyrean",
+        "series,",
+        "books",
+        "collection",
+        "set,",
+        "fourth",
+        "wing,",
+        "iron",
+        "flame,",
+        "onyx",
+        "storm,",
+        "rebecca",
+        "yarros"
+      ],
+      "en": [
+        "empyrean",
+        "series,",
+        "books",
+        "collection",
+        "set,",
+        "fourth",
+        "wing,",
+        "iron",
+        "flame,",
+        "onyx",
+        "storm,",
+        "rebecca",
+        "yarros"
+      ]
+    },
+    "titleNorm": {
+      "es": "empyrean series, 3 books collection set, fourth wing, iron flame, onyx storm, by rebecca yarros",
+      "en": "empyrean series, 3 books collection set, fourth wing, iron flame, onyx storm, by rebecca yarros"
+    }
+  },
+  {
+    "_id": "OL43724891W",
+    "authorKeys": [
+      "OL15661320A"
+    ],
+    "edition_count": 1,
+    "first_publish_year": 2025,
+    "cover_url": null,
+    "topics": [],
+    "isbn": "9781649379290",
+    "rating": null,
+    "genre2": null,
+    "cover_id": null,
+    "ratingCount": null,
+    "authorTokens": [
+      "rebecca",
+      "yarros"
+    ],
+    "pages": null,
+    "genre": null,
+    "key": "/works/OL43724891W",
+    "authors": [
+      "Rebecca Yarros"
+    ],
+    "isbns": {
+      "es": "9781649379290",
+      "en": "9781649379290"
+    },
+    "langs": [
+      "es",
+      "en"
+    ],
+    "titles": {
+      "es": "Fourth Wing (Wing and Claw Collection)",
+      "en": "Fourth Wing (Wing and Claw Collection)"
+    },
+    "titleTokens": {
+      "es": [
+        "fourth",
+        "wing",
+        "(wing",
+        "claw",
+        "collection)"
+      ],
+      "en": [
+        "fourth",
+        "wing",
+        "(wing",
+        "claw",
+        "collection)"
+      ]
+    },
+    "titleNorm": {
+      "es": "fourth wing (wing and claw collection)",
+      "en": "fourth wing (wing and claw collection)"
+    }
+  }
+]
