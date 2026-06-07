@@ -55,8 +55,6 @@
     gap: var(--space-4);
     width: 100%;
 
-    // Retroiluminación: bloom cálido difuso justo detrás de la card, de modo
-    // que la luz "escapa" por sus bordes (efecto de card encendida por detrás).
     &::before {
       content: "";
       position: absolute;
@@ -148,7 +146,6 @@
   &--empty {
     justify-content: center;
     min-height: 220px;
-    // Glow cálido que envuelve la card: parece encendida por detrás.
     box-shadow: 0 0 100px 18px rgba(248, 178, 120, 0.6);
   }
 

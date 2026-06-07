@@ -36,7 +36,6 @@
       margin: auto;
       width: 550px;
       aspect-ratio: 1;
-      //background: var(--color-border-strong);
       background: #fff1e2;
       z-index: -1;
 
@@ -52,8 +51,6 @@
       }
     }
 
-    // Núcleo gris sólido (encima del halo): tapa el grano del centro
-    // y deja solo el borde con puntitos. Se desvanece suave en su orilla.
     &::after {
       content: "";
       position: absolute;
@@ -61,8 +58,6 @@
       margin: auto;
       width: 445px;
       aspect-ratio: 1;
-      // Núcleo luminoso: hotspot blanco central (emisión) sobre cuerpo cálido,
-      // con un leve blur para efecto bloom de luz tras las cards.
       background:
         radial-gradient(
           circle closest-side,
