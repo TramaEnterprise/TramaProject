@@ -219,9 +219,34 @@
     }
 
     &--avatar {
-      width: 40px;
+      width: auto;
+      min-width: 40px;
       height: 40px;
+      gap: var(--space-2);
+      padding: 0 4px;
+      overflow: hidden;
     }
+  }
+
+  &__avatar-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  &__avatar-username {
+    font-family: var(--font-main);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    padding-right: var(--space-2);
   }
 
   &__auth-btns {
