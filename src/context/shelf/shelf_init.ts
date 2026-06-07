@@ -19,6 +19,7 @@ export type ShelfContextType = {
       review?: string;
       status?: ShelfStatus;
       silent?: boolean;
+      skipProgressLog?: boolean;
     }
   ) => Promise<void>;
 };

@@ -156,6 +156,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
       review?: string;
       status?: ShelfStatus;
       silent?: boolean;
+      skipProgressLog?: boolean;
     }
   ) => {
     if (!uid) {
@@ -187,7 +188,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
     setEntries(newMap);
 
     try {
-      await updateReadingProgress(uid, existing, currentPage, opts?.note, opts?.rating, opts?.review, opts?.status);
+      await updateReadingProgress(uid, existing, currentPage, opts?.note, opts?.rating, opts?.review, opts?.status, opts?.skipProgressLog);
       queryClient.invalidateQueries({
         predicate: (q) => q.queryKey[0] === "section" || q.queryKey[0] === "explore-feed",
         refetchType: "none",

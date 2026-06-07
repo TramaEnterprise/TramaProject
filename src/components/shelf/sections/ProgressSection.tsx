@@ -1,27 +1,19 @@
 import { useTranslation } from "react-i18next";
+import { genreToI18nKey } from "@/utils/genreUtils";
+import { useReadingStats } from "@/pages/my-library/hooks/useReadingStats";
 import "./ProgressSection.scss";
 
 export default function ProgressSection() {
   const { t } = useTranslation();
+  const { weekly, genres, loading } = useReadingStats();
+  console.log("[diag] weekly:", weekly);
+  const maxPages = Math.max(1, ...weekly.perDay.map((d) => d.pages));
+  const hasWeekData = weekly.perDay.some((d) => d.pages > 0);
 
-  const weekActivity = [
-    { day: t("myLibrary.days.mon"), pages: 22 },
-    { day: t("myLibrary.days.tue"), pages: 38 },
-    { day: t("myLibrary.days.wed"), pages: 14 },
-    { day: t("myLibrary.days.thu"), pages: 54 },
-    { day: t("myLibrary.days.fri"), pages: 30 },
-    { day: t("myLibrary.days.sat"), pages: 46 },
-    { day: t("myLibrary.days.sun"), pages: 18, currentDay: true },
-  ];
-
-  const genres = [
-    { key: "fantasy", percentage: 42, color: "var(--color-text-primary)" },
-    { key: "drama", percentage: 20, color: "var(--color-text-secondary)" },
-    { key: "historical", percentage: 18, color: "var(--color-genre-historical)" },
-    { key: "others", percentage: 12, color: "var(--color-text-tertiary)" },
-  ];
-
-  const maxPages = Math.max(...weekActivity.map((d) => d.pages));
+  const changePct = weekly.changePct;
+  const changeText =
+    changePct === null ? "—" : `${changePct >= 0 ? "↑" : "↓"}${Math.abs(changePct)}%`;
+  const changeClass = changePct !== null && changePct >= 0 ? " progresses__stat-num--green" : "";
 
   return (
     <section className="progresses">
@@ -30,8 +22,13 @@ export default function ProgressSection() {
       <div className="progresses__card">
         <div className="progresses__chart-area">
           <div className="progresses__bar-chart">
-            {weekActivity.map(({ day, pages, currentDay }) => (
+            {weekly.perDay.map(({ day, pages, currentDay }) => (
               <div key={day} className="progresses__bar-col">
+                {!currentDay && (
+                  <span className="progresses__bar-tooltip" role="tooltip">
+                    {t("myLibrary.progress.pagesTooltip", { count: pages })}
+                  </span>
+                )}
                 <div
                   className={`progresses__bar${currentDay ? " progresses__bar--currentDay" : ""}`}
                   style={{ height: `${(pages / maxPages) * 64}px` }}
@@ -39,26 +36,30 @@ export default function ProgressSection() {
                 <span
                   className={`progresses__bar-label${currentDay ? " progresses__bar-label--currentDay" : ""}`}
                 >
-                  {day}
+                  {t(`myLibrary.days.${day}`)}
                 </span>
               </div>
             ))}
           </div>
           <div className="progresses__chart-stats">
             <div className="progresses__stat">
-              <span className="progresses__stat-num">236</span>
+              <span className="progresses__stat-num">{weekly.pagesThisWeek}</span>
               <span className="progresses__stat-label">{t("myLibrary.progress.pagesWeek")}</span>
             </div>
             <div className="progresses__stat">
-              <span className="progresses__stat-num">34</span>
+              <span className="progresses__stat-num">{weekly.pagesToday}</span>
               <span className="progresses__stat-label">{t("myLibrary.progress.pagesToday")}</span>
             </div>
             <div className="progresses__stat">
-              <span className="progresses__stat-num progresses__stat-num--green">↑12%</span>
+              <span className={`progresses__stat-num${changeClass}`}>{changeText}</span>
               <span className="progresses__stat-label">{t("myLibrary.progress.lastWeek")}</span>
             </div>
           </div>
         </div>
+
+        {!loading && !hasWeekData && (
+          <p className="progresses__empty">{t("myLibrary.progress.emptyWeek")}</p>
+        )}
 
         <div className="progresses__divider" />
 
@@ -76,22 +77,30 @@ export default function ProgressSection() {
 
           <div className="progresses__genres-wrap">
             <p className="progresses__section-label">{t("myLibrary.progress.favoriteGenres")}</p>
-            <div className="progresses__genres">
-              {genres.map(({ key, percentage, color }) => (
-                <div key={key} className="progresses__genre">
-                  <div className="progresses__genre-row">
-                    <span className="progresses__genre-name">{t(`myLibrary.genres.${key}`)}</span>
-                    <span className="progresses__genre-percentage">{percentage}%</span>
+            {genres.length === 0 ? (
+              <p className="progresses__empty">{t("myLibrary.progress.emptyGenres")}</p>
+            ) : (
+              <div className="progresses__genres">
+                {genres.map(({ key, percentage, color, isOther }) => (
+                  <div key={key} className="progresses__genre">
+                    <div className="progresses__genre-row">
+                      <span className="progresses__genre-name">
+                        {isOther
+                          ? t("myLibrary.genres.others")
+                          : t(`book.genres.${genreToI18nKey(key)}`, { defaultValue: key })}
+                      </span>
+                      <span className="progresses__genre-percentage">{percentage}%</span>
+                    </div>
+                    <div className="progresses__genre-track">
+                      <div
+                        className="progresses__genre-fill"
+                        style={{ width: `${percentage}%`, background: color }}
+                      />
+                    </div>
                   </div>
-                  <div className="progresses__genre-track">
-                    <div
-                      className="progresses__genre-fill"
-                      style={{ width: `${percentage}%`, background: color }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

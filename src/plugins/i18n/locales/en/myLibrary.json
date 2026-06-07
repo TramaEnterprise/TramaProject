@@ -94,7 +94,11 @@
       "pagesWeek": "pgs. this week",
       "pagesToday": "pgs. today",
       "lastWeek": "vs last week",
-      "favoriteGenres": "Favourite genres"
+      "favoriteGenres": "Favourite genres",
+      "emptyWeek": "No reading logged this week yet.",
+      "emptyGenres": "Finish books to see your favourite genres.",
+      "pagesTooltip_one": "{{count}} page read",
+      "pagesTooltip_other": "{{count}} pages read"
     },
     "days": {
       "mon": "MO",

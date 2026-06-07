@@ -46,6 +46,7 @@ export default function ReviewBooksPage() {
           <option value="auto-ok">auto-ok</option>
           <option value="needs-claude">needs-claude</option>
           <option value="claude-done">claude-done</option>
+          <option value="to-delete">to-delete (a borrar)</option>
         </select>
       </header>
 

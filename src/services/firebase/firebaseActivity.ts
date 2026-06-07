@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebaseInit";
 import type { ActivityEvent, ActivityItem } from "@/types/UserProfile";
+import type { ProgressEvent } from "@/utils/readingStats";
 
 export async function logActivity(uid: string, event: ActivityEvent): Promise<void> {
   await addDoc(collection(db, "Users", uid, "activity"), {
@@ -72,4 +73,27 @@ export async function getActivity(uid: string, maxResults = 10): Promise<Activit
       note: data.note,
     };
   });
+}
+
+export async function getProgressEventsSince(
+  uid: string,
+  since: Date
+): Promise<ProgressEvent[]> {
+  const q = query(
+    collection(db, "Users", uid, "activity"),
+    where("type", "==", "progress"),
+    where("createdAt", ">=", Timestamp.fromDate(since)),
+    orderBy("createdAt", "asc")
+  );
+  const snap = await getDocs(q);
+  return snap.docs
+    .map((d) => {
+      const data = d.data();
+      return {
+        bookId: data.bookId as string,
+        progress: data.progress as number,
+        createdAt: (data.createdAt as Timestamp).toDate(),
+      };
+    })
+    .filter((e) => !!e.bookId && typeof e.progress === "number");
 }

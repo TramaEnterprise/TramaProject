@@ -98,7 +98,8 @@ export async function updateReadingProgress(
   note?: string,
   rating?: number,
   review?: string,
-  statusOverride?: ShelfStatus
+  statusOverride?: ShelfStatus,
+  skipProgressLog = false
 ): Promise<void> {
   const totalPages = entry.book.pages ?? 0;
   const isFinished = totalPages > 0 && currentPage === totalPages;
@@ -131,7 +132,7 @@ export async function updateReadingProgress(
     bookAuthor: entry.book.authors[0],
   };
 
-  if (pageChanged) {
+  if (pageChanged && !skipProgressLog) {
     if (currentPage > prevPage) {
       logActivity(uid, {
         type: "progress",

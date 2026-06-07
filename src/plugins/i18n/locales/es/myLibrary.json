@@ -94,7 +94,11 @@
       "pagesWeek": "págs. semana",
       "pagesToday": "págs. hoy",
       "lastWeek": "semana pasada",
-      "favoriteGenres": "Géneros favoritos"
+      "favoriteGenres": "Géneros favoritos",
+      "emptyWeek": "Aún no hay lecturas registradas esta semana.",
+      "emptyGenres": "Termina libros para ver tus géneros favoritos.",
+      "pagesTooltip_one": "{{count}} página leída",
+      "pagesTooltip_other": "{{count}} páginas leídas"
     },
     "days": {
       "mon": "LU",

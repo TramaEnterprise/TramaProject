@@ -20,6 +20,7 @@ type UpdateProgressModalProps = {
   onClose: () => void;
   title?: string;
   onSkip?: () => void;
+  countOnFinish?: boolean;
 };
 
 const TEXTAREA_CLASSNAMES = {
@@ -41,6 +42,7 @@ export default function UpdateProgressModal({
   onClose,
   title,
   onSkip,
+  countOnFinish = true,
 }: UpdateProgressModalProps) {
   const { t } = useTranslation();
   const { updateProgress, addBook } = useShelf();
@@ -96,6 +98,7 @@ export default function UpdateProgressModal({
           rating: rating || undefined,
           review: review.trim() || undefined,
           status: "finished",
+          skipProgressLog: !countOnFinish,
         });
       } finally {
         setIsSubmitting(false);
