@@ -34,7 +34,7 @@
     padding-left: 50px;
     scroll-padding-left: 50px;
     width: 100vw;
-    margin-left: -60px;
+    margin-left: -50px;
     margin-right: -$padding-horizontal;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -47,18 +47,25 @@
     @include from($bp-md) {
       padding-left: 65px;
       scroll-padding-left: 65px;
+      margin-left: -65px;
     }
   }
 
   &__item {
     position: relative;
     flex-shrink: 0;
-    width: 214px;
+    width: calc((100vw - #{$padding-horizontal}) / 2 - var(--space-4));
     scroll-snap-align: start;
     overflow: visible;
 
+    @include from($bp-md) {
+      width: calc((100vw - #{$padding-horizontal}) / 4 - var(--space-4));
+    }
+    @include from($bp-lg) {
+      width: calc((100vw - #{$padding-horizontal}) / 6 - var(--space-4));
+    }
     @include from($bp-xxl) {
-      width: 230px;
+      width: calc((100vw - #{$padding-horizontal}) / 6 - var(--space-8));
     }
 
     .book-card {
