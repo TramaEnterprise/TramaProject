@@ -824,11 +824,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "marcado para borrar: No es ficcion/fantasia (libro de referencia sobre nombres de paises)",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: No es ficcion/fantasia (libro de referencia sobre nombres de paises)"
     ],
     "flags": [],
     "priority": 3000,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL1268413W",
@@ -1521,7 +1522,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Language of Thorns",
+        "es": "El lenguaje de las espinas",
         "en": "Language of Thorns"
       },
       "synopsis": {
@@ -1534,7 +1535,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Language of Thorns -> El lenguaje de las espinas)"
     ],
     "flags": [],
     "priority": 2004,
@@ -1631,11 +1633,12 @@
     "changes": [
       "pages: filled from Google Books",
       "marcado para borrar: No es fantasia (psicologia, Rollo May) + datos ausentes",
-      "cover: Google sin portada -> se mantiene OL -L"
+      "cover: Google sin portada -> se mantiene OL -L",
+      "A BORRAR: No es fantasia (psicologia, Rollo May) + datos ausentes"
     ],
     "flags": [],
     "priority": 2000,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL10154085W",
@@ -1659,11 +1662,12 @@
     },
     "changes": [
       "marcado para borrar: No es fantasia (psicologia, Rollo May) + datos ausentes",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: No es fantasia (psicologia, Rollo May) + datos ausentes"
     ],
     "flags": [],
     "priority": 2000,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL893415W",
@@ -8060,7 +8064,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Blade Itself",
+        "es": "La voz de las espadas",
         "en": "Blade Itself"
       },
       "synopsis": {},
@@ -8070,7 +8074,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Blade Itself -> La voz de las espadas)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -10627,7 +10632,7 @@
     },
     "after": {
       "titles": {
-        "es": "Starsight",
+        "es": "Estelar",
         "en": "Starsight"
       },
       "synopsis": {},
@@ -10638,7 +10643,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Starsight -> Estelar)"
     ],
     "flags": [],
     "priority": 473.00000000000006,
@@ -10925,7 +10931,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Phoenix Project",
+        "es": "El proyecto Phoenix",
         "en": "Phoenix Project"
       },
       "synopsis": {},
@@ -10935,7 +10941,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Phoenix Project -> El proyecto Phoenix)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -11585,7 +11592,7 @@
     },
     "after": {
       "titles": {
-        "es": "Skyward",
+        "es": "Escuadrón",
         "en": "Skyward"
       },
       "synopsis": {},
@@ -11596,7 +11603,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Skyward -> Escuadrón)"
     ],
     "flags": [],
     "priority": 466.25583,
@@ -12608,7 +12616,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Lost Metal",
+        "es": "El metal perdido",
         "en": "The Lost Metal"
       },
       "synopsis": {},
@@ -12619,7 +12627,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Lost Metal -> El metal perdido)"
     ],
     "flags": [],
     "priority": 455.00000000000006,
@@ -13966,7 +13975,7 @@
     },
     "after": {
       "titles": {
-        "es": "Soul Music",
+        "es": "Música Soul",
         "en": "Soul Music"
       },
       "synopsis": {},
@@ -13976,7 +13985,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Soul Music -> Música Soul)"
     ],
     "flags": [],
     "priority": 442.40542999999997,
@@ -14127,7 +14137,7 @@
     },
     "after": {
       "titles": {
-        "es": "Reaper's Gale",
+        "es": "La tempestad del segador",
         "en": "Reaper's Gale"
       },
       "synopsis": {},
@@ -14138,7 +14148,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Reaper's Gale -> La tempestad del segador)"
     ],
     "flags": [],
     "priority": 441,
@@ -14456,7 +14467,7 @@
     },
     "after": {
       "titles": {
-        "es": "Promise Of Blood",
+        "es": "Promesa de sangre",
         "en": "Promise of Blood"
       },
       "synopsis": {},
@@ -14467,7 +14478,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Promise Of Blood -> Promesa de sangre)"
     ],
     "flags": [],
     "priority": 437,
@@ -14878,7 +14890,7 @@
     },
     "after": {
       "titles": {
-        "es": "Don't Make Me Think, Revisited",
+        "es": "No me hagas pensar",
         "en": "Don't Make Me Think, Revisited"
       },
       "synopsis": {},
@@ -14889,7 +14901,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Don't Make Me Think, Revisited -> No me hagas pensar)"
     ],
     "flags": [],
     "priority": 434.66665,
@@ -15239,7 +15252,7 @@
     },
     "after": {
       "titles": {
-        "es": "Red country",
+        "es": "Tierras rojas",
         "en": "Red Country"
       },
       "synopsis": {},
@@ -15250,7 +15263,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Red country -> Tierras rojas)"
     ],
     "flags": [],
     "priority": 429.18179999999995,
@@ -15533,7 +15547,7 @@
     },
     "after": {
       "titles": {
-        "es": "War of the Twins",
+        "es": "La guerra de los gemelos",
         "en": "War of the Twins"
       },
       "synopsis": {},
@@ -15544,7 +15558,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (War of the Twins -> La guerra de los gemelos)"
     ],
     "flags": [],
     "priority": 425,
@@ -15899,7 +15914,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Black Echo (Harry Bosch)",
+        "es": "El eco negro",
         "en": "Black Echo (Harry Bosch)"
       },
       "synopsis": {},
@@ -15909,7 +15924,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (The Black Echo (Harry Bosch) -> El eco negro)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -15965,7 +15981,7 @@
     },
     "after": {
       "titles": {
-        "es": "Hell Bent",
+        "es": "La huella del infierno",
         "en": "Hell Bent"
       },
       "synopsis": {},
@@ -15976,7 +15992,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Hell Bent -> La huella del infierno)"
     ],
     "flags": [],
     "priority": 420.0909,
@@ -16067,7 +16084,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Burning God",
+        "es": "El dios ardiente",
         "en": "Burning God"
       },
       "synopsis": {},
@@ -16077,7 +16094,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (The Burning God -> El dios ardiente)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -16402,7 +16420,7 @@
     },
     "after": {
       "titles": {
-        "es": "Undoing Project",
+        "es": "Deshaciendo errores",
         "en": "Undoing Project"
       },
       "synopsis": {},
@@ -16412,7 +16430,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Undoing Project -> Deshaciendo errores)"
     ],
     "flags": [],
     "priority": 415,
@@ -16796,7 +16815,7 @@
     },
     "after": {
       "titles": {
-        "es": "Island",
+        "es": "La isla",
         "en": "Island"
       },
       "synopsis": {},
@@ -16807,7 +16826,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (Island -> La isla)"
     ],
     "flags": [],
     "priority": 410,
@@ -17163,7 +17183,7 @@
     },
     "after": {
       "titles": {
-        "es": "Jude the Obscure",
+        "es": "Jude el oscuro",
         "en": "Jude the Obscure"
       },
       "synopsis": {},
@@ -17173,7 +17193,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Jude the Obscure -> Jude el oscuro)"
     ],
     "flags": [],
     "priority": 401.9091,
@@ -17227,7 +17248,7 @@
     },
     "after": {
       "titles": {
-        "es": "Dust",
+        "es": "Vestigios",
         "en": "Dust"
       },
       "synopsis": {},
@@ -17238,7 +17259,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (Dust -> Vestigios)"
     ],
     "flags": [],
     "priority": 401.26087,
@@ -17772,7 +17794,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Shadow of what was lost",
+        "es": "La Sombra de lo Perdido",
         "en": "The Shadow of what was lost"
       },
       "synopsis": {},
@@ -17783,7 +17805,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Shadow of what was lost -> La Sombra de lo Perdido)"
     ],
     "flags": [],
     "priority": 365.54545,
@@ -18587,7 +18610,7 @@
     },
     "after": {
       "titles": {
-        "es": "The brass verdict",
+        "es": "El veredicto",
         "en": "The Brass Verdict"
       },
       "synopsis": {},
@@ -18598,7 +18621,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The brass verdict -> El veredicto)"
     ],
     "flags": [],
     "priority": 8,
@@ -18649,7 +18673,7 @@
     },
     "after": {
       "titles": {
-        "es": "A darkness more than night",
+        "es": "Más oscuro que la noche",
         "en": "A darkness more than night"
       },
       "synopsis": {},
@@ -18660,7 +18684,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (A darkness more than night -> Más oscuro que la noche)"
     ],
     "flags": [],
     "priority": 8,
@@ -19399,7 +19424,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Black Ice (Harry Bosch)",
+        "es": "El hielo negro",
         "en": "The Black Ice (Harry Bosch)"
       },
       "synopsis": {},
@@ -19410,7 +19435,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Black Ice (Harry Bosch) -> El hielo negro)"
     ],
     "flags": [],
     "priority": 7,
@@ -19721,7 +19747,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Wisdom of Crowds",
+        "es": "La sabiduría de las multitudes",
         "en": "Wisdom of Crowds"
       },
       "synopsis": {},
@@ -19731,7 +19757,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Wisdom of Crowds -> La sabiduría de las multitudes)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -20015,7 +20042,7 @@
     },
     "after": {
       "titles": {
-        "es": "The poet",
+        "es": "El poeta",
         "en": "The poet"
       },
       "synopsis": {},
@@ -20026,7 +20053,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (The poet -> El poeta)"
     ],
     "flags": [],
     "priority": 6,
@@ -20046,7 +20074,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Concrete Blonde (Harry Bosch)",
+        "es": "La rubia de hormigón",
         "en": "The Concrete Blonde (Harry Bosch)"
       },
       "synopsis": {},
@@ -20057,7 +20085,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Concrete Blonde (Harry Bosch) -> La rubia de hormigón)"
     ],
     "flags": [],
     "priority": 6,
@@ -20527,7 +20556,7 @@
     },
     "after": {
       "titles": {
-        "es": "Crome Yellow",
+        "es": "Los escándalos de Crome",
         "en": "Crome yellow"
       },
       "synopsis": {},
@@ -20538,7 +20567,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Crome Yellow -> Los escándalos de Crome)"
     ],
     "flags": [],
     "priority": 6,
@@ -20752,7 +20782,7 @@
     },
     "after": {
       "titles": {
-        "es": "Blood work",
+        "es": "Deuda de sangre",
         "en": "Blood work"
       },
       "synopsis": {},
@@ -20763,7 +20793,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (Blood work -> Deuda de sangre)"
     ],
     "flags": [],
     "priority": 5,
@@ -21000,11 +21031,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 5,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL19339858W",
@@ -21418,11 +21450,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 5,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL992473W",
@@ -21665,7 +21698,7 @@
     },
     "after": {
       "titles": {
-        "es": "Lola and the boy next door",
+        "es": "Lola y el chico de al lado",
         "en": "Lola and the Boy Next Door"
       },
       "synopsis": {},
@@ -21676,7 +21709,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Lola and the boy next door -> Lola y el chico de al lado)"
     ],
     "flags": [],
     "priority": 4,
@@ -21918,7 +21952,7 @@
     },
     "after": {
       "titles": {
-        "es": "From a Certain Point of View",
+        "es": "Desde cierto punto de vista",
         "en": "From a Certain Point of View"
       },
       "synopsis": {},
@@ -21929,7 +21963,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (From a Certain Point of View -> Desde cierto punto de vista)"
     ],
     "flags": [],
     "priority": 4,
@@ -22642,7 +22677,7 @@
     },
     "after": {
       "titles": {
-        "es": "The black ice",
+        "es": "El hielo negro",
         "en": "Black Ice"
       },
       "synopsis": {},
@@ -22652,7 +22687,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The black ice -> El hielo negro)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -23090,7 +23126,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Hedge Knight",
+        "es": "El caballero errante",
         "en": "The Hedge Knight"
       },
       "synopsis": {},
@@ -23101,7 +23137,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Hedge Knight -> El caballero errante)"
     ],
     "flags": [],
     "priority": 3,
@@ -23187,7 +23224,7 @@
     },
     "after": {
       "titles": {
-        "es": "De laatste brief",
+        "es": "La última carta",
         "en": "The Last Letter"
       },
       "synopsis": {},
@@ -23197,7 +23234,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (De laatste brief -> La última carta)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -23348,7 +23386,7 @@
     },
     "after": {
       "titles": {
-        "es": "Fool's Errand (Tawny Man)",
+        "es": "La misión del bufón",
         "en": "Fool's Errand (Tawny Man)"
       },
       "synopsis": {},
@@ -23359,7 +23397,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Fool's Errand (Tawny Man) -> La misión del bufón)"
     ],
     "flags": [],
     "priority": 3,
@@ -24214,7 +24253,7 @@
     },
     "after": {
       "titles": {
-        "es": "The black echo",
+        "es": "El eco negro",
         "en": "The black echo"
       },
       "synopsis": {},
@@ -24225,7 +24264,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (The black echo -> El eco negro)"
     ],
     "flags": [],
     "priority": 2,
@@ -24473,11 +24513,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 2,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL16798385W",
@@ -24662,11 +24703,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 2,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL17363110W",
@@ -24693,11 +24735,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 2,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL17365207W",
@@ -25163,11 +25206,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 2,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL23181W",
@@ -25598,7 +25642,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Passenger",
+        "es": "El pasajero",
         "en": "Passenger"
       },
       "synopsis": {},
@@ -25608,7 +25652,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The Passenger -> El pasajero)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -25737,11 +25782,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Off-topic obscuro ('Morning Star')"
     ],
     "flags": [],
     "priority": 2,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL40884W",
@@ -25884,7 +25930,7 @@
     },
     "after": {
       "titles": {
-        "es": "Time Must Have A Stop",
+        "es": "El tiempo debe detenerse",
         "en": "Time Must Have a Stop"
       },
       "synopsis": {},
@@ -25894,7 +25940,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Time Must Have A Stop -> El tiempo debe detenerse)"
     ],
     "flags": [],
     "priority": 2,
@@ -25925,11 +25972,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Infantil/idiomas off-topic"
     ],
     "flags": [],
     "priority": 2,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL6876823W",
@@ -26010,7 +26058,7 @@
     },
     "after": {
       "titles": {
-        "es": "Galatea",
+        "es": "La Galatea",
         "en": "Galatea"
       },
       "synopsis": {},
@@ -26021,7 +26069,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Galatea -> La Galatea)"
     ],
     "flags": [],
     "priority": 2,
@@ -26115,11 +26164,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 2,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL10256199W",
@@ -26166,10 +26216,12 @@
       },
       "synopsis": {},
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9788434847439-L.jpg",
       "pages": 168
     },
-    "changes": [],
+    "changes": [
+      "cover: OpenLibrary por ISBN -L"
+    ],
     "flags": [
       "title.en missing",
       "synopsis.es missing",
@@ -26315,7 +26367,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Last Coyote (Harry Bosch)",
+        "es": "El último coyote",
         "en": "The Last Coyote (Harry Bosch)"
       },
       "synopsis": {},
@@ -26325,7 +26377,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (The Last Coyote (Harry Bosch) -> El último coyote)"
     ],
     "flags": [],
     "priority": 1,
@@ -26582,11 +26635,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Infantil/idiomas off-topic"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL15048547W",
@@ -26643,11 +26697,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL15117358W",
@@ -26758,7 +26813,7 @@
     },
     "after": {
       "titles": {
-        "es": "Angels & Demons",
+        "es": "Ángeles y demonios",
         "en": "Angels & Demons"
       },
       "synopsis": {},
@@ -26767,11 +26822,11 @@
       "pages": 844
     },
     "changes": [
-      "title.es: cleaned ' / '",
       "title.en: cleaned ' / '",
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (Angels & Demons -> Ángeles y demonios)"
     ],
     "flags": [],
     "priority": 1,
@@ -26855,7 +26910,7 @@
     },
     "after": {
       "titles": {
-        "es": "Six fifty eight",
+        "es": "Sé lo que estás pensando",
         "en": "Six fifty eight"
       },
       "synopsis": {},
@@ -26867,7 +26922,8 @@
       "cover_url: upgraded -L",
       "pages: filled from Google Books",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (Six fifty eight -> Sé lo que estás pensando)"
     ],
     "flags": [],
     "priority": 1,
@@ -27571,7 +27627,7 @@
     },
     "after": {
       "titles": {
-        "es": "Think of a number",
+        "es": "Sé lo que estás pensando",
         "en": "Think of a Number"
       },
       "synopsis": {},
@@ -27582,7 +27638,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Think of a number -> Sé lo que estás pensando)"
     ],
     "flags": [],
     "priority": 1,
@@ -27736,11 +27793,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL19797489W",
@@ -27859,11 +27917,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: Infantil/idiomas off-topic"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL20024427W",
@@ -28136,7 +28195,7 @@
     },
     "after": {
       "titles": {
-        "es": "Da Vinci Code",
+        "es": "El código Da Vinci",
         "en": "The Da Vinci Code"
       },
       "synopsis": {},
@@ -28146,7 +28205,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Da Vinci Code -> El código Da Vinci)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -28676,11 +28736,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL2583219W",
@@ -28736,11 +28797,12 @@
     },
     "changes": [
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25957850W",
@@ -28982,11 +29044,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic obscuro ('Morning Star')"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL2684163W",
@@ -29013,11 +29076,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL27085944W",
@@ -29670,7 +29734,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Border Trilogy",
+        "es": "Trilogía de la frontera",
         "en": "Border Trilogy"
       },
       "synopsis": {},
@@ -29679,7 +29743,8 @@
       "pages": 1044
     },
     "changes": [
-      "cover_url: upgraded -L"
+      "cover_url: upgraded -L",
+      "title.es: traducción al español (The Border Trilogy -> Trilogía de la frontera)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -29743,11 +29808,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL42823360W",
@@ -30124,11 +30190,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Infantil/idiomas off-topic"
     ],
     "flags": [],
     "priority": 1,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL5691440W",
@@ -30366,7 +30433,7 @@
     },
     "after": {
       "titles": {
-        "es": "The genius and the goddess",
+        "es": "El genio y la diosa",
         "en": "Genius and the Goddess"
       },
       "synopsis": {},
@@ -30376,7 +30443,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (The genius and the goddess -> El genio y la diosa)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -30399,7 +30467,7 @@
     },
     "after": {
       "titles": {
-        "es": "Eyeless in Gaza",
+        "es": "Ciego en Gaza",
         "en": "Eyeless in Gaza"
       },
       "synopsis": {},
@@ -30410,7 +30478,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (Eyeless in Gaza -> Ciego en Gaza)"
     ],
     "flags": [],
     "priority": 1,
@@ -30430,7 +30499,7 @@
     },
     "after": {
       "titles": {
-        "es": "The perennial philosophy.",
+        "es": "La filosofía perenne",
         "en": "The perennial philosophy."
       },
       "synopsis": {},
@@ -30441,7 +30510,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (The perennial philosophy. -> La filosofía perenne)"
     ],
     "flags": [],
     "priority": 1,
@@ -30953,11 +31023,12 @@
         "en": "This book was written against violence and indifference in current society. The author, a famous psychotherapist, analyzes the lost of meaning of love and will, replaced with indifference and indecision in this new schixoid society running away from affective commitment."
       },
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9788474322149-L.jpg",
       "pages": 288
     },
     "changes": [
-      "synopsis idioma equivocado -> movida/limpiada (app re-rellena)"
+      "synopsis idioma equivocado -> movida/limpiada (app re-rellena)",
+      "cover: OpenLibrary por ISBN -L"
     ],
     "flags": [
       "title.en missing",
@@ -31443,11 +31514,12 @@
     },
     "changes": [
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL10453150W",
@@ -31472,11 +31544,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL10453151W",
@@ -31561,11 +31634,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL10971172W",
@@ -31621,11 +31695,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL11008367W",
@@ -31957,11 +32032,12 @@
     },
     "changes": [
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL11612598W",
@@ -32138,11 +32214,12 @@
     },
     "changes": [
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL11784667W",
@@ -32388,11 +32465,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL12492786W",
@@ -32511,11 +32589,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL1268400W",
@@ -33582,11 +33661,12 @@
     },
     "changes": [
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL15095494W",
@@ -33643,11 +33723,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL15108248W",
@@ -33753,12 +33834,13 @@
       },
       "synopsis": {},
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9788471762740-L.jpg",
       "pages": 113
     },
     "changes": [
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "cover: OpenLibrary por ISBN -L"
     ],
     "flags": [],
     "priority": 0,
@@ -34430,7 +34512,7 @@
     },
     "after": {
       "titles": {
-        "es": "A Light Comedy",
+        "es": "Una comedia ligera",
         "en": "A light comedy"
       },
       "synopsis": {},
@@ -34441,7 +34523,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "title.es: traducción al español (A Light Comedy -> Una comedia ligera)"
     ],
     "flags": [],
     "priority": 0,
@@ -34471,11 +34554,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic obscuro ('Morning Star')"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL15845930W",
@@ -34596,11 +34680,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Off-topic obscuro ('Morning Star')"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL16097861W",
@@ -34654,11 +34739,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL16312863W",
@@ -34811,11 +34897,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL16486339W",
@@ -36255,11 +36342,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Apple Books 1200px (iTunes)"
+      "cover: Apple Books 1200px (iTunes)",
+      "A BORRAR: Off-topic obscuro ('Morning Star')"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL17714851W",
@@ -36470,11 +36558,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL17873512W",
@@ -36585,14 +36674,15 @@
       "pages": 272
     },
     "changes": [
-      "cover_url: upgraded -L"
+      "cover_url: upgraded -L",
+      "A BORRAR: Off-topic (KKK)"
     ],
     "flags": [
       "synopsis.es missing",
       "synopsis.en missing"
     ],
     "priority": 0,
-    "status": "auto-ok"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL17882346W",
@@ -37047,11 +37137,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL18113522M",
@@ -37140,11 +37231,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL18466986M",
@@ -37251,7 +37343,7 @@
     },
     "after": {
       "titles": {
-        "es": "Let the Devil Sleep",
+        "es": "Deja en paz al diablo",
         "en": "Let the Devil Sleep"
       },
       "synopsis": {},
@@ -37261,7 +37353,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Let the Devil Sleep -> Deja en paz al diablo)"
     ],
     "flags": [],
     "priority": 0,
@@ -37290,11 +37383,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL18968039W",
@@ -37534,11 +37628,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL19340471M",
@@ -37677,7 +37772,7 @@
     },
     "after": {
       "titles": {
-        "es": "The Dragon Republic",
+        "es": "La república del dragón",
         "en": "Dragon Republic"
       },
       "synopsis": {},
@@ -37686,7 +37781,8 @@
       "pages": 512
     },
     "changes": [
-      "cover_url: upgraded -L"
+      "cover_url: upgraded -L",
+      "title.es: traducción al español (The Dragon Republic -> La república del dragón)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -37833,7 +37929,7 @@
     },
     "after": {
       "titles": {
-        "es": "White River Burning",
+        "es": "Arderás en la tormenta",
         "en": "White River burning"
       },
       "synopsis": {},
@@ -37843,7 +37939,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (White River Burning -> Arderás en la tormenta)"
     ],
     "flags": [],
     "priority": 0,
@@ -37863,7 +37960,7 @@
     },
     "after": {
       "titles": {
-        "es": "Empire of Silence",
+        "es": "El Imperio del Silencio",
         "en": "Empire of Silence"
       },
       "synopsis": {},
@@ -37874,7 +37971,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
-      "cover: Google Books 800px (fife)"
+      "cover: Google Books 800px (fife)",
+      "title.es: traducción al español (Empire of Silence -> El Imperio del Silencio)"
     ],
     "flags": [],
     "priority": 0,
@@ -38079,7 +38177,7 @@
     },
     "after": {
       "titles": {
-        "es": "Peter Pan must die",
+        "es": "No confíes en Peter Pan",
         "en": "Peter Pan must die"
       },
       "synopsis": {},
@@ -38089,7 +38187,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Peter Pan tiene que morir -> No confíes en Peter Pan)"
     ],
     "flags": [],
     "priority": 0,
@@ -38119,11 +38218,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL20003481W",
@@ -38261,7 +38361,7 @@
     },
     "after": {
       "titles": {
-        "es": "Wolf Lake",
+        "es": "Controlaré tus sueños",
         "en": "Wolf Lake"
       },
       "synopsis": {},
@@ -38271,7 +38371,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Wolf Lake -> Controlaré tus sueños)"
     ],
     "flags": [],
     "priority": 0,
@@ -38481,11 +38582,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL2020241W",
@@ -38511,11 +38613,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL20272380W",
@@ -38599,11 +38702,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No-novela (cartas/ensayo) sobre Dostoyevski"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL20340957W",
@@ -38694,11 +38798,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL2056799W",
@@ -38970,11 +39075,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL20655764W",
@@ -39058,11 +39164,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL20738908W",
@@ -39088,11 +39195,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No-novela (cartas/ensayo) sobre Dostoyevski"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL20764056W",
@@ -39118,11 +39226,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL20799401W",
@@ -39263,7 +39372,7 @@
     },
     "after": {
       "titles": {
-        "es": "Idiot",
+        "es": "El idiota",
         "en": "the idiot "
       },
       "synopsis": {},
@@ -39272,7 +39381,8 @@
       "pages": 614
     },
     "changes": [
-      "cover_url: upgraded -L"
+      "cover_url: upgraded -L",
+      "title.es: traducción al español (Idiot -> El idiota)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -39336,11 +39446,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL2114571W",
@@ -39608,11 +39719,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL2117701W",
@@ -39690,7 +39802,7 @@
     },
     "after": {
       "titles": {
-        "es": "Shut Your Eyes Tight",
+        "es": "No abras los ojos",
         "en": "Shut Your Eyes Tight"
       },
       "synopsis": {},
@@ -39700,7 +39812,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Shut Your Eyes Tight -> No abras los ojos)"
     ],
     "flags": [],
     "priority": 0,
@@ -39941,11 +40054,12 @@
       "pages": 7392
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Box set / colección (duplica libros individuales)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL21796539W",
@@ -40957,11 +41071,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (KKK)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL24020571W",
@@ -41106,11 +41221,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL24159579W",
@@ -41361,7 +41477,7 @@
     },
     "after": {
       "titles": {
-        "es": "On Harrow Hill",
+        "es": "El ángel negro",
         "en": "On Harrow Hill"
       },
       "synopsis": {},
@@ -41371,7 +41487,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (On Harrow Hill -> El ángel negro)"
     ],
     "flags": [],
     "priority": 0,
@@ -41605,7 +41722,7 @@
     },
     "after": {
       "titles": {
-        "es": "The city of marvels",
+        "es": "La ciudad de los prodigios",
         "en": "City of marvels"
       },
       "synopsis": {},
@@ -41614,7 +41731,8 @@
       "pages": 418
     },
     "changes": [
-      "cover_url: upgraded -L"
+      "cover_url: upgraded -L",
+      "title.es: traducción al español (The city of marvels -> La ciudad de los prodigios)"
     ],
     "flags": [
       "synopsis.es missing",
@@ -41737,11 +41855,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Spam ('Blackwing', autores falsos)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL24595836W",
@@ -41757,7 +41876,7 @@
     },
     "after": {
       "titles": {
-        "es": "Double",
+        "es": "El doble",
         "en": "Double"
       },
       "synopsis": {},
@@ -41767,7 +41886,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Double -> El doble)"
     ],
     "flags": [],
     "priority": 0,
@@ -42398,11 +42518,12 @@
       "pages": 72
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25446953W",
@@ -42459,11 +42580,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25464626W",
@@ -42488,11 +42610,12 @@
       "pages": 108
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25469645W",
@@ -42607,11 +42730,12 @@
       "pages": 106
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (KKK)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25746356W",
@@ -42636,11 +42760,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25770834W",
@@ -42665,11 +42790,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25770836W",
@@ -42694,11 +42820,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25773710W",
@@ -42751,11 +42878,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Box set / colección (duplica libros individuales)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL25898409W",
@@ -43098,11 +43226,12 @@
     },
     "changes": [
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL26378482W",
@@ -43710,11 +43839,12 @@
     },
     "changes": [
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL26514807W",
@@ -43741,11 +43871,12 @@
     "changes": [
       "cover_url: upgraded -L",
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL26520591W",
@@ -43770,11 +43901,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL26575653W",
@@ -43790,7 +43922,7 @@
     },
     "after": {
       "titles": {
-        "es": "Poor Folk",
+        "es": "Pobres gentes",
         "en": "Poor Folk"
       },
       "synopsis": {},
@@ -43800,7 +43932,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Poor Folk -> Pobres gentes)"
     ],
     "flags": [],
     "priority": 0,
@@ -44328,11 +44461,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL27275592W",
@@ -44481,11 +44615,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL27413174W",
@@ -44510,11 +44645,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL27420418W",
@@ -44795,11 +44931,12 @@
       "pages": 200
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL27741901W",
@@ -44851,11 +44988,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL27836954W",
@@ -45169,11 +45307,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL282275W",
@@ -45199,11 +45338,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL28234032W",
@@ -45228,11 +45368,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL28411236W",
@@ -45257,11 +45398,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL28413163W",
@@ -45735,11 +45877,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Relato suelto/edición inglesa duplicada (Cixin Liu)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL28853790W",
@@ -45972,11 +46115,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL2918724W",
@@ -46001,11 +46145,12 @@
       "pages": 802
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL29205816W",
@@ -46177,11 +46322,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL29348079W",
@@ -46262,11 +46408,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (KKK)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL29473429W",
@@ -46399,11 +46546,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Spam ('Blackwing', autores falsos)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL29601246W",
@@ -46874,11 +47022,12 @@
     },
     "changes": [
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL3075540W",
@@ -47246,11 +47395,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL31147198W",
@@ -47303,11 +47453,12 @@
     },
     "changes": [
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Spam ('Blackwing', autores falsos)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL31158699W",
@@ -47323,7 +47474,7 @@
     },
     "after": {
       "titles": {
-        "es": "Viper",
+        "es": "El favor",
         "en": "Viper"
       },
       "synopsis": {},
@@ -47333,7 +47484,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Viper -> El favor)"
     ],
     "flags": [],
     "priority": 0,
@@ -47708,11 +47860,12 @@
       "pages": 137
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (KKK)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL31883300W",
@@ -47939,11 +48092,12 @@
       "pages": 401
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL3238994W",
@@ -48298,11 +48452,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL32871273W",
@@ -48328,11 +48483,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL33105719W",
@@ -48559,11 +48715,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL34098405W",
@@ -48849,11 +49006,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL34493602W",
@@ -49328,10 +49486,12 @@
       },
       "synopsis": {},
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9789507421433-L.jpg",
       "pages": 123
     },
-    "changes": [],
+    "changes": [
+      "cover: OpenLibrary por ISBN -L"
+    ],
     "flags": [
       "title.en missing",
       "synopsis.es missing",
@@ -50372,11 +50532,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL35306542W",
@@ -50402,11 +50563,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Spam ('Blackwing', autores falsos)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL3531937W",
@@ -50574,7 +50736,7 @@
     },
     "after": {
       "titles": {
-        "es": "Empire of Silence (eBook)",
+        "es": "El Imperio del Silencio",
         "en": "Empire of Silence (eBook)"
       },
       "synopsis": {},
@@ -50585,7 +50747,8 @@
     "changes": [
       "cover_url: upgraded -L",
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Empire of Silence (eBook) -> El Imperio del Silencio)"
     ],
     "flags": [],
     "priority": 0,
@@ -50735,11 +50898,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic obscuro ('Morning Star')"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL35923597W",
@@ -50765,11 +50929,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Box set / colección (duplica libros individuales)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL3593648W",
@@ -51029,11 +51194,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Infantil/idiomas off-topic"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL36525884W",
@@ -51120,11 +51286,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL37342373W",
@@ -51321,11 +51488,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL37857486W",
@@ -51407,11 +51575,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL38030982W",
@@ -51578,11 +51747,12 @@
     },
     "changes": [
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Spam ('Blackwing', autores falsos)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL38333698W",
@@ -51694,11 +51864,12 @@
       "pages": 39
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL38746587W",
@@ -51837,11 +52008,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL3953272M",
@@ -51898,11 +52070,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL39784487W",
@@ -51927,11 +52100,12 @@
       "pages": 300
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Spam ('Blackwing', autores falsos)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL39880247W",
@@ -52193,11 +52367,12 @@
       "pages": 286
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL4024846W",
@@ -52978,11 +53153,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Box set / colección (Empyrean 3 books set)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL42434709W",
@@ -53162,11 +53338,12 @@
       "pages": 128
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL42563224W",
@@ -53303,7 +53480,7 @@
     },
     "after": {
       "titles": {
-        "es": "By the Pricking of My Thumbs",
+        "es": "El cuadro",
         "en": "By the Pricking of My Thumbs"
       },
       "synopsis": {},
@@ -53312,7 +53489,8 @@
       "pages": 262
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (By the Pricking of My Thumbs -> El cuadro)"
     ],
     "flags": [],
     "priority": 0,
@@ -53388,7 +53566,7 @@
     },
     "after": {
       "titles": {
-        "es": "postern of fate",
+        "es": "La puerta del destino",
         "en": "postern of fate"
       },
       "synopsis": {},
@@ -53397,7 +53575,8 @@
       "pages": 262
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (postern of fate -> La puerta del destino)"
     ],
     "flags": [],
     "priority": 0,
@@ -53456,11 +53635,12 @@
       "pages": 58
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL43508633W",
@@ -53547,11 +53727,12 @@
       "pages": null
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Edición colección redundante (Fourth Wing collection)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL4391229W",
@@ -53778,7 +53959,7 @@
     },
     "after": {
       "titles": {
-        "es": "Three-Body Problem",
+        "es": "El problema de los tres cuerpos",
         "en": "Three-Body Problem"
       },
       "synopsis": {},
@@ -53787,7 +53968,8 @@
       "pages": 774
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (Three-Body Problem -> El problema de los tres cuerpos)"
     ],
     "flags": [],
     "priority": 0,
@@ -54029,11 +54211,12 @@
       "pages": 18
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL44760191W",
@@ -54621,11 +54804,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL45292938W",
@@ -54768,11 +54952,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic obscuro ('Morning Star')"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL45358132W",
@@ -54791,12 +54976,13 @@
       },
       "synopsis": {},
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9781250306029-L.jpg",
       "pages": 272
     },
     "changes": [
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "cover: OpenLibrary por ISBN -L"
     ],
     "flags": [],
     "priority": 0,
@@ -54879,11 +55065,12 @@
       "pages": 24
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL45445068W",
@@ -55152,11 +55339,12 @@
       "pages": 220
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Académico/ensayo/religioso (off-topic)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL4935486W",
@@ -55430,11 +55618,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Infantil/idiomas off-topic"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL5341625W",
@@ -55490,11 +55679,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL5505479W",
@@ -55550,11 +55740,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL5694434W",
@@ -55663,7 +55854,7 @@
     },
     "after": {
       "titles": {
-        "es": "The legend of the Wandering king",
+        "es": "La leyenda del Rey Errante",
         "en": "The legend of the Wandering king"
       },
       "synopsis": {},
@@ -55673,7 +55864,8 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "title.es: traducción al español (The legend of the Wandering king -> La leyenda del Rey Errante)"
     ],
     "flags": [],
     "priority": 0,
@@ -56131,11 +56323,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL5871062W",
@@ -56154,10 +56347,12 @@
       },
       "synopsis": {},
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9788434886483-L.jpg",
       "pages": 192
     },
-    "changes": [],
+    "changes": [
+      "cover: OpenLibrary por ISBN -L"
+    ],
     "flags": [
       "title.en missing",
       "synopsis.es missing",
@@ -56250,11 +56445,12 @@
       "pages": 168
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Arte/arquitectura (no es novela)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL5990298W",
@@ -56372,11 +56568,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Guía de estudio/crítica/biografía sobre un autor (no la obra)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL64248W",
@@ -56402,11 +56599,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL6439099W",
@@ -56464,11 +56662,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL644171W",
@@ -56646,11 +56845,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL6968244W",
@@ -56766,11 +56966,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (KKK)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL7233625W",
@@ -56854,11 +57055,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL745011W",
@@ -56944,11 +57146,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL7661446W",
@@ -57066,11 +57269,12 @@
       "pages": 40
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL793871W",
@@ -57127,11 +57331,12 @@
       "pages": 16
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Basura / metadato corrupto"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL8034522W",
@@ -57179,12 +57384,13 @@
       },
       "synopsis": {},
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9788471764256-L.jpg",
       "pages": 78
     },
     "changes": [
       "pages: filled from Google Books",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "cover: OpenLibrary por ISBN -L"
     ],
     "flags": [],
     "priority": 0,
@@ -57646,11 +57852,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (KKK)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL872432W",
@@ -57707,11 +57914,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Spam ('Blackwing', autores falsos)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL877721W",
@@ -58013,11 +58221,12 @@
       "pages": 195
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL9122424W",
@@ -58042,11 +58251,12 @@
       "pages": 227
     },
     "changes": [
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL9122526W",
@@ -58065,10 +58275,12 @@
       },
       "synopsis": {},
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9788477024507-L.jpg",
       "pages": 249
     },
-    "changes": [],
+    "changes": [
+      "cover: OpenLibrary por ISBN -L"
+    ],
     "flags": [
       "title.en missing",
       "synopsis.es missing",
@@ -58126,10 +58338,12 @@
       },
       "synopsis": {},
       "cover_id": null,
-      "cover_url": null,
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9583361976-L.jpg",
       "pages": 398
     },
-    "changes": [],
+    "changes": [
+      "cover: OpenLibrary por ISBN -L"
+    ],
     "flags": [
       "title.en missing",
       "synopsis.es missing",
@@ -58318,11 +58532,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL9353538W",
@@ -58410,11 +58625,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: No ficción off-topic (ciencia/negocios/historia/biografía)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL944356W",
@@ -58472,11 +58688,12 @@
     },
     "changes": [
       "cover_url: upgraded -L",
-      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda"
+      "cola larga: aceptado sin curación manual; solo correcciones automáticas (portada/' / '). App rellena sinopsis/portada bajo demanda",
+      "A BORRAR: Off-topic (KKK)"
     ],
     "flags": [],
     "priority": 0,
-    "status": "claude-done"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL9498962W",
@@ -58562,14 +58779,15 @@
       "pages": 420
     },
     "changes": [
-      "cover_url: upgraded -L"
+      "cover_url: upgraded -L",
+      "A BORRAR: Off-topic (historia de Japón/Shogun) o duplicado de Shogun"
     ],
     "flags": [
       "synopsis.es missing",
       "synopsis.en missing"
     ],
     "priority": 0,
-    "status": "auto-ok"
+    "status": "to-delete"
   },
   {
     "key": "/works/OL9644076W",
