@@ -17,7 +17,7 @@
   &__reading-section {
     position: relative;
     isolation: isolate;
-    margin-top: calc(-1 * (var(--space-6) + var(--space-2) + 2rem));
+    margin-top: calc(-1 * (var(--space-6) + var(--space-2) + 2rem + var(--space-2)));
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     width: 100vw;
@@ -37,7 +37,7 @@
       width: 550px;
       aspect-ratio: 1;
       //background: var(--color-border-strong);
-      background: #f9dbc1;
+      background: #fff1e2;
       z-index: -1;
 
       mask:
@@ -61,9 +61,22 @@
       margin: auto;
       width: 445px;
       aspect-ratio: 1;
-      //background: var(--color-border-strong);
-      background: #f9dbc1;
-      mask: radial-gradient(circle closest-side, #000 82%, transparent 100%);
+      // Núcleo luminoso: hotspot blanco central (emisión) sobre cuerpo cálido,
+      // con un leve blur para efecto bloom de luz tras las cards.
+      background:
+        radial-gradient(
+          circle closest-side,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 250, 242, 0) 60%
+        ),
+        radial-gradient(
+          circle closest-side,
+          #fff4e6 0%,
+          #fcdcbf 42%,
+          #f2bd8a 72%,
+          rgba(249, 219, 193, 0) 100%
+        );
+      filter: blur(16px);
       z-index: -1;
 
       @include from($bp-md) {
@@ -72,9 +85,17 @@
     }
 
     @include from($bp-md) {
-      margin-top: calc(-1 * (var(--space-10) + var(--space-2) + 2rem));
+      margin-top: calc(-1 * (var(--space-10) + var(--space-2) + 2rem + var(--space-4)));
       min-height: 660px;
       padding: var(--space-8) var(--space-7);
+    }
+  }
+
+  &__shelf-section {
+    margin-top: calc(-1 * var(--space-10));
+
+    @include from($bp-md) {
+      margin-top: calc(-1 * var(--space-12));
     }
   }
 

@@ -41,17 +41,41 @@
 
   &__count {
     flex-shrink: 0;
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
-    letter-spacing: 0.02em;
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.01em;
     color: var(--color-text-primary);
   }
 
   &__stage {
+    position: relative;
+    isolation: isolate;
     display: flex;
     align-items: center;
     gap: var(--space-4);
     width: 100%;
+
+    // Retroiluminación: bloom cálido difuso justo detrás de la card, de modo
+    // que la luz "escapa" por sus bordes (efecto de card encendida por detrás).
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(900px, 100%);
+      height: 170%;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 205, 158, 0.85) 0%,
+        rgba(248, 178, 120, 0.5) 55%,
+        rgba(248, 178, 120, 0) 80%
+      );
+      filter: blur(45px);
+      z-index: -1;
+      pointer-events: none;
+    }
   }
 
   &__swiper {
@@ -121,6 +145,13 @@
     @include shimmer-bg;
   }
 
+  &--empty {
+    justify-content: center;
+    min-height: 220px;
+    // Glow cálido que envuelve la card: parece encendida por detrás.
+    box-shadow: 0 0 100px 18px rgba(248, 178, 120, 0.6);
+  }
+
   &__empty-state {
     width: 100%;
     padding: var(--space-6) var(--space-4);
@@ -129,9 +160,20 @@
   }
 
   &__empty-state-text {
-    color: var(--color-text-on-dark);
+    color: var(--color-text-secondary);
     font-size: var(--text-md);
+    text-align: center;
     margin: 0;
+
+    a {
+      color: var(--color-brand-primary);
+      font-weight: var(--weight-semibold);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   &__cover-btn {

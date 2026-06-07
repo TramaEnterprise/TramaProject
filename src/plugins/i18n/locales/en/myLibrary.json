@@ -1,7 +1,7 @@
 {
   "myLibrary": {
     "heading": "Currently reading...",
-    "noCurrentReading": "You're not reading any book",
+    "noCurrentReading": "Looks like you're not reading any book. Add one now from <1>Explore</1>!",
     "nextBook": "Next reading book",
     "prevBook": "View previous book",
     "readingCount": "{{current}}/{{total}}",
