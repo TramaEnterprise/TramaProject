@@ -3,9 +3,12 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import type { User } from "firebase/auth";
 import { auth } from "@/services/firebase/firebaseInit";
 import { AuthContext } from "@/context/auth/auth_init";
+import type { UserMinimal } from "@/types/UserProfile";
+import { subscribeToUserMinimal } from "@/services/firebase/firebaseUsers";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<UserMinimal | null>(null);
   const [isGuest, setIsGuest] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -24,6 +27,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    if (!user) {
+      return;
+    }
+    const unsubscribe = subscribeToUserMinimal(user.uid, setProfile);
+    return () => {
+      unsubscribe();
+      setProfile(null);
+    };
+  }, [user]);
+
   const enterAsGuest = useCallback(() => setIsGuest(true), []);
 
   const logout = useCallback(async () => {
@@ -35,8 +49,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const isAuthenticated = user !== null;
 
   const value = useMemo(
-    () => ({ user, isGuest, loading, isAuthenticated, enterAsGuest, logout }),
-    [user, isGuest, loading, isAuthenticated, enterAsGuest, logout]
+    () => ({ user, profile, isGuest, loading, isAuthenticated, enterAsGuest, logout }),
+    [user, profile, isGuest, loading, isAuthenticated, enterAsGuest, logout]
   );
 
   return (

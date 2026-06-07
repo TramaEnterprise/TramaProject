@@ -131,3 +131,22 @@ export async function userProfileExists(uid: string): Promise<boolean> {
   const snap = await getDoc(doc(db, "Users", uid));
   return snap.exists();
 }
+
+export function subscribeToUserMinimal(
+  uid: string,
+  onUpdate: (profile: UserMinimal | null) => void
+): () => void {
+  return onSnapshot(doc(db, "Users", uid), (snap) => {
+    if (!snap.exists()) {
+      onUpdate(null);
+      return;
+    }
+    const d = snap.data();
+    onUpdate({
+      uid,
+      name: d.name ?? "",
+      username: d.username ?? "",
+      profilePhotoUrl: d.profilePhotoUrl ?? "",
+    });
+  });
+}
