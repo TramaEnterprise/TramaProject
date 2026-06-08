@@ -41,7 +41,7 @@
       "title": "Valorar libro",
       "skip": "Saltar valoración"
     },
-    "createList": "Crear nueva lista",
+    "createList": "Crear una lista",
     "listsTitle": "Listas",
     "listsCount": "{{count}} libros",
     "allListsTitle": "Listas",
@@ -65,7 +65,10 @@
       "cancel": "Cancelar",
       "save": "Guardar",
       "saving": "Guardando...",
-      "saveError": "No se pudo guardar la lista"
+      "saveError": "No se pudo guardar la lista",
+      "visibilityLabel": "Visibilidad",
+      "public": "Pública",
+      "private": "Privada"
     },
     "listDetail": {
       "empty": "Esta lista no tiene libros",

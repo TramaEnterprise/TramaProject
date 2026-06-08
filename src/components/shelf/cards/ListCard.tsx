@@ -3,6 +3,7 @@ import "./ListCard.scss";
 import { getListCoverUrls } from "@/utils/bookListUtils";
 import { Link } from "react-router";
 import type { BookList } from "@/types/BookList";
+import { Lock } from "lucide-react";
 
 // export type ReadingList = {
 //   id: string;
@@ -32,7 +33,12 @@ export default function ListCard({ list, userId }: ListCardProps) {
       </div>
 
       <div className="list-card__meta">
-        <p className="list-card__name">{list.name}</p>
+        <div className="list-card__name-row">
+          <p className="list-card__name">{list.name}</p>
+          {!list.isPublic && (
+            <Lock size={16} className="list-card__private-icon" aria-hidden="true" />
+          )}
+        </div>
         <p className="list-card__count">
           {t("myLibrary.listsCount", { count: list.books.length })}
         </p>

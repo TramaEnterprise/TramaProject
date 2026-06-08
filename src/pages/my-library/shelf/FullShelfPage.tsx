@@ -72,7 +72,6 @@ export default function FullShelfPage() {
           <span className="full-shelf__search-icon">
             <Search aria-hidden="true" />
           </span>
-          <span className="full-shelf__search-divider" />
           <input
             type="text"
             placeholder={t("myLibrary.searchPlaceholder")}
@@ -91,7 +90,7 @@ export default function FullShelfPage() {
           )}
         </div>
 
-        <button type="button" className="full-shelf__filter-btn" disabled aria-label="Filtros">
+        <button type="button" className="full-shelf__filter-btn" aria-label="Filtros">
           <ListFilter aria-hidden="true" />
         </button>
       </div>

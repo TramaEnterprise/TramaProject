@@ -8,6 +8,7 @@ function mapListDoc(id: string, d: Record<string, unknown>): BookList {
     name: (d.name as string) ?? "",
     description: (d.description as string) ?? undefined,
     books: (d.books as ListBook[]) ?? [],
+    isPublic: (d.isPublic as boolean) ?? false,
     createdAt: (d.createdAt as string) ?? "",
     updatedAt: (d.updatedAt as string) ?? "",
   };
@@ -30,7 +31,8 @@ export async function createListDB(
   uid: string,
   name: string,
   books: ListBook[],
-  description?: string
+  description?: string,
+  isPublic?: boolean
 ): Promise<string> {
   const ref = doc(collection(db, "Users", uid, "lists"));
   const date = new Date().toISOString();
@@ -38,6 +40,7 @@ export async function createListDB(
     name,
     books,
     description: description ?? "",
+    isPublic: isPublic ?? false,
     createdAt: date,
     updatedAt: date,
   });
@@ -47,7 +50,7 @@ export async function createListDB(
 export async function updateListDB(
   uid: string,
   listId: string,
-  content: { name?: string; description?: string; books?: ListBook[] }
+  content: { name?: string; description?: string; books?: ListBook[]; isPublic?: boolean }
 ): Promise<void> {
   await updateDoc(doc(db, "Users", uid, "lists", listId), {
     ...content,
