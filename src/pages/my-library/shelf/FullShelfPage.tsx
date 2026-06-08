@@ -90,7 +90,7 @@ export default function FullShelfPage() {
           )}
         </div>
 
-        <button type="button" className="full-shelf__filter-btn" disabled aria-label="Filtros">
+        <button type="button" className="full-shelf__filter-btn" aria-label="Filtros">
           <ListFilter aria-hidden="true" />
         </button>
       </div>
