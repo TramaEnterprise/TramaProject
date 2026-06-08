@@ -72,7 +72,6 @@ export default function FullShelfPage() {
           <span className="full-shelf__search-icon">
             <Search aria-hidden="true" />
           </span>
-          <span className="full-shelf__search-divider" />
           <input
             type="text"
             placeholder={t("myLibrary.searchPlaceholder")}
