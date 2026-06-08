@@ -8,6 +8,7 @@ import BookCard from "@/components/book/cards/BookCard";
 import ListEditorModal from "@/components/shelf/modals/ListEditorModal";
 import { listBookToBook } from "@/utils/bookListUtils";
 import "./ListDetailPage.scss";
+import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
 
 export default function ListDetailPage() {
   const { userId, listId } = useParams<{ userId: string; listId: string }>();
@@ -49,6 +50,13 @@ export default function ListDetailPage() {
     await deleteList(listId);
     navigate(`/lists/${userId}`);
   };
+
+  useBreadcrumbLabel(
+    "listsOwner",
+    isOwner ? t("nav.myLibrary") : t("breadcrumbs.profile"),
+    isOwner ? "/my-library" : `/profile/${userId}`
+  );
+  useBreadcrumbLabel("list", list?.name);
 
   return (
     <div className="list-detail-page">

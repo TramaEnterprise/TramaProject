@@ -7,6 +7,7 @@ import { useLists } from "@/hooks/useLists";
 import ListCard from "@/components/shelf/cards/ListCard";
 import ListEditorModal from "@/components/shelf/modals/ListEditorModal";
 import "./AllListsPage.scss";
+import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
 
 export default function AllListsPage() {
   const { userId } = useParams<{ userId: string }>();
@@ -17,6 +18,12 @@ export default function AllListsPage() {
   const [editorOpen, setEditorOpen] = useState(false);
 
   const isOwner = !!user && user.uid === userId;
+
+  useBreadcrumbLabel(
+    "listsOwner",
+    isOwner ? t("nav.myLibrary") : t("breadcrumbs.profile"),
+    isOwner ? "/my-library" : `/profile/${userId}`
+  );
 
   return (
     <div className="all-lists-page">

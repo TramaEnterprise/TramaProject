@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { toWorkKey } from "@/utils/bookPaths";
 import { ChevronLeft } from "lucide-react";
 import UserReviewSection from "@/components/book/info/UserReviewSection";
+import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
 
 export default function BookDetailPage() {
   const { bookId = "" } = useParams<{ bookId: string }>();
@@ -30,6 +31,7 @@ export default function BookDetailPage() {
     book?.key ?? toWorkKey(bookId)
   );
 
+  useBreadcrumbLabel("book", book?.title);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [bookId]);

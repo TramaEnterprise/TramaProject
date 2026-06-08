@@ -22,6 +22,7 @@ import { useFollowActions } from "@/hooks/useFollowActions";
 import { useProfileShelf } from "@/pages/profile/hooks/useProfileShelf";
 import { useProfileActivity } from "@/pages/profile/hooks/useProfileActivity";
 import { useBlockActions } from "@/hooks/useBlockActions";
+import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
 
 export default function ProfilePage() {
   const { userId: paramUserId, username: paramUsername } = useParams<{
@@ -106,6 +107,11 @@ export default function ProfilePage() {
       cancelled = true;
     };
   }, [paramUserId, paramUsername, user]);
+
+  const displayName = profile
+  ? `${profile.name ?? ""} ${profile.surname ?? ""}`.trim() || profile.username || profile.email
+  : undefined;
+  useBreadcrumbLabel("profileUser", isOwnProfile ? undefined : displayName);
 
   if (resolveState === "loading") {
     return (
