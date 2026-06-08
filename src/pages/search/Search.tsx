@@ -1,4 +1,4 @@
-import { useState, useRef, type FormEvent } from "react";
+import { useState, useRef, type FormEvent, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import BookCard from "@/components/book/cards/BookCard";
@@ -7,6 +7,7 @@ import "./Search.scss";
 import { useBookSearchInfinite } from "@/hooks/useBookSearchInfinite";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import LoadMore from "@/components/common/LoadMore";
+import { buildTitleTokens } from "@/utils/titleSearch";
 
 export default function SearchPage() {
   const [searchParams] = useSearchParams();
@@ -14,16 +15,49 @@ export default function SearchPage() {
   const { t } = useTranslation();
   const { lang } = useCurrentLanguage();
   const q = searchParams.get("q") ?? "";
+  const trimmedQ = q.trim();
+  const insufficient = trimmedQ !== "" && (trimmedQ.length < 3 || buildTitleTokens(trimmedQ).length === 0);
 
   const [inputValue, setInputValue] = useState(q);
   const [prevQ, setPrevQ] = useState(q);
+  const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { books, loading, error, totalResults, hasNextPage, isFetchingNextPage, fetchNextPage } = useBookSearchInfinite(q, "todo", lang);
+  const { books, loading, error, totalResults, hasNextPage, isFetchingNextPage, fetchNextPage } = useBookSearchInfinite(insufficient ? "" : q, "todo", lang);
 
   if (prevQ !== q) {
     setPrevQ(q);
-    setInputValue(q);
+    if (!isFocused) {
+      setInputValue(q);
+    }
   }
+
+  useEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.focus();
+    const end = el.value.length;
+    try { 
+      el.setSelectionRange(end, end); 
+    } 
+    catch { /* type=search puede no permitirlo */ }
+  }, []);
+
+
+  useEffect(() => {
+    if (hasNextPage && !isFetchingNextPage && !loading && books.length > 0 && books.length <= 6) {
+      fetchNextPage();
+    }
+  }, [hasNextPage, isFetchingNextPage, loading, books.length, fetchNextPage]);
+
+  useEffect(() => {
+    const trimmed = inputValue.trim();
+    if (trimmed.length < 3) return;          
+    if (trimmed === q.trim()) return;      
+    const timer = window.setTimeout(() => {
+      navigate(`/search?q=${encodeURIComponent(trimmed)}`, { replace: true });
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [inputValue, q, navigate]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,7 +67,7 @@ export default function SearchPage() {
     }
   };
 
-  const showNoResults = !loading && !error && q.trim() !== "" && books.length === 0;
+  const showNoResults = !loading && !error && !insufficient && trimmedQ !== "" && books.length === 0;
 
   return (
     <div className="search-page">
@@ -49,6 +83,8 @@ export default function SearchPage() {
             type="search"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
             placeholder={t("explore.searchPlaceholder")}
             aria-label={t("search.searchLabel")}
           />
@@ -60,7 +96,7 @@ export default function SearchPage() {
               onMouseDown={(e) => {
                 e.preventDefault();
                 setInputValue("");
-                inputRef.current?.focus();
+                navigate("/explore");
               }}
             >
               <X size={18} />
@@ -75,6 +111,10 @@ export default function SearchPage() {
         {loading && <p className="search-page__status">{t("explore.searching")}</p>}
 
         {error && !loading && <p className="search-page__error">{error}</p>}
+
+        {insufficient && (
+          <p className="search-page__status">{t("search.tooShort")}</p>
+        )}
 
         {showNoResults && (
           <div className="search-page__no-results">

@@ -61,6 +61,7 @@
     "searchBtnLabel": "Search",
     "emptyPrompt": "Type something to search for books",
     "noResultsSubtitle": "Try a different search",
-    "seeAllResults": "See more results"
+    "seeAllResults": "See more results",
+    "tooShort": "Type at least 3 characters"
   }
 }
