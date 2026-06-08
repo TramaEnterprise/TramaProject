@@ -43,7 +43,6 @@ export default function SearchPage() {
           <span className="search-page__search-icon" aria-hidden="true">
             <Search size={18} />
           </span>
-          <div className="search-page__search-divider" />
           <input
             ref={inputRef}
             className="search-page__search-input"

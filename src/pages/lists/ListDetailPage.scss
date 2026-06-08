@@ -62,6 +62,9 @@
   }
 
   &__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
     font-size: var(--text-xl);
     font-weight: var(--weight-extrabold);
     color: var(--color-text-primary);
@@ -71,6 +74,11 @@
     @include from($bp-md) {
       font-size: var(--text-2xl);
     }
+  }
+
+  &__private-icon {
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
   }
 
   &__actions {

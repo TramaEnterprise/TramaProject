@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, Pencil, MoreHorizontal, Share2, Trash2 } from "lucide-react";
+import { ChevronLeft, Pencil, MoreHorizontal, Share2, Trash2, Lock } from "lucide-react";
 import { useAuth } from "@/context/auth/useAuth";
 import { useLists } from "@/hooks/useLists";
 import BookCard from "@/components/book/cards/BookCard";
@@ -60,7 +60,10 @@ export default function ListDetailPage() {
         {list && (
           <div className="list-detail-page__header-row">
             <div className="list-detail-page__title-block">
-              <h2 className="list-detail-page__title">{list.name}</h2>
+              <h2 className="list-detail-page__title">
+                {list.name}
+                {!list.isPublic && <Lock size={16} className="list-detail-page__private-icon" aria-hidden="true" />}
+              </h2>
               {list.description && (
                 <p className="list-detail-page__description">{list.description}</p>
               )}
@@ -142,8 +145,8 @@ export default function ListDetailPage() {
         <ListEditorModal
           existingList={list}
           onClose={() => setEditorOpen(false)}
-          onSubmit={async ({ name, description, books }) => {
-            await updateList(list.id, { name, description, books });
+          onSubmit={async ({ name, description, books, isPublic }) => {
+            await updateList(list.id, { name, description, books, isPublic });
           }}
         />
       )}

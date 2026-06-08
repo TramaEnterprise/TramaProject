@@ -147,9 +147,12 @@
       border: none;
       outline: none;
       font-size: var(--text-sm);
+      font-family: var(--font-main);
       color: var(--color-text-primary);
       background: transparent;
-      padding: 12px 0;
+      padding: 0 var(--space-3) 0 var(--space-2);
+      height: 44px;
+      letter-spacing: 0.01em;
 
       &::placeholder {
         color: var(--color-text-tertiary);
@@ -161,7 +164,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 12px;
+    padding: 0 var(--space-1) 0 var(--space-4);
     height: 44px;
     flex-shrink: 0;
     color: var(--color-text-tertiary);
@@ -175,14 +178,6 @@
     .full-shelf__search-bar:focus-within & {
       color: var(--color-text-primary);
     }
-  }
-
-  &__search-divider {
-    width: 1px;
-    height: 18px;
-    background: var(--color-border-medium);
-    flex-shrink: 0;
-    margin-right: var(--space-3);
   }
 
   &__clear-btn {
@@ -222,13 +217,18 @@
     border-radius: var(--radius-pill);
     border: 1.5px solid var(--color-border-medium);
     background: transparent;
-    color: var(--color-text-tertiary);
-    cursor: not-allowed;
-    opacity: 0.45;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
 
     svg {
       width: 18px;
       height: 18px;
+    }
+
+    &:hover {
+      border-color: var(--color-text-primary);
+      color: var(--color-text-primary);
     }
 
     @media (max-width: 767px) {

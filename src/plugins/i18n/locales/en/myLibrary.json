@@ -41,7 +41,7 @@
       "title": "Rate book",
       "skip": "Skip rating"
     },
-    "createList": "Create new list",
+    "createList": "Create a list",
     "listsTitle": "Lists",
     "listsCount": "{{count}} books",
     "allListsTitle": "Lists",
@@ -65,7 +65,10 @@
       "cancel": "Cancel",
       "save": "Save",
       "saving": "Saving...",
-      "saveError": "Could not save the list"
+      "saveError": "Could not save the list",
+      "visibilityLabel": "Visibility",
+      "public": "Public",
+      "private": "Private"
     },
     "listDetail": {
       "empty": "This list has no books",
