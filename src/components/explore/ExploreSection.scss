@@ -60,11 +60,6 @@
     padding-top: var(--space-2);
     margin-top: calc(-1 * var(--space-2));
     padding-bottom: var(--space-2);
-    padding-left: $padding-horizontal;
-    scroll-padding-left: $padding-horizontal;
-    width: 100vw;
-    margin-left: -$padding-horizontal;
-    margin-right: -$padding-horizontal;
 
     &::-webkit-scrollbar {
       display: none;
@@ -76,17 +71,17 @@
 
     .book-card {
       flex-shrink: 0;
-      width: calc(50% - var(--space-4));
+      width: calc((100vw - #{$padding-horizontal}) / 2 - var(--space-4));
       scroll-snap-align: start;
 
       @include from($bp-md) {
-        width: calc(25% - var(--space-4));
+        width: calc((100vw - #{$padding-horizontal}) / 4 - var(--space-4));
       }
       @include from($bp-lg) {
-        width: calc(100% / 6 - var(--space-4));
+        width: calc((100vw - #{$padding-horizontal}) / 6 - var(--space-4));
       }
       @include from($bp-xxl) {
-        width: calc(100% / 6 - var(--space-8));
+        width: calc((100vw - #{$padding-horizontal}) / 6 - var(--space-8));
       }
     }
 
@@ -107,11 +102,14 @@
       .featured-book-card__cover,
       .featured-book-card__cover-placeholder {
         position: absolute;
-        inset: var(--space-2);
-        width: auto;
-        height: auto;
+        top: var(--space-2);
+        left: var(--space-2);
+        width: calc(100% - 2 * var(--space-2));
+        height: calc(100% - 2 * var(--space-2));
         aspect-ratio: unset;
         object-fit: cover;
+        object-position: center;
+        border-radius: var(--radius-md);
       }
 
       .featured-book-card__synopsis {
