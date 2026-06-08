@@ -142,8 +142,8 @@ export default function ListDetailPage() {
         <ListEditorModal
           existingList={list}
           onClose={() => setEditorOpen(false)}
-          onSubmit={async ({ name, description, books }) => {
-            await updateList(list.id, { name, description, books });
+          onSubmit={async ({ name, description, books, isPublic }) => {
+            await updateList(list.id, { name, description, books, isPublic });
           }}
         />
       )}

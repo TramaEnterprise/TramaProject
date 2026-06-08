@@ -10,6 +10,7 @@ export type BookList = {
   name: string;
   description?: string;
   books: ListBook[];
+  isPublic?: boolean;
   createdAt: string;
   updatedAt: string;
 };

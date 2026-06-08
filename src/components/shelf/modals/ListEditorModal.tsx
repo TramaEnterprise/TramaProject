@@ -12,7 +12,7 @@ const BOOKS_PER_PAGE = 4;
 
 type ListEditorModalProps = {
   existingList?: BookList;
-  onSubmit: (data: { name: string; description: string; books: ListBook[] }) => Promise<void>;
+  onSubmit: (data: { name: string; description: string; books: ListBook[]; isPublic: boolean }) => Promise<void>;
   onClose: () => void;
 };
 
@@ -23,6 +23,7 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
   const [name, setName] = useState(existingList?.name ?? "");
   const [description, setDescription] = useState(existingList?.description ?? "");
   const [books, setBooks] = useState<ListBook[]>(existingList?.books ?? []);
+  const [isPublic, setIsPublic] = useState(existingList?.isPublic ?? true);
   const [page, setPage] = useState(0);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
@@ -50,7 +51,7 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
     setSaving(true);
     setSaveError(null);
     try {
-      await onSubmit({ name: name.trim(), description: description.trim(), books });
+      await onSubmit({ name: name.trim(), description: description.trim(), books, isPublic });
       onClose();
     } catch {
       setSaveError(t("myLibrary.listEditor.saveError"));
@@ -77,44 +78,78 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
         close: "list-editor-modal__close",
       }}
     >
-      <div className="list-editor-modal__name-field">
-        <label className="list-editor-modal__name-label" htmlFor="list-name">
-          {t("myLibrary.listEditor.nameLabel")}
-        </label>
-        <input
-          id="list-name"
-          className="list-editor-modal__name"
-          type="text"
-          placeholder={t("myLibrary.listEditor.namePlaceholder")}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
+      <div className="list-editor-modal__meta">
+        <div className="list-editor-modal__left-col">
+          <div className="list-editor-modal__name-field">
+            <label className="list-editor-modal__name-label" htmlFor="list-name">
+              {t("myLibrary.listEditor.nameLabel")}
+            </label>
+            <input
+              id="list-name"
+              className="list-editor-modal__name"
+              type="text"
+              placeholder={t("myLibrary.listEditor.namePlaceholder")}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
 
-      <div className="list-editor-modal__description-field">
-        <label className="list-editor-modal__description-label" htmlFor="list-description">
-          {t("myLibrary.listEditor.descriptionLabel")}
-        </label>
-        <textarea
-          id="list-description"
-          className="list-editor-modal__description"
-          placeholder={t("myLibrary.listEditor.descriptionPlaceholder")}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          maxLength={MAX_LIST_DESCRIPTION}
-          rows={3}
-        />
-        <span
-          className={`list-editor-modal__desc-counter${description.length >= MAX_LIST_DESCRIPTION ? " list-editor-modal__desc-counter--limit" : ""}`}
-        >
-          {description.length}/{MAX_LIST_DESCRIPTION}
-        </span>
+          <div className="list-editor-modal__visibility-field">
+            <span className="list-editor-modal__visibility-label">
+              {t("myLibrary.listEditor.visibilityLabel")}
+            </span>
+            <label className="list-editor-modal__toggle">
+              <input
+                type="checkbox"
+                className="list-editor-modal__toggle-input"
+                checked={!isPublic}
+                onChange={(e) => setIsPublic(!e.target.checked)}
+              />
+              <span className="list-editor-modal__toggle-track">
+                <span className="list-editor-modal__toggle-thumb" />
+              </span>
+              <span className="list-editor-modal__toggle-text">
+                {!isPublic
+                  ? t("myLibrary.listEditor.private")
+                  : t("myLibrary.listEditor.public")}
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="list-editor-modal__right-col">
+          <div className="list-editor-modal__description-field">
+            <div className="list-editor-modal__description-header">
+              <label className="list-editor-modal__description-label" htmlFor="list-description">
+                {t("myLibrary.listEditor.descriptionLabel")}
+              </label>
+              <span
+                className={`list-editor-modal__desc-counter${description.length >= MAX_LIST_DESCRIPTION ? " list-editor-modal__desc-counter--limit" : ""}`}
+              >
+                {description.length}/{MAX_LIST_DESCRIPTION}
+              </span>
+            </div>
+            <textarea
+              id="list-description"
+              className="list-editor-modal__description"
+              placeholder={t("myLibrary.listEditor.descriptionPlaceholder")}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              maxLength={MAX_LIST_DESCRIPTION}
+            />
+          </div>
+        </div>
       </div>
 
       <div className="list-editor-modal__search-field">
-        <p className="list-editor-modal__add-books-label">
-          {t("myLibrary.listEditor.addBooksLabel")}
-        </p>
+        <div className="list-editor-modal__search-header">
+          <p className="list-editor-modal__add-books-label">
+            {t("myLibrary.listEditor.addBooksLabel")}
+          </p>
+          <span className="list-editor-modal__counter" aria-live="polite">
+            {books.length}/{MAX_LIST_BOOKS}
+          </span>
+        </div>
         <div className="list-editor-modal__search-area">
           <BookSearchPicker
             selected={books}
@@ -133,9 +168,6 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
             }}
           />
         </div>
-        <span className="list-editor-modal__counter" aria-live="polite">
-          {books.length}/{MAX_LIST_BOOKS}
-        </span>
       </div>
 
       <div className="list-editor-modal__current">

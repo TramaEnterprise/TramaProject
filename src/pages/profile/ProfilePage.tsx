@@ -218,8 +218,8 @@ export default function ProfilePage() {
       {listEditorOpen && isOwnProfile && (
         <ListEditorModal
           onClose={() => setListEditorOpen(false)}
-          onSubmit={async ({ name, description, books }) => {
-            await createList(name, books, description);
+          onSubmit={async ({ name, description, books, isPublic }) => {
+            await createList(name, books, description, isPublic);
           }}
         />
       )}
