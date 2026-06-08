@@ -142,6 +142,7 @@
     align-items: center;
     flex-wrap: wrap;
     row-gap: var(--space-2);
+    margin-top: var(--space-2);
   }
 
   &__rating-block {
@@ -208,7 +209,7 @@
     position: relative;
     overflow: hidden;
     max-height: 170px;
-    margin-top: var(--space-4);
+    margin-top: var(--space-3);
 
     @include from($bp-md) {
       margin-right: -48px;
@@ -281,7 +282,7 @@
     justify-content: flex-start;
     gap: var(--space-2);
     min-width: 220px;
-    padding: var(--space-3) var(--space-2);
+    padding: var(--space-2) var(--space-2);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-btn-primary-bg);
     background: var(--color-btn-primary-bg);
@@ -338,7 +339,7 @@
     align-items: center;
     gap: var(--space-2);
     width: 100%;
-    padding: var(--space-3) var(--space-2);
+    padding: var(--space-2) var(--space-2);
     border: none;
     border-radius: var(--radius-md);
     background: transparent;
