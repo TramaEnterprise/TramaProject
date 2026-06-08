@@ -22,3 +22,7 @@ export function useBreadcrumbLabel(slot: string, label: string | undefined | nul
     return () => setSlot(slot, undefined);
   }, [slot, label, to, setSlot]);
 }
+
+export function useBreadcrumbOrigin() {
+  return useBreadcrumbContext().originPath;
+}

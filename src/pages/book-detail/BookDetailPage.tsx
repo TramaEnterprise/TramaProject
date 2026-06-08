@@ -14,11 +14,13 @@ import { useEffect } from "react";
 import { toWorkKey } from "@/utils/bookPaths";
 import { ChevronLeft } from "lucide-react";
 import UserReviewSection from "@/components/book/info/UserReviewSection";
-import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
+import { useBreadcrumbLabel, useBreadcrumbOrigin } from "@/context/breadcrumb/useBreadcrumb";
+import { resolveSectionCrumb } from "@/components/layout/breadcrumbs/breadcrumbConfig";
 
 export default function BookDetailPage() {
   const { bookId = "" } = useParams<{ bookId: string }>();
   const navigate = useNavigate();
+  const origin = resolveSectionCrumb(useBreadcrumbOrigin() ?? undefined);
   const { t } = useTranslation();
   const { book, loading, error } = useBookDetail(bookId);
   const { authorInfo, loading: authorLoading } = useAuthorData(
@@ -31,6 +33,7 @@ export default function BookDetailPage() {
     book?.key ?? toWorkKey(bookId)
   );
 
+  useBreadcrumbLabel("bookOrigin", t(origin.key), origin.to);
   useBreadcrumbLabel("book", book?.title);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
