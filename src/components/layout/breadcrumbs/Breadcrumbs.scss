@@ -1,0 +1,61 @@
+@use "../../../styles/lib" as *;
+
+.breadcrumbs {
+  @include container;
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    min-width: 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  &__link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+
+    &:hover { color: var(--color-text-primary); }
+    &:focus-visible {
+      outline: 2px solid var(--color-text-primary);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  &__current {
+    color: var(--color-text-primary);
+    font-weight: var(--weight-medium);
+    max-width: 60vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @include from($bp-md) { max-width: 420px; }
+  }
+
+  &__sep { color: var(--color-text-tertiary); flex-shrink: 0; }
+
+  &__skeleton {
+    display: inline-block;
+    width: 80px;
+    height: 0.9em;
+    border-radius: var(--radius-sm);
+    background: var(--color-neutral-alpha-muted);
+  }
+}

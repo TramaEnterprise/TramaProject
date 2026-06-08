@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
+import { Link } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperClass } from "swiper";
 import { EffectCards, Keyboard } from "swiper/modules";
@@ -137,18 +138,22 @@ function CurrentReadingCard() {
         aria-roledescription="carousel"
         aria-label={t("myLibrary.heading")}
       >
-        <div className="reading-carousel__header">
-          <h2 className="reading-carousel__heading">{t("myLibrary.heading")}</h2>
-          {hasBooks && (
+        {hasBooks && (
+          <div className="reading-carousel__header">
+            <h2 className="reading-carousel__heading">{t("myLibrary.heading")}</h2>
             <span className="reading-carousel__count">
               {t("myLibrary.readingCount", { current: currentIndex + 1, total: topReading.length })}
             </span>
-          )}
-        </div>
+          </div>
+        )}
 
         {!hasBooks && (
-          <div className="reading-card__empty-state">
-            <p className="reading-card__empty-state-text">{t("myLibrary.noCurrentReading")}</p>
+          <div className="reading-card reading-card--empty">
+            <div className="reading-card__empty-state">
+              <p className="reading-card__empty-state-text">
+                <Trans i18nKey="myLibrary.noCurrentReading">Parece que no estás leyendo ningún libro. ¡Añade uno ahora desde <Link to="/explore">Explorar</Link>!</Trans>
+              </p>
+            </div>
           </div>
         )}
 

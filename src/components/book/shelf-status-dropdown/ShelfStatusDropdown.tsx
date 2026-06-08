@@ -50,6 +50,7 @@ export default function ShelfStatusDropdown({
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
   const [finishModalOpen, setFinishModalOpen] = useState(false);
   const [finishEntry, setFinishEntry] = useState<ShelfEntry | null>(null);
+  const [finishCountPages, setFinishCountPages] = useState(false);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -97,6 +98,7 @@ export default function ShelfStatusDropdown({
       const existing = getEntry(book.key);
       addBook(book, "finished");
       setFinishEntry(existing ? { ...existing, status: "finished" } : { book, status: "finished" });
+      setFinishCountPages(existing?.status === "reading");
       setFinishModalOpen(true);
       setOpen(false);
       return;
@@ -185,6 +187,7 @@ export default function ShelfStatusDropdown({
         <UpdateProgressModal
           entry={finishEntry}
           title={t("myLibrary.finishModal.title")}
+          countOnFinish={finishCountPages}
           onClose={() => setFinishModalOpen(false)}
           onSkip={() => setFinishModalOpen(false)}
         />

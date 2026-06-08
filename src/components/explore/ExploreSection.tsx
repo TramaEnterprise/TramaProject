@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import BookCard from "@/components/book/cards/BookCard";
 import FeaturedBookCard from "@/components/book/cards/FeaturedBookCard";
+import EdgeScroller from "@/components/common/EdgeScroller";
 import ExploreGridSkeleton from "./ExploreGridSkeleton";
 import { useSectionBooks } from "@/pages/explore/hooks/useSectionBooks";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
@@ -112,12 +113,17 @@ export default function ExploreSection({
       )}
 
       {!loading && !error && books.length > 0 && (
-        <div className="explore-section__scroll">
+        <EdgeScroller
+          className="explore-section__scroll"
+          ariaPrev={t("explore.scrollPrev")}
+          ariaNext={t("explore.scrollNext")}
+          deps={books.length}
+        >
           {featured && books[0] && <FeaturedBookCard book={books[0]} />}
           {(featured ? books.slice(1) : books).map((book) => (
             <BookCard key={book.key} book={book} />
           ))}
-        </div>
+        </EdgeScroller>
       )}
     </section>
   );

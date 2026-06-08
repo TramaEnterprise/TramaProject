@@ -16,6 +16,8 @@ import AppToaster from "./components/common/Toaster/AppToaster";
 import { queryClient } from "./services/lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Breadcrumbs from "./components/layout/breadcrumbs/BreadCrumbs";
+import { BreadcrumbProvider } from "./context/breadcrumb/BreadCrumbContext";
 
 const SCROLL_THRESHOLD = 80;
 
@@ -47,6 +49,7 @@ function AppShell() {
       <Navbar hidden={effectiveScrolled} onActiveClick={reloadCurrent} />
       <NavbarMini visible={effectiveScrolled} onActiveClick={reloadCurrent} />
       <main>
+        <Breadcrumbs />
         <Outlet key={reloadCount} />
       </main>
       <Footer />
@@ -74,7 +77,9 @@ export default function App() {
             <AuthProvider>
               <ShelfProvider>
                 <NotificationsProvider>
-                  <AppShell />
+                  <BreadcrumbProvider>
+                    <AppShell />
+                  </BreadcrumbProvider>
                 </NotificationsProvider>
               </ShelfProvider>
             </AuthProvider>

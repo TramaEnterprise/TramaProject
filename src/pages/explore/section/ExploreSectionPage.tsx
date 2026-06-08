@@ -11,6 +11,7 @@ import "./ExploreSectionPage.scss";
 import { useShelfDerivedFavorites } from "@/pages/explore/hooks/useShelfDerivedFavorites";
 import { useState } from "react";
 import LoadMore from "@/components/common/LoadMore";
+import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
 
 const SECTION_TITLE_KEYS: Record<ExploreSectionType, string> = {
   trending: "explore.sections.trending",
@@ -54,7 +55,6 @@ export default function ExploreSectionPage() {
 
   const sectionType = type as ExploreSectionType;
   const shelfDerived = useShelfDerivedFavorites();
-
   const favoriteGenreLabel = searchParams.get("genreLabel") ?? undefined;
 
   const params: ExploreSectionParams = {
@@ -107,6 +107,7 @@ export default function ExploreSectionPage() {
     sectionType === "more-author" ? params.favoriteAuthorName :
     undefined;
 
+  useBreadcrumbLabel("section", title);
   return (
     <div className="section-page">
       <div className="section-page__header">

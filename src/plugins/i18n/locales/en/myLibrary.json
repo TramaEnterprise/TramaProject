@@ -1,7 +1,7 @@
 {
   "myLibrary": {
     "heading": "Currently reading...",
-    "noCurrentReading": "You're not reading any book",
+    "noCurrentReading": "Looks like you're not reading any book. Add one now from <1>Explore</1>!",
     "nextBook": "Next reading book",
     "prevBook": "View previous book",
     "readingCount": "{{current}}/{{total}}",
@@ -97,7 +97,11 @@
       "pagesWeek": "pgs. this week",
       "pagesToday": "pgs. today",
       "lastWeek": "vs last week",
-      "favoriteGenres": "Favourite genres"
+      "favoriteGenres": "Favourite genres",
+      "emptyWeek": "No reading logged this week yet.",
+      "emptyGenres": "Finish books to see your favourite genres.",
+      "pagesTooltip_one": "{{count}} page read",
+      "pagesTooltip_other": "{{count}} pages read"
     },
     "days": {
       "mon": "MO",

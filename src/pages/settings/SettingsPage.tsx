@@ -1,8 +1,17 @@
 import { usePreferences } from "@/context/preferences/usePreferences";
 import "./SettingsPage.scss";
+import { useLocation } from "react-router";
+import { useTranslation } from "react-i18next";
+import { resolveSectionCrumb } from "@/components/layout/breadcrumbs/breadcrumbConfig";
+import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
 
 export default function SettingsPage() {
   const { miniNavEnabled, setMiniNavEnabled } = usePreferences();
+  const location = useLocation();
+  const { t } = useTranslation();
+  const from = (location.state as { from?: string } | null)?.from;
+  const origin = resolveSectionCrumb(from);
+  useBreadcrumbLabel("settingsOrigin", t(origin.key), origin.to);
 
   return (
     <div className="settings-page">
