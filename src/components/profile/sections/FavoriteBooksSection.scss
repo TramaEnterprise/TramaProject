@@ -34,7 +34,7 @@
     @include transition(border-color);
 
     &:hover {
-      border-color: var(--color-border-strong);
+      border-color: var(--color-text-primary);
     }
   }
 
