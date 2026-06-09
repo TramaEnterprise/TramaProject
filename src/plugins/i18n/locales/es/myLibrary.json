@@ -91,7 +91,9 @@
       "wantToRead": "Quiero leer",
       "reading": "Leyendo",
       "finished": "Acabado",
-      "didNotFinish": "Abandonado"
+      "didNotFinish": "Abandonado",
+      "prevPage": "Página anterior",
+      "nextPage": "Página siguiente"
     },
     "progress": {
       "title": "Progresos",

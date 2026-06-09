@@ -40,7 +40,6 @@
     gap: var(--space-1);
     height: 80px;
     flex: 1;
-    // líneas de guía a 33%, 66% y 100% de la altura de las barras (64px en 80px de contenedor)
     background-image:
       linear-gradient(to right, var(--color-border-subtle) 100%, transparent 0),
       linear-gradient(to right, var(--color-border-subtle) 100%, transparent 0),
@@ -195,7 +194,7 @@
     width: 100px;
     height: 100px;
     border-radius: var(--radius-pill);
-    background: var(--color-text-primary);
+    background: var(--color-border-subtle);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -19,7 +19,6 @@ type ProfileHeaderProps = {
   onRequestsClick: () => void;
   onBlock: () => void;
   onBooksReadClick?: () => void;
-  onImportClick?: () => void;
 };
 
 export default function ProfileHeader({
@@ -37,7 +36,6 @@ export default function ProfileHeader({
   onRequestsClick,
   onBlock,
   onBooksReadClick,
-  onImportClick,
 }: ProfileHeaderProps) {
   const { t } = useTranslation();
   const displayName = `${profile.name} ${profile.surname}`.trim() || profile.email;
@@ -163,15 +161,6 @@ export default function ProfileHeader({
                     onClick={onRequestsClick}
                   >
                     {t("profile.header.requests")}
-                  </button>
-                )}
-                {onImportClick && (
-                  <button
-                    type="button"
-                    className="profile-header__btn profile-header__btn--edit"
-                    onClick={onImportClick}
-                  >
-                    {t("profile.goodreadsImport.button")}
                   </button>
                 )}
                 <button

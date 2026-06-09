@@ -23,7 +23,6 @@ import { useProfileShelf } from "@/pages/profile/hooks/useProfileShelf";
 import { useProfileActivity } from "@/pages/profile/hooks/useProfileActivity";
 import { useBlockActions } from "@/hooks/useBlockActions";
 import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
-import GoodreadsImportModal from "@/components/profile/modals/GoodreadsImportModal";
 
 export default function ProfilePage() {
   const { userId: paramUserId, username: paramUsername } = useParams<{
@@ -34,7 +33,6 @@ export default function ProfilePage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const [importOpen, setImportOpen] = useState(false);
   const [resolvedUserId, setResolvedUserId] = useState<string | null>(null);
   const [resolveState, setResolveState] = useState<"loading" | "done" | "notfound">("loading");
 
@@ -168,7 +166,6 @@ export default function ProfilePage() {
             ? () => navigate("/my-library/shelf", { state: { status: "finished" } })
             : undefined
         }
-        onImportClick={isOwnProfile ? () => setImportOpen(true) : undefined}
       />
 
       {isBlocked ? (
@@ -231,10 +228,6 @@ export default function ProfilePage() {
             await createList(name, books, description, isPublic);
           }}
         />
-      )}
-
-      {importOpen && isOwnProfile && (
-        <GoodreadsImportModal onClose={() => setImportOpen(false)} />
       )}
     </section>
   );
