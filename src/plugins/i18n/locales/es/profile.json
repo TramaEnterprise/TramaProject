@@ -129,6 +129,27 @@
         "hoursAgo": "hace {{value}}h",
         "daysAgo": "hace {{value}}d"
       }
+    },
+    "goodreadsImport": {
+      "button": "Importar de Goodreads",
+      "title": "Importar desde Goodreads",
+      "closeAria": "Cerrar importación",
+      "intro": "Sube el archivo CSV que exportas desde Goodreads (My Books → Import and export → Export Library). Importaremos tus libros y su estado de lectura a tu estantería.",
+      "selectFile": "Seleccionar archivo CSV",
+      "fileHint": "Solo archivos .csv de Goodreads",
+      "previewTitle": "Detectados {{count}} libros",
+      "previewBreakdown": "{{finished}} leídos · {{reading}} leyendo · {{wantToRead}} por leer",
+      "truncated": "Se importarán los primeros {{max}} libros.",
+      "import": "Importar",
+      "cancel": "Cancelar",
+      "importing": "Importando datos…",
+      "progress": "{{done}} / {{total}}",
+      "doneTitle": "Importación completada",
+      "summary": "Importados {{imported}} · Ya existían {{alreadyExisted}} · No encontrados {{notFound}}",
+      "notFoundTitle": "No se pudieron importar ({{count}})",
+      "close": "Cerrar",
+      "errorInvalid": "El archivo no parece una exportación de Goodreads.",
+      "errorEmpty": "No se encontraron libros para importar en el archivo."
     }
   }
 }

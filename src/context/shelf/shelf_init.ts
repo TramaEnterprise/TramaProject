@@ -22,6 +22,7 @@ export type ShelfContextType = {
       skipProgressLog?: boolean;
     }
   ) => Promise<void>;
+  reload: () => Promise<void>;
 };
 
 export const ShelfContext = createContext<ShelfContextType | null>(null);

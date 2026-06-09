@@ -1,7 +1,7 @@
 import { useDebouncedBookSearch } from "@/hooks/useDebouncedBookSearch";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import type { Book } from "@/types/Book";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 type BookSearchPickerMode = "single" | "multi";
@@ -51,23 +51,23 @@ export default function BookSearchPicker({
     () => new Set(selected.map((book) => book.key)),
     [selected]
   );
+
+  const validPending = useMemo(
+    () => pendingBooks.filter((book) => !selectedKeys.has(book.key)),
+    [pendingBooks, selectedKeys]
+  );
   const pendingKeys = useMemo(
-    () => new Set(pendingBooks.map((book) => book.key)),
-    [pendingBooks]
+    () => new Set(validPending.map((book) => book.key)),
+    [validPending]
   );
 
   const remainingSlots = Math.max(0, max - selected.length);
 
-  useEffect(() => {
-    if (mode === "multi") {
-      setPendingBooks([]);
-    }
-  }, [mode, query]);
-
-  useEffect(() => {
-    if (mode !== "multi") return;
-    setPendingBooks((current) => current.filter((book) => !selectedKeys.has(book.key)));
-  }, [mode, selectedKeys]);
+  const [prevReset, setPrevReset] = useState({ mode, query });
+  if (prevReset.mode !== mode || prevReset.query !== query) {
+    setPrevReset({ mode, query });
+    if (mode === "multi" && pendingBooks.length > 0) setPendingBooks([]);
+  }
 
   if (selected.length >= max) return null;
 
@@ -99,7 +99,7 @@ export default function BookSearchPicker({
         return current.filter((item) => item.key !== book.key);
       }
 
-      if (current.length >= remainingSlots) {
+      if (validPending.length >= remainingSlots) {
         return current;
       }
 
@@ -108,7 +108,7 @@ export default function BookSearchPicker({
   };
 
   const handleAddPending = () => {
-    const booksToAdd = pendingBooks.slice(0, remainingSlots);
+    const booksToAdd = validPending.slice(0, remainingSlots);
     if (booksToAdd.length === 0) return;
 
     if (onAddMany) {
@@ -159,7 +159,7 @@ export default function BookSearchPicker({
           {results.map((book) => {
             const alreadySelected = selectedKeys.has(book.key);
             const isPending = pendingKeys.has(book.key);
-            const isDisabled = alreadySelected || (!isPending && pendingBooks.length >= remainingSlots);
+            const isDisabled = alreadySelected || (!isPending && validPending.length >= remainingSlots);
 
             return (
               <li key={book.key}>
@@ -191,10 +191,10 @@ export default function BookSearchPicker({
         </ul>
       )}
 
-      {mode === "multi" && pendingBooks.length > 0 && (
+      {mode === "multi" && validPending.length > 0 && (
         <div className={classNames?.selectionBar}>
           <span className={classNames?.selectionText}>
-            {t(`${translationPrefix}.selectedCount`, { count: pendingBooks.length })}
+            {t(`${translationPrefix}.selectedCount`, { count: validPending.length })}
           </span>
           <div className={classNames?.selectionActions}>
             <button
