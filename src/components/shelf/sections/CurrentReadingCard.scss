@@ -122,6 +122,11 @@
       width: 16px;
       height: 16px;
     }
+
+    &--hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
   }
 }
 
