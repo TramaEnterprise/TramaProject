@@ -35,11 +35,31 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
     safePage * BOOKS_PER_PAGE + BOOKS_PER_PAGE
   );
 
+  const toListBook = (book: Book): ListBook => ({
+    key: book.key,
+    title: book.title,
+    authors: book.authors,
+    cover_url: book.cover_url,
+  });
+
+  const addBooks = (incomingBooks: Book[]) => {
+    const currentKeys = new Set(books.map((book) => book.key));
+    const remainingSlots = MAX_LIST_BOOKS - books.length;
+
+    const nextBooks = incomingBooks
+      .filter((book) => !currentKeys.has(book.key))
+      .slice(0, remainingSlots)
+      .map(toListBook);
+
+    if (nextBooks.length === 0) return;
+
+    const updatedBooks = [...books, ...nextBooks];
+    setBooks(updatedBooks);
+    setPage(Math.max(0, Math.ceil(updatedBooks.length / BOOKS_PER_PAGE) - 1));
+  };
+
   const addBook = (book: Book) => {
-    setBooks((prev) => [
-      ...prev,
-      { key: book.key, title: book.title, authors: book.authors, cover_url: book.cover_url },
-    ]);
+    addBooks([book]);
   };
 
   const removeBook = (key: string) => {
@@ -154,7 +174,9 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
           <BookSearchPicker
             selected={books}
             max={MAX_LIST_BOOKS}
+            mode="multi"
             onAdd={addBook}
+            onAddMany={addBooks}
             translationPrefix="myLibrary.listEditor"
             classNames={{
               search: "list-editor-modal__search",
@@ -165,6 +187,13 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
               resultCover: "list-editor-modal__result-cover",
               resultTitle: "list-editor-modal__result-title",
               resultAuthor: "list-editor-modal__result-author",
+              resultContent: "list-editor-modal__result-content",
+              resultCheckbox: "list-editor-modal__result-checkbox",
+              selectionBar: "list-editor-modal__selection-bar",
+              selectionText: "list-editor-modal__selection-text",
+              selectionActions: "list-editor-modal__selection-actions",
+              clearSelection: "list-editor-modal__selection-clear",
+              addSelected: "list-editor-modal__selection-add",
             }}
           />
         </div>

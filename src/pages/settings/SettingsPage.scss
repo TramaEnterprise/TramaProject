@@ -63,6 +63,24 @@
     margin: 0;
   }
 
+  &__action-btn {
+    flex-shrink: 0;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--color-border-medium);
+    background: transparent;
+    color: var(--color-text-primary);
+    font-family: var(--font-main);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+
+    &:hover {
+      border-color: var(--color-text-primary);
+    }
+  }
+
   // Toggle
   &__toggle {
     position: relative;

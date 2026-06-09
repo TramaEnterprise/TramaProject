@@ -560,6 +560,23 @@ export async function searchBooksByIsbnFromDB(
   return snap.docs.map((d) => mapBookDoc(d.data(), lang));
 }
 
+// export async function searchBooksInDB(
+//   queryText: string,
+//   filter: SearchFilter,
+//   lang: string,
+//   maxResults = 20
+// ): Promise<Book[]> {
+//   switch (filter) {
+//     case "autor":
+//       return searchBooksByAuthorFromDB(queryText, lang, maxResults);
+//     case "isbn":
+//       return searchBooksByIsbnFromDB(queryText, lang, maxResults);
+//     case "titulo":
+//     case "todo":
+//     default:
+//       return searchBooksFromDB(queryText, lang, maxResults);
+//   }
+// }
 export async function searchBooksInDB(
   queryText: string,
   filter: SearchFilter,
@@ -572,11 +589,26 @@ export async function searchBooksInDB(
     case "isbn":
       return searchBooksByIsbnFromDB(queryText, lang, maxResults);
     case "titulo":
-    case "todo":
-    default:
       return searchBooksFromDB(queryText, lang, maxResults);
+    case "todo":
+    default: {
+      // "Todo": busca por título Y por autor, y fusiona (dedup por key).
+      const [byTitle, byAuthor] = await Promise.all([
+        searchBooksFromDB(queryText, lang, maxResults),
+        searchBooksByAuthorFromDB(queryText, lang, maxResults),
+      ]);
+      const seen = new Set<string>();
+      const merged: Book[] = [];
+      for (const b of [...byTitle, ...byAuthor]) {
+        if (seen.has(b.key)) continue;
+        seen.add(b.key);
+        merged.push(b);
+      }
+      return merged.slice(0, maxResults);
+    }
   }
 }
+
 
 export async function getBookFromDB(workKey: string, lang: string): Promise<Book | null> {
   const refDoc = doc(db, BOOKS_COLLECTION, encodeKey(workKey));

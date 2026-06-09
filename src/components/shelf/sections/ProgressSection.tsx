@@ -3,6 +3,10 @@ import { genreToI18nKey } from "@/utils/genreUtils";
 import { useReadingStats } from "@/pages/my-library/hooks/useReadingStats";
 import "./ProgressSection.scss";
 
+const goalCurrent = 16;
+const goalTarget = 20;
+const goalPct = Math.min(100, Math.round((goalCurrent / goalTarget) * 100));
+
 export default function ProgressSection() {
   const { t } = useTranslation();
   const { weekly, genres, loading } = useReadingStats();
@@ -66,15 +70,23 @@ export default function ProgressSection() {
         <div className="progresses__bottom">
           <div className="progresses__goal">
             <p className="progresses__section-label">{t("myLibrary.progress.annualGoal")}</p>
-            <div className="progresses__goal-outer">
+            <div
+              className="progresses__goal-outer"
+              style={{
+                background: `conic-gradient(var(--color-text-primary) ${goalPct}%, var(--color-border-subtle) 0)`,
+              }}
+            >
               <div className="progresses__goal-inner">
-                <span className="progresses__goal-number">20/20</span>
+                <span className="progresses__goal-number">
+                  {goalCurrent}/{goalTarget}
+                </span>
                 <span className="progresses__goal-label">{t("myLibrary.progress.books")}</span>
               </div>
             </div>
-            <p className="progresses__goal-completed">{t("myLibrary.progress.completed")}</p>
+            {goalCurrent >= goalTarget && (
+              <p className="progresses__goal-completed">{t("myLibrary.progress.completed")}</p>
+            )}
           </div>
-
           <div className="progresses__genres-wrap">
             <p className="progresses__section-label">{t("myLibrary.progress.favoriteGenres")}</p>
             {genres.length === 0 ? (

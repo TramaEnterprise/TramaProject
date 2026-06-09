@@ -62,8 +62,12 @@ export default function ShelfSection({
     setPage(0);
   }
 
-  function handleChevron() {
-    setPage((p) => (p + 1) % totalPages);
+  function handlePrev() {
+    setPage((p) => Math.max(0, p - 1));
+  }
+
+  function handleNext() {
+    setPage((p) => Math.min(totalPages - 1, p + 1));
   }
 
   return (
@@ -108,6 +112,20 @@ export default function ShelfSection({
           </div>
         ) : (
           <>
+            {totalPages > 1 && (
+              <div className="shelf-section__chevron-area shelf-section__chevron-area--left">
+                <button
+                  type="button"
+                  className="shelf-section__chevron"
+                  onClick={handlePrev}
+                  disabled={page === 0}
+                  aria-label={t("myLibrary.shelf.prevPage")}
+                >
+                  <ChevronLeft />
+                </button>
+              </div>
+            )}
+
             <div
               className={`shelf-section__track ${singleRow ? "shelf-section__track--single-row" : ""}`}
             >
@@ -141,14 +159,17 @@ export default function ShelfSection({
                     );
                   })}
             </div>
+
             {totalPages > 1 && (
-              <div className="shelf-section__chevron-area">
+              <div className="shelf-section__chevron-area shelf-section__chevron-area--right">
                 <button
                   type="button"
                   className="shelf-section__chevron"
-                  onClick={handleChevron}
+                  onClick={handleNext}
+                  disabled={isLastPage}
+                  aria-label={t("myLibrary.shelf.nextPage")}
                 >
-                  {isLastPage ? <ChevronLeft /> : <ChevronRight />}
+                  <ChevronRight />
                 </button>
               </div>
             )}

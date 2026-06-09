@@ -68,7 +68,12 @@
       "saveError": "Could not save the list",
       "visibilityLabel": "Visibility",
       "public": "Public",
-      "private": "Private"
+      "private": "Private",
+      "selectedCount_one": "{{count}} book selected",
+      "selectedCount_other": "{{count}} books selected",
+      "addSelected_one": "Add {{count}} book",
+      "addSelected_other": "Add {{count}} books",
+      "clearSelection": "Clear selection"
     },
     "listDetail": {
       "empty": "This list has no books",
@@ -86,7 +91,9 @@
       "wantToRead": "Want to read",
       "reading": "Reading",
       "finished": "Finished",
-      "didNotFinish": "Abandoned"
+      "didNotFinish": "Abandoned",
+      "prevPage": "Previous page",
+      "nextPage": "Next page"
     },
     "progress": {
       "title": "Progress",
