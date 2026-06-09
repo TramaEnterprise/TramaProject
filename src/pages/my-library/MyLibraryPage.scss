@@ -52,6 +52,7 @@
       );
       filter: blur(70px);
       z-index: -1;
+      pointer-events: none;
       transform-origin: center;
 
       @media (prefers-reduced-motion: no-preference) {
