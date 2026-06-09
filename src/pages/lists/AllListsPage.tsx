@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router";
+import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useAuth } from "@/context/auth/useAuth";
 import { useLists } from "@/hooks/useLists";
 import ListCard from "@/components/shelf/cards/ListCard";
@@ -11,7 +11,6 @@ import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
 
 export default function AllListsPage() {
   const { userId } = useParams<{ userId: string }>();
-  const navigate = useNavigate();
   const { t } = useTranslation();
   const { user } = useAuth();
   const { lists, loading, createList } = useLists(userId);
@@ -28,10 +27,6 @@ export default function AllListsPage() {
   return (
     <div className="all-lists-page">
       <div className="all-lists-page__header">
-        <button type="button" className="all-lists-page__back" onClick={() => navigate(-1)}>
-          <ChevronLeft aria-hidden="true" />
-          {t("explore.backBtn")}
-        </button>
         <h2 className="all-lists-page__title">{t("myLibrary.allListsTitle")}</h2>
       </div>
 

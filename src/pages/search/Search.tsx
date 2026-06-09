@@ -2,7 +2,7 @@ import { useState, useRef, type FormEvent, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import BookCard from "@/components/book/cards/BookCard";
-import { Search, X } from "lucide-react";
+import { Search, X, ChevronLeft } from "lucide-react";
 import "./Search.scss";
 import { useBookSearchInfinite } from "@/hooks/useBookSearchInfinite";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
@@ -44,7 +44,7 @@ export default function SearchPage() {
 
 
   useEffect(() => {
-    if (hasNextPage && !isFetchingNextPage && !loading && books.length > 0 && books.length <= 6) {
+    if (hasNextPage && !isFetchingNextPage && !loading && books.length <= 6) {
       fetchNextPage();
     }
   }, [hasNextPage, isFetchingNextPage, loading, books.length, fetchNextPage]);
@@ -67,10 +67,20 @@ export default function SearchPage() {
     }
   };
 
-  const showNoResults = !loading && !error && !insufficient && trimmedQ !== "" && books.length === 0;
+  // "searching" cubre tanto la carga inicial (BD) como el fallback a la API
+  // cuando la BD trajo ≤6 (incluido 0) — así no parpadea "sin resultados".
+  const searching = loading || (isFetchingNextPage && books.length === 0);
+  const showNoResults = !searching && !error && !insufficient && trimmedQ !== "" && books.length === 0;
 
   return (
     <div className="search-page">
+      <div className="search-page__header">
+        <button type="button" className="search-page__back-btn" onClick={() => navigate(-1)}>
+          <ChevronLeft aria-hidden="true" />
+          {t("explore.backBtn")}
+        </button>
+      </div>
+
       <div className="search-page__search-wrap">
         <h2 className="search-page__search-title">{t("explore.searchTitle")}</h2>
         <form className="search-page__search-form" onSubmit={handleSubmit} role="search">
@@ -108,12 +118,16 @@ export default function SearchPage() {
       <div className="search-page__results">
         {!q.trim() && <p className="search-page__status">{t("search.emptyPrompt")}</p>}
 
-        {loading && <p className="search-page__status">{t("explore.searching")}</p>}
+        {searching && <p className="search-page__status">{t("explore.searching")}</p>}
 
-        {error && !loading && <p className="search-page__error">{error}</p>}
+        {error && !searching && <p className="search-page__error">{error}</p>}
 
         {insufficient && (
-          <p className="search-page__status">{t("search.tooShort")}</p>
+          <div className="search-page__no-results">
+            <h3 className="search-page__no-results-title">{t("search.tooShort")}</h3>
+            <p className="search-page__no-results-subtitle">{t("search.noResultsSubtitle")}</p>
+            <img src="/no-results.png" alt="" className="search-page__no-results-img" />
+          </div>
         )}
 
         {showNoResults && (

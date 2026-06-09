@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, Pencil, MoreHorizontal, Share2, Trash2, Lock } from "lucide-react";
+import { Pencil, MoreHorizontal, Share2, Trash2, Lock } from "lucide-react";
 import { useAuth } from "@/context/auth/useAuth";
 import { useLists } from "@/hooks/useLists";
 import BookCard from "@/components/book/cards/BookCard";
@@ -61,10 +61,6 @@ export default function ListDetailPage() {
   return (
     <div className="list-detail-page">
       <div className="list-detail-page__header">
-        <button type="button" className="list-detail-page__back" onClick={() => navigate(-1)}>
-          <ChevronLeft aria-hidden="true" />
-          {t("explore.backBtn")}
-        </button>
         {list && (
           <div className="list-detail-page__header-row">
             <div className="list-detail-page__title-block">

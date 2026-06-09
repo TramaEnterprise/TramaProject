@@ -44,7 +44,7 @@ export function useBookSearchInfinite(query: string, filter: SearchFilter, lang:
         pageParam.page
       );
       const deduped = dedupBestByTitle(books);
-      if (deduped.length > 0) saveBooksToDB(deduped, lang); // fire-and-forget
+      if (deduped.length > 0) saveBooksToDB(deduped, lang);
       return { phase: "api", books: deduped, totalResults, page: pageParam.page };
     },
     getNextPageParam: (lastPage, allPages): SearchPageParam | undefined => {
