@@ -36,7 +36,7 @@ export default function AllListsPage() {
       </div>
 
       {!loading && (
-        <div className="all-lists-page__grid">
+        <div className="lists-section__grid">
           {lists.map((list) => (
             <ListCard key={list.id} list={list} userId={userId!} />
           ))}
@@ -47,7 +47,7 @@ export default function AllListsPage() {
               onClick={() => setEditorOpen(true)}
             >
               <div className="lists-section__create-icon">
-                <Plus size={18} aria-hidden="true" />
+                <Plus size={14} aria-hidden="true" />
               </div>
               <span className="lists-section__create-text">{t("myLibrary.createList")}</span>
             </button>
