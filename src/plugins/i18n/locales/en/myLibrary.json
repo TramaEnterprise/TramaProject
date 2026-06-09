@@ -68,7 +68,12 @@
       "saveError": "Could not save the list",
       "visibilityLabel": "Visibility",
       "public": "Public",
-      "private": "Private"
+      "private": "Private",
+      "selectedCount_one": "{{count}} book selected",
+      "selectedCount_other": "{{count}} books selected",
+      "addSelected_one": "Add {{count}} book",
+      "addSelected_other": "Add {{count}} books",
+      "clearSelection": "Clear selection"
     },
     "listDetail": {
       "empty": "This list has no books",
