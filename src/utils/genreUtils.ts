@@ -57,19 +57,8 @@ export function genreToColorVar(genre: string): string {
   return GENRE_COLOR_MAP[genre] ?? "var(--color-genre-default)";
 }
 
-const MORE_GENRE_TITLE_KEYS: Record<string, string> = {
-  Fiction: "explore.sections.moreGenreFiction",
-  "Non-Fiction": "explore.sections.moreGenreNonFiction",
-  "Mystery and detective stories": "explore.sections.moreGenreMystery",
-  Romance: "explore.sections.moreGenreRomance",
-  "Science Fiction": "explore.sections.moreGenreSciFi",
-  "Historical Fiction": "explore.sections.moreGenreHistoricalFiction",
-  Fantasy: "explore.sections.moreGenreFantasy",
-  Thriller: "explore.sections.moreGenreThriller",
-};
-
-export function moreGenreTitleKey(genre: string | undefined): string {
-  return (genre && MORE_GENRE_TITLE_KEYS[genre]) ?? "explore.sections.moreGenre";
+export function moreGenreTitleKey(_genre: string | undefined): string {
+  return "explore.sections.moreGenre";
 }
 
 export function genreToImage(genre: string): string | undefined {

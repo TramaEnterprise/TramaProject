@@ -159,16 +159,15 @@ function CurrentReadingCard() {
 
         {hasBooks && (
           <div className="reading-carousel__stage">
-            {showChevrons && (
-              <button
-                type="button"
-                className="reading-carousel__chevron reading-carousel__chevron--prev"
-                onClick={goPrev}
-                aria-label={t("myLibrary.prevBook")}
-              >
-                <ChevronLeft />
-              </button>
-            )}
+            <button
+              type="button"
+              className={`reading-carousel__chevron reading-carousel__chevron--prev${!showChevrons ? " reading-carousel__chevron--hidden" : ""}`}
+              onClick={goPrev}
+              aria-label={t("myLibrary.prevBook")}
+              tabIndex={showChevrons ? undefined : -1}
+            >
+              <ChevronLeft />
+            </button>
 
             <Swiper
               modules={[EffectCards, Keyboard]}
@@ -209,16 +208,15 @@ function CurrentReadingCard() {
               ))}
             </Swiper>
 
-            {showChevrons && (
-              <button
-                type="button"
-                className="reading-carousel__chevron reading-carousel__chevron--next"
-                onClick={goNext}
-                aria-label={t("myLibrary.nextBook")}
-              >
-                <ChevronRight />
-              </button>
-            )}
+            <button
+              type="button"
+              className={`reading-carousel__chevron reading-carousel__chevron--next${!showChevrons ? " reading-carousel__chevron--hidden" : ""}`}
+              onClick={goNext}
+              aria-label={t("myLibrary.nextBook")}
+              tabIndex={showChevrons ? undefined : -1}
+            >
+              <ChevronRight />
+            </button>
           </div>
         )}
       </section>

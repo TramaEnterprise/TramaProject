@@ -1,5 +1,16 @@
 @use "../../styles/lib" as *;
 
+@keyframes glow-breathe {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
 .my-library {
   @include container;
   padding-top: var(--space-6);
@@ -29,53 +40,33 @@
     justify-content: center;
     gap: var(--space-3);
 
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      margin: auto;
-      width: 550px;
-      aspect-ratio: 1;
-      background: #fff1e2;
-      z-index: -1;
-
-      mask:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='460'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='1'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='discrete' tableValues='0 1'/%3E%3CfeFuncG type='discrete' tableValues='0 1'/%3E%3CfeFuncB type='discrete' tableValues='0 1'/%3E%3CfeFuncA type='discrete' tableValues='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='460' height='460' filter='url(%23n)'/%3E%3C/svg%3E") center / 100% 100%,
-        radial-gradient(circle closest-side, #fff 64%, #000 98%);
-      mask-mode: luminance, luminance;
-      mask-composite: intersect;
-      -webkit-mask-composite: source-in;
-
-      @include from($bp-md) {
-        width: 680px;
-      }
-    }
-
     &::after {
       content: "";
       position: absolute;
-      inset: 0;
-      margin: auto;
-      width: 445px;
-      aspect-ratio: 1;
-      background:
-        radial-gradient(
-          circle closest-side,
-          rgba(255, 255, 255, 1) 0%,
-          rgba(255, 250, 242, 0) 60%
-        ),
-        radial-gradient(
-          circle closest-side,
-          #fff4e6 0%,
-          #fcdcbf 42%,
-          #f2bd8a 72%,
-          rgba(249, 219, 193, 0) 100%
-        );
-      filter: blur(16px);
+      inset: -10% -10%;
+      background: radial-gradient(
+        circle at center,
+        color-mix(in oklch, var(--color-brand-muted) 55%, transparent) 0%,
+        color-mix(in oklch, var(--color-brand-muted) 30%, transparent) 35%,
+        transparent 65%
+      );
+      filter: blur(70px);
       z-index: -1;
+      pointer-events: none;
+      transform-origin: center;
 
-      @include from($bp-md) {
-        width: 575px;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: glow-breathe 5s ease-in-out infinite;
+      }
+
+      [data-theme="dark"] & {
+        background: radial-gradient(
+          circle at center,
+          color-mix(in oklch, var(--color-brand-muted) 65%, transparent) 0%,
+          color-mix(in oklch, var(--color-brand-muted) 30%, transparent) 35%,
+          transparent 65%
+        );
+        filter: blur(55px);
       }
     }
 
