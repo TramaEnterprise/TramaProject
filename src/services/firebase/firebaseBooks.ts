@@ -436,7 +436,7 @@ export async function searchBooksFromDB(
   const tokenField = `titleTokens.${lang}`;
   const normField = `titleNorm.${lang}`;
   const qNorm = normalizeTitleForSearch(queryText);
-  const FETCH_LIMIT = 40;
+  const FETCH_LIMIT = 150;
 
   const tokenConstraints =
     words.length === 1

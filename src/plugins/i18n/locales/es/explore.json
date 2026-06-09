@@ -53,6 +53,7 @@
     "searchBtnLabel": "Buscar",
     "emptyPrompt": "Escribe algo para buscar libros",
     "noResultsSubtitle": "Prueba con otra búsqueda",
-    "seeAllResults": "Ver más resultados"
+    "seeAllResults": "Ver más resultados",
+    "tooShort": "Escribe al menos 3 caracteres"
   }
 }
