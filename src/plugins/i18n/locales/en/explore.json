@@ -28,7 +28,7 @@
       "moreGenre": "{{genre}} recommendations",
       "newReleasesForYou": "New releases for you",
       "waiting": "Fantastic stories await you",
-      "moreAuthor": "More by {{author}}",
+      "moreAuthor": "More books by {{author}}",
       "topGenre": "{{genre}} recommendations",
       "acclaimed": "Critically acclaimed",
       "becauseLiked": "Because you liked {{title}}",
