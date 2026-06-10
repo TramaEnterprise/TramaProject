@@ -8,7 +8,7 @@ import { dedupBestByTitle } from "@/utils/bookDedup";
 import { filterVisibleBooks } from "@/utils/hiddenGenres";
 
 const PAGE_SIZE = 20;
-const DB_POOL_SIZE = 40;
+const DB_POOL_SIZE = 200;
 
 type SearchPage =
   | { phase: "db"; books: Book[] }
@@ -37,7 +37,13 @@ export function useBookSearchInfinite(query: string, filter: SearchFilter, lang:
         return { phase: "db", books };
       }
       const params = getSearchParams(trimmed, filter);
-      const { books, totalResults } = await searchBooks(params, PAGE_SIZE, lang, signal, pageParam.page);
+      const { books, totalResults } = await searchBooks(
+        params,
+        PAGE_SIZE,
+        lang,
+        signal,
+        pageParam.page
+      );
       const deduped = dedupBestByTitle(books);
       if (deduped.length > 0) saveBooksToDB(deduped, lang); // fire-and-forget (cachea todos)
       // Se muestran solo los visibles; el catálogo completo ya queda cacheado.
@@ -49,7 +55,9 @@ export function useBookSearchInfinite(query: string, filter: SearchFilter, lang:
       };
     },
     getNextPageParam: (lastPage, allPages): SearchPageParam | undefined => {
-      if (lastPage.phase === "db") return { phase: "api", page: 1 };
+      if (lastPage.phase === "db") {
+        return lastPage.books.length <= 6 ? { phase: "api", page: 1 } : undefined;
+      }
       const apiLoaded = allPages
         .filter((p): p is Extract<SearchPage, { phase: "api" }> => p.phase === "api")
         .reduce((n, p) => n + p.books.length, 0);
@@ -62,7 +70,9 @@ export function useBookSearchInfinite(query: string, filter: SearchFilter, lang:
 
   const pages = infinite.data?.pages ?? [];
   const books = dedupByKey(pages.flatMap((p) => p.books));
-  const apiPages = pages.filter((p): p is Extract<SearchPage, { phase: "api" }> => p.phase === "api");
+  const apiPages = pages.filter(
+    (p): p is Extract<SearchPage, { phase: "api" }> => p.phase === "api"
+  );
   const totalResults = apiPages.at(-1)?.totalResults ?? books.length;
 
   return {
@@ -72,6 +82,8 @@ export function useBookSearchInfinite(query: string, filter: SearchFilter, lang:
     error: infinite.error ? "error" : null,
     hasNextPage: infinite.hasNextPage,
     isFetchingNextPage: infinite.isFetchingNextPage,
-    fetchNextPage: () => { infinite.fetchNextPage(); },
+    fetchNextPage: () => {
+      infinite.fetchNextPage();
+    },
   };
 }

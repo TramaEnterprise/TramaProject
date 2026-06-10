@@ -47,6 +47,13 @@ export default function SearchBar({ initialQuery = "", debounceMs = 400 }: Searc
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              const trimmed = query.trim();
+              if (trimmed) navigate(`/search?q=${encodeURIComponent(trimmed)}`);
+            }
+          }}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={t("explore.searchPlaceholder")}
