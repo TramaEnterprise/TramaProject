@@ -1,5 +1,7 @@
 import { toast as sonnerToast } from "sonner";
 import "./ShelfToast.scss";
+import { useState } from "react";
+import ConfettiBurst from "../ConfettiBurst";
 
 type ShelfToastProps = {
   cover: string | null;
@@ -8,6 +10,7 @@ type ShelfToastProps = {
   actionLabel?: string;
   onAction?: () => void;
   toastId: string | number;
+  celebrate?: boolean;
 };
 
 export default function ShelfToast({
@@ -17,7 +20,10 @@ export default function ShelfToast({
   actionLabel,
   onAction,
   toastId,
+  celebrate = false,
 }: ShelfToastProps) {
+  const [showConfetti, setShowConfetti] = useState(celebrate);
+
   return (
     <div className="shelf-toast">
       <div className="shelf-toast__cover-wrap">
@@ -42,6 +48,18 @@ export default function ShelfToast({
         >
           {actionLabel}
         </button>
+      )}
+      {showConfetti && (
+        <ConfettiBurst
+          corners={["tl"]}
+          direction="outward"
+          count={16}
+          sizeMin={4}
+          sizeMax={8}
+          distMin={40}
+          distMax={160}
+          onComplete={() => setShowConfetti(false)}
+        />
       )}
     </div>
   );

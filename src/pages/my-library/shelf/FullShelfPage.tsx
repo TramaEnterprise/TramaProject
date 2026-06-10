@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useNavigate, useLocation, Link } from "react-router";
+import { useLocation, Link } from "react-router";
 import { useTranslation, Trans } from "react-i18next";
 import { useShelf } from "@/context/shelf/useShelf";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
-import { Search, ListFilter, X, ChevronLeft } from "lucide-react";
+import { Search, ListFilter, X } from "lucide-react";
 import BookTile from "@/components/shelf/cards/BookTile";
 import "./FullShelfPage.scss";
 
@@ -13,7 +13,6 @@ const SKELETON_COUNT = 14;
 
 export default function FullShelfPage() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const location = useLocation();
   const { shelfByStatus, loading } = useShelf();
   const initialStatus = (location.state as { status?: ShelfStatus } | null)?.status ?? "wantToRead";
@@ -46,10 +45,6 @@ export default function FullShelfPage() {
   return (
     <main className="full-shelf">
       <div className="full-shelf__header">
-        <button type="button" className="full-shelf__back" onClick={() => navigate(-1)}>
-          <ChevronLeft aria-hidden="true" />
-          {t("explore.backBtn")}
-        </button>
         <h2 className="full-shelf__page-title">{t("myLibrary.shelfTitle")}</h2>
       </div>
 
@@ -72,7 +67,6 @@ export default function FullShelfPage() {
           <span className="full-shelf__search-icon">
             <Search aria-hidden="true" />
           </span>
-          <span className="full-shelf__search-divider" />
           <input
             type="text"
             placeholder={t("myLibrary.searchPlaceholder")}
@@ -91,7 +85,7 @@ export default function FullShelfPage() {
           )}
         </div>
 
-        <button type="button" className="full-shelf__filter-btn" disabled aria-label="Filtros">
+        <button type="button" className="full-shelf__filter-btn" aria-label="Filtros">
           <ListFilter aria-hidden="true" />
         </button>
       </div>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export function useObjectUrl(initialUrl: string | null = null) {
   const [url, setUrl] = useState<string | null>(initialUrl);
@@ -25,5 +25,5 @@ export function useObjectUrl(initialUrl: string | null = null) {
     setUrl(file ? URL.createObjectURL(file) : null);
   }, []);
 
-  return { url, setUrl, setFile };
+  return useMemo(() => ({ url, setUrl, setFile }), [url, setFile]);
 }

@@ -23,7 +23,7 @@ type NavbarProps = {
 };
 
 export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, profile } = useAuth();
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -192,7 +192,22 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
                   aria-expanded={menuOpen && !hidden}
                   onClick={() => setMenuOpen(o => !o)}
                 >
-                  <User size={18} strokeWidth={1.5} />
+                  {profile?.profilePhotoUrl ? (
+                    <img
+                      className="navbar__avatar-img"
+                      src={profile.profilePhotoUrl}
+                      alt=""
+                    />
+                  ) : (
+                    <User size={18} strokeWidth={1.5} />
+                  )}
+                  {profile?.username && (
+                    <span className="navbar__avatar-username">
+                      {profile.username.length > 10
+                        ? `${profile.username.slice(0, 10)}...`
+                        : profile.username}
+                    </span>
+                  )}
                 </button>
                 {menuOpen && !hidden && <ProfileMenu onClose={() => setMenuOpen(false)} />}
               </>

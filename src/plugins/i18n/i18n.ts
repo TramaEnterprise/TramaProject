@@ -15,6 +15,8 @@ import enProfile from "./locales/en/profile.json";
 import enNotifications from "./locales/en/notifications.json";
 import enToasts from "./locales/en/toasts.json";
 import enLegal from "./locales/en/legal.json";
+import enBreadcrumbs from "./locales/en/breadcrumbs.json";
+import enSettings from "./locales/en/settings.json";
 
 import esNavbar from "./locales/es/navbar.json";
 import esLanding from "./locales/es/landing.json";
@@ -29,6 +31,8 @@ import esProfile from "./locales/es/profile.json";
 import esNotifications from "./locales/es/notifications.json";
 import esToasts from "./locales/es/toasts.json";
 import esLegal from "./locales/es/legal.json";
+import esBreadcrumbs from "./locales/es/breadcrumbs.json";
+import esSettings from "./locales/es/settings.json";
 
 i18n
   .use(LanguageDetector)
@@ -50,6 +54,8 @@ i18n
           ...enNotifications,
           ...enToasts,
           ...enLegal,
+          ...enBreadcrumbs,
+          ...enSettings,
         },
       },
       es: {
@@ -67,6 +73,8 @@ i18n
           ...esNotifications,
           ...esToasts,
           ...esLegal,
+          ...esBreadcrumbs,
+          ...esSettings,
         },
       },
     },

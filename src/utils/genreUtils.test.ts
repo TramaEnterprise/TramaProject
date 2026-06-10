@@ -22,8 +22,8 @@ describe("detectGenre", () => {
     expect(detectGenre(["fiction"])).toBe("Fiction");
   });
 
-  it("devuelve Non-Fiction cuando no hay coincidencias pero hay subject", () => {
-    expect(detectGenre(["biography"])).toBe("Non-Fiction");
+  it("devuelve Literature como fallback cuando no hay coincidencias pero hay subject", () => {
+    expect(detectGenre(["biography"])).toBe("Literature");
   });
 
   it("devuelve undefined si no hay subjects", () => {

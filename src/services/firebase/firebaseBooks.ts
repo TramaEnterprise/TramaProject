@@ -25,6 +25,7 @@ import {
   scoreTitleRelevance,
 } from "@/utils/titleSearch";
 import type { SearchFilter } from "@/types/Search";
+import { isVisibleBook } from "@/utils/hiddenGenres";
 
 const BOOKS_COLLECTION = "Books";
 
@@ -46,19 +47,37 @@ export async function getExploreBooksFromDB(lang: string, minCount = 48): Promis
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("langs", "array-contains", lang),
-    limit(minCount)
+    limit(minCount * 3)
   );
 
   const books = await getDocs(q);
-  if (books.size < minCount) return null;
+  const visible = books.docs.map((d) => mapBookDoc(d.data(), lang)).filter(isVisibleBook);
+  if (visible.length < minCount) return null;
 
-  return books.docs.map((d) => mapBookDoc(d.data(), lang));
+  return visible.slice(0, minCount);
+}
+
+async function getExistingBookKeys(keys: string[]): Promise<Set<string>> {
+  const encoded = keys.map(encodeKey);
+  const snaps = await Promise.all(
+    encoded.map((id) => getDoc(doc(db, BOOKS_COLLECTION, id)).catch(() => null))
+  );
+  const existing = new Set<string>();
+  encoded.forEach((id, i) => {
+    const snap = snaps[i];
+    if (snap?.exists() && Array.isArray(snap.data().authors)) existing.add(id);
+  });
+  return existing;
 }
 
 export async function saveBooksToDB(books: Book[], lang: string): Promise<void> {
+  const existingKeys = await getExistingBookKeys(books.map((b) => b.key));
+  const newBooks = books.filter((book) => !existingKeys.has(encodeKey(book.key)));
+  if (newBooks.length === 0) return;
+
   const batch = writeBatch(db);
 
-  for (const book of books) {
+  for (const book of newBooks) {
     const ref = doc(db, BOOKS_COLLECTION, encodeKey(book.key));
 
     batch.set(
@@ -89,13 +108,13 @@ export async function saveBooksToDB(books: Book[], lang: string): Promise<void> 
 
   // Asignar titulos al idioma actual
   await Promise.all(
-    books.map((book) => updateBookTitleToDB(book.key, book.title, lang, book.isbn).catch(() => {}))
+    newBooks.map((book) => updateBookTitleToDB(book.key, book.title, lang, book.isbn).catch(() => {}))
   );
 
   // Buscar titulo en otro idioma
   const otherLang = lang === "es" ? "en" : "es";
   Promise.all(
-    books.map(async (book) => {
+    newBooks.map(async (book) => {
       const edition = await fetchWorkEditionByLang(book.key, otherLang);
       if (edition) {
         await updateBookTitleToDB(book.key, edition.title, otherLang, edition.isbn);
@@ -121,6 +140,7 @@ export async function getAuthorBooksFromDB(
 
   return books.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => b.title.toLowerCase() !== excludeTitle.toLowerCase());
 }
 
@@ -171,6 +191,10 @@ export async function updateBookTitleToDB(
   isbn?: string
 ): Promise<void> {
   const refDoc = doc(db, BOOKS_COLLECTION, encodeKey(workKey));
+
+  const existing = await getDoc(refDoc);
+  if (existing.exists() && existing.data().titles?.[lang]) return;
+
   const update: Record<string, unknown> = {
     [`titles.${lang}`]: title,
     [`titleTokens.${lang}`]: buildTitleTokens(title),
@@ -191,11 +215,15 @@ export async function getRecommendationsFromDB(
     collection(db, BOOKS_COLLECTION),
     where("genre", "==", genre),
     where("langs", "array-contains", lang),
-    limit(minCount + 1) // En el filtrado se excliye el libro actual, +1 para compensar
+    // Se excluye el libro actual
+    limit(minCount * 2)
   );
 
   const doc = await getDocs(q);
-  const books = doc.docs.map((d) => mapBookDoc(d.data(), lang)).filter((b) => b.key !== excludeKey);
+  const books = doc.docs
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
+    .filter((b) => b.key !== excludeKey);
 
   if (books.length < minCount) return null;
   return books;
@@ -241,7 +269,10 @@ export async function getTrendingBooks(
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
-  return snap.docs.slice(0, count).map((d) => mapBookDoc(d.data(), lang));
+  return snap.docs
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
+    .slice(0, count);
 }
 
 export async function getTopRatedBooks(
@@ -261,6 +292,7 @@ export async function getTopRatedBooks(
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => (b.ratingCount ?? 0) >= 10)
     .slice(0, count);
 }
@@ -309,7 +341,10 @@ export async function getBooksByGenre(
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
-  return snap.docs.map((d) => mapBookDoc(d.data(), lang)).slice(0, count);
+  return snap.docs
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
+    .slice(0, count);
 }
 
 export async function getNewReleaseBooks(
@@ -330,6 +365,7 @@ export async function getNewReleaseBooks(
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => (b.first_publish_year ?? 0) >= year && (b.rating ?? 0) >= 3)
     .slice(0, count);
 }
@@ -346,6 +382,7 @@ export async function getQuickAndGoodBooks(lang: string, count = 6): Promise<Boo
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => b.pages !== undefined && b.pages > 0 && b.pages < 300)
     .slice(0, count);
 }
@@ -370,6 +407,7 @@ export async function getAuthorNewReleases(
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => (b.first_publish_year ?? 0) >= year - 2)
     .slice(0, count);
 }
@@ -393,6 +431,7 @@ export async function getGenreNewReleases(
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => (b.first_publish_year ?? 0) >= year - 2)
     .slice(0, count);
 }
@@ -415,6 +454,7 @@ export async function getRecommendationsByGenre(
   throwIfAborted(signal);
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => b.key !== excludeKey)
     .slice(0, count);
 }
@@ -436,7 +476,7 @@ export async function searchBooksFromDB(
   const tokenField = `titleTokens.${lang}`;
   const normField = `titleNorm.${lang}`;
   const qNorm = normalizeTitleForSearch(queryText);
-  const FETCH_LIMIT = 40;
+  const FETCH_LIMIT = 150;
 
   const tokenConstraints =
     words.length === 1
@@ -472,7 +512,10 @@ export async function searchBooksFromDB(
     return b.addCount - a.addCount;
   });
 
-  return scored.slice(0, maxResults).map((s) => s.book);
+  return scored
+    .filter((s) => isVisibleBook(s.book))
+    .slice(0, maxResults)
+    .map((s) => s.book);
 }
 
 export async function searchBooksWithFallback(
@@ -482,7 +525,7 @@ export async function searchBooksWithFallback(
   signal?: AbortSignal
 ): Promise<Book[]> {
   if (buildTitleTokens(queryText).length === 0) return []; // Solo stopwords o palabras vacías
-  const fromDb = await searchBooksFromDB(queryText, lang, maxResults);
+  const fromDb = await searchBooksInDB(queryText, "todo", lang, maxResults);
 
   if (fromDb.length > 2) return fromDb;
 
@@ -499,13 +542,20 @@ export async function searchBooksWithFallback(
     return fromDb;
   }
 
-  const apiUnique = fromApi.filter((b) => !dbKeys.has(b.key));
+  const apiUnique = fromApi.filter((b) => !dbKeys.has(b.key) && isVisibleBook(b));
   const toShow = apiUnique.slice(0, remaining);
   if (toShow.length === 0) return fromDb;
 
   await saveBooksToDB(toShow, lang).catch(() => {});
 
-  return [...fromDb, ...toShow].slice(0, maxResults);
+  const resolved = await Promise.all(
+    toShow.map(async (b) => {
+      const cached = await getBookFromDB(b.key, lang);
+      return cached?.title ? cached : b;
+    })
+  );
+
+  return [...fromDb, ...resolved].slice(0, maxResults);
 }
 
 export async function searchBooksByAuthorFromDB(
@@ -543,7 +593,10 @@ export async function searchBooksByAuthorFromDB(
     return b.addCount - a.addCount;
   });
 
-  return scored.slice(0, maxResults).map((s) => s.book);
+  return scored
+    .filter((s) => isVisibleBook(s.book))
+    .slice(0, maxResults)
+    .map((s) => s.book);
 }
 
 export async function searchBooksByIsbnFromDB(
@@ -557,9 +610,26 @@ export async function searchBooksByIsbnFromDB(
   const snap = await getDocs(
     query(collection(db, BOOKS_COLLECTION), where("isbn", "==", isbn), limit(maxResults))
   );
-  return snap.docs.map((d) => mapBookDoc(d.data(), lang));
+  return snap.docs.map((d) => mapBookDoc(d.data(), lang)).filter(isVisibleBook);
 }
 
+// export async function searchBooksInDB(
+//   queryText: string,
+//   filter: SearchFilter,
+//   lang: string,
+//   maxResults = 20
+// ): Promise<Book[]> {
+//   switch (filter) {
+//     case "autor":
+//       return searchBooksByAuthorFromDB(queryText, lang, maxResults);
+//     case "isbn":
+//       return searchBooksByIsbnFromDB(queryText, lang, maxResults);
+//     case "titulo":
+//     case "todo":
+//     default:
+//       return searchBooksFromDB(queryText, lang, maxResults);
+//   }
+// }
 export async function searchBooksInDB(
   queryText: string,
   filter: SearchFilter,
@@ -572,11 +642,26 @@ export async function searchBooksInDB(
     case "isbn":
       return searchBooksByIsbnFromDB(queryText, lang, maxResults);
     case "titulo":
-    case "todo":
-    default:
       return searchBooksFromDB(queryText, lang, maxResults);
+    case "todo":
+    default: {
+      // "Todo": busca por título Y por autor, y fusiona (dedup por key).
+      const [byTitle, byAuthor] = await Promise.all([
+        searchBooksFromDB(queryText, lang, maxResults),
+        searchBooksByAuthorFromDB(queryText, lang, maxResults),
+      ]);
+      const seen = new Set<string>();
+      const merged: Book[] = [];
+      for (const b of [...byTitle, ...byAuthor]) {
+        if (seen.has(b.key)) continue;
+        seen.add(b.key);
+        merged.push(b);
+      }
+      return merged.slice(0, maxResults);
+    }
   }
 }
+
 
 export async function getBookFromDB(workKey: string, lang: string): Promise<Book | null> {
   const refDoc = doc(db, BOOKS_COLLECTION, encodeKey(workKey));

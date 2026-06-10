@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import BookCard from "@/components/book/cards/BookCard";
+import EdgeScroller from "@/components/common/EdgeScroller";
 import ExploreGridSkeleton from "./ExploreGridSkeleton";
 import { useSectionBooks } from "@/pages/explore/hooks/useSectionBooks";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
@@ -55,7 +56,12 @@ export default function TrendingSection({
       )}
 
       {!loading && !error && books.length > 0 && (
-        <div className="trending-section__scroll">
+        <EdgeScroller
+          className="trending-section__scroll"
+          ariaPrev={t("explore.scrollPrev")}
+          ariaNext={t("explore.scrollNext")}
+          deps={books.length}
+        >
           {books.map((book, i) => (
             <div key={book.key} className="trending-section__item">
               <span className="trending-section__rank" aria-hidden="true">
@@ -64,7 +70,7 @@ export default function TrendingSection({
               <BookCard book={book} />
             </div>
           ))}
-        </div>
+        </EdgeScroller>
       )}
     </section>
   );

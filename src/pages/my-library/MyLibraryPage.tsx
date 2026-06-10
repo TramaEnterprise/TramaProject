@@ -67,8 +67,8 @@ function MyLibraryPage() {
       {editorOpen && (
         <ListEditorModal
           onClose={() => setEditorOpen(false)}
-          onSubmit={async ({ name, books }) => {
-            await createList(name, books);
+          onSubmit={async ({ name, description, books, isPublic }) => {
+            await createList(name, books, description, isPublic);
           }}
         />
       )}

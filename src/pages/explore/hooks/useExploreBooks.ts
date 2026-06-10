@@ -9,6 +9,7 @@ import {
   saveGenreToDB,
 } from "@/services/firebase/firebaseBooks";
 import { detectGenre } from "@/utils/genreUtils";
+import { filterVisibleBooks } from "@/utils/hiddenGenres";
 import { logger } from "@/utils/logger";
 import { completeBookTitles } from "@/services/api/bookComplete";
 import { dedupByNormalizedTitle, sortByCoverAndRating } from "@/utils/bookDedup";
@@ -79,7 +80,7 @@ export function useExploreBooks(): UseFantasyBooksHybridResult {
     const stored = loadFromStorage(lang);
     if (stored) {
       logger.log("[Explore] Sirviendo desde localStorage:", stored.length, "libros");
-      setBooks(stored);
+      setBooks(filterVisibleBooks(stored));
       setLoading(false);
       return;
     }
@@ -141,10 +142,13 @@ export function useExploreBooks(): UseFantasyBooksHybridResult {
 
         const mappedBooks = await fetchFantasyBooks(limit, lang, controller.signal);
         const deduplicated = dedupByNormalizedTitle(sortByCoverAndRating(mappedBooks));
-        setBooks(deduplicated);
+        // Se muestran y cachean en localStorage solo los visibles, pero se
+        // guardan TODOS en Firestore para no perder el catálogo.
+        const visible = filterVisibleBooks(deduplicated);
+        setBooks(visible);
         setLoading(false);
 
-        saveToStorage(deduplicated, lang);
+        saveToStorage(visible, lang);
         saveBooksToDB(deduplicated, lang);
       } catch (err) {
         if (axios.isCancel(err)) return;

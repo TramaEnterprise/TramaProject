@@ -19,8 +19,10 @@ export type ShelfContextType = {
       review?: string;
       status?: ShelfStatus;
       silent?: boolean;
+      skipProgressLog?: boolean;
     }
   ) => Promise<void>;
+  reload: () => Promise<void>;
 };
 
 export const ShelfContext = createContext<ShelfContextType | null>(null);

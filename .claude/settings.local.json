@@ -45,7 +45,10 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
       "Bash(npm list *)",
       "Bash(cat)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(gh pr *)",
+      "Skill(run)",
+      "Bash(chromium-cli screenshot *)"
     ]
   }
 }

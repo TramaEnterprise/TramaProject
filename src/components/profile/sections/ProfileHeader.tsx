@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ShareProfileButton from "../ShareProfileButton";
 import ProfileActionsMenu from "../ProfileActionsMenu";
@@ -39,6 +41,16 @@ export default function ProfileHeader({
 }: ProfileHeaderProps) {
   const { t } = useTranslation();
   const displayName = `${profile.name} ${profile.surname}`.trim() || profile.email;
+  const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!lightboxUrl) return;
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxUrl(null);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [lightboxUrl]);
 
   // Siguiendo / solicitado / sin relacion
   let followLabel = t("profile.header.follow");
@@ -58,27 +70,39 @@ export default function ProfileHeader({
   return (
     <div className="profile-header">
       <div
-        className={`profile-header__banner${isOwnProfile ? " profile-header__banner--editable" : ""}`}
-        style={
-          profile.bannerImageUrl ? { backgroundImage: `url(${profile.bannerImageUrl})` } : undefined
+        className={`profile-header__banner${profile.bannerImageUrl ? " profile-header__banner--clickable" : ""}`}
+        onClick={profile.bannerImageUrl ? () => setLightboxUrl(profile.bannerImageUrl!) : undefined}
+        role={profile.bannerImageUrl ? "button" : undefined}
+        tabIndex={profile.bannerImageUrl ? 0 : undefined}
+        onKeyDown={
+          profile.bannerImageUrl
+            ? (e) => { if (e.key === "Enter" || e.key === " ") setLightboxUrl(profile.bannerImageUrl!); }
+            : undefined
         }
+        aria-label={profile.bannerImageUrl ? t("profile.header.viewCover") : undefined}
       >
-        {isOwnProfile && (
-          <button
-            type="button"
-            className="profile-header__banner-overlay"
-            onClick={onEditClick}
-          >
-            <span>{t("profile.header.changeCover")}</span>
-          </button>
-        )}
+        <div
+          className="profile-header__banner-bg"
+          style={
+            profile.bannerImageUrl ? { backgroundImage: `url(${profile.bannerImageUrl})` } : undefined
+          }
+        />
       </div>
 
       <div className="profile-header__info">
         <div className="profile-header__top-row">
           <div className="profile-header__avatar-wrap">
             <div
-              className={`profile-header__avatar-frame${isOwnProfile ? " profile-header__avatar-frame--editable" : ""}`}
+              className={`profile-header__avatar-frame${profile.profilePhotoUrl ? " profile-header__avatar-frame--clickable" : ""}`}
+              onClick={profile.profilePhotoUrl ? () => setLightboxUrl(profile.profilePhotoUrl!) : undefined}
+              role={profile.profilePhotoUrl ? "button" : undefined}
+              tabIndex={profile.profilePhotoUrl ? 0 : undefined}
+              onKeyDown={
+                profile.profilePhotoUrl
+                  ? (e) => { if (e.key === "Enter" || e.key === " ") setLightboxUrl(profile.profilePhotoUrl!); }
+                  : undefined
+              }
+              aria-label={profile.profilePhotoUrl ? t("profile.header.viewPhoto") : undefined}
             >
               {profile.profilePhotoUrl ? (
                 <img
@@ -90,15 +114,6 @@ export default function ProfileHeader({
                 <div className="profile-header__avatar profile-header__avatar--placeholder">
                   {(displayName.charAt(0) || "U").toUpperCase()}
                 </div>
-              )}
-              {isOwnProfile && (
-                <button
-                  type="button"
-                  className="profile-header__avatar-overlay"
-                  onClick={onEditClick}
-                >
-                  <span>{t("profile.header.editPhoto")}</span>
-                </button>
               )}
             </div>
           </div>
@@ -185,6 +200,31 @@ export default function ProfileHeader({
 
         {profile.bio && <p className="profile-header__bio">{profile.bio}</p>}
       </div>
+
+      {lightboxUrl && (
+        <div
+          className="profile-header__lightbox"
+          onClick={() => setLightboxUrl(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("profile.header.photoViewer")}
+        >
+          <button
+            type="button"
+            className="profile-header__lightbox-close"
+            onClick={() => setLightboxUrl(null)}
+            aria-label={t("profile.header.close")}
+          >
+            <X size={22} />
+          </button>
+          <img
+            src={lightboxUrl}
+            alt=""
+            className="profile-header__lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }

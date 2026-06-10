@@ -1,7 +1,7 @@
 import App from "@/App";
 import LandingPage from "@/pages/landing/LandingPage";
 import AuthPage from "@/pages/auth/AuthPage";
-import SearchPage from "@/pages/search/SearchPage";
+import SearchPage from "@/pages/search/Search";
 import ExplorePage from "@/pages/explore/ExplorePage";
 import ExploreSectionPage from "@/pages/explore/section/ExploreSectionPage";
 import MyLibraryPage from "@/pages/my-library/MyLibraryPage";
@@ -16,8 +16,10 @@ import AllListsPage from "@/pages/lists/AllListsPage";
 import ListDetailPage from "@/pages/lists/ListDetailPage";
 import TermsPage from "@/pages/legal/TermsPage";
 import PrivacyPage from "@/pages/legal/PrivacyPage";
+import ReviewBooksPage from "@/pages/admin/ReviewNewBooksPage";
 
 export const ROUTES = [
+  { path: "/admin/review", element: <ReviewBooksPage /> },
   {
     path: "/",
     element: <App />,

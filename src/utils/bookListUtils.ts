@@ -22,6 +22,8 @@ export function listBookToBook(lb: ListBook): Book {
     title: lb.title,
     authors: lb.authors,
     cover_url: lb.cover_url,
+    rating: lb.rating,
+    ratingCount: lb.ratingCount,
     first_publish_year: 0,
     cover_id: null,
     edition_count: 0,
