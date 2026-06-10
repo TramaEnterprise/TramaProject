@@ -25,6 +25,7 @@ import {
   scoreTitleRelevance,
 } from "@/utils/titleSearch";
 import type { SearchFilter } from "@/types/Search";
+import { isVisibleBook } from "@/utils/hiddenGenres";
 
 const BOOKS_COLLECTION = "Books";
 
@@ -43,16 +44,19 @@ function throwIfAborted(signal?: AbortSignal): void {
 }
 
 export async function getExploreBooksFromDB(lang: string, minCount = 48): Promise<Book[] | null> {
+  // Se pide de más porque el filtrado de géneros ocultos puede descartar
+  // bastantes (sobre todo los antiguos "Non-Fiction").
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("langs", "array-contains", lang),
-    limit(minCount)
+    limit(minCount * 3)
   );
 
   const books = await getDocs(q);
-  if (books.size < minCount) return null;
+  const visible = books.docs.map((d) => mapBookDoc(d.data(), lang)).filter(isVisibleBook);
+  if (visible.length < minCount) return null;
 
-  return books.docs.map((d) => mapBookDoc(d.data(), lang));
+  return visible.slice(0, minCount);
 }
 
 export async function saveBooksToDB(books: Book[], lang: string): Promise<void> {
@@ -121,6 +125,7 @@ export async function getAuthorBooksFromDB(
 
   return books.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => b.title.toLowerCase() !== excludeTitle.toLowerCase());
 }
 
@@ -191,11 +196,16 @@ export async function getRecommendationsFromDB(
     collection(db, BOOKS_COLLECTION),
     where("genre", "==", genre),
     where("langs", "array-contains", lang),
-    limit(minCount + 1) // En el filtrado se excliye el libro actual, +1 para compensar
+    // Se pide de más: se excluye el libro actual y se filtran géneros ocultos
+    // (un libro de este género puede tener un genre2 oculto).
+    limit(minCount * 2)
   );
 
   const doc = await getDocs(q);
-  const books = doc.docs.map((d) => mapBookDoc(d.data(), lang)).filter((b) => b.key !== excludeKey);
+  const books = doc.docs
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
+    .filter((b) => b.key !== excludeKey);
 
   if (books.length < minCount) return null;
   return books;
@@ -241,7 +251,10 @@ export async function getTrendingBooks(
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
-  return snap.docs.slice(0, count).map((d) => mapBookDoc(d.data(), lang));
+  return snap.docs
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
+    .slice(0, count);
 }
 
 export async function getTopRatedBooks(
@@ -261,6 +274,7 @@ export async function getTopRatedBooks(
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => (b.ratingCount ?? 0) >= 10)
     .slice(0, count);
 }
@@ -309,7 +323,10 @@ export async function getBooksByGenre(
   const snap = await getDocs(q);
   throwIfAborted(signal);
 
-  return snap.docs.map((d) => mapBookDoc(d.data(), lang)).slice(0, count);
+  return snap.docs
+    .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
+    .slice(0, count);
 }
 
 export async function getNewReleaseBooks(
@@ -330,6 +347,7 @@ export async function getNewReleaseBooks(
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => (b.first_publish_year ?? 0) >= year && (b.rating ?? 0) >= 3)
     .slice(0, count);
 }
@@ -346,6 +364,7 @@ export async function getQuickAndGoodBooks(lang: string, count = 6): Promise<Boo
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => b.pages !== undefined && b.pages > 0 && b.pages < 300)
     .slice(0, count);
 }
@@ -370,6 +389,7 @@ export async function getAuthorNewReleases(
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => (b.first_publish_year ?? 0) >= year - 2)
     .slice(0, count);
 }
@@ -393,6 +413,7 @@ export async function getGenreNewReleases(
 
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => (b.first_publish_year ?? 0) >= year - 2)
     .slice(0, count);
 }
@@ -415,6 +436,7 @@ export async function getRecommendationsByGenre(
   throwIfAborted(signal);
   return snap.docs
     .map((d) => mapBookDoc(d.data(), lang))
+    .filter(isVisibleBook)
     .filter((b) => b.key !== excludeKey)
     .slice(0, count);
 }
@@ -472,7 +494,10 @@ export async function searchBooksFromDB(
     return b.addCount - a.addCount;
   });
 
-  return scored.slice(0, maxResults).map((s) => s.book);
+  return scored
+    .filter((s) => isVisibleBook(s.book))
+    .slice(0, maxResults)
+    .map((s) => s.book);
 }
 
 export async function searchBooksWithFallback(
@@ -499,7 +524,7 @@ export async function searchBooksWithFallback(
     return fromDb;
   }
 
-  const apiUnique = fromApi.filter((b) => !dbKeys.has(b.key));
+  const apiUnique = fromApi.filter((b) => !dbKeys.has(b.key) && isVisibleBook(b));
   const toShow = apiUnique.slice(0, remaining);
   if (toShow.length === 0) return fromDb;
 
@@ -543,7 +568,10 @@ export async function searchBooksByAuthorFromDB(
     return b.addCount - a.addCount;
   });
 
-  return scored.slice(0, maxResults).map((s) => s.book);
+  return scored
+    .filter((s) => isVisibleBook(s.book))
+    .slice(0, maxResults)
+    .map((s) => s.book);
 }
 
 export async function searchBooksByIsbnFromDB(
@@ -557,7 +585,7 @@ export async function searchBooksByIsbnFromDB(
   const snap = await getDocs(
     query(collection(db, BOOKS_COLLECTION), where("isbn", "==", isbn), limit(maxResults))
   );
-  return snap.docs.map((d) => mapBookDoc(d.data(), lang));
+  return snap.docs.map((d) => mapBookDoc(d.data(), lang)).filter(isVisibleBook);
 }
 
 // export async function searchBooksInDB(

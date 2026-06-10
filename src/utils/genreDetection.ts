@@ -83,9 +83,11 @@ export function detectGenre(subjects: string[] | undefined): string | undefined 
     }
   }
 
-  // Fallback
+  // Fallback: género no reconocido. "Non-Fiction" quedó oculto en la web, así
+  // que los libros sin clasificar se etiquetan como "Literature" para que sigan
+  // siendo visibles.
   const fiction = subjects.some((s) => s.toLowerCase() === "fiction");
-  return fiction ? "Fiction" : "Non-Fiction";
+  return fiction ? "Fiction" : "Literature";
 }
 
 export function detectGenres(subjects: string[] | undefined): string[] {
@@ -104,9 +106,10 @@ export function detectGenres(subjects: string[] | undefined): string[] {
 
   if (found.length > 0) return found;
 
-  // Fallback
+  // Fallback: ningún género reconocido. "Non-Fiction" quedó oculto en la web,
+  // así que los libros sin clasificar se etiquetan como "Literature".
   const fiction = subjects.some((s) => s.toLowerCase() === "fiction");
-  return [fiction ? "Fiction" : "Non-Fiction"];
+  return [fiction ? "Fiction" : "Literature"];
 }
 
 export function genreFieldsFromSubjects(subjects: string[] | undefined): {
