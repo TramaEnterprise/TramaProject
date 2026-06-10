@@ -20,7 +20,7 @@ export type EditProfileForm = {
   surname: string;
   username: string;
   bio: string;
-  isPublic: boolean;
+  isPrivate: boolean;
 };
 
 const BIO_MAX = 150;
@@ -49,7 +49,7 @@ export default function EditProfilePage() {
 
   const bioValue = watch("bio") ?? "";
   const usernameValue = watch("username") ?? "";
-  const isPublicProfile = watch("isPublic");
+  const isPrivateProfile = watch("isPrivate");
 
   const { setUrl: setPhotoUrl } = photo;
   const { setUrl: setBannerUrl } = banner;
@@ -64,7 +64,7 @@ export default function EditProfilePage() {
             surname: profile.surname,
             username: profile.username,
             bio: profile.bio,
-            isPublic: profile.isPublic ?? true,
+            isPrivate: !(profile.isPublic ?? true),
           });
           setOriginalUsername(profile.username ?? "");
           if (profile.profilePhotoUrl) setPhotoUrl(profile.profilePhotoUrl);
@@ -99,7 +99,7 @@ export default function EditProfilePage() {
         name: data.name,
         surname: data.surname,
         bio: data.bio,
-        isPublic: data.isPublic,
+        isPublic: !data.isPrivate,
       };
       if (photoFileRef.current)  updates.profilePhotoUrl = await uploadProfilePhoto(user.uid, photoFileRef.current);
       if (bannerFileRef.current) updates.bannerImageUrl  = await uploadBannerImage(user.uid, bannerFileRef.current);
@@ -196,13 +196,13 @@ export default function EditProfilePage() {
             <span className="edit-profile__label">Privacidad del perfil</span>
             <div className="edit-profile__privacy">
               <label className="edit-profile__switch">
-                <input type="checkbox" {...register("isPublic")} />
+                <input type="checkbox" {...register("isPrivate")} />
                 <span className="edit-profile__switch-track" />
               </label>
               <p className="edit-profile__privacy-text">
-                {isPublicProfile
-                  ? "Cualquiera puede ver tu actividad y estantería"
-                  : "Solo tus seguidores podrán ver tu estantería y actividad"}
+                {isPrivateProfile
+                  ? "Privado (solo los seguidores que aceptes podrán ver tu perfil)"
+                  : "Público (cualquiera puede ver tu perfil)"}
               </p>
             </div>
           </div>
