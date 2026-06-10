@@ -40,6 +40,8 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
     title: book.title,
     authors: book.authors,
     cover_url: book.cover_url,
+    rating: book.rating,
+    ratingCount: book.ratingCount,
   });
 
   const addBooks = (incomingBooks: Book[]) => {

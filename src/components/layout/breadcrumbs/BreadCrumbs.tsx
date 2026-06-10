@@ -28,12 +28,20 @@ export default function Breadcrumbs() {
   if (!pattern) return null;
 
   const trail = BREADCRUMB_TRAILS[pattern];
-  const crumbs = trail.map((c, i) => {
-    const isLast = i === trail.length - 1;
+  const lastIndex = trail.length - 1;
+
+  const built = trail.map((c, i) => {
     const slot = c.slot ? slots[c.slot] : undefined;
     const label = c.slot ? slot?.label : c.key ? t(c.key) : undefined;
-    const to = isLast ? undefined : interpolate(c.slot ? (slot?.to ?? c.to) : c.to, params);
-    return { label, to, isLast };
+    const to = c.slot ? (slot?.to ?? c.to) : c.to;
+    return { label, to, trailLast: i === lastIndex };
+  });
+
+  const visible = built.filter((c) => c.label != null || c.trailLast);
+
+  const crumbs = visible.map((c, i) => {
+    const isLast = i === visible.length - 1;
+    return { label: c.label, to: isLast ? undefined : interpolate(c.to, params), isLast };
   });
 
   return (

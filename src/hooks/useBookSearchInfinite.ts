@@ -3,7 +3,7 @@ import type { Book } from "@/types/Book";
 import type { SearchFilter } from "@/types/Search";
 import { searchBooks } from "@/services/api/openLibraryApi";
 import { getSearchParams } from "@/utils/searchParams";
-import { saveBooksToDB, searchBooksInDB } from "@/services/firebase/firebaseBooks";
+import { getBookFromDB, saveBooksToDB, searchBooksInDB } from "@/services/firebase/firebaseBooks";
 import { dedupBestByTitle } from "@/utils/bookDedup";
 import { filterVisibleBooks } from "@/utils/hiddenGenres";
 
@@ -45,11 +45,16 @@ export function useBookSearchInfinite(query: string, filter: SearchFilter, lang:
         pageParam.page
       );
       const deduped = dedupBestByTitle(books);
-      if (deduped.length > 0) saveBooksToDB(deduped, lang); // fire-and-forget (cachea todos)
-      // Se muestran solo los visibles; el catálogo completo ya queda cacheado.
+      if (deduped.length > 0) saveBooksToDB(deduped, lang);
+      const resolved = await Promise.all(
+        deduped.map(async (b) => {
+          const cached = await getBookFromDB(b.key, lang);
+          return cached?.title ? cached : b;
+        })
+      );
       return {
         phase: "api",
-        books: filterVisibleBooks(deduped),
+        books: filterVisibleBooks(resolved),
         totalResults,
         page: pageParam.page,
       };

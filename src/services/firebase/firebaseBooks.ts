@@ -44,8 +44,6 @@ function throwIfAborted(signal?: AbortSignal): void {
 }
 
 export async function getExploreBooksFromDB(lang: string, minCount = 48): Promise<Book[] | null> {
-  // Se pide de más porque el filtrado de géneros ocultos puede descartar
-  // bastantes (sobre todo los antiguos "Non-Fiction").
   const q = query(
     collection(db, BOOKS_COLLECTION),
     where("langs", "array-contains", lang),
@@ -59,10 +57,27 @@ export async function getExploreBooksFromDB(lang: string, minCount = 48): Promis
   return visible.slice(0, minCount);
 }
 
+async function getExistingBookKeys(keys: string[]): Promise<Set<string>> {
+  const encoded = keys.map(encodeKey);
+  const snaps = await Promise.all(
+    encoded.map((id) => getDoc(doc(db, BOOKS_COLLECTION, id)).catch(() => null))
+  );
+  const existing = new Set<string>();
+  encoded.forEach((id, i) => {
+    const snap = snaps[i];
+    if (snap?.exists() && Array.isArray(snap.data().authors)) existing.add(id);
+  });
+  return existing;
+}
+
 export async function saveBooksToDB(books: Book[], lang: string): Promise<void> {
+  const existingKeys = await getExistingBookKeys(books.map((b) => b.key));
+  const newBooks = books.filter((book) => !existingKeys.has(encodeKey(book.key)));
+  if (newBooks.length === 0) return;
+
   const batch = writeBatch(db);
 
-  for (const book of books) {
+  for (const book of newBooks) {
     const ref = doc(db, BOOKS_COLLECTION, encodeKey(book.key));
 
     batch.set(
@@ -93,13 +108,13 @@ export async function saveBooksToDB(books: Book[], lang: string): Promise<void> 
 
   // Asignar titulos al idioma actual
   await Promise.all(
-    books.map((book) => updateBookTitleToDB(book.key, book.title, lang, book.isbn).catch(() => {}))
+    newBooks.map((book) => updateBookTitleToDB(book.key, book.title, lang, book.isbn).catch(() => {}))
   );
 
   // Buscar titulo en otro idioma
   const otherLang = lang === "es" ? "en" : "es";
   Promise.all(
-    books.map(async (book) => {
+    newBooks.map(async (book) => {
       const edition = await fetchWorkEditionByLang(book.key, otherLang);
       if (edition) {
         await updateBookTitleToDB(book.key, edition.title, otherLang, edition.isbn);
@@ -176,6 +191,10 @@ export async function updateBookTitleToDB(
   isbn?: string
 ): Promise<void> {
   const refDoc = doc(db, BOOKS_COLLECTION, encodeKey(workKey));
+
+  const existing = await getDoc(refDoc);
+  if (existing.exists() && existing.data().titles?.[lang]) return;
+
   const update: Record<string, unknown> = {
     [`titles.${lang}`]: title,
     [`titleTokens.${lang}`]: buildTitleTokens(title),
@@ -196,8 +215,7 @@ export async function getRecommendationsFromDB(
     collection(db, BOOKS_COLLECTION),
     where("genre", "==", genre),
     where("langs", "array-contains", lang),
-    // Se pide de más: se excluye el libro actual y se filtran géneros ocultos
-    // (un libro de este género puede tener un genre2 oculto).
+    // Se excluye el libro actual
     limit(minCount * 2)
   );
 
@@ -507,7 +525,7 @@ export async function searchBooksWithFallback(
   signal?: AbortSignal
 ): Promise<Book[]> {
   if (buildTitleTokens(queryText).length === 0) return []; // Solo stopwords o palabras vacías
-  const fromDb = await searchBooksFromDB(queryText, lang, maxResults);
+  const fromDb = await searchBooksInDB(queryText, "todo", lang, maxResults);
 
   if (fromDb.length > 2) return fromDb;
 
@@ -530,7 +548,14 @@ export async function searchBooksWithFallback(
 
   await saveBooksToDB(toShow, lang).catch(() => {});
 
-  return [...fromDb, ...toShow].slice(0, maxResults);
+  const resolved = await Promise.all(
+    toShow.map(async (b) => {
+      const cached = await getBookFromDB(b.key, lang);
+      return cached?.title ? cached : b;
+    })
+  );
+
+  return [...fromDb, ...resolved].slice(0, maxResults);
 }
 
 export async function searchBooksByAuthorFromDB(
