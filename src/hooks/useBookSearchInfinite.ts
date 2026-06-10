@@ -5,6 +5,7 @@ import { searchBooks } from "@/services/api/openLibraryApi";
 import { getSearchParams } from "@/utils/searchParams";
 import { saveBooksToDB, searchBooksInDB } from "@/services/firebase/firebaseBooks";
 import { dedupBestByTitle } from "@/utils/bookDedup";
+import { filterVisibleBooks } from "@/utils/hiddenGenres";
 
 const PAGE_SIZE = 20;
 const DB_POOL_SIZE = 200;
@@ -44,8 +45,14 @@ export function useBookSearchInfinite(query: string, filter: SearchFilter, lang:
         pageParam.page
       );
       const deduped = dedupBestByTitle(books);
-      if (deduped.length > 0) saveBooksToDB(deduped, lang);
-      return { phase: "api", books: deduped, totalResults, page: pageParam.page };
+      if (deduped.length > 0) saveBooksToDB(deduped, lang); // fire-and-forget (cachea todos)
+      // Se muestran solo los visibles; el catálogo completo ya queda cacheado.
+      return {
+        phase: "api",
+        books: filterVisibleBooks(deduped),
+        totalResults,
+        page: pageParam.page,
+      };
     },
     getNextPageParam: (lastPage, allPages): SearchPageParam | undefined => {
       if (lastPage.phase === "db") {

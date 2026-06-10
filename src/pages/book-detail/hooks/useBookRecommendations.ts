@@ -5,6 +5,7 @@ import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import { getRecommendationsFromDB, saveBooksToDB } from "@/services/firebase/firebaseBooks";
 import { completeBookTitles } from "@/services/api/bookComplete";
 import { dedupBestByTitle } from "@/utils/bookDedup";
+import { filterVisibleBooks } from "@/utils/hiddenGenres";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 const PAGE_SIZE = 6;
@@ -47,8 +48,8 @@ export function useBookRecommendations(genre: string, excludeKey: string) {
       // Fallback => API
       const results = await fetchBooksByGenre(genre, 30, lang, signal);
       const deduplicatedBooks = dedupBestByTitle(results);
-      saveBooksToDB(deduplicatedBooks, lang); // fire-and-forget
-      return deduplicatedBooks.filter((b) => b.key !== excludeKey);
+      saveBooksToDB(deduplicatedBooks, lang); // fire-and-forget (cachea todos)
+      return filterVisibleBooks(deduplicatedBooks).filter((b) => b.key !== excludeKey);
     },
     enabled: !!genre,
     placeholderData: keepPreviousData,

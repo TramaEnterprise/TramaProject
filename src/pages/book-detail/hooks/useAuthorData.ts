@@ -12,6 +12,7 @@ import { getAuthorBooksFromDB, saveBooksToDB } from "@/services/firebase/firebas
 import { logger } from "@/utils/logger";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import { completeBookTitles } from "@/services/api/bookComplete";
+import { isVisibleBook } from "@/utils/hiddenGenres";
 
 async function fetchBioFromWikipedia(
   authorName: string,
@@ -136,7 +137,10 @@ export function useAuthorData(
           saveBooksToDB(apiBooks, lang).catch(() => {});
           books = apiBooks
             .filter(
-              (b) => b.cover_id !== null && b.title.toLowerCase() !== currentBookTitle.toLowerCase()
+              (b) =>
+                b.cover_id !== null &&
+                b.title.toLowerCase() !== currentBookTitle.toLowerCase() &&
+                isVisibleBook(b)
             )
             .slice(0, 4)
             .map((b) => ({
