@@ -69,8 +69,8 @@ export default function UpdateProgressModal({
   const [reviewSaveBlocked, setReviewSaveBlocked] = useState(false);
   const [reviewShaking, setReviewShaking] = useState(false);
 
-  const currentPage =
-    pageInput === "" ? 0 : Math.max(0, Math.min(parseInt(pageInput, 10) || 0, totalPages));
+  const parsedPage = pageInput === "" ? 0 : Math.max(0, parseInt(pageInput, 10) || 0);
+  const currentPage = totalPages > 0 ? Math.min(parsedPage, totalPages) : parsedPage;
   const progressPercent = totalPages > 0 ? Math.round((currentPage / totalPages) * 100) : 0;
 
   const handleSave = async () => {
