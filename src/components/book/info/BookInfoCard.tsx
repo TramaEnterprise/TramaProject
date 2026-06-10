@@ -77,7 +77,9 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
 
           <div className="book-info-card__info-row">
             <div className="book-info-card__rating-block">
-              <span className="book-info-card__rating-number">{book.rating.toFixed(1)}</span>
+              <span className="book-info-card__rating-number">
+                {book.rating === 0 ? "0" : book.rating.toFixed(1)}
+              </span>
               <div className="book-info-card__rating-group">
                 <StarRating rating={book.rating} size={15} />
                 <span className="book-info-card__rating-count">
