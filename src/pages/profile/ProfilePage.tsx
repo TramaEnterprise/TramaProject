@@ -57,7 +57,8 @@ export default function ProfilePage() {
   const [localFavorites, setLocalFavorites] = useState<FavoriteBook[]>(favorites);
   const [prevFavorites, setPrevFavorites] = useState(favorites);
   const [showRequests, setShowRequests] = useState(false);
-  const { lists, createList } = useLists(resolvedUserId ?? undefined);
+  const { lists: allLists, createList } = useLists(resolvedUserId ?? undefined);
+  const lists = isOwnProfile ? allLists : allLists.filter((l) => l.isPublic);
   const [listEditorOpen, setListEditorOpen] = useState(false);
 
   if (favorites !== prevFavorites) {
