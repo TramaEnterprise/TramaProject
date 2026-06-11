@@ -43,7 +43,7 @@
     &::after {
       content: "";
       position: absolute;
-      inset: -10% -10%;
+      inset: -2% -10%;
       background: radial-gradient(
         circle at center,
         color-mix(in oklch, var(--color-brand-muted) 55%, transparent) 0%,
