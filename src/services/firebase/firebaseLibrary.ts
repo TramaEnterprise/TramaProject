@@ -155,19 +155,21 @@ export async function updateReadingProgress(
     }
   }
 
-  if (isFinished) {
+  const alreadyFinished = entry.status === "finished";
+  
+  if (isFinished && !alreadyFinished) {
     logActivity(uid, { type: "book_finished", ...base }).catch((err) =>
       logger.warn("[updateReadingProgress] logActivity failed:", err)
     );
+  }
 
-    if (rating !== undefined) {
-      logActivity(uid, {
-        type: "book_rated",
-        ...base,
-        rating,
-        ...(review !== undefined && { note: review }),
-      }).catch((err) => logger.warn("[updateReadingProgress] logActivity failed:", err));
-    }
+  if (isFinished && rating !== undefined) {
+    logActivity(uid, {
+      type: "book_rated",
+      ...base,
+      rating,
+      ...(review !== undefined && { note: review }),
+    }).catch((err) => logger.warn("[updateReadingProgress] logActivity failed:", err));
   }
 }
 

@@ -7,6 +7,7 @@ import { getUserProfile, updateUserProfile } from "@/services/firebase/firebaseU
 import { uploadProfilePhoto, uploadBannerImage } from "@/services/firebase/firebaseStorage";
 import { normalizeUsername, setUsername } from "@/services/firebase/firebaseUsernames";
 import { useObjectUrl } from "@/hooks/useObjectUrl";
+import { useUsernameAvailability } from "@/hooks/useUsernameAvailability";
 import { logger } from "@/utils/logger";
 import type { UserFullProfile } from "@/types/UserProfile";
 import "./EditProfilePage.scss";
@@ -50,6 +51,14 @@ export default function EditProfilePage() {
   const bioValue = watch("bio") ?? "";
   const usernameValue = watch("username") ?? "";
   const isPrivateProfile = watch("isPrivate");
+
+  // Disponibilidad del username vía el hook compartido (mismo que el registro).
+  // Si el handle no cambia respecto al original, no hay nada que comprobar → idle.
+  const rawUsernameStatus = useUsernameAvailability(usernameValue, user?.uid);
+  const usernameStatus =
+    normalizeUsername(usernameValue) === normalizeUsername(originalUsername)
+      ? "idle"
+      : rawUsernameStatus;
 
   const { setUrl: setPhotoUrl } = photo;
   const { setUrl: setBannerUrl } = banner;
@@ -176,11 +185,9 @@ export default function EditProfilePage() {
           </div>
 
           <UsernameField
-            uid={user.uid}
             register={register}
             error={errors.username}
-            value={usernameValue}
-            originalUsername={originalUsername}
+            status={usernameStatus}
           />
 
           <BioField
@@ -221,7 +228,7 @@ export default function EditProfilePage() {
           <button
             type="submit"
             className="edit-profile__btn edit-profile__btn--save"
-            disabled={saving}
+            disabled={saving || usernameStatus === "checking" || usernameStatus === "taken"}
           >
             {saving ? "Guardando..." : "Guardar cambios"}
           </button>
