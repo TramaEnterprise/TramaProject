@@ -9,7 +9,7 @@
       "guest": "Explore without an account"
     },
     "library": {
-      "title": "Your personal library, always with you.",
+      "title": "Your personal library, always with you",
       "subtitle": "Add books with one click to your own virtual shelf, while keeping track of your reading progress.",
       "pill": {
         "reading": "Reading",
@@ -19,7 +19,7 @@
       }
     },
     "habits": {
-      "title": "Turn reading into a habit.",
+      "title": "Turn reading into a habit",
       "subtitle": "Keep your daily streak, set your annual reading goal and review your reading statistics.",
       "stats": {
         "streakLabel": "Current streak",
@@ -33,7 +33,7 @@
       }
     },
     "community": {
-      "title": "Discover what your inspirations are reading.",
+      "title": "Discover what your inspirations are reading",
       "subtitle": "Follow other readers, see their recent activity and find your next read.",
       "card": {
         "readingNow": "Now reading:",
@@ -61,9 +61,9 @@
       }
     },
     "cta": {
-      "title": "Start your reading story today.",
+      "title": "Start your reading story today",
       "subtitle": "Free and ad-free. Get started in less than a minute.",
-      "btn": "Create your account now",
+      "btn": "Create your own Trama",
       "guest": "Explore without an account →"
     },
     "footer": {
