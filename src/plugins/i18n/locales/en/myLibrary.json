@@ -141,7 +141,8 @@
         "progress": "Updated progress",
         "review": "Wrote a review",
         "list_created": "Created a list",
-        "watchlist_add": "Added to list"
+        "watchlist_add": "Added to list",
+        "book_rated": "Rated a book"
       },
       "timeAgo": {
         "seconds": "just now",
