@@ -86,6 +86,10 @@
     border: 1px solid var(--color-border-subtle);
     border-radius: var(--radius-md);
     padding: 14px 18px;
+
+    [data-theme="dark"] & {
+      background: transparent;
+    }
   }
 
   &__bio {
