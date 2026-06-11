@@ -188,7 +188,7 @@
     width: 100%;
     box-sizing: border-box;
     border: 1px solid var(--color-border-input);
-    background: var(--color-bg-card-solid);
+    background: var(--color-bg-input);
     color: var(--color-text-primary);
     outline: none;
     @include transition(border-color, box-shadow);
@@ -224,7 +224,7 @@
     width: 100%;
     box-sizing: border-box;
     border: 1px solid var(--color-border-input);
-    background: var(--color-bg-card-solid);
+    background: var(--color-bg-input);
     color: var(--color-text-primary);
     outline: none;
     @include transition(border-color, box-shadow);
@@ -384,7 +384,7 @@
       left: 2px;
       width: 18px;
       height: 18px;
-      background: var(--color-bg-card-solid);
+      background: var(--color-bg-input);
       border-radius: 50%;
       @include transition(transform);
     }
