@@ -2,7 +2,7 @@ import type { Book } from "@/types/Book";
 import type { BookList, ListBook } from "@/types/BookList";
 import { isValidListName, MAX_LIST_BOOKS, MAX_LIST_DESCRIPTION } from "@/utils/bookListUtils";
 import { encodeKey } from "@/utils/bookPaths";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { BookOpen, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./ListEditorModal.scss";
@@ -184,7 +184,9 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
             onAddMany={addBooks}
             translationPrefix="myLibrary.listEditor"
             classNames={{
+              searchWrapper: "list-editor-modal__search-wrapper",
               search: "list-editor-modal__search",
+              searchClear: "list-editor-modal__search-clear",
               searching: "list-editor-modal__searching",
               noResults: "list-editor-modal__no-results",
               results: "list-editor-modal__results",
@@ -211,12 +213,16 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
         )}
         {pageBooks.map((book) => (
           <div key={book.key} className="list-editor-modal__book-item">
-            {book.cover_url && (
+            {book.cover_url ? (
               <img
                 className="list-editor-modal__book-cover"
                 src={book.cover_url}
                 alt={book.title}
               />
+            ) : (
+              <span className="list-editor-modal__book-cover list-editor-modal__book-cover--placeholder" aria-hidden="true">
+                <BookOpen size={16} />
+              </span>
             )}
             <div className="list-editor-modal__book-info">
               <span className="list-editor-modal__book-title">{book.title}</span>

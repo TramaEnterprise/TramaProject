@@ -73,7 +73,8 @@
       "selectedCount_other": "{{count}} books selected",
       "addSelected_one": "Add {{count}} book",
       "addSelected_other": "Add {{count}} books",
-      "clearSelection": "Clear selection"
+      "clearSelection": "Clear selection",
+      "clearSearch": "Clear search"
     },
     "listDetail": {
       "empty": "This list has no books",

@@ -73,7 +73,8 @@
       "selectedCount_other": "{{count}} libros seleccionados",
       "addSelected_one": "Añadir {{count}} libro",
       "addSelected_other": "Añadir {{count}} libros",
-      "clearSelection": "Limpiar selección"
+      "clearSelection": "Limpiar selección",
+      "clearSearch": "Limpiar búsqueda"
     },
     "listDetail": {
       "empty": "Esta lista no tiene libros",

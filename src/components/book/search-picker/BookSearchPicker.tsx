@@ -2,7 +2,7 @@ import { useDebouncedBookSearch } from "@/hooks/useDebouncedBookSearch";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import type { Book } from "@/types/Book";
 import { encodeKey } from "@/utils/bookPaths";
-import { BookOpen } from "lucide-react";
+import { BookOpen, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -10,12 +10,8 @@ function BookCoverImage({ src, className }: { src?: string; className?: string }
   const [broken, setBroken] = useState(false);
   if (!src || broken) {
     return (
-      <span
-        className={className}
-        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-        aria-hidden="true"
-      >
-        <BookOpen size={18} />
+      <span className={`${className} ${className}--placeholder`} aria-hidden="true">
+        <BookOpen size={14} />
       </span>
     );
   }
@@ -34,7 +30,9 @@ type BookSearchPickerProps = {
   mode?: BookSearchPickerMode;
   translationPrefix: string;
   classNames?: Partial<{
+    searchWrapper: string;
     search: string;
+    searchClear: string;
     searching: string;
     noResults: string;
     results: string;
@@ -154,13 +152,25 @@ export default function BookSearchPicker({
 
   return (
     <>
-      <input
-        className={classNames?.search}
-        type="text"
-        placeholder={t(`${translationPrefix}.searchPlaceholder`)}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <div className={classNames?.searchWrapper}>
+        <input
+          className={classNames?.search}
+          type="text"
+          placeholder={t(`${translationPrefix}.searchPlaceholder`)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        {query && (
+          <button
+            type="button"
+            className={classNames?.searchClear}
+            onClick={() => setQuery("")}
+            aria-label={t(`${translationPrefix}.clearSearch`)}
+          >
+            <X size={16} aria-hidden="true" />
+          </button>
+        )}
+      </div>
 
       {searching && <p className={classNames?.searching}>{t(`${translationPrefix}.searching`)}</p>}
 
@@ -215,17 +225,17 @@ export default function BookSearchPicker({
 
       {mode === "multi" && validPending.length > 0 && (
         <div className={classNames?.selectionBar}>
+          <button
+            type="button"
+            className={classNames?.clearSelection}
+            onClick={() => setPendingBooks([])}
+          >
+            {t(`${translationPrefix}.clearSelection`)}
+          </button>
           <span className={classNames?.selectionText}>
             {t(`${translationPrefix}.selectedCount`, { count: validPending.length })}
           </span>
           <div className={classNames?.selectionActions}>
-            <button
-              type="button"
-              className={classNames?.clearSelection}
-              onClick={() => setPendingBooks([])}
-            >
-              {t(`${translationPrefix}.clearSelection`)}
-            </button>
             <button
               type="button"
               className={classNames?.addSelected}
