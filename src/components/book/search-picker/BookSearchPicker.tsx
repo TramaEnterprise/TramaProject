@@ -1,8 +1,28 @@
 import { useDebouncedBookSearch } from "@/hooks/useDebouncedBookSearch";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import type { Book } from "@/types/Book";
+import { encodeKey } from "@/utils/bookPaths";
+import { BookOpen } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+
+function BookCoverImage({ src, className }: { src?: string; className?: string }) {
+  const [broken, setBroken] = useState(false);
+  if (!src || broken) {
+    return (
+      <span
+        className={className}
+        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        aria-hidden="true"
+      >
+        <BookOpen size={18} />
+      </span>
+    );
+  }
+  return (
+    <img className={className} src={src} alt="" aria-hidden="true" onError={() => setBroken(true)} />
+  );
+}
 
 type BookSearchPickerMode = "single" | "multi";
 
@@ -24,6 +44,7 @@ type BookSearchPickerProps = {
     resultAuthor: string;
     resultContent: string;
     resultCheckbox: string;
+    resultAction: string;
     selectionBar: string;
     selectionText: string;
     selectionActions: string;
@@ -48,12 +69,12 @@ export default function BookSearchPicker({
   const { results, searching } = useDebouncedBookSearch(query, { lang });
 
   const selectedKeys = useMemo(
-    () => new Set(selected.map((book) => book.key)),
+    () => new Set(selected.map((book) => encodeKey(book.key))),
     [selected]
   );
 
   const validPending = useMemo(
-    () => pendingBooks.filter((book) => !selectedKeys.has(book.key)),
+    () => pendingBooks.filter((book) => !selectedKeys.has(encodeKey(book.key))),
     [pendingBooks, selectedKeys]
   );
   const pendingKeys = useMemo(
@@ -86,13 +107,13 @@ export default function BookSearchPicker({
   };
 
   const handleAdd = (book: Book) => {
-    if (selectedKeys.has(book.key)) return;
+    if (selectedKeys.has(encodeKey(book.key))) return;
     onAdd(book);
     setQuery("");
   };
 
   const togglePending = (book: Book) => {
-    if (selectedKeys.has(book.key)) return;
+    if (selectedKeys.has(encodeKey(book.key))) return;
 
     setPendingBooks((current) => {
       if (current.some((item) => item.key === book.key)) {
@@ -123,14 +144,7 @@ export default function BookSearchPicker({
 
   const renderBookContent = (book: Book) => (
     <>
-      {book.cover_url && (
-        <img
-          className={classNames?.resultCover}
-          src={book.cover_url}
-          alt=""
-          aria-hidden="true"
-        />
-      )}
+      <BookCoverImage src={book.cover_url} className={classNames?.resultCover} />
       <div className={classNames?.resultContent}>
         <p className={classNames?.resultTitle}>{book.title}</p>
         <p className={classNames?.resultAuthor}>{book.authors[0]}</p>
@@ -157,24 +171,32 @@ export default function BookSearchPicker({
       {results.length > 0 && (
         <ul className={classNames?.results}>
           {results.map((book) => {
-            const alreadySelected = selectedKeys.has(book.key);
+            const alreadySelected = selectedKeys.has(encodeKey(book.key));
             const isPending = pendingKeys.has(book.key);
             const isDisabled = alreadySelected || (!isPending && validPending.length >= remainingSlots);
 
             return (
               <li key={book.key}>
                 {mode === "multi" ? (
-                  <label className={getResultClassName(isPending, isDisabled)}>
+                  <div className={getResultClassName(isPending, alreadySelected)}>
                     <input
                       className={classNames?.resultCheckbox}
                       type="checkbox"
                       checked={isPending}
                       disabled={isDisabled}
                       onChange={() => togglePending(book)}
+                      onClick={(e) => e.stopPropagation()}
                       aria-label={book.title}
                     />
-                    {renderBookContent(book)}
-                  </label>
+                    <button
+                      type="button"
+                      className={classNames?.resultAction}
+                      onClick={() => handleAdd(book)}
+                      disabled={alreadySelected}
+                    >
+                      {renderBookContent(book)}
+                    </button>
+                  </div>
                 ) : (
                   <button
                     type="button"

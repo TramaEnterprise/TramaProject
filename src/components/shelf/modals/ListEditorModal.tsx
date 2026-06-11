@@ -1,6 +1,7 @@
 import type { Book } from "@/types/Book";
 import type { BookList, ListBook } from "@/types/BookList";
 import { isValidListName, MAX_LIST_BOOKS, MAX_LIST_DESCRIPTION } from "@/utils/bookListUtils";
+import { encodeKey } from "@/utils/bookPaths";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -9,6 +10,17 @@ import Modal from "@/components/common/Modal";
 import BookSearchPicker from "@/components/book/search-picker/BookSearchPicker";
 
 const BOOKS_PER_PAGE = 4;
+
+function toListBook(book: Book): ListBook {
+  return {
+    key: encodeKey(book.key),
+    title: book.title,
+    authors: book.authors,
+    cover_url: book.cover_url,
+    rating: book.rating,
+    ratingCount: book.ratingCount,
+  };
+}
 
 type ListEditorModalProps = {
   existingList?: BookList;
@@ -35,21 +47,12 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
     safePage * BOOKS_PER_PAGE + BOOKS_PER_PAGE
   );
 
-  const toListBook = (book: Book): ListBook => ({
-    key: book.key,
-    title: book.title,
-    authors: book.authors,
-    cover_url: book.cover_url,
-    rating: book.rating,
-    ratingCount: book.ratingCount,
-  });
-
   const addBooks = (incomingBooks: Book[]) => {
-    const currentKeys = new Set(books.map((book) => book.key));
+    const currentKeys = new Set(books.map((book) => encodeKey(book.key)));
     const remainingSlots = MAX_LIST_BOOKS - books.length;
 
     const nextBooks = incomingBooks
-      .filter((book) => !currentKeys.has(book.key))
+      .filter((book) => !currentKeys.has(encodeKey(book.key)))
       .slice(0, remainingSlots)
       .map(toListBook);
 
@@ -191,6 +194,7 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
               resultAuthor: "list-editor-modal__result-author",
               resultContent: "list-editor-modal__result-content",
               resultCheckbox: "list-editor-modal__result-checkbox",
+              resultAction: "list-editor-modal__result-action",
               selectionBar: "list-editor-modal__selection-bar",
               selectionText: "list-editor-modal__selection-text",
               selectionActions: "list-editor-modal__selection-actions",

@@ -33,7 +33,7 @@ export default function AddToListModal({ book, userId, onClose }: AddToListModal
 
   const handleToggle = async (list: BookList) => {
     if (!lists) return;
-    const alreadyIn = list.books.some((b) => b.key === encodedBookKey);
+    const alreadyIn = list.books.some((b) => encodeKey(b.key) === encodedBookKey);
     const listBook: ListBook = {
       key: encodedBookKey,
       title: book.title,
@@ -43,7 +43,7 @@ export default function AddToListModal({ book, userId, onClose }: AddToListModal
       ratingCount: book.ratingCount,
     };
     const newBooks = alreadyIn
-      ? list.books.filter((b) => b.key !== encodedBookKey)
+      ? list.books.filter((b) => encodeKey(b.key) !== encodedBookKey)
       : [...list.books, listBook];
     setLists(
       (prev) => prev?.map((l) => (l.id === list.id ? { ...l, books: newBooks } : l)) ?? null
@@ -108,7 +108,7 @@ export default function AddToListModal({ book, userId, onClose }: AddToListModal
         ) : lists && lists.length > 0 ? (
           <ul className="add-to-list-modal__list">
             {lists.map((list) => {
-              const inList = list.books.some((b) => b.key === encodedBookKey);
+              const inList = list.books.some((b) => encodeKey(b.key) === encodedBookKey);
               return (
                 <li key={list.id}>
                   <button
