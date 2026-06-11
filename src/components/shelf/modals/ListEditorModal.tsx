@@ -123,22 +123,24 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
             <span className="list-editor-modal__visibility-label">
               {t("myLibrary.listEditor.visibilityLabel")}
             </span>
-            <label className="list-editor-modal__toggle">
-              <input
-                type="checkbox"
-                className="list-editor-modal__toggle-input"
-                checked={!isPublic}
-                onChange={(e) => setIsPublic(!e.target.checked)}
-              />
-              <span className="list-editor-modal__toggle-track">
-                <span className="list-editor-modal__toggle-thumb" />
-              </span>
+            <div className="list-editor-modal__toggle">
+              <label className="list-editor-modal__toggle-control">
+                <input
+                  type="checkbox"
+                  className="list-editor-modal__toggle-input"
+                  checked={!isPublic}
+                  onChange={(e) => setIsPublic(!e.target.checked)}
+                />
+                <span className="list-editor-modal__toggle-track">
+                  <span className="list-editor-modal__toggle-thumb" />
+                </span>
+              </label>
               <span className="list-editor-modal__toggle-text">
                 {!isPublic
                   ? t("myLibrary.listEditor.private")
                   : t("myLibrary.listEditor.public")}
               </span>
-            </label>
+            </div>
           </div>
         </div>
 
