@@ -2,11 +2,19 @@
 
 .progresses {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  --chart-h: 180px;
+
+  @include from($bp-md) {
+    --chart-h: 240px;
+  }
 
   &__title {
     font-size: var(--text-xl);
     font-weight: var(--weight-semibold);
-    margin: 0 0 var(--space-5) 0;
+    margin: 0;
     letter-spacing: -0.01em;
   }
 
@@ -31,38 +39,69 @@
     display: flex;
     align-items: flex-end;
     gap: var(--space-6);
-    padding: var(--space-5) var(--space-6);
+    padding: var(--space-8) var(--space-6);
+  }
+
+  &__chart {
+    display: flex;
+    gap: var(--space-2);
+    flex: 1;
+  }
+
+  &__y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: var(--chart-h);
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  &__y-tick {
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    line-height: 1;
+  }
+
+  &__plot {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   &__bar-chart {
     display: flex;
     align-items: flex-end;
     gap: var(--space-1);
-    height: 80px;
-    flex: 1;
+    height: var(--chart-h);
     background-image:
-      linear-gradient(to right, var(--color-border-subtle) 100%, transparent 0),
-      linear-gradient(to right, var(--color-border-subtle) 100%, transparent 0),
-      linear-gradient(to right, var(--color-border-subtle) 100%, transparent 0);
+      linear-gradient(var(--color-border-subtle), var(--color-border-subtle)),
+      linear-gradient(var(--color-border-subtle), var(--color-border-subtle)),
+      linear-gradient(var(--color-border-subtle), var(--color-border-subtle));
     background-size:
       100% 1px,
       100% 1px,
       100% 1px;
     background-position:
-      0 16px,
-      0 37px,
-      0 59px;
+      0 0,
+      0 50%,
+      0 100%;
     background-repeat: no-repeat;
+  }
+
+  &__day-labels {
+    display: flex;
+    gap: var(--space-1);
+    margin-top: var(--space-1);
   }
 
   &__bar-col {
     position: relative;
     flex: 1;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-1);
-    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: center;
   }
 
   &__bar-tooltip {
@@ -88,7 +127,7 @@
   }
 
   &__bar {
-    width: 100%;
+    width: 50%;
     border-radius: 3px 3px 0 0;
     background: var(--color-neutral-alpha-medium);
     min-height: 4px;
@@ -104,6 +143,8 @@
   }
 
   &__bar-label {
+    flex: 1;
+    text-align: center;
     font-size: var(--text-xs);
     font-weight: var(--weight-semibold);
     color: var(--color-text-tertiary);
@@ -120,6 +161,7 @@
     flex-direction: column;
     gap: var(--space-3);
     flex-shrink: 0;
+    align-self: center;
   }
 
   &__stat {
@@ -144,15 +186,9 @@
     color: var(--color-text-tertiary);
   }
 
-  &__divider {
-    height: 1px;
-    background: var(--color-border-subtle);
-    margin: 0;
-  }
-
   &__bottom {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr; // 50% meta / 50% géneros
     gap: 0;
 
     @media (max-width: 768px) {
@@ -178,6 +214,7 @@
   &__genres-wrap {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: var(--space-4);
     padding: var(--space-5) var(--space-6);
   }
@@ -191,8 +228,8 @@
   }
 
   &__goal-outer {
-    width: 100px;
-    height: 100px;
+    width: 128px;
+    height: 128px;
     border-radius: var(--radius-pill);
     background: var(--color-border-subtle);
     display: flex;
@@ -202,8 +239,8 @@
   }
 
   &__goal-inner {
-    width: 88px;
-    height: 88px;
+    width: 112px;
+    height: 112px;
     border-radius: var(--radius-pill);
     background: var(--color-bg-card-solid);
     display: flex;
@@ -214,14 +251,14 @@
   }
 
   &__goal-number {
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     font-weight: var(--weight-bold);
     color: var(--color-text-primary);
     letter-spacing: -0.03em;
   }
 
   &__goal-label {
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     font-weight: var(--weight-medium);
     color: var(--color-text-secondary);
   }
