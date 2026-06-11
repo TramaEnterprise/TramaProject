@@ -10,7 +10,7 @@
     "shelfTitle": "Estantería",
     "seeAll": "Ver todo",
     "hide": "Ocultar",
-    "searchPlaceholder": "Busca por título o autor",
+    "searchPlaceholder": "Busca por título, autor o ISBN",
     "resultsCount_one": "{{count}} resultado para",
     "resultsCount_other": "{{count}} resultados para",
     "noResults": "¡Oops! No hemos encontrado el libro que buscas",

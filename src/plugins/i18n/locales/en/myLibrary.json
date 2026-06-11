@@ -10,7 +10,7 @@
     "shelfTitle": "Bookshelf",
     "seeAll": "See all",
     "hide": "Hide",
-    "searchPlaceholder": "Search by title or author",
+    "searchPlaceholder": "Search by title, author or ISBN",
     "resultsCount_one": "{{count}} result for",
     "resultsCount_other": "{{count}} results for",
     "noResults": "Oops! We couldn't find the book you're looking for",
