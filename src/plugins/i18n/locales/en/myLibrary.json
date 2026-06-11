@@ -1,7 +1,7 @@
 {
   "myLibrary": {
     "heading": "Currently reading...",
-    "noCurrentReading": "You're not reading any book",
+    "noCurrentReading": "Looks like you're not reading any book. Add one now from <1>Explore</1>!",
     "nextBook": "Next reading book",
     "prevBook": "View previous book",
     "readingCount": "{{current}}/{{total}}",
@@ -33,10 +33,15 @@
       "rateBook": "Rating",
       "review": "Review",
       "reviewPlaceholder": "What did you think of the book? Would you recommend it?",
-      "statusMessage": "Press 'Save' to move the book to this shelf.",
+      "wantToReadMessage": "Save the book to your shelf to continue.",
+      "didNotFinishMessage": "If you want to mark the book as abandoned, press 'Save'.",
       "percentageLabel": "Reading percentage"
     },
-    "createList": "Create new list",
+    "finishModal": {
+      "title": "Rate book",
+      "skip": "Skip rating"
+    },
+    "createList": "Create a list",
     "listsTitle": "Lists",
     "listsCount": "{{count}} books",
     "allListsTitle": "Lists",
@@ -60,7 +65,15 @@
       "cancel": "Cancel",
       "save": "Save",
       "saving": "Saving...",
-      "saveError": "Could not save the list"
+      "saveError": "Could not save the list",
+      "visibilityLabel": "Visibility",
+      "public": "Public",
+      "private": "Private",
+      "selectedCount_one": "{{count}} book selected",
+      "selectedCount_other": "{{count}} books selected",
+      "addSelected_one": "Add {{count}} book",
+      "addSelected_other": "Add {{count}} books",
+      "clearSelection": "Clear selection"
     },
     "listDetail": {
       "empty": "This list has no books",
@@ -78,7 +91,9 @@
       "wantToRead": "Want to read",
       "reading": "Reading",
       "finished": "Finished",
-      "didNotFinish": "Abandoned"
+      "didNotFinish": "Abandoned",
+      "prevPage": "Previous page",
+      "nextPage": "Next page"
     },
     "progress": {
       "title": "Progress",
@@ -89,7 +104,11 @@
       "pagesWeek": "pgs. this week",
       "pagesToday": "pgs. today",
       "lastWeek": "vs last week",
-      "favoriteGenres": "Favourite genres"
+      "favoriteGenres": "Favourite genres",
+      "emptyWeek": "No reading logged this week yet.",
+      "emptyGenres": "Finish books to see your favourite genres.",
+      "pagesTooltip_one": "{{count}} page read",
+      "pagesTooltip_other": "{{count}} pages read"
     },
     "days": {
       "mon": "MO",

@@ -4,11 +4,13 @@ import { useTranslation } from "react-i18next";
 import { Bookmark, BookOpen, BookCheck, BookX, ChevronDown, ListPlus, Plus } from "lucide-react";
 import type { Book } from "@/types/Book";
 import type { ShelfStatus } from "@/types/BookDetail";
+import type { ShelfEntry } from "@/services/firebase/firebaseLibrary";
 import { useAuth } from "@/context/auth/useAuth";
 import { useShelf } from "@/context/shelf/useShelf";
 import { useClickOutside, useClickOutsideMany } from "@/hooks/useClickOutside";
 import { bem } from "@/utils/className";
 import AddToListModal from "./AddToListModal";
+import UpdateProgressModal from "@/components/shelf/modals/UpdateProgressModal";
 import "./ShelfStatusDropdown.scss";
 
 const SHELF_OPTIONS: ShelfStatus[] = ["wantToRead", "reading", "finished", "didNotFinish"];
@@ -38,7 +40,7 @@ export default function ShelfStatusDropdown({
   portal = false,
 }: ShelfStatusDropdownProps) {
   const { t } = useTranslation();
-  const { addBook, removeBook, getStatus } = useShelf();
+  const { addBook, removeBook, getStatus, getEntry } = useShelf();
   const { isAuthenticated, user } = useAuth();
   const saved = getStatus(book.key);
 
@@ -46,6 +48,9 @@ export default function ShelfStatusDropdown({
   const [listModalOpen, setListModalOpen] = useState(false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
+  const [finishModalOpen, setFinishModalOpen] = useState(false);
+  const [finishEntry, setFinishEntry] = useState<ShelfEntry | null>(null);
+  const [finishCountPages, setFinishCountPages] = useState(false);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -62,6 +67,10 @@ export default function ShelfStatusDropdown({
       if (tooltipTimerRef.current) clearTimeout(tooltipTimerRef.current);
     };
   }, []);
+
+  if (finishModalOpen && saved !== "finished") {
+    setFinishModalOpen(false);
+  }
 
   const handleTriggerClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -80,6 +89,20 @@ export default function ShelfStatusDropdown({
 
   const handleStatusSelect = (e: React.MouseEvent, status: ShelfStatus) => {
     e.stopPropagation();
+    if (status === "finished") {
+      if (saved === "finished") {
+        removeBook(book.key);
+        setOpen(false);
+        return;
+      }
+      const existing = getEntry(book.key);
+      addBook(book, "finished");
+      setFinishEntry(existing ? { ...existing, status: "finished" } : { book, status: "finished" });
+      setFinishCountPages(existing?.status === "reading");
+      setFinishModalOpen(true);
+      setOpen(false);
+      return;
+    }
     if (saved === status) removeBook(book.key);
     else addBook(book, status);
     setOpen(false);
@@ -158,6 +181,16 @@ export default function ShelfStatusDropdown({
 
       {listModalOpen && user && (
         <AddToListModal book={book} userId={user.uid} onClose={() => setListModalOpen(false)} />
+      )}
+
+      {finishModalOpen && finishEntry && (
+        <UpdateProgressModal
+          entry={finishEntry}
+          title={t("myLibrary.finishModal.title")}
+          countOnFinish={finishCountPages}
+          onClose={() => setFinishModalOpen(false)}
+          onSkip={() => setFinishModalOpen(false)}
+        />
       )}
     </div>
   );

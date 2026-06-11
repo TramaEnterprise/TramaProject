@@ -121,8 +121,19 @@
 
     &--single-row {
       grid-template-rows: 280px;
+
+      @include from($bp-xxl) {
+        grid-template-rows: auto;
+      }
+    }
+
+    @include from($bp-xxl) {
+      grid-template-columns: repeat(7, minmax(0, 200px));
+      grid-template-rows: auto;
+      gap: var(--space-10);
     }
   }
+
 
   &__item {
     min-width: 0;
@@ -230,6 +241,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &--left {
+      justify-content: flex-start;   
+    }
+
+    &--right {
+      justify-content: flex-end;     
+    }
   }
 
   &__chevron {
@@ -246,7 +265,13 @@
     cursor: pointer;
     transition: border-color var(--transition-fast);
 
-    &:hover {
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+      border-color: var(--color-border-medium);
+    }
+
+    &:not(:disabled):hover {
       border-color: var(--color-text-primary);
     }
 

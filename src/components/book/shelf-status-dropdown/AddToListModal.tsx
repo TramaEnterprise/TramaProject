@@ -39,6 +39,8 @@ export default function AddToListModal({ book, userId, onClose }: AddToListModal
       title: book.title,
       authors: book.authors,
       cover_url: book.cover_url ?? undefined,
+      rating: book.rating,
+      ratingCount: book.ratingCount,
     };
     const newBooks = alreadyIn
       ? list.books.filter((b) => b.key !== encodedBookKey)
@@ -63,6 +65,8 @@ export default function AddToListModal({ book, userId, onClose }: AddToListModal
       title: book.title,
       authors: book.authors,
       cover_url: book.cover_url ?? undefined,
+      rating: book.rating,
+      ratingCount: book.ratingCount,
     };
     try {
       const id = await createListDB(userId, trimmed, [listBook]);

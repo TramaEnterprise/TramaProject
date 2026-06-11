@@ -1,4 +1,4 @@
-import { useNavigate, useParams, useSearchParams } from "react-router";
+import { useParams, useSearchParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import { useSectionBooks } from "../hooks/useSectionBooks";
@@ -6,11 +6,11 @@ import BookCard from "@/components/book/cards/BookCard";
 import ExploreGridSkeleton from "@/components/explore/ExploreGridSkeleton";
 import type { ExploreSectionParams, ExploreSectionType } from "@/types/ExploreTypes";
 import { moreGenreTitleKey } from "@/utils/genreUtils";
-import { ChevronLeft } from "lucide-react";
 import "./ExploreSectionPage.scss";
 import { useShelfDerivedFavorites } from "@/pages/explore/hooks/useShelfDerivedFavorites";
 import { useState } from "react";
 import LoadMore from "@/components/common/LoadMore";
+import { useBreadcrumbLabel } from "@/context/breadcrumb/useBreadcrumb";
 
 const SECTION_TITLE_KEYS: Record<ExploreSectionType, string> = {
   trending: "explore.sections.trending",
@@ -50,11 +50,9 @@ export default function ExploreSectionPage() {
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
   const { lang } = useCurrentLanguage();
-  const navigate = useNavigate();
 
   const sectionType = type as ExploreSectionType;
   const shelfDerived = useShelfDerivedFavorites();
-
   const favoriteGenreLabel = searchParams.get("genreLabel") ?? undefined;
 
   const params: ExploreSectionParams = {
@@ -107,13 +105,10 @@ export default function ExploreSectionPage() {
     sectionType === "more-author" ? params.favoriteAuthorName :
     undefined;
 
+  useBreadcrumbLabel("section", title);
   return (
     <div className="section-page">
       <div className="section-page__header">
-        <button type="button" className="section-page__back" onClick={() => navigate(-1)}>
-          <ChevronLeft aria-hidden="true" />
-          {t("explore.backBtn")}
-        </button>
         <h2 className="section-page__title">{renderTitle(title, titleHighlight)}</h2>
       </div>
 

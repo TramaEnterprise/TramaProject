@@ -142,6 +142,7 @@
     align-items: center;
     flex-wrap: wrap;
     row-gap: var(--space-2);
+    margin-top: var(--space-2);
   }
 
   &__rating-block {
@@ -175,7 +176,7 @@
 
   &__divider {
     width: 1px;
-    height: 30px;
+    align-self: stretch;
     background: var(--color-border-medium);
     flex-shrink: 0;
     margin-right: 18px;
@@ -208,6 +209,7 @@
     position: relative;
     overflow: hidden;
     max-height: 170px;
+    margin-top: var(--space-3);
 
     @include from($bp-md) {
       margin-right: -48px;
@@ -259,7 +261,7 @@
   &__footer {
     display: flex;
     justify-content: flex-end;
-    margin-top: var(--space-1);
+    margin-top: auto;
 
     @include from($bp-md) {
       margin-right: -48px;
@@ -277,9 +279,9 @@
   &__save-btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-1);
-    min-width: 155px;
+    justify-content: flex-start;
+    gap: var(--space-2);
+    min-width: 220px;
     padding: var(--space-2) var(--space-2);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-btn-primary-bg);
@@ -337,7 +339,7 @@
     align-items: center;
     gap: var(--space-2);
     width: 100%;
-    padding: var(--space-3) var(--space-2);
+    padding: var(--space-2) var(--space-2);
     border: none;
     border-radius: var(--radius-md);
     background: transparent;

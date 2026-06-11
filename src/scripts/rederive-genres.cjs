@@ -5,7 +5,7 @@
 //   npx tsx src/scripts/rederive-genres.cjs
 const admin = require("firebase-admin");
 const serviceAccount = require("../../serviceAccountKey.json");
-const { detectGenres } = require("../utils/genreUtils.ts");
+const { detectGenres } = require("../utils/genreDetection.ts");
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const PAGE_SIZE = 400;

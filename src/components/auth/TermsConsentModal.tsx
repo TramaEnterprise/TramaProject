@@ -17,6 +17,7 @@ export default function TermsConsentModal({
 }: TermsConsentModalProps) {
   const { t } = useTranslation();
   const [accepted, setAccepted] = useState(false);
+  const [wasOpen, setWasOpen] = useState(open);
 
   useEffect(() => {
     if (!open) return;
@@ -27,9 +28,10 @@ export default function TermsConsentModal({
     return () => document.removeEventListener("keydown", handler);
   }, [open, isProcessing, onCancel]);
 
-  useEffect(() => {
-    if (!open) setAccepted(false);
-  }, [open]);
+  if (wasOpen !== open) {
+    setWasOpen(open);
+    if (!open) setAccepted(false);  
+  }
 
   if (!open) return null;
 

@@ -10,6 +10,7 @@ import EditableStarRating from "@/components/common/EditableStarRating";
 import LimitedTextarea from "@/components/common/TextArea";
 import ProgressPageInput from "./components/ProgressPageInput";
 import ModalStatusSelect from "./components/ModalStatusSelect";
+import ConfettiBurst from "@/components/common/ConfettiBurst";
 
 const NOTE_MAX = 280;
 const REVIEW_MAX = 600;
@@ -17,6 +18,9 @@ const REVIEW_MAX = 600;
 type UpdateProgressModalProps = {
   entry: ShelfEntry;
   onClose: () => void;
+  title?: string;
+  onSkip?: () => void;
+  countOnFinish?: boolean;
 };
 
 const TEXTAREA_CLASSNAMES = {
@@ -33,14 +37,27 @@ function derivePercent(page: number, total: number): string {
   return String(Math.round((page / total) * 100));
 }
 
-export default function UpdateProgressModal({ entry, onClose }: UpdateProgressModalProps) {
+export default function UpdateProgressModal({
+  entry,
+  onClose,
+  title,
+  onSkip,
+  countOnFinish = true,
+}: UpdateProgressModalProps) {
   const { t } = useTranslation();
   const { updateProgress, addBook } = useShelf();
+  const [modalBurst, setModalBurst] = useState(entry.status === "finished" ? 1 : 0);
   const totalPages = entry.book.pages ?? 0;
 
   const initialPage = entry.currentPage ?? 0;
 
   const [localStatus, setLocalStatus] = useState<ShelfStatus>(entry.status);
+  
+  const handleStatusChange = (status: ShelfStatus) => {
+    setLocalStatus(status);
+    if (status === "finished") setModalBurst((n) => n + 1);
+  };
+  
   const [pageInput, setPageInput] = useState(initialPage > 0 ? String(initialPage) : "");
   const [percentInput, setPercentInput] = useState(derivePercent(initialPage, totalPages));
   const [note, setNote] = useState("");
@@ -52,8 +69,8 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
   const [reviewSaveBlocked, setReviewSaveBlocked] = useState(false);
   const [reviewShaking, setReviewShaking] = useState(false);
 
-  const currentPage =
-    pageInput === "" ? 0 : Math.max(0, Math.min(parseInt(pageInput, 10) || 0, totalPages));
+  const parsedPage = pageInput === "" ? 0 : Math.max(0, parseInt(pageInput, 10) || 0);
+  const currentPage = totalPages > 0 ? Math.min(parsedPage, totalPages) : parsedPage;
   const progressPercent = totalPages > 0 ? Math.round((currentPage / totalPages) * 100) : 0;
 
   const handleSave = async () => {
@@ -81,6 +98,7 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
           rating: rating || undefined,
           review: review.trim() || undefined,
           status: "finished",
+          skipProgressLog: !countOnFinish,
         });
       } finally {
         setIsSubmitting(false);
@@ -111,8 +129,8 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
 
   return (
     <Modal
-      title={t("myLibrary.updateProgressModal.title")}
-      ariaLabel={t("myLibrary.updateProgressModal.title")}
+      title={title ?? t("myLibrary.updateProgressModal.title")}
+      ariaLabel={title ?? t("myLibrary.updateProgressModal.title")}
       closeAriaLabel={t("myLibrary.updateProgressModal.close")}
       onClose={onClose}
       closeOnBackdrop={false}
@@ -127,7 +145,7 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
     >
       <div className="progress-modal__body">
         <div className="progress-modal__left">
-          <ModalStatusSelect value={localStatus} onChange={setLocalStatus} />
+          <ModalStatusSelect value={localStatus} onChange={handleStatusChange} />
           {coverSrc ? (
             <img className="progress-modal__cover" src={coverSrc} alt="" />
           ) : (
@@ -203,15 +221,26 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
             </>
           )}
 
-          {(localStatus === "wantToRead" || localStatus === "didNotFinish") && (
+          {localStatus === "wantToRead" && (
             <div className="progress-modal__status-message">
-              <p>{t("myLibrary.updateProgressModal.statusMessage")}</p>
+              <p>{t("myLibrary.updateProgressModal.wantToReadMessage")}</p>
+            </div>
+          )}
+
+          {localStatus === "didNotFinish" && (
+            <div className="progress-modal__status-message">
+              <p>{t("myLibrary.updateProgressModal.didNotFinishMessage")}</p>
             </div>
           )}
         </div>
       </div>
 
       <div className="progress-modal__footer">
+        {onSkip && (
+          <button type="button" className="progress-modal__skip-btn" onClick={onSkip}>
+            {t("myLibrary.finishModal.skip")}
+          </button>
+        )}
         <button
           type="button"
           className="progress-modal__save-btn"
@@ -221,6 +250,7 @@ export default function UpdateProgressModal({ entry, onClose }: UpdateProgressMo
           {t("myLibrary.updateProgressModal.save")}
         </button>
       </div>
+      {modalBurst > 0 && <ConfettiBurst key={modalBurst} onComplete={() => setModalBurst(0)} />}
     </Modal>
   );
 }

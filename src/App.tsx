@@ -16,6 +16,8 @@ import AppToaster from "./components/common/Toaster/AppToaster";
 import { queryClient } from "./services/lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Breadcrumbs from "./components/layout/breadcrumbs/BreadCrumbs";
+import { BreadcrumbProvider } from "./context/breadcrumb/BreadCrumbContext";
 
 const SCROLL_THRESHOLD = 80;
 
@@ -31,19 +33,23 @@ function AppShell() {
 
   useEffect(() => {
     if (!miniNavEnabled) {
-      setScrolled(false);
       return;
     }
     const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [miniNavEnabled]);
 
+  // Si el mini-nav está desactivado, nunca se considera "scrolled".
+  const effectiveScrolled = miniNavEnabled && scrolled;
+
   return (
     <>
-      <Navbar hidden={scrolled} onActiveClick={reloadCurrent} />
-      <NavbarMini visible={scrolled} onActiveClick={reloadCurrent} />
+      <Navbar hidden={effectiveScrolled} onActiveClick={reloadCurrent} />
+      <NavbarMini visible={effectiveScrolled} onActiveClick={reloadCurrent} />
       <main>
+        <Breadcrumbs />
         <Outlet key={reloadCount} />
       </main>
       <Footer />
@@ -71,7 +77,9 @@ export default function App() {
             <AuthProvider>
               <ShelfProvider>
                 <NotificationsProvider>
-                  <AppShell />
+                  <BreadcrumbProvider>
+                    <AppShell />
+                  </BreadcrumbProvider>
                 </NotificationsProvider>
               </ShelfProvider>
             </AuthProvider>

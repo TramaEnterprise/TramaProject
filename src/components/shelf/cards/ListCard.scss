@@ -53,6 +53,14 @@
     flex: 1;
   }
 
+  &__name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    min-width: 0;
+  }
+
   &__name {
     margin: 0;
     font-family: var(--font-editorial);
@@ -63,11 +71,18 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 0;
   }
 
   &__count {
     margin: 0;
     font-size: var(--text-sm);
     color: var(--color-text-tertiary);
+  }
+
+  &__private-icon {
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+    align-self: center;
   }
 }

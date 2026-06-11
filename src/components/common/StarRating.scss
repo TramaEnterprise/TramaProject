@@ -6,5 +6,10 @@
   &__star {
     display: block;
     flex-shrink: 0;
+    transform-origin: center;
+
+    svg {
+      display: block; 
+    }
   }
 }

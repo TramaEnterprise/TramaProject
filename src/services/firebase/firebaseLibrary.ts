@@ -28,12 +28,13 @@ export async function addToShelf(
   uid: string,
   book: Book,
   status: ShelfStatus,
-  prevStatus?: ShelfStatus | null
+  prevStatus?: ShelfStatus | null,
+  opts?: { silent?: boolean; rating?: number; review?: string; addedAt?: string }
 ): Promise<void> {
   const shelfRef = doc(db, "Users", uid, "Shelf", encodeKey(book.key));
   const { titles, isbns, ...bookData } = book;
 
-  const nowDate = new Date().toISOString();
+  const nowDate = opts?.addedAt ?? new Date().toISOString();
   const data: Record<string, unknown> = {
     ...bookData,
     status,
@@ -41,6 +42,12 @@ export async function addToShelf(
   };
   if (status === "reading") {
     data.lastProgressAt = nowDate;
+  }
+  if (opts?.rating !== undefined) {
+    data.rating = opts.rating;
+  }
+  if (opts?.review !== undefined) {
+    data.review = opts.review;
   }
   await setDoc(shelfRef, data, { merge: true });
 
@@ -59,6 +66,7 @@ export async function addToShelf(
   }
 
   if (prevStatus === status) return;
+  if (opts?.silent) return; // importación silenciosa: sin actividad ni tendencias
 
   const base = {
     bookId: book.key,
@@ -98,7 +106,8 @@ export async function updateReadingProgress(
   note?: string,
   rating?: number,
   review?: string,
-  statusOverride?: ShelfStatus
+  statusOverride?: ShelfStatus,
+  skipProgressLog = false
 ): Promise<void> {
   const totalPages = entry.book.pages ?? 0;
   const isFinished = totalPages > 0 && currentPage === totalPages;
@@ -131,7 +140,7 @@ export async function updateReadingProgress(
     bookAuthor: entry.book.authors[0],
   };
 
-  if (pageChanged) {
+  if (pageChanged && !skipProgressLog) {
     if (currentPage > prevPage) {
       logActivity(uid, {
         type: "progress",

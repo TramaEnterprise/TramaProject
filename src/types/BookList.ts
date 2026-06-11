@@ -3,6 +3,8 @@ export type ListBook = {
   title: string;
   authors: string[];
   cover_url?: string;
+  rating?: number;
+  ratingCount?: number;
 };
 
 export type BookList = {
@@ -10,6 +12,7 @@ export type BookList = {
   name: string;
   description?: string;
   books: ListBook[];
+  isPublic?: boolean;
   createdAt: string;
   updatedAt: string;
 };

@@ -1,7 +1,7 @@
 {
   "myLibrary": {
     "heading": "Estoy leyendo...",
-    "noCurrentReading": "No estás leyendo ningún libro",
+    "noCurrentReading": "Parece que no estás leyendo ningún libro. ¡Añade uno ahora desde <1>Explorar</1>!",
     "nextBook": "Ver siguiente libro leyendo",
     "prevBook": "Ver libro anterior",
     "readingCount": "{{current}}/{{total}}",
@@ -33,10 +33,15 @@
       "rateBook": "Valoración",
       "review": "Reseña",
       "reviewPlaceholder": "¿Qué te ha parecido el libro? ¿Lo recomendarías?",
-      "statusMessage": "Pulsa «Guardar» para mover el libro a esta estantería.",
+      "wantToReadMessage": "Guarda el libro en tu estantería para continuar.",
+      "didNotFinishMessage": "Si quieres marcar el libro como abandonado pulsa el botón de «Guardar».",
       "percentageLabel": "Porcentaje de lectura"
     },
-    "createList": "Crear nueva lista",
+    "finishModal": {
+      "title": "Valorar libro",
+      "skip": "Saltar valoración"
+    },
+    "createList": "Crear una lista",
     "listsTitle": "Listas",
     "listsCount": "{{count}} libros",
     "allListsTitle": "Listas",
@@ -60,7 +65,15 @@
       "cancel": "Cancelar",
       "save": "Guardar",
       "saving": "Guardando...",
-      "saveError": "No se pudo guardar la lista"
+      "saveError": "No se pudo guardar la lista",
+      "visibilityLabel": "Visibilidad",
+      "public": "Pública",
+      "private": "Privada",
+      "selectedCount_one": "{{count}} libro seleccionado",
+      "selectedCount_other": "{{count}} libros seleccionados",
+      "addSelected_one": "Añadir {{count}} libro",
+      "addSelected_other": "Añadir {{count}} libros",
+      "clearSelection": "Limpiar selección"
     },
     "listDetail": {
       "empty": "Esta lista no tiene libros",
@@ -78,7 +91,9 @@
       "wantToRead": "Quiero leer",
       "reading": "Leyendo",
       "finished": "Acabado",
-      "didNotFinish": "Abandonado"
+      "didNotFinish": "Abandonado",
+      "prevPage": "Página anterior",
+      "nextPage": "Página siguiente"
     },
     "progress": {
       "title": "Progresos",
@@ -89,7 +104,11 @@
       "pagesWeek": "págs. semana",
       "pagesToday": "págs. hoy",
       "lastWeek": "semana pasada",
-      "favoriteGenres": "Géneros favoritos"
+      "favoriteGenres": "Géneros favoritos",
+      "emptyWeek": "Aún no hay lecturas registradas esta semana.",
+      "emptyGenres": "Termina libros para ver tus géneros favoritos.",
+      "pagesTooltip_one": "{{count}} página leída",
+      "pagesTooltip_other": "{{count}} páginas leídas"
     },
     "days": {
       "mon": "LU",

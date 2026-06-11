@@ -39,29 +39,29 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
     entriesRef.current = entries;
   }, [entries]);
 
-  useEffect(() => {
-    if (!uid) {
-      return;
+  const loadShelf = useCallback(async () => {
+    if (!uid) return;
+    try {
+      const shelf = await getShelf(uid);
+      setEntries(new Map((shelf ?? []).map((e) => [encodeKey(e.book.key), e])));
+    } finally {
+      setLoadedUid(uid);
     }
+  }, [uid]);
+
+  useEffect(() => {
+    if (!uid) return;
     let cancelled = false;
 
-    getShelf(uid)
-      .then((shelf) => {
-        if (cancelled) {
-          return;
-        }
-        setEntries(new Map((shelf ?? []).map((e) => [encodeKey(e.book.key), e])));
-        setLoadedUid(uid);
-      })
-      .catch(() => {
-        if (!cancelled) {
-          setLoadedUid(uid);
-        }
-      });
+    void loadShelf().then(() => {
+      if (cancelled) return;
+    });
+
     return () => {
       cancelled = true;
     };
-  }, [uid]);
+  }, [uid, loadShelf]);
+
 
   const ready = uid !== null && loadedUid === uid;
   const loading = uid !== null && loadedUid !== uid;
@@ -156,6 +156,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
       review?: string;
       status?: ShelfStatus;
       silent?: boolean;
+      skipProgressLog?: boolean;
     }
   ) => {
     if (!uid) {
@@ -187,7 +188,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
     setEntries(newMap);
 
     try {
-      await updateReadingProgress(uid, existing, currentPage, opts?.note, opts?.rating, opts?.review, opts?.status);
+      await updateReadingProgress(uid, existing, currentPage, opts?.note, opts?.rating, opts?.review, opts?.status, opts?.skipProgressLog);
       queryClient.invalidateQueries({
         predicate: (q) => q.queryKey[0] === "section" || q.queryKey[0] === "explore-feed",
         refetchType: "none",
@@ -203,7 +204,7 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
             })
           );
         } else {
-          notifyProgressUpdated(localizedBook, currentPage, totalPages);
+          notifyProgressUpdated(localizedBook);
         }
       }
     } catch {
@@ -221,8 +222,8 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
   );
 
   const value = useMemo(
-    () => ({ shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress }),
-    [shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress]
+    () => ({ shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress, reload: loadShelf }),
+    [shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress, loadShelf]
   );
 
   return (

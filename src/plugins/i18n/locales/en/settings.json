@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "title": "Settings",
+    "nav": {
+      "sectionTitle": "Navigation",
+      "compactBar": "Compact bar on scroll",
+      "compactBarDesc": "Replaces the main navigation bar with a compact version when scrolling."
+    },
+    "data": {
+      "sectionTitle": "Data",
+      "importGoodreads": "Import from Goodreads",
+      "importGoodreadsDesc": "Bring your shelf from the CSV file you export from Goodreads.",
+      "import": "Import"
+    }
+  }
+}
