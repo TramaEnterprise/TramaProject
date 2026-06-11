@@ -42,7 +42,7 @@ export default function LoginForm() {
         await logoutUser();
         throw new EmailNotVerifiedError();
       }
-      navigate("/explore", { replace: true });
+      navigate("/my-library", { replace: true });
     } catch (error) {
       setFirebaseError(getFirebaseErrorMessage(error));
     }
