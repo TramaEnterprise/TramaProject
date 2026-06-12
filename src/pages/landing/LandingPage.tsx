@@ -96,9 +96,9 @@ function LandingPage() {
                 <span className="landing__genre-label">{t("landing.habits.stats.genre3")}</span>
                 <span className="landing__genre-pct">25%</span>
               </div>
-              <div className="landing__progress-bar landing__progress-bar--sm landing__progress-bar--blue">
+              <div className="landing__progress-bar landing__progress-bar--sm landing__progress-bar--warm">
                 <div
-                  className="landing__progress-bar-fill landing__progress-bar-fill--blue"
+                  className="landing__progress-bar-fill landing__progress-bar-fill--warm"
                   style={{ width: "25%" }}
                 />
               </div>
