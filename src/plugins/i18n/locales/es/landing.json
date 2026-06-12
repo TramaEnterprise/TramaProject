@@ -38,8 +38,8 @@
       "title": "Descubre qué leen quienes te inspiran",
       "subtitle": "Sigue a tus amigos, consulta su actividad y comparte tus reflexiones",
       "card": {
-        "readingNow": "Leyendo ahora:",
-        "favorites": "Favoritos:",
+        "readingNow": "Leyendo ahora",
+        "favorites": "Favoritos",
         "follow": "Seguir",
         "followers": "seguidores"
       }

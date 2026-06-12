@@ -38,8 +38,8 @@
       "title": "Discover what your inspirations are reading",
       "subtitle": "Follow other readers, see their recent activity and find your next read.",
       "card": {
-        "readingNow": "Now reading:",
-        "favorites": "Favourites:",
+        "readingNow": "Now reading",
+        "favorites": "Favourites",
         "follow": "Follow",
         "followers": "followers"
       }

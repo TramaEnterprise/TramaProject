@@ -7,18 +7,18 @@ import HeroSection from "./HeroSection";
 import LandingLibrarySection from "./LandingLibrarySection";
 import avatarGirlImg from "@/assets/landing-community-icon-profile-girl.svg";
 import avatarBoyImg from "@/assets/landing-community-icon-profile-boy.svg";
-import coverDuneImg from "@/assets/landing-cover-dune.png";
-import cover1984Img from "@/assets/landing-cover-1984.png";
-import fav1Img from "@/assets/landing-fav-1.png";
-import fav2Img from "@/assets/landing-fav-2.png";
-import fav3Img from "@/assets/landing-fav-3.png";
-import fav4Img from "@/assets/landing-fav-4.png";
-import fav5Img from "@/assets/landing-fav-5.png";
-import fav6Img from "@/assets/landing-fav-6.png";
-import fav7Img from "@/assets/landing-fav-7.png";
-import fav8Img from "@/assets/landing-fav-8.png";
-import fav9Img from "@/assets/landing-fav-9.png";
-import fav10Img from "@/assets/landing-fav-10.png";
+import coverMariaImg from "@/assets/landing-book-temor.jpg";
+import coverCarlosImg from "@/assets/landing-book-yorobot.jpg";
+import coverSenorImg from "@/assets/landing-book-senor.jpg";
+import coverTronoImg from "@/assets/landing-book-trono.jpg";
+import coverJuegoTronosImg from "@/assets/landing-book-juegotronos.jpg";
+import coverHambreImg from "@/assets/landing-book-hambre.jpg";
+import coverCriadaImg from "@/assets/landing-book-criada.jpg";
+import coverCalalobosImg from "@/assets/landing-book-calabobos.jpg";
+import coverFrankensteinImg from "@/assets/landing-book-frankenstein.jpg";
+import coverHarryPotterImg from "@/assets/landing-book-harrypotter.jpg";
+import coverShogunImg from "@/assets/landing-book-shogun.png";
+import coverPedroImg from "@/assets/landing-book-pedro.jpg";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -130,11 +130,15 @@ function LandingPage() {
               <div className="landing__profile-card-avatar">
                 <img src={avatarGirlImg} alt="" aria-hidden="true" />
               </div>
-              <div>
-                <p className="landing__profile-card-name">María García</p>
-                <p className="landing__profile-card-meta">
-                  @mariag01 · ★ 47 {t("landing.community.card.followers")}
-                </p>
+              <div className="landing__profile-card-info">
+                <div className="landing__profile-card-name-row">
+                  <p className="landing__profile-card-name">María García</p>
+                  <span className="landing__profile-card-follow-btn" aria-hidden="true">
+                    {t("landing.community.card.follow")}
+                  </span>
+                </div>
+                <p className="landing__profile-card-meta">@mariag01</p>
+                <p className="landing__profile-card-followers">47 {t("landing.community.card.followers")}</p>
               </div>
             </div>
             <div className="landing__profile-card-reading">
@@ -142,15 +146,22 @@ function LandingPage() {
                 {t("landing.community.card.readingNow")}
               </p>
               <div className="landing__profile-card-book-row">
-                <img className="landing__profile-card-cover" src={coverDuneImg} alt="Dune" />
-                <div>
-                  <p className="landing__profile-card-book-title">Dune</p>
-                  <p className="landing__profile-card-book-author">Frank Herbert</p>
+                <img className="landing__profile-card-cover" src={coverMariaImg} alt="El Temor de un Hombre Sabio" />
+                <div className="landing__profile-card-book-body">
+                  <div className="landing__profile-card-book-header">
+                    <p className="landing__profile-card-book-title">El Temor de un Hombre Sabio</p>
+                    <p className="landing__profile-card-book-author">Patrick Rothfuss</p>
+                  </div>
+                  <div className="landing__profile-card-progress-box">
+                    <div className="landing__profile-card-progress-labels">
+                      <span>{t("myLibrary.readingProgress")}</span>
+                      <span>68%</span>
+                    </div>
+                    <div className="landing__progress-bar landing__progress-bar--sm">
+                      <div className="landing__progress-bar-fill" style={{ width: "68%" }} />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <span className="landing__profile-card-pct">68%</span>
-              <div className="landing__progress-bar landing__progress-bar--sm">
-                <div className="landing__progress-bar-fill" style={{ width: "68%" }} />
               </div>
             </div>
             <div className="landing__profile-card-favorites">
@@ -158,16 +169,13 @@ function LandingPage() {
                 {t("landing.community.card.favorites")}
               </p>
               <div className="landing__profile-card-fav-covers">
-                <img className="landing__profile-card-fav-cover" src={fav1Img} alt="" />
-                <img className="landing__profile-card-fav-cover" src={fav2Img} alt="" />
-                <img className="landing__profile-card-fav-cover" src={fav3Img} alt="" />
-                <img className="landing__profile-card-fav-cover" src={fav4Img} alt="" />
-                <img className="landing__profile-card-fav-cover" src={fav5Img} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverSenorImg} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverTronoImg} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverJuegoTronosImg} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverHambreImg} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverCriadaImg} alt="" />
               </div>
             </div>
-            <button type="button" className="landing__profile-card-follow-btn">
-              {t("landing.community.card.follow")}
-            </button>
           </div>
 
           {/* Tarjeta Carlos Ruiz */}
@@ -176,11 +184,15 @@ function LandingPage() {
               <div className="landing__profile-card-avatar">
                 <img src={avatarBoyImg} alt="" aria-hidden="true" />
               </div>
-              <div>
-                <p className="landing__profile-card-name">Carlos Ruiz</p>
-                <p className="landing__profile-card-meta">
-                  @carlos_books · ★ 128 {t("landing.community.card.followers")}
-                </p>
+              <div className="landing__profile-card-info">
+                <div className="landing__profile-card-name-row">
+                  <p className="landing__profile-card-name">Carlos Ruiz</p>
+                  <span className="landing__profile-card-follow-btn" aria-hidden="true">
+                    {t("landing.community.card.follow")}
+                  </span>
+                </div>
+                <p className="landing__profile-card-meta">@carlos_books</p>
+                <p className="landing__profile-card-followers">128 {t("landing.community.card.followers")}</p>
               </div>
             </div>
             <div className="landing__profile-card-reading">
@@ -188,15 +200,22 @@ function LandingPage() {
                 {t("landing.community.card.readingNow")}
               </p>
               <div className="landing__profile-card-book-row">
-                <img className="landing__profile-card-cover" src={cover1984Img} alt="1984" />
-                <div>
-                  <p className="landing__profile-card-book-title">1984</p>
-                  <p className="landing__profile-card-book-author">George Orwell</p>
+                <img className="landing__profile-card-cover" src={coverCarlosImg} alt="Yo, Robot" />
+                <div className="landing__profile-card-book-body">
+                  <div className="landing__profile-card-book-header">
+                    <p className="landing__profile-card-book-title">Yo, Robot</p>
+                    <p className="landing__profile-card-book-author">Isaac Asimov</p>
+                  </div>
+                  <div className="landing__profile-card-progress-box">
+                    <div className="landing__profile-card-progress-labels">
+                      <span>{t("myLibrary.readingProgress")}</span>
+                      <span>14%</span>
+                    </div>
+                    <div className="landing__progress-bar landing__progress-bar--sm">
+                      <div className="landing__progress-bar-fill" style={{ width: "14%" }} />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <span className="landing__profile-card-pct">14%</span>
-              <div className="landing__progress-bar landing__progress-bar--sm">
-                <div className="landing__progress-bar-fill" style={{ width: "14%" }} />
               </div>
             </div>
             <div className="landing__profile-card-favorites">
@@ -204,16 +223,13 @@ function LandingPage() {
                 {t("landing.community.card.favorites")}
               </p>
               <div className="landing__profile-card-fav-covers">
-                <img className="landing__profile-card-fav-cover" src={fav6Img} alt="" />
-                <img className="landing__profile-card-fav-cover" src={fav7Img} alt="" />
-                <img className="landing__profile-card-fav-cover" src={fav8Img} alt="" />
-                <img className="landing__profile-card-fav-cover" src={fav9Img} alt="" />
-                <img className="landing__profile-card-fav-cover" src={fav10Img} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverCalalobosImg} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverFrankensteinImg} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverHarryPotterImg} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverShogunImg} alt="" />
+                <img className="landing__profile-card-fav-cover" src={coverPedroImg} alt="" />
               </div>
             </div>
-            <button type="button" className="landing__profile-card-follow-btn">
-              {t("landing.community.card.follow")}
-            </button>
           </div>
         </div>
       </section>
