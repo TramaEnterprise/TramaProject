@@ -98,7 +98,7 @@ export default function LandingLibraryMockup() {
 
         {/* Estoy leyendo */}
         <div>
-          <div className="landing-library__block-header">
+          <div className="landing-library__block-header landing-library__block-header--reading">
             <span className="landing-library__block-label">
               {t("landing.library.readingLabel")}
             </span>

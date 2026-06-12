@@ -35,6 +35,10 @@
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: var(--space-3);
+
+    &--reading {
+      padding-right: calc(32px + var(--space-3));
+    }
   }
 
   &__block-label {
