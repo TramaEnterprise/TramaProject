@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import "./LandingPage.scss";
 import HeroSection from "./HeroSection";
 import LandingLibrarySection from "./LandingLibrarySection";
+import avatarGirlImg from "@/assets/landing-community-icon-profile-girl.svg";
+import avatarBoyImg from "@/assets/landing-community-icon-profile-boy.svg";
 import coverDuneImg from "@/assets/landing-cover-dune.png";
 import cover1984Img from "@/assets/landing-cover-1984.png";
 import fav1Img from "@/assets/landing-fav-1.png";
@@ -125,7 +127,9 @@ function LandingPage() {
           {/* Tarjeta María García */}
           <div className="landing__profile-card">
             <div className="landing__profile-card-user">
-              <div className="landing__profile-card-avatar">M</div>
+              <div className="landing__profile-card-avatar">
+                <img src={avatarGirlImg} alt="" aria-hidden="true" />
+              </div>
               <div>
                 <p className="landing__profile-card-name">María García</p>
                 <p className="landing__profile-card-meta">
@@ -169,7 +173,9 @@ function LandingPage() {
           {/* Tarjeta Carlos Ruiz */}
           <div className="landing__profile-card">
             <div className="landing__profile-card-user">
-              <div className="landing__profile-card-avatar">C</div>
+              <div className="landing__profile-card-avatar">
+                <img src={avatarBoyImg} alt="" aria-hidden="true" />
+              </div>
               <div>
                 <p className="landing__profile-card-name">Carlos Ruiz</p>
                 <p className="landing__profile-card-meta">
