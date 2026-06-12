@@ -9,7 +9,7 @@
       "guest": "Explore without an account"
     },
     "library": {
-      "title": "Your personal library, always with you.",
+      "title": "Your personal library, always with you",
       "subtitle": "Add books with one click to your own virtual shelf, while keeping track of your reading progress.",
       "readingLabel": "Now reading",
       "shelfLabel": "Shelf",
@@ -21,7 +21,7 @@
       }
     },
     "habits": {
-      "title": "Turn reading into a habit.",
+      "title": "Turn reading into a habit",
       "subtitle": "Keep your daily streak, set your annual reading goal and review your reading statistics.",
       "stats": {
         "streakLabel": "Current streak",
@@ -63,7 +63,7 @@
       }
     },
     "cta": {
-      "title": "Start your reading story today.",
+      "title": "Start your reading story today",
       "subtitle": "Free and ad-free. Get started in less than a minute.",
       "btn": "Create your account now",
       "guest": "Explore without an account →"

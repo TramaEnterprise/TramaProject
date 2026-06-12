@@ -50,10 +50,6 @@ function LandingPage() {
 
       {/* ── Hábitos ──────────────────────────────────────── */}
       <section className="landing__habits">
-        <div className="landing__habits-text">
-          <h2 className="landing__section-title">{t("landing.habits.title")}</h2>
-          <p className="landing__section-subtitle">{t("landing.habits.subtitle")}</p>
-        </div>
         <div className="landing__stats-panel">
           <div className="landing__stats-streak">
             <span className="landing__stats-streak-label">
@@ -99,6 +95,10 @@ function LandingPage() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="landing__habits-text">
+          <h2 className="landing__section-title">{t("landing.habits.title")}</h2>
+          <p className="landing__section-subtitle">{t("landing.habits.subtitle")}</p>
         </div>
       </section>
 

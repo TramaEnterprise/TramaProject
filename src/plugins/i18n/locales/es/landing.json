@@ -9,7 +9,7 @@
       "guest": "Explorar sin cuenta"
     },
     "library": {
-      "title": "Tu biblioteca personal, siempre contigo.",
+      "title": "Tu biblioteca personal, siempre contigo",
       "subtitle": "Añade libros con un clic a tu propia estantería virtual, mientras llevas la cuenta del progreso de tu lectura actual.",
       "readingLabel": "Estoy leyendo",
       "shelfLabel": "Estantería",
@@ -21,7 +21,7 @@
       }
     },
     "habits": {
-      "title": "Convierte la lectura en un hábito.",
+      "title": "Convierte la lectura en un hábito",
       "subtitle": "Mantén tu racha diaria, marca tu meta de libros al año y revisa tus estadísticas de lectura.",
       "stats": {
         "streakLabel": "Racha actual",
@@ -63,7 +63,7 @@
       }
     },
     "cta": {
-      "title": "Empieza tu historia lectora hoy.",
+      "title": "Empieza tu historia lectora hoy",
       "subtitle": "Gratis y sin anuncios. Empieza en menos de un minuto.",
       "btn": "Crea tu cuenta ahora",
       "guest": "Explorar sin cuenta →"
