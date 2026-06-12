@@ -141,7 +141,7 @@
         background: var(--color-success);
       }
       &--warm {
-        background: var(--color-brand-deep);
+        background: var(--color-info);
       }
     }
   }
@@ -254,7 +254,7 @@
   &__stats-streak {
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-3);
 
     &-label {
       font-size: var(--text-xs);
@@ -265,7 +265,7 @@
     }
 
     &-value {
-      font-size: var(--text-3xl);
+      font-size: var(--text-2xl);
       font-weight: var(--weight-regular);
       color: var(--color-brand-primary);
       line-height: 1;
