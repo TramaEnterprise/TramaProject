@@ -29,9 +29,9 @@
         "goalLabel": "Meta 2026",
         "goalValue": "23 / 50 libros leídos",
         "genresLabel": "Géneros favoritos",
-        "genre1": "Fantasía  40%",
-        "genre2": "Ciencia ficción  35%",
-        "genre3": "Misterio  25%"
+        "genre1": "Fantasía",
+        "genre2": "Ciencia ficción",
+        "genre3": "Misterio"
       }
     },
     "community": {

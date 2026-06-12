@@ -29,9 +29,9 @@
         "goalLabel": "2026 goal",
         "goalValue": "23 / 50 books read",
         "genresLabel": "Favourite genres",
-        "genre1": "Fantasy  40%",
-        "genre2": "Science fiction  35%",
-        "genre3": "Mystery  25%"
+        "genre1": "Fantasy",
+        "genre2": "Science fiction",
+        "genre3": "Mystery"
       }
     },
     "community": {

@@ -71,13 +71,19 @@ function LandingPage() {
           <div className="landing__stats-block">
             <span className="landing__stats-label">{t("landing.habits.stats.genresLabel")}</span>
             <div className="landing__genre-row">
-              <span className="landing__genre-label">{t("landing.habits.stats.genre1")}</span>
+              <div className="landing__genre-header">
+                <span className="landing__genre-label">{t("landing.habits.stats.genre1")}</span>
+                <span className="landing__genre-pct">40%</span>
+              </div>
               <div className="landing__progress-bar landing__progress-bar--sm">
                 <div className="landing__progress-bar-fill" style={{ width: "40%" }} />
               </div>
             </div>
             <div className="landing__genre-row">
-              <span className="landing__genre-label">{t("landing.habits.stats.genre2")}</span>
+              <div className="landing__genre-header">
+                <span className="landing__genre-label">{t("landing.habits.stats.genre2")}</span>
+                <span className="landing__genre-pct">35%</span>
+              </div>
               <div className="landing__progress-bar landing__progress-bar--sm landing__progress-bar--green">
                 <div
                   className="landing__progress-bar-fill landing__progress-bar-fill--green"
@@ -86,7 +92,10 @@ function LandingPage() {
               </div>
             </div>
             <div className="landing__genre-row">
-              <span className="landing__genre-label">{t("landing.habits.stats.genre3")}</span>
+              <div className="landing__genre-header">
+                <span className="landing__genre-label">{t("landing.habits.stats.genre3")}</span>
+                <span className="landing__genre-pct">25%</span>
+              </div>
               <div className="landing__progress-bar landing__progress-bar--sm landing__progress-bar--blue">
                 <div
                   className="landing__progress-bar-fill landing__progress-bar-fill--blue"
