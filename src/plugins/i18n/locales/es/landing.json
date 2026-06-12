@@ -10,7 +10,7 @@
     },
     "library": {
       "title": "Tu biblioteca personal, siempre contigo",
-      "subtitle": "Añade libros con un clic a tu propia estantería virtual, mientras llevas la cuenta del progreso de tu lectura actual.",
+      "subtitle": "Añade libros a tu estantería según el estado en el que estén y actualiza su progreso para llevar un control de tus lecturas.",
       "readingLabel": "Estoy leyendo",
       "shelfLabel": "Estantería",
       "pill": {
