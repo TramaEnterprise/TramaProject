@@ -118,7 +118,7 @@ export default function LandingLibrarySection() {
                   <div className="landing-library__progress-labels">
                     <span>
                       {t("myLibrary.readingProgress")}:{" "}
-                      <strong className="landing-library__progress-pct">{book.pct}%</strong>
+                      <span className="landing-library__progress-pct">{book.pct}%</span>
                     </span>
                     <span>{book.pages} pág.</span>
                   </div>
