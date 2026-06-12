@@ -76,13 +76,8 @@
     cursor: pointer;
     transition: border-color var(--transition-fast);
 
-    &:hover:not(:disabled) {
+    &:hover {
       border-color: var(--color-text-primary);
-    }
-
-    &:disabled {
-      opacity: 0.35;
-      cursor: default;
     }
 
     svg { display: block; }

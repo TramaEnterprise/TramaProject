@@ -29,7 +29,6 @@ function LandingPage() {
     }
   }, [isAuthenticated, loading, navigate]);
 
-  // const handleLogin = () => navigate("/auth");
   const handleRegister = () => navigate("/auth", { state: { tab: "register" } });
   const handleGuest = () => navigate("/explore");
 

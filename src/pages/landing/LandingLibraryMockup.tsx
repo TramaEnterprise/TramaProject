@@ -168,8 +168,8 @@ export default function LandingLibraryMockup() {
             </div>
 
             <div className="landing-library__shelf-grid">
-              {shelfBooks.map((entry, i) => (
-                <div key={i} className="landing-library__shelf-book">
+              {shelfBooks.map((entry) => (
+                <div key={entry.title} className="landing-library__shelf-book">
                   <img
                     className="landing-library__cover"
                     src={entry.cover}
