@@ -72,6 +72,10 @@
     border-radius: var(--radius-md);
     padding: var(--space-3) 14px;
     flex: 1;
+
+    [data-theme="dark"] & {
+      background: transparent;
+    }
   }
 
   &__text {

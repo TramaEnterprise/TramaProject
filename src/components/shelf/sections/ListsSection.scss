@@ -53,15 +53,16 @@
 
   &__create {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
     padding: var(--space-3);
     height: 82px;
+    width: 100%;
     box-sizing: border-box;
-    background: var(--color-bg-card);
-    border: 1.5px dashed var(--color-border-medium);
+    background: transparent;
+    border: 1px dashed var(--color-border-medium);
     border-radius: var(--radius-xl);
     cursor: pointer;
     color: var(--color-text-secondary);
@@ -72,15 +73,6 @@
     &:hover {
       border-color: var(--color-text-primary);
       color: var(--color-text-primary);
-    }
-
-    &--column {
-      flex-direction: row;
-      background: transparent;
-      border-width: 1px;
-      text-align: left;
-      height: 82px;
-      width: 100%;
     }
   }
 
@@ -93,12 +85,6 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-
-    .lists-section__create--column & {
-      width: 28px;
-      height: 28px;
-      border-radius: var(--radius-pill);
-    }
   }
 
   &__create-text {

@@ -111,6 +111,15 @@
     color: var(--color-accent);
   }
 
+  &__genre-sep {
+    display: inline-block;
+    width: 1px;
+    height: 0.75em;
+    background: var(--color-border-medium);
+    vertical-align: middle;
+    margin: 0 var(--space-2);
+  }
+
   &__title {
     font-family: var(--font-editorial);
     font-size: var(--text-xl);

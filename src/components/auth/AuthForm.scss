@@ -65,7 +65,7 @@
     font-weight: var(--weight-semibold);
     padding: var(--space-2) 0;
     border-radius: var(--radius-sm);
-    color: var(--color-text-tertiary);
+    color: var(--color-text-secondary);
     background: none;
     border: none;
     cursor: pointer;
@@ -182,6 +182,7 @@
 
   &__input {
     @include text-input;
+    background: var(--color-bg-input);
     font-size: var(--text-sm);
     padding: 9px 12px;
     outline: none;
@@ -213,6 +214,7 @@
   &__btn-primary {
     @include full-btn-primary;
     font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
     background: var(--color-text-primary);
     color: var(--color-btn-primary-fg);
     transition: background var(--transition-fast);

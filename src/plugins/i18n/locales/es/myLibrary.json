@@ -10,7 +10,7 @@
     "shelfTitle": "Estantería",
     "seeAll": "Ver todo",
     "hide": "Ocultar",
-    "searchPlaceholder": "Busca por título o autor",
+    "searchPlaceholder": "Busca por título, autor o ISBN",
     "resultsCount_one": "{{count}} resultado para",
     "resultsCount_other": "{{count}} resultados para",
     "noResults": "¡Oops! No hemos encontrado el libro que buscas",
@@ -73,7 +73,8 @@
       "selectedCount_other": "{{count}} libros seleccionados",
       "addSelected_one": "Añadir {{count}} libro",
       "addSelected_other": "Añadir {{count}} libros",
-      "clearSelection": "Limpiar selección"
+      "clearSelection": "Limpiar selección",
+      "clearSearch": "Limpiar búsqueda"
     },
     "listDetail": {
       "empty": "Esta lista no tiene libros",
@@ -140,7 +141,8 @@
         "progress": "Actualizaste el progreso",
         "review": "Escribiste una reseña",
         "list_created": "Creaste una lista",
-        "watchlist_add": "Añadiste a la lista"
+        "watchlist_add": "Añadiste a la lista",
+        "book_rated": "Calificaste el libro"
       },
       "timeAgo": {
         "seconds": "hace unos segundos",

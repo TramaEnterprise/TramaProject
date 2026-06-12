@@ -2,10 +2,10 @@
   "navbar": {
     "brandName": "Trama",
     "register": "Registrar lectura",
-    "login": "Iniciar Sesión",
+    "login": "Iniciar sesión",
     "loginShort": "Iniciar sesión",
     "signupShort": "Registrarse",
-    "logout": "Cerrar Sesión",
+    "logout": "Cerrar sesión",
     "notifications": "Notificaciones",
     "profile": "Perfil",
     "search": "Busca por título, autor o ISBN"

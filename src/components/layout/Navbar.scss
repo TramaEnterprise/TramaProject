@@ -199,14 +199,23 @@
     width: 44px;
     height: 44px;
     background: transparent;
-    border: 1px solid transparent;
+    border: none;
     border-radius: var(--radius-pill);
     color: var(--color-text-secondary);
     cursor: pointer;
     flex-shrink: 0;
-    transition:
-      border-color var(--transition-fast),
-      color var(--transition-fast);
+    position: relative;
+    transition: color var(--transition-fast);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      transition: border-color var(--transition-fast);
+      pointer-events: none;
+    }
 
     svg {
       width: 20px;
@@ -214,8 +223,11 @@
     }
 
     &:hover {
-      border-color: var(--color-text-primary);
       color: var(--color-text-primary);
+
+      &::before {
+        border-color: var(--color-text-primary);
+      }
     }
 
     &--avatar {

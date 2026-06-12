@@ -13,10 +13,11 @@ export default function AllListsPage() {
   const { userId } = useParams<{ userId: string }>();
   const { t } = useTranslation();
   const { user } = useAuth();
-  const { lists, loading, createList } = useLists(userId);
+  const { lists: allLists, loading, createList } = useLists(userId);
   const [editorOpen, setEditorOpen] = useState(false);
 
   const isOwner = !!user && user.uid === userId;
+  const lists = isOwner ? allLists : allLists.filter((l) => l.isPublic);
 
   useBreadcrumbLabel(
     "listsOwner",

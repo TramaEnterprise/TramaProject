@@ -6,6 +6,7 @@ import { getActivity } from "@/services/firebase/firebaseActivity";
 import { encodeKey } from "@/utils/bookPaths";
 import type { ActivityItem } from "@/types/UserProfile";
 import Modal from "@/components/common/Modal";
+import StarRating from "@/components/common/StarRating";
 import "./HistoryModal.scss";
 
 function timeAgo(
@@ -54,6 +55,7 @@ function HistoryEntry({
   t: (key: string, opts?: Record<string, unknown>) => string;
 }) {
   const hasPages = item.type === "progress" && typeof item.progress === "number";
+  const hasRating = item.type === "book_rated" && typeof item.rating === "number";
   const eventKey = `myLibrary.historyModal.events.${item.type}`;
   const eventLabel = t(eventKey);
 
@@ -66,8 +68,15 @@ function HistoryEntry({
         <span className="history-entry__time">{timeAgo(item.createdAt, t)}</span>
       </div>
 
+      {hasRating && <StarRating rating={item.rating!} size={14} />}
+
       {hasPages && (
         <div className="history-entry__pages">
+          {typeof item.addedPages === "number" && item.addedPages > 0 && (
+            <span className="history-entry__pages-added">
+              {t("myLibrary.historyModal.pagesAdded", { count: item.addedPages })}
+            </span>
+          )}
           <span className="history-entry__pages-progress">
             {totalPages > 0
               ? t("myLibrary.historyModal.pageProgress", {
@@ -76,11 +85,6 @@ function HistoryEntry({
                 })
               : t("myLibrary.historyModal.pageProgressNoTotal", { current: item.progress })}
           </span>
-          {typeof item.addedPages === "number" && item.addedPages > 0 && (
-            <span className="history-entry__pages-added">
-              {t("myLibrary.historyModal.pagesAdded", { count: item.addedPages })}
-            </span>
-          )}
         </div>
       )}
 

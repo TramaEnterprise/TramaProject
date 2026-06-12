@@ -8,8 +8,8 @@
 
   &__bell-badge {
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 2px;
+    right: 2px;
     min-width: 18px;
     height: 18px;
     padding: 0 5px;
@@ -21,7 +21,7 @@
     font-weight: var(--weight-bold);
     line-height: 1;
     color: #fff;
-    background: var(--color-error);
+    background: var(--color-brand-primary);
     border-radius: var(--radius-pill);
     pointer-events: none;
   }
@@ -88,9 +88,20 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-3);
   border-radius: var(--radius-md);
+  position: relative;
   transition: background var(--transition-fast);
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: var(--space-3);
+    right: var(--space-3);
+    height: 1px;
+    background: var(--color-border-outline);
+  }
 
   &:hover {
     background: var(--color-neutral-alpha-muted);

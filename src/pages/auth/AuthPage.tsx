@@ -9,7 +9,7 @@ function AuthPage() {
 
   useEffect(() => {
     if (!loading && isAuthenticated) {
-      navigate("/explore", { replace: true });
+      navigate("/my-library", { replace: true });
     }
   }, [isAuthenticated, loading, navigate]);
 
