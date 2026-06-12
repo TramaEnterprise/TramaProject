@@ -135,8 +135,7 @@ export default function LandingLibraryMockup() {
             <button
               type="button"
               className="landing-library__chev"
-              onClick={() => setReadingIdx((i) => i + 1)}
-              disabled={readingIdx === READING_BOOKS.length - 1}
+              onClick={() => setReadingIdx((i) => (i + 1) % READING_BOOKS.length)}
               aria-label={t("myLibrary.nextBook")}
             >
               <ChevronRight size={16} aria-hidden="true" />
