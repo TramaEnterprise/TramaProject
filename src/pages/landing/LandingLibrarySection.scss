@@ -89,7 +89,7 @@
     min-width: 0;
     display: flex;
     gap: var(--space-5);
-    align-items: center;
+    align-items: stretch;
     padding: var(--space-4) var(--space-5);
     background: var(--color-bg-page);
     border: 1px solid var(--color-border-outline);
@@ -130,7 +130,7 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    justify-content: space-between;
   }
 
   &__reading-header {
