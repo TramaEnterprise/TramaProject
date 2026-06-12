@@ -52,8 +52,6 @@ export default function EditProfilePage() {
   const usernameValue = watch("username") ?? "";
   const isPrivateProfile = watch("isPrivate");
 
-  // Disponibilidad del username vía el hook compartido (mismo que el registro).
-  // Si el handle no cambia respecto al original, no hay nada que comprobar → idle.
   const rawUsernameStatus = useUsernameAvailability(usernameValue, user?.uid);
   const usernameStatus =
     normalizeUsername(usernameValue) === normalizeUsername(originalUsername)

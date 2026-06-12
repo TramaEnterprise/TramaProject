@@ -6,7 +6,7 @@ import StarRating from "@/components/common/StarRating";
 import SynopsisModal from "@/components/book/info/SynopsisModal";
 import "./BookInfoCard.scss";
 import { genreToI18nKey } from "@/utils/genreUtils";
-import { Share2, ChevronDown } from "lucide-react";
+import { Share2 } from "lucide-react";
 import ShelfStatusDropdown from "@/components/book/shelf-status-dropdown/ShelfStatusDropdown";
 
 function formatCount(n: number): string {
@@ -126,7 +126,6 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
                   onClick={() => setSynopsisOpen(true)}
                 >
                   {t("bookDetail.readMore")}
-                  <ChevronDown />
                 </button>
               </div>
             </div>

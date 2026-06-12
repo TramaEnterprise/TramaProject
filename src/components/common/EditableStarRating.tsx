@@ -14,7 +14,7 @@ function StarSvg({ fill, uid }: { fill: 0 | 0.5 | 1; uid: string }) {
       <defs>
         <linearGradient id={uid}>
           <stop offset={pct} stopColor="var(--color-accent)" />
-          <stop offset={pct} stopColor="var(--color-border-subtle)" />
+          <stop offset={pct} stopColor="transparent" />
         </linearGradient>
       </defs>
       <path
@@ -77,7 +77,7 @@ export default function EditableStarRating({
           </motion.span>
         );
       })}
-      {display > 0 && <span className="star-rating__value">{Math.round(display)} / 5</span>}
+      {display > 0 && <span className="star-rating__value">{display} / 5</span>}
     </div>
   );
 }
