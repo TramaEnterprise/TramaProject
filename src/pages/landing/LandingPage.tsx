@@ -133,7 +133,7 @@ function LandingPage() {
               <div>
                 <p className="landing__profile-card-name">María García</p>
                 <p className="landing__profile-card-meta">
-                  @maria_lee · ★ 47 {t("landing.community.card.followers")}
+                  @mariag01 · ★ 47 {t("landing.community.card.followers")}
                 </p>
               </div>
             </div>
