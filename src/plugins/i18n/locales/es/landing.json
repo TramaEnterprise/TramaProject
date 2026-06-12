@@ -35,8 +35,8 @@
       }
     },
     "community": {
-      "title": "Descubre qué leen quienes te inspiran.",
-      "subtitle": "Sigue a otros lectores, ve su actividad reciente y descubre tu próxima lectura.",
+      "title": "Descubre qué leen quienes te inspiran",
+      "subtitle": "Sigue a tus amigos, consulta su actividad y comparte tus reflexiones",
       "card": {
         "readingNow": "Leyendo ahora:",
         "favorites": "Favoritos:",
