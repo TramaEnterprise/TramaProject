@@ -22,7 +22,7 @@
     },
     "habits": {
       "title": "Convierte la lectura en un hábito",
-      "subtitle": "Mantén tu racha diaria, marca tu meta de libros al año y revisa tus estadísticas de lectura.",
+      "subtitle": "Mantén la racha diaria, márcate una meta de libros al año y revisa tus estadísticas de lectura.",
       "stats": {
         "streakLabel": "Racha actual",
         "streakValue": "14 días",
