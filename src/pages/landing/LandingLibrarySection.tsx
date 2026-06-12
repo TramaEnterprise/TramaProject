@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronRight } from "lucide-react";
-import "./LandingLibraryMockup.scss";
+import "./LandingLibrarySection.scss";
 
 import coverCalalobos from "@/assets/landing-book-calabobos.jpg";
 import coverTemor from "@/assets/landing-book-temor.jpg";
@@ -77,7 +77,7 @@ const SHELF_TABS: { key: ShelfKey; label: string }[] = [
   { key: "didNotFinish", label: "Abandonado" },
 ];
 
-export default function LandingLibraryMockup() {
+export default function LandingLibrarySection() {
   const { t } = useTranslation();
   const [readingIdx, setReadingIdx] = useState(0);
   const [activeTab, setActiveTab] = useState<ShelfKey>("wantToRead");

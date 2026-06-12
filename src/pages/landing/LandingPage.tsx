@@ -4,7 +4,7 @@ import { useAuth } from "@/context/auth/useAuth";
 import { useEffect } from "react";
 import "./LandingPage.scss";
 import HeroSection from "./HeroSection";
-import LandingLibraryMockup from "./LandingLibraryMockup";
+import LandingLibrarySection from "./LandingLibrarySection";
 import coverDuneImg from "@/assets/landing-cover-dune.png";
 import cover1984Img from "@/assets/landing-cover-1984.png";
 import fav1Img from "@/assets/landing-fav-1.png";
@@ -46,7 +46,7 @@ function LandingPage() {
       <HeroSection onRegister={handleRegister} onGuest={handleGuest} />
 
       {/* ── Biblioteca ───────────────────────────────────── */}
-      <LandingLibraryMockup />
+      <LandingLibrarySection />
 
       {/* ── Hábitos ──────────────────────────────────────── */}
       <section className="landing__habits">
