@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Flame } from "lucide-react";
 import { genreToI18nKey } from "@/utils/genreUtils";
 import { useReadingStats } from "@/pages/my-library/hooks/useReadingStats";
 import "./ProgressSection.scss";
@@ -6,6 +7,7 @@ import "./ProgressSection.scss";
 const goalCurrent = 16;
 const goalTarget = 20;
 const goalPct = Math.min(100, Math.round((goalCurrent / goalTarget) * 100));
+const streakDays = 12; // estático por ahora
 
 export default function ProgressSection() {
   const { t } = useTranslation();
@@ -23,9 +25,18 @@ export default function ProgressSection() {
     <section className="progresses">
       <h2 className="progresses__title">{t("myLibrary.progress.title")}</h2>
 
-      <div className="progresses__card">
-        <div className="progresses__bottom">
-          <div className="progresses__goal">
+      <div className="progresses__row">
+        <div className="progresses__card progresses__goal">
+          <div className="progresses__streak">
+            <div className="progresses__streak-top">
+              <Flame className="progresses__streak-icon" aria-hidden="true" />
+              <span className="progresses__streak-number">{streakDays}</span>
+            </div>
+            <span className="progresses__streak-label">
+              {t("myLibrary.progress.streak", { count: streakDays })}
+            </span>
+          </div>
+          <div className="progresses__goal-block">
             <p className="progresses__section-label">{t("myLibrary.progress.annualGoal")}</p>
             <div
               className="progresses__goal-outer"
@@ -44,37 +55,51 @@ export default function ProgressSection() {
               <p className="progresses__goal-completed">{t("myLibrary.progress.completed")}</p>
             )}
           </div>
-          <div className="progresses__genres-wrap">
-            <p className="progresses__section-label">{t("myLibrary.progress.favoriteGenres")}</p>
-            {genres.length === 0 ? (
-              <p className="progresses__empty">{t("myLibrary.progress.emptyGenres")}</p>
-            ) : (
-              <div className="progresses__genres">
-                {genres.map(({ key, percentage, color, isOther }) => (
-                  <div key={key} className="progresses__genre">
-                    <div className="progresses__genre-row">
-                      <span className="progresses__genre-name">
-                        {isOther
-                          ? t("myLibrary.genres.others")
-                          : t(`book.genres.${genreToI18nKey(key)}`, { defaultValue: key })}
-                      </span>
-                      <span className="progresses__genre-percentage">{percentage}%</span>
-                    </div>
-                    <div className="progresses__genre-track">
-                      <div
-                        className="progresses__genre-fill"
-                        style={{ width: `${percentage}%`, background: color }}
-                      />
-                    </div>
+        </div>
+        <div className="progresses__card progresses__genres-wrap">
+          <p className="progresses__section-label">{t("myLibrary.progress.favoriteGenres")}</p>
+          {genres.length === 0 ? (
+            <p className="progresses__empty">{t("myLibrary.progress.emptyGenres")}</p>
+          ) : (
+            <div className="progresses__genres">
+              {genres.map(({ key, percentage, color, isOther }) => (
+                <div key={key} className="progresses__genre">
+                  <div className="progresses__genre-row">
+                    <span className="progresses__genre-name">
+                      {isOther
+                        ? t("myLibrary.genres.others")
+                        : t(`book.genres.${genreToI18nKey(key)}`, { defaultValue: key })}
+                    </span>
+                    <span className="progresses__genre-percentage">{percentage}%</span>
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
+                  <div className="progresses__genre-track">
+                    <div
+                      className="progresses__genre-fill"
+                      style={{ width: `${percentage}%`, background: color }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
       <div className="progresses__card progresses__card--chart">
+        <div className="progresses__chart-stats">
+          <div className="progresses__stat">
+            <span className="progresses__stat-num">{weekly.pagesThisWeek}</span>
+            <span className="progresses__stat-label">{t("myLibrary.progress.pagesWeek")}</span>
+          </div>
+          <div className="progresses__stat">
+            <span className="progresses__stat-num">{weekly.pagesToday}</span>
+            <span className="progresses__stat-label">{t("myLibrary.progress.pagesToday")}</span>
+          </div>
+          <div className="progresses__stat">
+            <span className={`progresses__stat-num${changeClass}`}>{changeText}</span>
+            <span className="progresses__stat-label">{t("myLibrary.progress.lastWeek")}</span>
+          </div>
+        </div>
         <div className="progresses__chart-area">
           <div className="progresses__chart">
             <div className="progresses__y-axis" aria-hidden="true">
@@ -110,20 +135,6 @@ export default function ProgressSection() {
                   </span>
                 ))}
               </div>
-            </div>
-          </div>
-          <div className="progresses__chart-stats">
-            <div className="progresses__stat">
-              <span className="progresses__stat-num">{weekly.pagesThisWeek}</span>
-              <span className="progresses__stat-label">{t("myLibrary.progress.pagesWeek")}</span>
-            </div>
-            <div className="progresses__stat">
-              <span className="progresses__stat-num">{weekly.pagesToday}</span>
-              <span className="progresses__stat-label">{t("myLibrary.progress.pagesToday")}</span>
-            </div>
-            <div className="progresses__stat">
-              <span className={`progresses__stat-num${changeClass}`}>{changeText}</span>
-              <span className="progresses__stat-label">{t("myLibrary.progress.lastWeek")}</span>
             </div>
           </div>
         </div>

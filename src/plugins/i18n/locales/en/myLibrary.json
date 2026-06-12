@@ -109,7 +109,9 @@
       "emptyWeek": "No reading logged this week yet.",
       "emptyGenres": "Finish books to see your favourite genres.",
       "pagesTooltip_one": "{{count}} page read",
-      "pagesTooltip_other": "{{count}} pages read"
+      "pagesTooltip_other": "{{count}} pages read",
+      "streak_one": "day streak",
+      "streak_other": "day streak"
     },
     "days": {
       "mon": "MO",

@@ -109,7 +109,9 @@
       "emptyWeek": "Aún no hay lecturas registradas esta semana.",
       "emptyGenres": "Termina libros para ver tus géneros favoritos.",
       "pagesTooltip_one": "{{count}} página leída",
-      "pagesTooltip_other": "{{count}} páginas leídas"
+      "pagesTooltip_other": "{{count}} páginas leídas",
+      "streak_one": "día de racha",
+      "streak_other": "días de racha"
     },
     "days": {
       "mon": "LU",
