@@ -36,33 +36,33 @@ type ShelfKey = "wantToRead" | "reading" | "finished" | "didNotFinish";
 const READING_BOOKS: ReadingBook[] = [
   { title: "Calabobos", author: "Luis Mario", pct: 35, pages: "123 / 352", cover: coverCalalobos },
   {
-    title: "El temor de un hombre sabio",
+    title: "El Temor de un Hombre Sabio",
     author: "Patrick Rothfuss",
     pct: 62,
     pages: "412 / 994",
     cover: coverTemor,
   },
-  { title: "Yo, robot", author: "Isaac Asimov", pct: 88, pages: "220 / 250", cover: coverYoRobot },
+  { title: "Yo, Robot", author: "Isaac Asimov", pct: 88, pages: "220 / 250", cover: coverYoRobot },
 ];
 
 const SHELF_BOOKS: Record<ShelfKey, ShelfBook[]> = {
   wantToRead: [
-    { title: "El señor de los anillos", cover: coverSenor },
-    { title: "Trono de cristal", cover: coverTrono },
-    { title: "Las gratitudes", cover: coverGratitudes },
-    { title: "Los juegos del hambre", cover: coverHambre },
+    { title: "El Señor de los Anillos", cover: coverSenor },
+    { title: "Trono de Cristal", cover: coverTrono },
+    { title: "Las Gratitudes", cover: coverGratitudes },
+    { title: "Los Juegos del Hambre", cover: coverHambre },
     { title: "Shogun", cover: coverShogun },
   ],
   reading: [
     { title: "Calabobos", cover: coverCalalobos },
-    { title: "El temor de un hombre sabio", cover: coverTemor },
-    { title: "Yo, robot", cover: coverYoRobot },
+    { title: "El Temor de un Hombre Sabio", cover: coverTemor },
+    { title: "Yo, Robot", cover: coverYoRobot },
   ],
   finished: [
     { title: "Frankenstein", cover: coverFrankenstein },
-    { title: "Harry Potter y la piedra filosofal", cover: coverHarryPotter },
-    { title: "Juego de tronos", cover: coverJuegoTronos },
-    { title: "El cuento de la criada", cover: coverCriada },
+    { title: "Harry Potter y la Piedra Filosofal", cover: coverHarryPotter },
+    { title: "Juego de Tronos", cover: coverJuegoTronos },
+    { title: "El Cuento de la Criada", cover: coverCriada },
   ],
   didNotFinish: [
     { title: "IT", cover: coverIt },
