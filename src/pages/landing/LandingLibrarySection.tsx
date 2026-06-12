@@ -70,11 +70,11 @@ const SHELF_BOOKS: Record<ShelfKey, ShelfBook[]> = {
   ],
 };
 
-const SHELF_TABS: { key: ShelfKey; label: string }[] = [
-  { key: "wantToRead", label: "Quiero leer" },
-  { key: "reading", label: "Leyendo" },
-  { key: "finished", label: "Leído" },
-  { key: "didNotFinish", label: "Abandonado" },
+const SHELF_TABS: { key: ShelfKey; labelKey: string }[] = [
+  { key: "wantToRead", labelKey: "landing.library.pill.want" },
+  { key: "reading", labelKey: "landing.library.pill.reading" },
+  { key: "finished", labelKey: "landing.library.pill.read" },
+  { key: "didNotFinish", labelKey: "landing.library.pill.abandoned" },
 ];
 
 export default function LandingLibrarySection() {
@@ -159,7 +159,7 @@ export default function LandingLibrarySection() {
                   className={`landing-library__shelf-tab${activeTab === tab.key ? " landing-library__shelf-tab--active" : ""}`}
                   onClick={() => setActiveTab(tab.key)}
                 >
-                  {tab.label}
+                  {t(tab.labelKey)}
                   <span className="landing-library__shelf-count">
                     {SHELF_BOOKS[tab.key].length}
                   </span>
