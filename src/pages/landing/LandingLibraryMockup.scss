@@ -123,10 +123,6 @@
     object-fit: cover;
     box-shadow: var(--shadow-cover);
 
-    &--placeholder {
-      background: var(--color-neutral-alpha-muted);
-      box-shadow: none;
-    }
   }
 
   // ── Cuerpo de la card ───────────────────────────────────
@@ -299,8 +295,5 @@
     text-overflow: ellipsis;
   }
 
-  &__shelf-slot {
-    width: 88px;
-    aspect-ratio: 2 / 3;
-  }
 }
+

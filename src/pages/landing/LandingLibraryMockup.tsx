@@ -77,8 +77,6 @@ const SHELF_TABS: { key: ShelfKey; label: string }[] = [
   { key: "didNotFinish", label: "Abandonado" },
 ];
 
-const SHELF_COLUMNS = 5;
-
 export default function LandingLibraryMockup() {
   const { t } = useTranslation();
   const [readingIdx, setReadingIdx] = useState(0);
@@ -181,27 +179,16 @@ export default function LandingLibraryMockup() {
             </div>
 
             <div className="landing-library__shelf-grid">
-              {Array.from({ length: SHELF_COLUMNS }, (_, i) => {
-                const entry = shelfBooks[i];
-                if (!entry) {
-                  return (
-                    <div key={i} className="landing-library__shelf-book">
-                      <div className="landing-library__cover landing-library__cover--placeholder" />
-                      <p className="landing-library__shelf-title">&nbsp;</p>
-                    </div>
-                  );
-                }
-                return (
-                  <div key={i} className="landing-library__shelf-book">
-                    <img
-                      className="landing-library__cover"
-                      src={entry.cover}
-                      alt={entry.title}
-                    />
-                    <p className="landing-library__shelf-title">{entry.title}</p>
-                  </div>
-                );
-              })}
+              {shelfBooks.map((entry, i) => (
+                <div key={i} className="landing-library__shelf-book">
+                  <img
+                    className="landing-library__cover"
+                    src={entry.cover}
+                    alt={entry.title}
+                  />
+                  <p className="landing-library__shelf-title">{entry.title}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
