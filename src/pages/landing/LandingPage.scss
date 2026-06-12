@@ -545,7 +545,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-12);
-    padding: var(--space-24) 80px;
+    padding: var(--space-24) var(--space-20);
     background: var(--color-bg-secondary);
     width: 100%;
     box-sizing: border-box;
@@ -556,6 +556,7 @@
     gap: var(--space-6);
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
   }
 
   &__quote-card {
@@ -567,27 +568,44 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    width: 340px;
-    max-width: 100%;
+    flex: 1;
+    min-width: 280px;
+    max-width: 520px;
   }
 
   &__quote-stars {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
     color: var(--color-brand-primary);
-    font-size: var(--text-md);
-    margin: 0;
+  }
+
+  &__quote-star-half {
+    position: relative;
+    display: inline-flex;
+
+    svg:last-child {
+      position: absolute;
+      left: 0;
+      clip-path: inset(0 50% 0 0);
+    }
   }
 
   &__quote-text {
     font-size: var(--text-sm);
+    font-weight: var(--weight-regular);
     line-height: 1.6;
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     margin: 0;
+    flex: 1;
   }
 
   &__quote-author {
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--color-border-outline);
 
     &-name {
       font-size: var(--text-xs);
@@ -598,7 +616,7 @@
 
     &-handle {
       font-size: var(--text-xs);
-      color: var(--color-text-tertiary);
+      color: var(--color-brand-primary);
       margin: 0;
     }
   }
@@ -610,7 +628,6 @@
     align-items: center;
     gap: var(--space-6);
     width: 100%;
-    text-align: center;
   }
 
   &__cta-title {
@@ -619,23 +636,8 @@
     font-weight: var(--weight-regular);
     color: var(--color-text-primary);
     line-height: 1.2;
-    max-width: 900px;
+    text-align: center;
     margin: 0;
-  }
-
-  &__cta-subtitle {
-    font-size: clamp(var(--text-sm), 1.2vw, var(--text-md));
-    color: var(--color-text-primary);
-    margin: 0;
-    max-width: 700px;
-  }
-
-  &__cta-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-4);
-    padding-top: var(--space-2);
   }
 
   // ── SECCIÓN: Footer ───────────────────────────────────

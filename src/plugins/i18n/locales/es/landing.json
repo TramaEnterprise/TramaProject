@@ -47,23 +47,23 @@
     "socialProof": {
       "title": "Lo que dicen los lectores de Trama",
       "quote1": {
-        "text": "\"Acogedora y fácil de utilizar, sin rodeos.\"",
-        "author": "— Ana M.",
-        "handle": "@ana_lee"
+        "text": "\"La web es acogedora y fácil de usar, se ha convertido en parte de mi rutina diaria.\"",
+        "author": "— Sofía L.",
+        "handle": "@sofialectora"
       },
       "quote2": {
-        "text": "\"Las metas y las rachas me han hecho volver a leer.\"",
-        "author": "— Carlos R.",
-        "handle": "@carlosreads"
+        "text": "\"El sistema de rachas y metas me ha hecho volver a leer.\"",
+        "author": "— Javier M.",
+        "handle": "@javier_reads"
       },
       "quote3": {
-        "text": "\"La comunidad es muy activa.\"",
+        "text": "\"Me encanta estar conectada a mis amigos y poder compartir listas con ellos.\"",
         "author": "— Laura P.",
         "handle": "@laurabookclub"
       }
     },
     "cta": {
-      "title": "Empieza tu historia lectora hoy",
+      "title": "La comunidad de Trama te espera",
       "subtitle": "Gratis y sin anuncios. Empieza en menos de un minuto.",
       "btn": "Crea tu cuenta ahora",
       "guest": "Explorar sin cuenta →"

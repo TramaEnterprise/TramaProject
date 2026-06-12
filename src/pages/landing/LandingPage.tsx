@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/context/auth/useAuth";
 import { useEffect } from "react";
+import { Star } from "lucide-react";
 import "./LandingPage.scss";
 import HeroSection from "./HeroSection";
 import LandingLibrarySection from "./LandingLibrarySection";
@@ -238,15 +239,17 @@ function LandingPage() {
       <section className="landing__social-proof">
         <div className="landing__cta-final">
           <h2 className="landing__cta-title">{t("landing.cta.title")}</h2>
-          <div className="landing__cta-buttons">
-            <button type="button" className="landing__btn-primary" onClick={handleRegister}>
-              {t("landing.cta.btn")}
-            </button>
-          </div>
+          <button type="button" className="landing__btn-primary" onClick={handleRegister}>
+            {t("landing.cta.btn")}
+          </button>
         </div>
         <div className="landing__quotes">
           <div className="landing__quote-card">
-            <p className="landing__quote-stars">★★★★★</p>
+            <div className="landing__quote-stars" aria-label="5 estrellas">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
+              ))}
+            </div>
             <p className="landing__quote-text">{t("landing.socialProof.quote1.text")}</p>
             <div className="landing__quote-author">
               <p className="landing__quote-author-name">{t("landing.socialProof.quote1.author")}</p>
@@ -256,7 +259,15 @@ function LandingPage() {
             </div>
           </div>
           <div className="landing__quote-card">
-            <p className="landing__quote-stars">★★★★★</p>
+            <div className="landing__quote-stars" aria-label="4 estrellas y media">
+              {[...Array(4)].map((_, i) => (
+                <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
+              ))}
+              <span className="landing__quote-star-half" aria-hidden="true">
+                <Star size={16} strokeWidth={1.5} />
+                <Star size={16} fill="currentColor" strokeWidth={0} />
+              </span>
+            </div>
             <p className="landing__quote-text">{t("landing.socialProof.quote2.text")}</p>
             <div className="landing__quote-author">
               <p className="landing__quote-author-name">{t("landing.socialProof.quote2.author")}</p>
@@ -266,7 +277,11 @@ function LandingPage() {
             </div>
           </div>
           <div className="landing__quote-card">
-            <p className="landing__quote-stars">★★★★★</p>
+            <div className="landing__quote-stars" aria-label="5 estrellas">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
+              ))}
+            </div>
             <p className="landing__quote-text">{t("landing.socialProof.quote3.text")}</p>
             <div className="landing__quote-author">
               <p className="landing__quote-author-name">{t("landing.socialProof.quote3.author")}</p>
