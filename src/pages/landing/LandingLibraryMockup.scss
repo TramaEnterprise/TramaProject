@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: var(--space-14);
-  align-items: center;
+  align-items: start;
   padding: var(--space-24) 80px;
   background: var(--color-bg-page);
   width: 100%;
@@ -226,7 +226,7 @@
   &__shelf-tabs {
     display: flex;
     gap: var(--space-2);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-2);
   }
 
   &__shelf-tab {

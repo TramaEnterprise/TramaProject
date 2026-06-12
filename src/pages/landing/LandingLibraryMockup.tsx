@@ -14,6 +14,9 @@ import coverShogun from "@/assets/landing-book-shogun.png";
 import coverFrankenstein from "@/assets/landing-book-frankenstein.jpg";
 import coverHarryPotter from "@/assets/landing-book-harrypotter.jpg";
 import coverJuegoTronos from "@/assets/landing-book-juegotronos.jpg";
+import coverCriada from "@/assets/landing-book-criada.jpg";
+import coverIt from "@/assets/landing-book-it.jpg";
+import coverPedro from "@/assets/landing-book-pedro.jpg";
 
 type ReadingBook = {
   title: string;
@@ -25,7 +28,7 @@ type ReadingBook = {
 
 type ShelfBook = {
   title: string;
-  cover: string | null;
+  cover: string;
 };
 
 type ShelfKey = "wantToRead" | "reading" | "finished" | "didNotFinish";
@@ -59,11 +62,11 @@ const SHELF_BOOKS: Record<ShelfKey, ShelfBook[]> = {
     { title: "Frankenstein", cover: coverFrankenstein },
     { title: "Harry Potter y la piedra filosofal", cover: coverHarryPotter },
     { title: "Juego de tronos", cover: coverJuegoTronos },
-    { title: "", cover: null },
+    { title: "El cuento de la criada", cover: coverCriada },
   ],
   didNotFinish: [
-    { title: "", cover: null },
-    { title: "", cover: null },
+    { title: "IT", cover: coverIt },
+    { title: "Pedro Páramo", cover: coverPedro },
   ],
 };
 
@@ -181,12 +184,10 @@ export default function LandingLibraryMockup() {
               {Array.from({ length: SHELF_COLUMNS }, (_, i) => {
                 const entry = shelfBooks[i];
                 if (!entry) {
-                  return <div key={i} className="landing-library__shelf-slot" />;
-                }
-                if (!entry.cover) {
                   return (
                     <div key={i} className="landing-library__shelf-book">
                       <div className="landing-library__cover landing-library__cover--placeholder" />
+                      <p className="landing-library__shelf-title">&nbsp;</p>
                     </div>
                   );
                 }
