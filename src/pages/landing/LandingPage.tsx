@@ -76,7 +76,7 @@ function LandingPage() {
                 <span className="landing__genre-pct">40%</span>
               </div>
               <div className="landing__progress-bar landing__progress-bar--sm">
-                <div className="landing__progress-bar-fill" style={{ width: "40%" }} />
+                <div className="landing__progress-bar-fill landing__progress-bar-fill--muted" style={{ width: "40%" }} />
               </div>
             </div>
             <div className="landing__genre-row">

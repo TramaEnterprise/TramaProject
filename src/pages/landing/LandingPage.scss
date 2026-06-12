@@ -134,6 +134,9 @@
       height: 100%;
       border-radius: inherit;
 
+      &--muted {
+        background: var(--color-text-tertiary);
+      }
       &--green {
         background: var(--color-success);
       }
@@ -299,6 +302,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
+
+    & + & {
+      margin-top: var(--space-3);
+    }
   }
 
   &__genre-label {
