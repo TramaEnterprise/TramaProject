@@ -133,6 +133,12 @@
     gap: var(--space-3);
   }
 
+  &__reading-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
   &__reading-title {
     font-family: var(--font-editorial);
     font-size: var(--text-lg);

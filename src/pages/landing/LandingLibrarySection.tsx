@@ -110,8 +110,8 @@ export default function LandingLibrarySection() {
             <div className="landing-library__reading-card">
               <img className="landing-library__cover" src={book.cover} alt={book.title} />
               <div className="landing-library__reading-body">
-                <div>
-                  <p className="landing-library__reading-title">{book.title}</p>
+                <div className="landing-library__reading-header">
+                  <h3 className="landing-library__reading-title">{book.title}</h3>
                   <p className="landing-library__reading-author">{book.author}</p>
                 </div>
                 <div className="landing-library__progress-box">
