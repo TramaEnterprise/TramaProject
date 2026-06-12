@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import "./LandingLibraryMockup.scss";
 
 import coverCalalobos from "@/assets/landing-book-calabobos.jpg";
@@ -107,16 +107,6 @@ export default function LandingLibraryMockup() {
             </span>
           </div>
           <div className="landing-library__swiper-stage">
-            <button
-              type="button"
-              className="landing-library__chev"
-              onClick={() => setReadingIdx((i) => i - 1)}
-              disabled={readingIdx === 0}
-              aria-label={t("myLibrary.prevBook")}
-            >
-              <ChevronLeft size={16} aria-hidden="true" />
-            </button>
-
             <div className="landing-library__reading-card">
               <img className="landing-library__cover" src={book.cover} alt={book.title} />
               <div className="landing-library__reading-body">
