@@ -1,0 +1,211 @@
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import "./LandingLibraryMockup.scss";
+
+import coverCalalobos from "@/assets/landing-book-calabobos.jpg";
+import coverTemor from "@/assets/landing-book-temor.jpg";
+import coverYoRobot from "@/assets/landing-book-yorobot.jpg";
+import coverSenor from "@/assets/landing-book-senor.jpg";
+import coverTrono from "@/assets/landing-book-trono.jpg";
+import coverGratitudes from "@/assets/landing-book-gratitudes.jpg";
+import coverHambre from "@/assets/landing-book-hambre.jpg";
+import coverShogun from "@/assets/landing-book-shogun.png";
+import coverFrankenstein from "@/assets/landing-book-frankenstein.jpg";
+import coverHarryPotter from "@/assets/landing-book-harrypotter.jpg";
+import coverJuegoTronos from "@/assets/landing-book-juegotronos.jpg";
+
+type ReadingBook = {
+  title: string;
+  author: string;
+  pct: number;
+  pages: string;
+  cover: string;
+};
+
+type ShelfBook = {
+  title: string;
+  cover: string | null;
+};
+
+type ShelfKey = "wantToRead" | "reading" | "finished" | "didNotFinish";
+
+const READING_BOOKS: ReadingBook[] = [
+  { title: "Calabobos", author: "Luis Mario", pct: 35, pages: "123 / 352", cover: coverCalalobos },
+  {
+    title: "El temor de un hombre sabio",
+    author: "Patrick Rothfuss",
+    pct: 62,
+    pages: "412 / 994",
+    cover: coverTemor,
+  },
+  { title: "Yo, robot", author: "Isaac Asimov", pct: 88, pages: "220 / 250", cover: coverYoRobot },
+];
+
+const SHELF_BOOKS: Record<ShelfKey, ShelfBook[]> = {
+  wantToRead: [
+    { title: "El señor de los anillos", cover: coverSenor },
+    { title: "Trono de cristal", cover: coverTrono },
+    { title: "Las gratitudes", cover: coverGratitudes },
+    { title: "Los juegos del hambre", cover: coverHambre },
+    { title: "Shogun", cover: coverShogun },
+  ],
+  reading: [
+    { title: "Calabobos", cover: coverCalalobos },
+    { title: "El temor de un hombre sabio", cover: coverTemor },
+    { title: "Yo, robot", cover: coverYoRobot },
+  ],
+  finished: [
+    { title: "Frankenstein", cover: coverFrankenstein },
+    { title: "Harry Potter y la piedra filosofal", cover: coverHarryPotter },
+    { title: "Juego de tronos", cover: coverJuegoTronos },
+    { title: "", cover: null },
+  ],
+  didNotFinish: [
+    { title: "", cover: null },
+    { title: "", cover: null },
+  ],
+};
+
+const SHELF_TABS: { key: ShelfKey; label: string }[] = [
+  { key: "wantToRead", label: "Quiero leer" },
+  { key: "reading", label: "Leyendo" },
+  { key: "finished", label: "Leído" },
+  { key: "didNotFinish", label: "Abandonado" },
+];
+
+const SHELF_COLUMNS = 5;
+
+export default function LandingLibraryMockup() {
+  const { t } = useTranslation();
+  const [readingIdx, setReadingIdx] = useState(0);
+  const [activeTab, setActiveTab] = useState<ShelfKey>("wantToRead");
+
+  const book = READING_BOOKS[readingIdx];
+  const shelfBooks = SHELF_BOOKS[activeTab];
+
+  return (
+    <section className="landing-library">
+      {/* Texto izquierda */}
+      <div className="landing-library__text">
+        <h2 className="landing__section-title">{t("landing.library.title")}</h2>
+        <p className="landing__section-subtitle">{t("landing.library.subtitle")}</p>
+      </div>
+
+      {/* UI derecha */}
+      <div className="landing-library__ui">
+
+        {/* Estoy leyendo */}
+        <div>
+          <div className="landing-library__block-header">
+            <span className="landing-library__block-label">
+              {t("landing.library.readingLabel")}
+            </span>
+            <span className="landing-library__block-count">
+              {readingIdx + 1} / {READING_BOOKS.length}
+            </span>
+          </div>
+          <div className="landing-library__swiper-stage">
+            <button
+              type="button"
+              className="landing-library__chev"
+              onClick={() => setReadingIdx((i) => i - 1)}
+              disabled={readingIdx === 0}
+              aria-label={t("myLibrary.prevBook")}
+            >
+              <ChevronLeft size={16} aria-hidden="true" />
+            </button>
+
+            <div className="landing-library__reading-card">
+              <img className="landing-library__cover" src={book.cover} alt={book.title} />
+              <div className="landing-library__reading-body">
+                <div>
+                  <p className="landing-library__reading-title">{book.title}</p>
+                  <p className="landing-library__reading-author">{book.author}</p>
+                </div>
+                <div className="landing-library__progress-box">
+                  <div className="landing-library__progress-labels">
+                    <span>
+                      {t("myLibrary.readingProgress")}:{" "}
+                      <strong className="landing-library__progress-pct">{book.pct}%</strong>
+                    </span>
+                    <span>{book.pages} pág.</span>
+                  </div>
+                  <div className="landing-library__progress-bar">
+                    <div
+                      className="landing-library__progress-fill"
+                      style={{ width: `${book.pct}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="landing-library__chev"
+              onClick={() => setReadingIdx((i) => i + 1)}
+              disabled={readingIdx === READING_BOOKS.length - 1}
+              aria-label={t("myLibrary.nextBook")}
+            >
+              <ChevronRight size={16} aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+
+        {/* Estantería */}
+        <div>
+          <div className="landing-library__block-header">
+            <span className="landing-library__block-label">
+              {t("landing.library.shelfLabel")}
+            </span>
+          </div>
+          <div className="landing-library__shelf-card">
+            <div className="landing-library__shelf-tabs">
+              {SHELF_TABS.map((tab) => (
+                <button
+                  key={tab.key}
+                  type="button"
+                  className={`landing-library__shelf-tab${activeTab === tab.key ? " landing-library__shelf-tab--active" : ""}`}
+                  onClick={() => setActiveTab(tab.key)}
+                >
+                  {tab.label}
+                  <span className="landing-library__shelf-count">
+                    {SHELF_BOOKS[tab.key].length}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <div className="landing-library__shelf-grid">
+              {Array.from({ length: SHELF_COLUMNS }, (_, i) => {
+                const entry = shelfBooks[i];
+                if (!entry) {
+                  return <div key={i} className="landing-library__shelf-slot" />;
+                }
+                if (!entry.cover) {
+                  return (
+                    <div key={i} className="landing-library__shelf-book">
+                      <div className="landing-library__cover landing-library__cover--placeholder" />
+                    </div>
+                  );
+                }
+                return (
+                  <div key={i} className="landing-library__shelf-book">
+                    <img
+                      className="landing-library__cover"
+                      src={entry.cover}
+                      alt={entry.title}
+                    />
+                    <p className="landing-library__shelf-title">{entry.title}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

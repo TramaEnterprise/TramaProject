@@ -11,6 +11,8 @@
     "library": {
       "title": "Tu biblioteca personal, siempre contigo.",
       "subtitle": "Añade libros con un clic a tu propia estantería virtual, mientras llevas la cuenta del progreso de tu lectura actual.",
+      "readingLabel": "Estoy leyendo",
+      "shelfLabel": "Estantería",
       "pill": {
         "reading": "Leyendo",
         "read": "Leído",

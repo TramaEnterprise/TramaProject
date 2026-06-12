@@ -4,7 +4,7 @@ import { useAuth } from "@/context/auth/useAuth";
 import { useEffect } from "react";
 import "./LandingPage.scss";
 import HeroSection from "./HeroSection";
-import libraryImg from "@/assets/landing-library.png";
+import LandingLibraryMockup from "./LandingLibraryMockup";
 import coverDuneImg from "@/assets/landing-cover-dune.png";
 import cover1984Img from "@/assets/landing-cover-1984.png";
 import fav1Img from "@/assets/landing-fav-1.png";
@@ -47,29 +47,7 @@ function LandingPage() {
       <HeroSection onRegister={handleRegister} onGuest={handleGuest} />
 
       {/* ── Biblioteca ───────────────────────────────────── */}
-      <section className="landing__library">
-        <div className="landing__library-mockup">
-          <img src={libraryImg} alt="Interfaz de Mi biblioteca" />
-        </div>
-        <div className="landing__library-text">
-          <h2 className="landing__section-title">{t("landing.library.title")}</h2>
-          <p className="landing__section-subtitle">{t("landing.library.subtitle")}</p>
-          <div className="landing__pills">
-            <span className="landing__pill landing__pill--reading">
-              {t("landing.library.pill.reading")}
-            </span>
-            <span className="landing__pill landing__pill--read">
-              {t("landing.library.pill.read")}
-            </span>
-            <span className="landing__pill landing__pill--want">
-              {t("landing.library.pill.want")}
-            </span>
-            <span className="landing__pill landing__pill--abandoned">
-              {t("landing.library.pill.abandoned")}
-            </span>
-          </div>
-        </div>
-      </section>
+      <LandingLibraryMockup />
 
       {/* ── Hábitos ──────────────────────────────────────── */}
       <section className="landing__habits">

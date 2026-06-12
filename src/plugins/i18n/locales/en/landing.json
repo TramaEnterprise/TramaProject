@@ -11,6 +11,8 @@
     "library": {
       "title": "Your personal library, always with you.",
       "subtitle": "Add books with one click to your own virtual shelf, while keeping track of your reading progress.",
+      "readingLabel": "Now reading",
+      "shelfLabel": "Shelf",
       "pill": {
         "reading": "Reading",
         "read": "Read",
