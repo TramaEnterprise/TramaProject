@@ -54,7 +54,7 @@ function AppShell() {
       </main>
       <Footer />
       <AppToaster />
-      <ScrollRestoration />
+      <ScrollRestoration getKey={(location) => location.pathname} />
     </>
   );
 }
