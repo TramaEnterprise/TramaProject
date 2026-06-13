@@ -264,6 +264,10 @@
     width: 100%;
     box-sizing: border-box;
 
+    @include from($bp-xxl) {
+      padding-bottom: var(--space-40);
+    }
+
     &-heading {
       display: flex;
       flex-direction: column;

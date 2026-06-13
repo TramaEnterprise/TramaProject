@@ -89,8 +89,12 @@ export default function LandingLibrarySection() {
     <section className="landing-library">
       {/* Texto izquierda */}
       <div className="landing-library__text">
-        <h2 className="landing__section-title">{t("landing.library.title")}</h2>
-        <p className="landing__section-subtitle">{t("landing.library.subtitle")}</p>
+        <h2 className="landing__section-title landing-library__title">
+          {t("landing.library.title")}
+        </h2>
+        <p className="landing__section-subtitle landing-library__subtitle">
+          {t("landing.library.subtitle")}
+        </p>
       </div>
 
       {/* UI derecha */}

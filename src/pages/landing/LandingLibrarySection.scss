@@ -15,11 +15,32 @@
   width: 100%;
   box-sizing: border-box;
 
+  @include from($bp-xxl) {
+    column-gap: var(--space-10);
+  }
+
   // ── Texto ──────────────────────────────────────────────
   &__text {
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
+
+    @include from($bp-xxl) {
+      gap: var(--space-5);
+    }
+  }
+
+  &__title {
+    @include from($bp-xxl) {
+      text-wrap: balance;
+    }
+  }
+
+  &__subtitle {
+    @include from($bp-xxl) {
+      max-width: 475px;
+      text-wrap: pretty;
+    }
   }
 
   // ── UI (columna derecha) ────────────────────────────────
