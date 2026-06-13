@@ -11,6 +11,8 @@
     "library": {
       "title": "Your personal library, always with you",
       "subtitle": "Add books with one click to your own virtual shelf, while keeping track of your reading progress.",
+      "readingLabel": "Now reading",
+      "shelfLabel": "Shelf",
       "pill": {
         "reading": "Reading",
         "read": "Read",
@@ -27,17 +29,17 @@
         "goalLabel": "2026 goal",
         "goalValue": "23 / 50 books read",
         "genresLabel": "Favourite genres",
-        "genre1": "Fantasy  40%",
-        "genre2": "Science fiction  35%",
-        "genre3": "Mystery  25%"
+        "genre1": "Fantasy",
+        "genre2": "Science fiction",
+        "genre3": "Mystery"
       }
     },
     "community": {
       "title": "Discover what your inspirations are reading",
       "subtitle": "Follow other readers, see their recent activity and find your next read.",
       "card": {
-        "readingNow": "Now reading:",
-        "favorites": "Favourites:",
+        "readingNow": "Now reading",
+        "favorites": "Favourites",
         "follow": "Follow",
         "followers": "followers"
       }
@@ -46,22 +48,22 @@
       "title": "What Trama readers are saying",
       "quote1": {
         "text": "\"Welcoming and easy to use, no fuss.\"",
-        "author": "— Ana M.",
-        "handle": "@ana_lee"
+        "author": "— Sofía L.",
+        "handle": "@sofialectora"
       },
       "quote2": {
-        "text": "\"Goals and streaks have got me reading again.\"",
-        "author": "— Carlos R.",
-        "handle": "@carlosreads"
+        "text": "\"The streaks and goals system got me back to reading.\"",
+        "author": "— Javier M.",
+        "handle": "@javier_reads"
       },
       "quote3": {
-        "text": "\"The community is very active.\"",
+        "text": "\"I love staying connected with my friends and being able to share lists with them.\"",
         "author": "— Laura P.",
         "handle": "@laurabookclub"
       }
     },
     "cta": {
-      "title": "Start your reading story today",
+      "title": "Trama's community awaits you",
       "subtitle": "Free and ad-free. Get started in less than a minute.",
       "btn": "Create your own Trama",
       "guest": "Explore without an account →"
