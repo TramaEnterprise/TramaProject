@@ -8,6 +8,7 @@ import {
   type GenreSlice,
   type WeeklyPages,
 } from "@/utils/readingStats";
+import { logger } from "@/utils/logger";
 
 const LOOKBACK_DAYS = 21;
 
@@ -55,7 +56,7 @@ export function useReadingStats(): ReadingStats {
         setLoadedUid(uid);
       })
       .catch((e) => {
-        console.error("[diag] getProgressEventsSince FALLÓ:", e);
+        logger.error("[useReadingStats] getProgressEventsSince failed:", e);
         if (cancelled) return;
         setWeekly(EMPTY_WEEK);
         setLoadedUid(uid);

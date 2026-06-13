@@ -14,7 +14,6 @@ type Props = {
   params?: ExploreSectionParams;
   books?: Book[];
   isFallback?: boolean;
-  onNavigate?: () => void;
 };
 
 export default function TrendingSection({

@@ -23,15 +23,16 @@ vi.mock("react-i18next", () => ({
   }),
 }));
 
-vi.mock("@/hooks/useShelf", () => ({
+vi.mock("@/context/shelf/useShelf", () => ({
   useShelf: () => ({
     addBook: vi.fn(),
     removeBook: vi.fn(),
     getStatus: () => null,
+    getEntry: () => null,
   }),
 }));
 
-vi.mock("@/hooks/useAuth", () => ({
+vi.mock("@/context/auth/useAuth", () => ({
   useAuth: () => ({ isAuthenticated: true }),
 }));
 
@@ -75,9 +76,25 @@ describe("BookInfoCard", () => {
     expect(screen.getByText("978-8466656894")).toBeInTheDocument();
   });
 
-  it("renderiza el botón de leer más sinopsis", () => {
+  it("no renderiza el boton de leer mas si la sinopsis cabe", () => {
     render(<BookInfoCard book={mockBook} />);
 
-    expect(screen.getByRole("button", { name: /Leer más/i })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Leer más/i })).not.toBeInTheDocument();
+  });
+
+  it("renderiza el boton de leer mas si la sinopsis desborda", async () => {
+    const scrollHeightSpy = vi
+      .spyOn(HTMLElement.prototype, "scrollHeight", "get")
+      .mockReturnValue(240);
+    const clientHeightSpy = vi
+      .spyOn(HTMLElement.prototype, "clientHeight", "get")
+      .mockReturnValue(120);
+
+    render(<BookInfoCard book={mockBook} />);
+
+    expect(await screen.findByRole("button", { name: /Leer más/i })).toBeInTheDocument();
+
+    scrollHeightSpy.mockRestore();
+    clientHeightSpy.mockRestore();
   });
 });
