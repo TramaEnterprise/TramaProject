@@ -17,8 +17,8 @@ vi.mock("./firebaseActivity", () => ({
 }));
 vi.mock("./firebaseBooks", () => ({ incrementBookAddCount: vi.fn(() => Promise.resolve()) }));
 
-import { addToShelf } from "./firebaseLibrary";
-import { setDoc } from "firebase/firestore";
+import { addToShelf, getShelf, updateReadingProgress } from "./firebaseLibrary";
+import { getDocs, setDoc, updateDoc } from "firebase/firestore";
 import { logActivity } from "./firebaseActivity";
 import { incrementBookAddCount } from "./firebaseBooks";
 import type { Book } from "@/types/Book";
@@ -48,7 +48,7 @@ describe("addToShelf silent", () => {
     expect(writtenData).toMatchObject({
       status: "finished",
       addedAt: "2021-05-01T00:00:00.000Z",
-      rating: 5,
+      userRating: 5,
       review: "Epic",
     });
     expect(logActivity).not.toHaveBeenCalled();
@@ -59,5 +59,59 @@ describe("addToShelf silent", () => {
     await addToShelf("uid1", book, "finished", null);
     expect(logActivity).toHaveBeenCalled();
     expect(incrementBookAddCount).toHaveBeenCalled();
+  });
+});
+
+describe("updateReadingProgress userRating", () => {
+  it("guarda la nota del usuario en userRating al terminar el libro", async () => {
+    const entry = {
+      book: { ...book, pages: 100 },
+      status: "reading" as const,
+      currentPage: 50,
+    };
+    await updateReadingProgress("uid1", entry, 100, undefined, 4.5, "Genial");
+
+    const written = (updateDoc as unknown as ReturnType<typeof vi.fn>).mock.calls[0][1];
+    expect(written).toMatchObject({ status: "finished", userRating: 4.5, review: "Genial" });
+    expect(written).not.toHaveProperty("rating");
+  });
+});
+
+describe("getShelf separa rating y userRating", () => {
+  it("entry.rating es la nota del usuario; book.rating es la media del libro", async () => {
+    (getDocs as unknown as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
+      size: 1,
+      docs: [
+        {
+          data: () => ({
+            key: "/works/OL1W",
+            authors: ["Frank Herbert"],
+            titles: { es: "Dune" },
+            status: "finished",
+            rating: 4.66, // media del libro
+            userRating: 4.5, // nota del usuario
+          }),
+        },
+      ],
+    });
+
+    const shelf = await getShelf("uid1");
+    expect(shelf).not.toBeNull();
+    expect(shelf![0].rating).toBe(4.5); 
+    expect(shelf![0].book.rating).toBe(4.66); 
+  });
+});
+
+describe("updateReadingProgress con status override finished", () => {
+  it("persiste userRating y review aunque se pase status='finished' explícito", async () => {
+    const entry = {
+      book: { ...book, pages: 100 },
+      status: "reading" as const,
+      currentPage: 50,
+    };
+    await updateReadingProgress("uid1", entry, 100, undefined, 4.5, "Una maravilla", "finished");
+
+    const written = (updateDoc as unknown as ReturnType<typeof vi.fn>).mock.calls[0][1];
+    expect(written).toMatchObject({ status: "finished", userRating: 4.5, review: "Una maravilla" });
   });
 });

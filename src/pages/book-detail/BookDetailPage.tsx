@@ -21,7 +21,9 @@ export default function BookDetailPage() {
   const { bookId = "" } = useParams<{ bookId: string }>();
   const navigate = useNavigate();
   const originPath = useBreadcrumbOrigin() ?? undefined;
-  const section = resolveSectionCrumb(originPath);
+  const section = originPath
+    ? resolveSectionCrumb(originPath)
+    : { key: "nav.explore", to: "/explore" };
   const fromSearch = originPath?.startsWith("/search") ?? false;
   const { t } = useTranslation();
   const { book, loading, error } = useBookDetail(bookId);

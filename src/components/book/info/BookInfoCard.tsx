@@ -8,6 +8,8 @@ import "./BookInfoCard.scss";
 import { genreToI18nKey } from "@/utils/genreUtils";
 import { Share2 } from "lucide-react";
 import ShelfStatusDropdown from "@/components/book/shelf-status-dropdown/ShelfStatusDropdown";
+import { encodeKey } from "@/utils/bookPaths";
+import { useShare } from "@/hooks/useShare";
 
 function formatCount(n: number): string {
   if (n >= 1000) {
@@ -37,6 +39,11 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
     isbn: book.isbn,
   };
   const [synopsisOpen, setSynopsisOpen] = useState(false);
+  const { share, toastVisible } = useShare({
+    url: `${window.location.origin}/books/${encodeKey(book.key)}`,
+    title: book.title,
+    text: t("bookDetail.shareText", { title: book.title }),
+  });
 
   return (
     <>
@@ -60,9 +67,19 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
           </div>
         </div>
 
-        <button type="button" className="book-info-card__share-btn" aria-label={t("bookDetail.share")}>
+        <button
+          type="button"
+          className="book-info-card__share-btn"
+          aria-label={t("bookDetail.share")}
+          onClick={share}
+        >
           <Share2 />
         </button>
+        {toastVisible && (
+          <p className="book-info-card__share-toast" role="status">
+            {t("bookDetail.shareCopied")}
+          </p>
+        )}
 
         <div className="book-info-card__details">
           <span className="book-info-card__genre">

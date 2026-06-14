@@ -1,6 +1,8 @@
 #API
 .env.local
 serviceAccountKey.json
+shelf.backup.*.json
+list.backup.*.json
 
 # Logs
 logs
