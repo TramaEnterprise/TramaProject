@@ -24,7 +24,7 @@
     color: var(--color-text-secondary);
 
     @include from($bp-xxl) {
-      font-size: var(--text-md);
+      font-size: var(--text-sm);
     }
   }
 

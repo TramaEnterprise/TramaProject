@@ -6,19 +6,19 @@ import { getRecommendationsFromDB, saveBooksToDB } from "@/services/firebase/fir
 import { completeBookTitles } from "@/services/api/bookComplete";
 import { dedupBestByTitle } from "@/utils/bookDedup";
 import { filterVisibleBooks } from "@/utils/hiddenGenres";
+import { genreFieldsFromSubjects } from "@/utils/genreDetection";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 const PAGE_SIZE = 6;
 const MIN_DB_BOOKS = 20;
 
-// Función pura: dado el pool y el conjunto de claves ya mostradas, devuelve la
-// siguiente página y el historial actualizado. No depende de refs ni de estado.
 function pickNext(
   fullPool: Book[],
   shown: Set<string>
 ): { books: Book[]; shown: Set<string> } {
   const available = fullPool.filter((b) => !shown.has(b.key));
-  // Si no quedan suficientes sin mostrar, reiniciar el historial
+
+  // Si no quedan suficientes sin mostrar, se reinicia 
   const enough = available.length >= PAGE_SIZE;
   const source = enough ? available : fullPool;
   const nextShown = enough ? new Set(shown) : new Set<string>();
@@ -47,8 +47,9 @@ export function useBookRecommendations(genre: string, excludeKey: string) {
       }
       // Fallback => API
       const results = await fetchBooksByGenre(genre, 30, lang, signal);
-      const deduplicatedBooks = dedupBestByTitle(results);
-      saveBooksToDB(deduplicatedBooks, lang); // fire-and-forget (cachea todos)
+      const classified = results.map((b) => ({ ...b, ...genreFieldsFromSubjects(b.topics) }));
+      const deduplicatedBooks = dedupBestByTitle(classified);
+      saveBooksToDB(deduplicatedBooks, lang); 
       return filterVisibleBooks(deduplicatedBooks).filter((b) => b.key !== excludeKey);
     },
     enabled: !!genre,

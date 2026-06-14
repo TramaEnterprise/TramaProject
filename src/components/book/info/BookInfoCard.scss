@@ -129,7 +129,7 @@
     color: var(--color-accent);
 
     @include from($bp-xxl) {
-      font-size: var(--text-sm);
+      font-size: var(--text-xs);
     }
   }
 
@@ -156,7 +156,7 @@
     text-overflow: ellipsis;
 
     @include from($bp-xxl) {
-      font-size: var(--text-2xl);
+      font-size: var(--text-xl);
     }
   }
 

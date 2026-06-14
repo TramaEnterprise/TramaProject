@@ -37,12 +37,12 @@
     display: flex;
     align-items: center;
     gap: var(--space-1);
-    padding: 7px 14px;
+    padding: 8px 16px;
     border-radius: var(--radius-pill);
     border: 1.5px solid var(--color-border-medium);
     background: var(--color-bg-page);
     font-family: var(--font-main);
-    font-size: var(--text-sm);
+    font-size: var(--text-md);
     font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
     cursor: pointer;
@@ -87,7 +87,7 @@
     border: none;
     padding: 0;
     font-family: inherit;
-    font-size: var(--text-sm);
+    font-size: var(--text-md);
     font-weight: var(--weight-semibold);
     color: var(--color-text-secondary);
     text-decoration: none;
@@ -128,9 +128,9 @@
     }
 
     @include from($bp-xxl) {
-      grid-template-columns: repeat(7, minmax(0, 200px));
+      grid-template-columns: repeat(7, minmax(0, 180px));
       grid-template-rows: auto;
-      gap: var(--space-10);
+      gap: var(--space-16);
     }
   }
 
