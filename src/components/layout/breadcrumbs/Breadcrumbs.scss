@@ -22,6 +22,10 @@
     min-width: 0;
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
+
+    @include from($bp-xxl) {
+      font-size: var(--text-md);
+    }
   }
 
   &__link {

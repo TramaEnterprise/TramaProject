@@ -44,7 +44,7 @@ export async function addToShelf(
     data.lastProgressAt = nowDate;
   }
   if (opts?.rating !== undefined) {
-    data.rating = opts.rating;
+    data.userRating = opts.rating;
   }
   if (opts?.review !== undefined) {
     data.review = opts.review;
@@ -120,12 +120,13 @@ export async function updateReadingProgress(
   if (pageChanged) {
     update.lastProgressAt = new Date().toISOString();
   }
-  if (statusOverride !== undefined) {
-    update.status = statusOverride;
-  } else if (isFinished) {
-    update.status = "finished";
+  const resolvedStatus = statusOverride ?? (isFinished ? "finished" : undefined);
+  if (resolvedStatus !== undefined) {
+    update.status = resolvedStatus;
+  }
+  if (resolvedStatus === "finished") {
     if (rating !== undefined) {
-      update.rating = rating;
+      update.userRating = rating;
     }
     if (review !== undefined) {
       update.review = review;
@@ -206,7 +207,7 @@ export async function getShelf(uid: string): Promise<ShelfEntry[] | null> {
       } as Book,
       status: data.status as ShelfStatus,
       currentPage: data.currentPage ?? undefined,
-      rating: data.rating ?? undefined,
+      rating: data.userRating ?? undefined,
       review: data.review ?? undefined,
       addedAt: data.addedAt ?? undefined,
       lastProgressAt: data.lastProgressAt ?? undefined,
