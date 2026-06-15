@@ -118,7 +118,6 @@
 
       @include from($bp-md) {
         width: 580px;
-        height: 330px; 
 
         .featured-book-card__cover-wrapper {
           width: 220px;
@@ -128,7 +127,6 @@
 
       @include from($bp-lg) {
         width: 660px;
-        height: 390px;
 
         .featured-book-card__cover-wrapper {
           width: 260px;
@@ -138,7 +136,6 @@
 
       @include from($bp-xxl) {
         width: 780px;
-        height: 450px;
 
         .featured-book-card__cover-wrapper {
           width: 300px;

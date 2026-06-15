@@ -42,7 +42,7 @@
     border: 1.5px solid var(--color-border-medium);
     background: var(--color-bg-page);
     font-family: var(--font-main);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
     cursor: pointer;
@@ -87,7 +87,7 @@
     border: none;
     padding: 0;
     font-family: inherit;
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     font-weight: var(--weight-semibold);
     color: var(--color-text-secondary);
     text-decoration: none;
@@ -130,7 +130,7 @@
     @include from($bp-xxl) {
       grid-template-columns: repeat(7, minmax(0, 180px));
       grid-template-rows: auto;
-      gap: var(--space-16);
+      gap: var(--space-14);
     }
   }
 
