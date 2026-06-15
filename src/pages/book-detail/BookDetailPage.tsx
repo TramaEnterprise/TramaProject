@@ -33,7 +33,7 @@ export default function BookDetailPage() {
     book?.authorKey
   );
   const { books: recommendedBooks, refresh: refreshRecs } = useBookRecommendations(
-    book?.genre ?? "",
+    [book?.genre, book?.genre2].filter(Boolean) as string[],
     book?.key ?? toWorkKey(bookId)
   );
 

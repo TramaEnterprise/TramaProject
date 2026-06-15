@@ -80,10 +80,11 @@ export function useBookDetail(id: string): {
 
       if (cancelled) return;
 
+      const coverBook = dbBook ?? bookFromState;
+
       setBook({
         key: workKey,
-        cover_url:
-          dbBook?.cover_url ?? (bookFromState ? resolveCoverSrc(bookFromState) : null) ?? "",
+        cover_url: (coverBook ? resolveCoverSrc(coverBook) : null) ?? "",
         genre: dbBook?.genre ?? bookFromState?.genre ?? "",
         genre2: dbBook?.genre2 ?? bookFromState?.genre2,
         title: dbBook?.title ?? bookFromState?.titles?.[lang] ?? bookFromState?.title ?? "",

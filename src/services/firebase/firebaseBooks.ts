@@ -206,27 +206,46 @@ export async function updateBookTitleToDB(
 }
 
 export async function getRecommendationsFromDB(
-  genre: string,
+  genres: string[],
   lang: string,
   excludeKey: string,
-  minCount = 20
-): Promise<Book[] | null> {
-  const q = query(
-    collection(db, BOOKS_COLLECTION),
-    where("genre", "==", genre),
-    where("langs", "array-contains", lang),
-    // Se excluye el libro actual
-    limit(minCount * 2)
+  count = 30
+): Promise<Book[]> {
+  const uniqueGenres = [...new Set(genres.filter(Boolean))];
+  if (uniqueGenres.length === 0) return [];
+
+  const snapshots = await Promise.all(
+    uniqueGenres.map((g) =>
+      getDocs(
+        query(
+          collection(db, BOOKS_COLLECTION),
+          where("genre", "==", g),
+          where("langs", "array-contains", lang),
+          limit(count * 5)
+        )
+      )
+    )
   );
 
-  const doc = await getDocs(q);
-  const books = doc.docs
-    .map((d) => mapBookDoc(d.data(), lang))
-    .filter((b) => isVisibleBook(b) && hasVisibleSubjects(b.topics))
-    .filter((b) => b.key !== excludeKey);
+  const seen = new Set<string>();
+  const books: Book[] = [];
+  for (const snap of snapshots) {
+    for (const d of snap.docs) {
+      const b = mapBookDoc(d.data(), lang);
+      if (seen.has(b.key)) continue;
+      seen.add(b.key);
+      if (isVisibleBook(b) && hasVisibleSubjects(b.topics) && b.key !== excludeKey) {
+        books.push(b);
+      }
+    }
+  }
 
-  if (books.length < minCount) return null;
-  return books;
+  for (let i = books.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [books[i], books[j]] = [books[j], books[i]];
+  }
+
+  return books.slice(0, count);
 }
 
 // Helpers
