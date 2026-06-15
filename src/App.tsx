@@ -54,7 +54,14 @@ function AppShell() {
       </main>
       <Footer />
       <AppToaster />
-      <ScrollRestoration getKey={(location) => location.pathname} />
+      <ScrollRestoration
+        getKey={(location) => {
+          const p = location.pathname;
+          if (p.startsWith("/profile") || p.startsWith("/u/") || p.startsWith("/my-library")) return location.key;
+          return p;
+        }}
+      />
+
     </>
   );
 }
