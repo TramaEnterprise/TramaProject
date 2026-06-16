@@ -42,6 +42,9 @@ export async function addToShelf(
   };
   if (status === "reading") {
     data.lastProgressAt = nowDate;
+    if (prevStatus === "finished") {
+      data.currentPage = 0;
+    }
   }
   if (opts?.rating !== undefined) {
     data.userRating = opts.rating;
