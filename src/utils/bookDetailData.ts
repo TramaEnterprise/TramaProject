@@ -1,4 +1,4 @@
-const NOMBRE_DEL_VIENTO = {
+const EL_CABALLERO_DE_LOS_SIETE_REINOS = {
   reviews: [
     {
       id: "review-1",
@@ -16,7 +16,7 @@ const NOMBRE_DEL_VIENTO = {
       handle: "@carlosmendez",
       date: "hace 5 días",
       rating: 5,
-      text: "Increíble construcción del mundo y los personajes. Rothfuss tiene una prosa magistral. Sin duda uno de los mejores libros de fantasía que he leído.",
+      text: "Increíble construcción del mundo y los personajes. Martin tiene una prosa magistral. Sin duda uno de los mejores libros de fantasía que he leído.",
       likes: 35,
       comments: 4,
     },
@@ -26,11 +26,11 @@ const NOMBRE_DEL_VIENTO = {
       handle: "@mariagarcia",
       date: "hace 1 semana",
       rating: 4,
-      text: "Una historia que te atrapa desde la primera página. Kvothe es un personaje fascinante y el mundo está lleno de detalles únicos.",
+      text: "Una historia que te atrapa desde la primera página. Dunk y Egg son personajes fascinantes y Poniente está lleno de detalles únicos.",
       likes: 12,
       comments: 2,
     },
   ],
 };
 
-export const FALLBACK_REVIEWS = NOMBRE_DEL_VIENTO.reviews;
+export const FALLBACK_REVIEWS = EL_CABALLERO_DE_LOS_SIETE_REINOS.reviews;

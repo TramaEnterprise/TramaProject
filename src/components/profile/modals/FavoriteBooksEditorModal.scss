@@ -1,5 +1,6 @@
 // src/components/FavoriteBooksEditorModal/FavoriteBooksEditorModal.scss
 @use "../../../styles/lib" as *;
+@use "../../../styles/layouts/modal" as *;
 
 .fav-editor-modal {
   position: fixed;
@@ -51,23 +52,7 @@
   }
 
   &__close {
-    background: transparent;
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    color: var(--color-text-secondary);
-    padding: var(--space-1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition:
-      border-color var(--transition-fast),
-      color var(--transition-fast);
-
-    &:hover {
-      border-color: var(--color-text-primary);
-      color: var(--color-text-primary);
-    }
+    @include modal-close;
   }
 
   &__hint {
@@ -240,7 +225,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    padding-top: var(--space-2);
+    padding-top: var(--space-4);
+    margin-inline: calc(-1 * var(--space-6));
+    padding-inline: var(--space-6);
+    border-top: 1px solid var(--color-border-subtle);
   }
 
   &__save-error {

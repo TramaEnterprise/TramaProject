@@ -92,16 +92,19 @@ export function useAuthorData(
         try {
           const dbBooks = await getAuthorBooksFromDB(authorKey, currentBookTitle, lang);
           if (dbBooks.length >= 2) {
-            books = dbBooks.slice(0, 4).map((b) => ({
-              id: b.key,
-              cover_url: resolveCoverSrc(b) ?? "",
-              title: b.title,
-              year: b.first_publish_year ? String(b.first_publish_year) : "",
-              rating: b.rating,
-              ratingCount: b.ratingCount,
-              isbn: b.isbn,
-              pages: b.pages,
-            }));
+            books = [...dbBooks]
+              .sort((a, b) => (b.first_publish_year ?? 0) - (a.first_publish_year ?? 0))
+              .slice(0, 6)
+              .map((b) => ({
+                id: b.key,
+                cover_url: resolveCoverSrc(b) ?? "",
+                title: b.title,
+                year: b.first_publish_year ? String(b.first_publish_year) : "",
+                rating: b.rating,
+                ratingCount: b.ratingCount,
+                isbn: b.isbn,
+                pages: b.pages,
+              }));
 
             // Obtener titulos faltantes en el idioma actual
             if (dbBooks.some((b) => !b.titles?.[lang])) {
@@ -110,7 +113,8 @@ export function useAuthorData(
                   if (cancelled || completed === dbBooks) return;
                   const completedBooks = completed
                     .filter((b) => b.title.toLowerCase() !== currentBookTitle.toLowerCase())
-                    .slice(0, 4)
+                    .sort((a, b) => (b.first_publish_year ?? 0) - (a.first_publish_year ?? 0))
+                    .slice(0, 6)
                     .map((b) => ({
                       id: b.key,
                       cover_url: resolveCoverSrc(b) ?? "",
@@ -133,7 +137,7 @@ export function useAuthorData(
 
       if (books.length < 2) {
         try {
-          const apiBooks = await fetchAuthorBooks(authorName, lang, 10);
+          const apiBooks = await fetchAuthorBooks(authorName, lang, 16);
           saveBooksToDB(apiBooks, lang).catch(() => {});
           books = apiBooks
             .filter(
@@ -142,7 +146,8 @@ export function useAuthorData(
                 b.title.toLowerCase() !== currentBookTitle.toLowerCase() &&
                 isVisibleBook(b)
             )
-            .slice(0, 4)
+            .sort((a, b) => (b.first_publish_year ?? 0) - (a.first_publish_year ?? 0))
+            .slice(0, 6)
             .map((b) => ({
               id: b.key,
               cover_url: resolveCoverSrc(b) ?? "",
