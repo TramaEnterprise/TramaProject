@@ -68,6 +68,8 @@
 
   &__number {
     flex-shrink: 0;
+    width: 0.7em;
+    text-align: left;
     font-family: var(--font-editorial);
     font-size: 150px;
     font-weight: var(--weight-semibold);
