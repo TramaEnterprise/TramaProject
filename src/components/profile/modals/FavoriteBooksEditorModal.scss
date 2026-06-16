@@ -142,9 +142,13 @@
     }
   }
 
+  &__search-wrapper {
+    position: relative;
+  }
+
   &__search {
     border-radius: var(--radius-sm);
-    padding: 12px 14px;
+    padding: 12px 40px 12px 14px;
     font-size: var(--text-md);
     width: 100%;
     box-sizing: border-box;
@@ -156,6 +160,27 @@
 
     &:focus {
       border-color: var(--color-text-primary);
+    }
+  }
+
+  &__search-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-1);
+    color: var(--color-text-tertiary);
+    border-radius: var(--radius-sm);
+    @include transition(color);
+
+    &:hover {
+      color: var(--color-text-primary);
     }
   }
 
