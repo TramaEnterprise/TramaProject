@@ -21,7 +21,9 @@ export default function BookDetailPage() {
   const { bookId = "" } = useParams<{ bookId: string }>();
   const navigate = useNavigate();
   const originPath = useBreadcrumbOrigin() ?? undefined;
-  const section = resolveSectionCrumb(originPath);
+  const section = originPath
+    ? resolveSectionCrumb(originPath)
+    : { key: "nav.explore", to: "/explore" };
   const fromSearch = originPath?.startsWith("/search") ?? false;
   const { t } = useTranslation();
   const { book, loading, error } = useBookDetail(bookId);
@@ -31,7 +33,7 @@ export default function BookDetailPage() {
     book?.authorKey
   );
   const { books: recommendedBooks, refresh: refreshRecs } = useBookRecommendations(
-    book?.genre ?? "",
+    [book?.genre, book?.genre2].filter(Boolean) as string[],
     book?.key ?? toWorkKey(bookId)
   );
 

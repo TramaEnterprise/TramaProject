@@ -5,6 +5,8 @@
     "back": "Volver",
     "viewBook": "Ver libro",
     "share": "Compartir",
+    "shareCopied": "Enlace copiado",
+    "shareText": "Mira este libro: {{title}}",
     "ratingsCount": "{{total}} valoraciones",
     "pages": "Páginas",
     "published": "Publicación",

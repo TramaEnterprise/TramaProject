@@ -18,7 +18,6 @@ type ExploreSectionProps = {
   titleKey?: string;
   titleFallbackKey?: string;
   titleHighlight?: string;
-  onNavigate?: () => void;
   featured?: boolean;
 };
 
@@ -56,7 +55,6 @@ export default function ExploreSection({
   titleKey,
   titleFallbackKey,
   titleHighlight,
-  onNavigate,
   featured = false,
 }: ExploreSectionProps) {
   const { t } = useTranslation();
@@ -84,7 +82,6 @@ export default function ExploreSection({
     : "";
 
   const handleSeeMore = () => {
-    onNavigate?.();
     navigate(buildSectionUrl(type, params));
   };
 

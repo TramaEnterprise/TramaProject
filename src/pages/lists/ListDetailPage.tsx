@@ -43,7 +43,8 @@ export default function ListDetailPage() {
   };
 
   const isOwner = !!user && user.uid === userId;
-  const list = lists.find((l) => l.id === listId);
+  const foundList = lists.find((l) => l.id === listId);
+  const list = foundList && (!isOwner && !foundList.isPublic) ? undefined : foundList;
 
   const handleDelete = async () => {
     if (!listId) return;

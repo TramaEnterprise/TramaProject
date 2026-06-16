@@ -60,14 +60,12 @@ type Props = {
   sections: SectionEntry[];
   loading: boolean;
   shelfDerived: ShelfDerived;
-  onNavigate: () => void;
 };
 
 export default function ExploreSectionsList({
   sections,
   loading,
   shelfDerived,
-  onNavigate,
 }: Props) {
   if (loading) {
     return (
@@ -93,7 +91,6 @@ export default function ExploreSectionsList({
                 type="acclaimed"
                 titleKey="explore.sections.acclaimed"
                 featured
-                onNavigate={onNavigate}
               />
             </>
           ) : entry.type === "trending" ? (
@@ -101,7 +98,6 @@ export default function ExploreSectionsList({
               books={entry.books}
               isFallback={entry.isFallback}
               params={buildParamsForEntry(entry, shelfDerived)}
-              onNavigate={onNavigate}
             />
           ) : (
             <ExploreSection
@@ -116,7 +112,6 @@ export default function ExploreSectionsList({
               }
               titleHighlight={titleHighlightForEntry(entry)}
               featured={FEATURED_SECTION_TYPES.has(entry.type)}
-              onNavigate={onNavigate}
             />
           )}
         </Fragment>

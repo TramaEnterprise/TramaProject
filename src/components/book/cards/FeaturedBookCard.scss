@@ -68,7 +68,6 @@
     }
   }
 
-  // Body: same vertical padding as cover wrapper so both bottom edges align
   &__body {
     flex: 1;
     min-width: 0;
@@ -82,7 +81,6 @@
     }
   }
 
-  // Meta bar
   &__meta {
     display: flex;
     border: 1px solid var(--color-border-outline);
@@ -139,7 +137,9 @@
     flex-shrink: 0;
 
     @include from($bp-md) {
-      flex: 1;
+      flex: 1 1 0;
+      min-height: 0;
+      max-height: none;
     }
   }
 
@@ -236,7 +236,6 @@
     color: var(--color-text-secondary);
   }
 
-  // Action buttons
   &__btns {
     display: flex;
     justify-content: flex-end;

@@ -70,7 +70,7 @@ export default function UserReviewSection({ bookKey }: UserReviewSectionProps) {
           {hasRating && entry.rating !== undefined && (
             <div className="user-review-section__rating">
               <StarRating rating={entry.rating} size={20} />
-              <span className="user-review-section__rating-value">{entry.rating} / 5</span>
+              <span className="user-review-section__rating-value">{Math.round(entry.rating * 10) / 10} / 5</span>
             </div>
           )}
         </header>

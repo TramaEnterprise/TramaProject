@@ -86,6 +86,10 @@
     border: 1px solid var(--color-border-subtle);
     border-radius: var(--radius-md);
     padding: 14px 18px;
+
+    [data-theme="dark"] & {
+      background: transparent;
+    }
   }
 
   &__bio {
@@ -97,12 +101,12 @@
 
   &__books-row {
     display: flex;
-    gap: var(--space-6);
+    gap: var(--space-8);
     flex-wrap: wrap;
     margin-top: var(--space-5);
 
     @include from($bp-md) {
-      margin-left: -128px;
+      margin-left: -64px; 
     }
   }
 
@@ -110,7 +114,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    flex: 0 0 145px;
+    flex: 0 0 170px;
     min-width: 0;
     text-decoration: none;
     color: inherit;

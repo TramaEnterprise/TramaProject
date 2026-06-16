@@ -103,7 +103,9 @@ export default function FavoriteBooksEditorModal({
         onAdd={addFavorite}
         translationPrefix="profile.favorites"
         classNames={{
+          searchWrapper: "fav-editor-modal__search-wrapper",
           search: "fav-editor-modal__search",
+          searchClear: "fav-editor-modal__search-clear",
           searching: "fav-editor-modal__searching",
           noResults: "fav-editor-modal__no-results",
           results: "fav-editor-modal__results",

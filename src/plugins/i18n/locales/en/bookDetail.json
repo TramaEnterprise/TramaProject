@@ -5,6 +5,8 @@
     "back": "Back",
     "viewBook": "View book",
     "share": "Share",
+    "shareCopied": "Link copied",
+    "shareText": "Check out this book: {{title}}",
     "ratingsCount": "{{total}} ratings",
     "pages": "Pages",
     "published": "Published",

@@ -92,12 +92,30 @@
     }
   }
 
+  &__share-toast {
+    position: absolute;
+    top: 70px;
+    right: var(--space-6);
+    margin: 0;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-on-brand);
+    background: var(--color-text-primary);
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+    box-shadow: var(--shadow-card);
+    z-index: 2;
+    pointer-events: none;
+  }
+
   &__details {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
     min-width: 0;
+    padding-top: var(--space-3);
     padding-right: 0;
 
     @include from($bp-md) {
@@ -109,6 +127,19 @@
     font-size: var(--text-xs);
     font-weight: var(--weight-semibold);
     color: var(--color-accent);
+
+    @include from($bp-xxl) {
+      font-size: var(--text-xs);
+    }
+  }
+
+  &__genre-sep {
+    display: inline-block;
+    width: 1px;
+    height: 0.75em;
+    background: var(--color-border-medium);
+    vertical-align: middle;
+    margin: 0 var(--space-2);
   }
 
   &__title {
@@ -123,6 +154,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include from($bp-xxl) {
+      font-size: var(--text-xl);
+    }
   }
 
   &__author {
@@ -135,6 +170,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include from($bp-xxl) {
+      font-size: var(--text-md);
+    }
   }
 
   &__info-row {
@@ -153,7 +192,7 @@
   }
 
   &__rating-number {
-    font-size: var(--text-xl);
+    font-size: 20px; 
     font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
     letter-spacing: -0.03em;
@@ -193,34 +232,62 @@
   &__meta-label {
     font-size: var(--text-xs);
     color: var(--color-text-secondary);
+
+    @include from($bp-xxl) {
+      font-size: var(--text-sm);
+    }
   }
 
   &__meta-value {
     font-size: var(--text-xs);
     font-weight: var(--weight-medium);
     color: var(--color-text-primary);
+
+    @include from($bp-xxl) {
+      font-size: var(--text-sm);
+    }
   }
 
   &__synopsis {
     background: var(--color-bg-page);
     border: 1px solid var(--color-border-subtle);
     border-radius: var(--radius-md);
-    padding: 10px 14px 0;
+    padding: 10px 14px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    min-height: 0;
     overflow: hidden;
     max-height: 170px;
     margin-top: var(--space-3);
 
     @include from($bp-md) {
+      flex: 1 1 0;
+      max-height: none;
       margin-right: -48px;
     }
+  }
+
+  &__synopsis-text {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
   }
 
   &__synopsis-text p {
     font-size: var(--text-xs);
     line-height: 1.65;
     color: var(--color-text-primary);
-    margin-bottom: var(--space-2);
+    margin: 0 0 var(--space-2);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include from($bp-xxl) {
+      font-size: var(--text-sm);
+    }
   }
 
   &__synopsis-gradient {
@@ -239,7 +306,6 @@
   &__synopsis-expand {
     display: flex;
     align-items: center;
-    gap: var(--space-1);
     background: none;
     border: none;
     font-family: var(--font-main);
@@ -252,16 +318,16 @@
     &:hover {
       opacity: 0.75;
     }
-    svg {
-      width: 13px;
-      height: 13px;
+
+    @include from($bp-xxl) {
+      font-size: var(--text-sm);
     }
   }
 
   &__footer {
     display: flex;
     justify-content: flex-end;
-    margin-top: auto;
+    margin-top: var(--space-3); 
 
     @include from($bp-md) {
       margin-right: -48px;

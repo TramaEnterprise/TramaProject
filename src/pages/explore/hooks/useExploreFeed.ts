@@ -84,7 +84,6 @@ async function buildSections(
   const year = new Date().getFullYear();
   const entries: SectionEntry[] = [];
 
-  // Tracks keys of books occupying the first ABOVE_FOLD slots in already-built sections.
   const globalVisibleKeys = new Set<string>();
 
   function offShelf(books: Book[]): Book[] {
@@ -94,6 +93,10 @@ async function buildSections(
   function surfaceFresh(books: Book[]): Book[] {
     const fresh = books.filter((b) => !globalVisibleKeys.has(b.key));
     const repeated = books.filter((b) => globalVisibleKeys.has(b.key));
+    for (let i = repeated.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [repeated[i], repeated[j]] = [repeated[j], repeated[i]];
+    }
     const reordered = [...fresh, ...repeated];
     reordered.slice(0, ABOVE_FOLD).forEach((b) => globalVisibleKeys.add(b.key));
     return reordered;
@@ -158,7 +161,7 @@ async function buildSections(
     }
   }
 
-  // 4. Genre-grid (no books — special render in ExplorePage)
+  // 4. Genre-grid 
   entries.push({ id: "genre-grid", type: "genre-grid", books: [], isFallback: false });
 
   // 5. Because-finished

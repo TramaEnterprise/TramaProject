@@ -10,7 +10,7 @@
     "shelfTitle": "Bookshelf",
     "seeAll": "See all",
     "hide": "Hide",
-    "searchPlaceholder": "Search by title or author",
+    "searchPlaceholder": "Search by title, author or ISBN",
     "resultsCount_one": "{{count}} result for",
     "resultsCount_other": "{{count}} results for",
     "noResults": "Oops! We couldn't find the book you're looking for",
@@ -73,7 +73,8 @@
       "selectedCount_other": "{{count}} books selected",
       "addSelected_one": "Add {{count}} book",
       "addSelected_other": "Add {{count}} books",
-      "clearSelection": "Clear selection"
+      "clearSelection": "Clear selection",
+      "clearSearch": "Clear search"
     },
     "listDetail": {
       "empty": "This list has no books",
@@ -108,7 +109,9 @@
       "emptyWeek": "No reading logged this week yet.",
       "emptyGenres": "Finish books to see your favourite genres.",
       "pagesTooltip_one": "{{count}} page read",
-      "pagesTooltip_other": "{{count}} pages read"
+      "pagesTooltip_other": "{{count}} pages read",
+      "streak_one": "day streak",
+      "streak_other": "day streak"
     },
     "days": {
       "mon": "MO",
@@ -140,7 +143,8 @@
         "progress": "Updated progress",
         "review": "Wrote a review",
         "list_created": "Created a list",
-        "watchlist_add": "Added to list"
+        "watchlist_add": "Added to list",
+        "book_rated": "Rated a book"
       },
       "timeAgo": {
         "seconds": "just now",

@@ -1,7 +1,8 @@
 import type { Book } from "@/types/Book";
 import type { BookList, ListBook } from "@/types/BookList";
 import { isValidListName, MAX_LIST_BOOKS, MAX_LIST_DESCRIPTION } from "@/utils/bookListUtils";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { encodeKey } from "@/utils/bookPaths";
+import { BookOpen, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./ListEditorModal.scss";
@@ -9,6 +10,17 @@ import Modal from "@/components/common/Modal";
 import BookSearchPicker from "@/components/book/search-picker/BookSearchPicker";
 
 const BOOKS_PER_PAGE = 4;
+
+function toListBook(book: Book): ListBook {
+  return {
+    key: encodeKey(book.key),
+    title: book.title,
+    authors: book.authors,
+    cover_url: book.cover_url,
+    rating: book.rating,
+    ratingCount: book.ratingCount,
+  };
+}
 
 type ListEditorModalProps = {
   existingList?: BookList;
@@ -35,21 +47,12 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
     safePage * BOOKS_PER_PAGE + BOOKS_PER_PAGE
   );
 
-  const toListBook = (book: Book): ListBook => ({
-    key: book.key,
-    title: book.title,
-    authors: book.authors,
-    cover_url: book.cover_url,
-    rating: book.rating,
-    ratingCount: book.ratingCount,
-  });
-
   const addBooks = (incomingBooks: Book[]) => {
-    const currentKeys = new Set(books.map((book) => book.key));
+    const currentKeys = new Set(books.map((book) => encodeKey(book.key)));
     const remainingSlots = MAX_LIST_BOOKS - books.length;
 
     const nextBooks = incomingBooks
-      .filter((book) => !currentKeys.has(book.key))
+      .filter((book) => !currentKeys.has(encodeKey(book.key)))
       .slice(0, remainingSlots)
       .map(toListBook);
 
@@ -120,22 +123,24 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
             <span className="list-editor-modal__visibility-label">
               {t("myLibrary.listEditor.visibilityLabel")}
             </span>
-            <label className="list-editor-modal__toggle">
-              <input
-                type="checkbox"
-                className="list-editor-modal__toggle-input"
-                checked={!isPublic}
-                onChange={(e) => setIsPublic(!e.target.checked)}
-              />
-              <span className="list-editor-modal__toggle-track">
-                <span className="list-editor-modal__toggle-thumb" />
-              </span>
+            <div className="list-editor-modal__toggle">
+              <label className="list-editor-modal__toggle-control">
+                <input
+                  type="checkbox"
+                  className="list-editor-modal__toggle-input"
+                  checked={!isPublic}
+                  onChange={(e) => setIsPublic(!e.target.checked)}
+                />
+                <span className="list-editor-modal__toggle-track">
+                  <span className="list-editor-modal__toggle-thumb" />
+                </span>
+              </label>
               <span className="list-editor-modal__toggle-text">
                 {!isPublic
                   ? t("myLibrary.listEditor.private")
                   : t("myLibrary.listEditor.public")}
               </span>
-            </label>
+            </div>
           </div>
         </div>
 
@@ -181,7 +186,9 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
             onAddMany={addBooks}
             translationPrefix="myLibrary.listEditor"
             classNames={{
+              searchWrapper: "list-editor-modal__search-wrapper",
               search: "list-editor-modal__search",
+              searchClear: "list-editor-modal__search-clear",
               searching: "list-editor-modal__searching",
               noResults: "list-editor-modal__no-results",
               results: "list-editor-modal__results",
@@ -191,6 +198,7 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
               resultAuthor: "list-editor-modal__result-author",
               resultContent: "list-editor-modal__result-content",
               resultCheckbox: "list-editor-modal__result-checkbox",
+              resultAction: "list-editor-modal__result-action",
               selectionBar: "list-editor-modal__selection-bar",
               selectionText: "list-editor-modal__selection-text",
               selectionActions: "list-editor-modal__selection-actions",
@@ -207,12 +215,16 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
         )}
         {pageBooks.map((book) => (
           <div key={book.key} className="list-editor-modal__book-item">
-            {book.cover_url && (
+            {book.cover_url ? (
               <img
                 className="list-editor-modal__book-cover"
                 src={book.cover_url}
                 alt={book.title}
               />
+            ) : (
+              <span className="list-editor-modal__book-cover list-editor-modal__book-cover--placeholder" aria-hidden="true">
+                <BookOpen size={16} />
+              </span>
             )}
             <div className="list-editor-modal__book-info">
               <span className="list-editor-modal__book-title">{book.title}</span>

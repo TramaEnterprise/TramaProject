@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { isVisibleBook, filterVisibleBooks, HIDDEN_GENRES } from "./hiddenGenres";
+import { isVisibleBook, filterVisibleBooks, hasVisibleSubjects, HIDDEN_GENRES } from "./hiddenGenres";
 
 describe("isVisibleBook", () => {
   it("oculta un libro cuyo género primario está en la lista", () => {
@@ -32,6 +32,24 @@ describe("filterVisibleBooks", () => {
       { key: "d", genre: "Literature" },
     ];
     expect(filterVisibleBooks(books).map((b) => b.key)).toEqual(["a", "d"]);
+  });
+});
+
+describe("hasVisibleSubjects", () => {
+  it("oculta un libro cuyos subjects detectan un género oculto", () => {
+    expect(hasVisibleSubjects(["Fiction", "young adult"])).toBe(false);
+    expect(hasVisibleSubjects(["humorous fiction"])).toBe(false);
+    expect(hasVisibleSubjects(["short stories"])).toBe(false);
+  });
+
+  it("muestra un libro cuyos subjects no detectan géneros ocultos", () => {
+    expect(hasVisibleSubjects(["fantasy", "magic"])).toBe(true);
+    expect(hasVisibleSubjects(["fiction"])).toBe(true);
+  });
+
+  it("muestra un libro sin subjects (no hay señal de género oculto)", () => {
+    expect(hasVisibleSubjects(undefined)).toBe(true);
+    expect(hasVisibleSubjects([])).toBe(true);
   });
 });
 

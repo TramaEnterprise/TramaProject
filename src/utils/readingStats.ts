@@ -34,6 +34,16 @@ function startOfDay(d: Date): Date {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
 
+export function ceil(value: number): number {
+  if (value <= 5) return 5;
+  const magnitude = Math.pow(10, Math.floor(Math.log10(value)));
+  for (const factor of [1, 2, 2.5, 5, 10]) {
+    const candidate = factor * magnitude;
+    if (candidate >= value) return candidate;
+  }
+  return 10 * magnitude;
+}
+
 function startOfWeek(d: Date): Date {
   const diff = (d.getDay() + 6) % 7; 
   const monday = startOfDay(d);

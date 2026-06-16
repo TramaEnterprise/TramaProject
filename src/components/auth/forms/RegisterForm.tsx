@@ -63,8 +63,8 @@ export default function RegisterForm() {
         await createUserProfile(credential.user.uid, {
           email: data.email,
           name: data.name,
-          surname: data.surname,
-          birthDate: data.birthDate,
+          surname: data.surname || undefined,
+          birthDate: data.birthDate || undefined,
           acceptedTermsAt: new Date().toISOString(),
           acceptedTermsVersion: CURRENT_TERMS_VERSION,
         });
@@ -111,9 +111,8 @@ export default function RegisterForm() {
           <FormInput
             type="text"
             label={t("auth.surnamePlaceholder")}
-            required
             error={errors.surname}
-            registration={register("surname", { required: t("authErrors.fieldRequired") })}
+            registration={register("surname")}
           />
         </div>
         <div className="auth__field-group">
@@ -143,12 +142,10 @@ export default function RegisterForm() {
         <FormInput
           type="date"
           label={t("auth.birthDatePlaceholder")}
-          required
           error={errors.birthDate}
           max={maxBirthDate}
           registration={register("birthDate", {
-            required: t("authErrors.fieldRequired"),
-            validate: (value) => value <= maxBirthDate || t("authErrors.birthDate-min-age"),
+            validate: (value) => !value || value <= maxBirthDate || t("authErrors.birthDate-min-age"),
           })}
         />
         <FormInput
