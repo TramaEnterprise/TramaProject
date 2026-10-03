@@ -4,8 +4,13 @@
 serviceAccountKey.json
 shelf.backup.*.json
 list.backup.*.json
-/data/catalog/raw
-/data/catalog/reports
+data/catalog/
+    raw/
+    samples/
+    processed/
+    reports/
+
+/backups/migration/
 /docs/
 /android/
 
