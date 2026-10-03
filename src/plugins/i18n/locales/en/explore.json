@@ -1,0 +1,59 @@
+{
+  "explore": {
+    "searchTitle": "Discover your next story",
+    "searchPlaceholder": "Search by title, author or ISBN",
+    "searching": "Searching...",
+    "resultsFound": "{{count}} results found",
+    "backBtn": "Back",
+    "resultsTitle": "Results for \"{{query}}\"",
+    "fantasyTitle": "Fantasy",
+    "saveTooltip": "Sign in to save",
+    "seeMore": "See more",
+    "scrollPrev": "Scroll left",
+    "scrollNext": "Scroll right",
+    "retry": "Retry",
+    "loadMore": "Load more",
+    "noMoreResults": "No more results",
+    "sectionError": "Could not load this section",
+    "sections": {
+      "trending": "Trending this week",
+      "trendingFallback": "Popular this week",
+      "topRated": "Top rated",
+      "fiction": "Fiction",
+      "nonFiction": "Non-fiction",
+      "newReleases": "New releases",
+      "newReleasesFallback": "Featured releases",
+      "quickReads": "Short and great",
+      "becauseReading": "Because you're reading {{title}}",
+      "moreGenre": "{{genre}} recommendations",
+      "newReleasesForYou": "New releases for you",
+      "waiting": "Fantastic stories await you",
+      "moreAuthor": "More books by {{author}}",
+      "topGenre": "{{genre}} recommendations",
+      "acclaimed": "Critically acclaimed",
+      "becauseLiked": "Because you liked {{title}}",
+      "becauseFinished": "Because you read {{title}}",
+      "becauseFavorites": "Based on your favorites",
+      "genreGrid": "Explore by genre"
+    },
+    "allGenres": "All genres",
+    "banner": {
+      "title": "Discover books for you",
+      "body": "Create an account to see personalized recommendations based on what you read.",
+      "cta": "Create account"
+    }
+  },
+  "search": {
+    "all": "All",
+    "title": "Title",
+    "author": "Author",
+    "isbn": "ISBN",
+    "searchLabel": "Search books",
+    "clearLabel": "Clear search",
+    "searchBtnLabel": "Search",
+    "emptyPrompt": "Type something to search for books",
+    "noResultsSubtitle": "Try a different search",
+    "seeAllResults": "See more results",
+    "tooShort": "Type at least 3 characters"
+  }
+}

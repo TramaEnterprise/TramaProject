@@ -1,0 +1,19 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import { useAuth } from "@/context/auth/useAuth";
+import AuthForm from "@/components/auth/AuthForm";
+
+function AuthPage() {
+  const navigate = useNavigate();
+  const { isAuthenticated, loading } = useAuth();
+
+  useEffect(() => {
+    if (!loading && isAuthenticated) {
+      navigate("/my-library", { replace: true });
+    }
+  }, [isAuthenticated, loading, navigate]);
+
+  return <AuthForm />;
+}
+
+export default AuthPage;

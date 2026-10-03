@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "title": "Ajustes",
+    "nav": {
+      "sectionTitle": "Navegación",
+      "compactBar": "Barra compacta al desplazar",
+      "compactBarDesc": "Sustituye la barra de navegación principal por una versión compacta al hacer scroll."
+    },
+    "data": {
+      "sectionTitle": "Datos",
+      "importGoodreads": "Importar de Goodreads",
+      "importGoodreadsDesc": "Trae tu estantería desde el archivo CSV que exportas de Goodreads.",
+      "import": "Importar"
+    }
+  }
+}

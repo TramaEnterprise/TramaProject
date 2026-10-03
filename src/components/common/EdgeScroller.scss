@@ -1,0 +1,85 @@
+@use "../../styles/lib" as *;
+
+.edge-scroller {
+  position: relative;
+  margin-left: calc(-1 * (2rem + #{$padding-horizontal}));
+  margin-right: calc(-1 * (2rem + #{$padding-horizontal}));
+
+  &__viewport {
+    width: 100%;
+    padding-left: calc(2rem + #{$padding-horizontal});
+    scroll-padding-left: calc(2rem + #{$padding-horizontal});
+  }
+
+  &__fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 88px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+
+    &[data-show] {
+      opacity: 1;
+    }
+
+    &--left {
+      left: 0;
+      background: linear-gradient(to right, var(--color-bg-page) 40%, transparent);
+    }
+
+    &--right {
+      right: 0;
+      background: linear-gradient(to left, var(--color-bg-page) 40%, transparent);
+    }
+  }
+
+  &__chevron {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-border-card);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-card-hover);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity var(--transition-base),
+      background var(--transition-fast),
+      border-color var(--transition-fast);
+
+    &:hover {
+      background: var(--color-bg-card);
+      border-color: var(--color-text-primary);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &--left {
+      left: var(--space-3);
+    }
+
+    &--right {
+      right: var(--space-3);
+    }
+  }
+
+  &:hover &__chevron[data-show], &__chevron[data-show]:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

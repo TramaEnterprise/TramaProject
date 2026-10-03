@@ -1,0 +1,96 @@
+import App from "@/App";
+import LandingPage from "@/pages/landing/LandingPage";
+import AuthPage from "@/pages/auth/AuthPage";
+import SearchPage from "@/pages/search/Search";
+import ExplorePage from "@/pages/explore/ExplorePage";
+import ExploreSectionPage from "@/pages/explore/section/ExploreSectionPage";
+import MyLibraryPage from "@/pages/my-library/MyLibraryPage";
+import FullShelfPage from "@/pages/my-library/shelf/FullShelfPage";
+import BookDetailPage from "@/pages/book-detail/BookDetailPage";
+import CommunityPage from "@/pages/community/CommunityPage";
+import ProfilePage from "@/pages/profile/ProfilePage";
+import EditProfilePage from "@/pages/edit-profile/EditProfilePage";
+import SettingsPage from "@/pages/settings/SettingsPage";
+import AuthRoute from "@/routes/AuthRoute";
+import AllListsPage from "@/pages/lists/AllListsPage";
+import ListDetailPage from "@/pages/lists/ListDetailPage";
+import TermsPage from "@/pages/legal/TermsPage";
+import PrivacyPage from "@/pages/legal/PrivacyPage";
+import ReviewBooksPage from "@/pages/admin/ReviewNewBooksPage";
+
+export const ROUTES = [
+  { path: "/admin/review", element: <ReviewBooksPage /> },
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { index: true, element: <LandingPage /> },
+      { path: "auth", element: <AuthPage /> },
+      { path: "search", element: <SearchPage /> },
+      { path: "explore", element: <ExplorePage /> },
+      { path: "explore/section/:type", element: <ExploreSectionPage /> },
+      { path: "books/:bookId", element: <BookDetailPage /> },
+      { path: "community", element: <CommunityPage /> },
+      {
+        path: "my-library",
+        element: <MyLibraryPage />,
+      },
+      {
+        path: "my-library/shelf",
+        element: (
+          <AuthRoute requireAuth>
+            <FullShelfPage />
+          </AuthRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <AuthRoute requireAuth>
+            <ProfilePage />
+          </AuthRoute>
+        ),
+      },
+      {
+        path: "profile/edit",
+        element: (
+          <AuthRoute requireAuth>
+            <EditProfilePage />
+          </AuthRoute>
+        ),
+      },
+      {
+        path: "profile/:userId",
+        element: <ProfilePage />,
+      },
+      {
+        path: "u/:username",
+        element: <ProfilePage />,
+      },
+      { path: "lists/:userId", element: <AllListsPage /> },
+      { path: "lists/:userId/:listId", element: <ListDetailPage /> },
+      {
+        path: "settings",
+        element: (
+          <AuthRoute requireAuth>
+            <SettingsPage />
+          </AuthRoute>
+        ),
+      },
+      {
+        path: "legal/terms",
+        element: <TermsPage />,
+      },
+      {
+        path: "legal/privacy",
+        element: <PrivacyPage />,
+      },
+    ],
+  },
+];
+
+export const NAV_LINKS = [
+  { path: "/my-library", label: "nav.myLibrary" },
+  { path: "/explore", label: "nav.explore" },
+  { path: "/community", label: "nav.community" },
+];

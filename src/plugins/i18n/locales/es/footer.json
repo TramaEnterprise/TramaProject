@@ -1,0 +1,28 @@
+{
+  "footer": {
+    "brandMark": "trama",
+    "copyright": "© {{year}} Trama · Todos los derechos reservados",
+    "aria": {
+      "nav": "Pie de página"
+    },
+    "columns": {
+      "social": "Social",
+      "company": "Empresa",
+      "legal": "Legal",
+      "support": "Apoyo"
+    },
+    "links": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "tiktok": "TikTok",
+      "x": "X",
+      "contact": "Contacto",
+      "about": "Sobre nosotros",
+      "privacy": "Política de privacidad",
+      "legalNotice": "Aviso legal",
+      "cookies": "Política de cookies",
+      "supportContact": "Contacto",
+      "sponsorship": "Patrocinio"
+    }
+  }
+}

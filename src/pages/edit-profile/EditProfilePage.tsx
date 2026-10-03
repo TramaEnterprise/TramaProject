@@ -1,0 +1,237 @@
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
+import { useForm } from "react-hook-form";
+import { FirebaseError } from "firebase/app";
+import { useAuth } from "@/context/auth/useAuth";
+import { getUserProfile, updateUserProfile } from "@/services/firebase/firebaseUsers";
+import { uploadProfilePhoto, uploadBannerImage } from "@/services/firebase/firebaseStorage";
+import { normalizeUsername, setUsername } from "@/services/firebase/firebaseUsernames";
+import { useObjectUrl } from "@/hooks/useObjectUrl";
+import { useUsernameAvailability } from "@/hooks/useUsernameAvailability";
+import { logger } from "@/utils/logger";
+import type { UserFullProfile } from "@/types/UserProfile";
+import "./EditProfilePage.scss";
+import AvatarUploader from "./components/AvatarUploader";
+import BannerUploader from "./components/BannerUploader";
+import UsernameField from "./components/UsernameField";
+import BioField from "./components/BioField";
+
+export type EditProfileForm = {
+  name: string;
+  surname: string;
+  username: string;
+  bio: string;
+  isPrivate: boolean;
+};
+
+const BIO_MAX = 150;
+
+export default function EditProfilePage() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm<EditProfileForm>();
+
+  const photo = useObjectUrl(null);
+  const banner = useObjectUrl(null);
+  const photoFileRef = useRef<File | null>(null);
+  const bannerFileRef = useRef<File | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [loadingProfile, setLoadingProfile] = useState(true);
+  const [bioSaveBlocked, setBioSaveBlocked] = useState(false);
+  const [bioShaking, setBioShaking] = useState(false);
+  const [originalUsername, setOriginalUsername] = useState("");
+
+  const bioValue = watch("bio") ?? "";
+  const usernameValue = watch("username") ?? "";
+  const isPrivateProfile = watch("isPrivate");
+
+  const rawUsernameStatus = useUsernameAvailability(usernameValue, user?.uid);
+  const usernameStatus =
+    normalizeUsername(usernameValue) === normalizeUsername(originalUsername)
+      ? "idle"
+      : rawUsernameStatus;
+
+  const { setUrl: setPhotoUrl } = photo;
+  const { setUrl: setBannerUrl } = banner;
+
+  useEffect(() => {
+    if (!user) return;
+    getUserProfile(user.uid)
+      .then((profile) => {
+        if (profile) {
+          reset({
+            name: profile.name,
+            surname: profile.surname,
+            username: profile.username,
+            bio: profile.bio,
+            isPrivate: !(profile.isPublic ?? true),
+          });
+          setOriginalUsername(profile.username ?? "");
+          if (profile.profilePhotoUrl) setPhotoUrl(profile.profilePhotoUrl);
+          if (profile.bannerImageUrl) setBannerUrl(profile.bannerImageUrl);
+        }
+      })
+      .finally(() => setLoadingProfile(false));
+  }, [user, reset, setPhotoUrl, setBannerUrl]);
+  
+  const handlePhotoSelected = (file: File) => {
+    photoFileRef.current = file;   
+    photo.setFile(file);
+  };
+
+  const handleBannerSelected = (file: File) => {
+    bannerFileRef.current = file;
+    banner.setFile(file);
+  };
+
+  const onSubmit = async (data: EditProfileForm) => {
+    if (!user) return;
+    if (bioValue.length > BIO_MAX) {
+      setBioSaveBlocked(true);
+      setBioShaking(true);
+      return;
+    }
+    setSaving(true);
+    setSaveError(null);
+
+    try {
+      const updates: Partial<Omit<UserFullProfile, "uid" | "email" | "birthDate" | "username">> = {
+        name: data.name,
+        surname: data.surname,
+        bio: data.bio,
+        isPublic: !data.isPrivate,
+      };
+      if (photoFileRef.current)  updates.profilePhotoUrl = await uploadProfilePhoto(user.uid, photoFileRef.current);
+      if (bannerFileRef.current) updates.bannerImageUrl  = await uploadBannerImage(user.uid, bannerFileRef.current);
+
+      const normalizedNew = normalizeUsername(data.username);
+      const normalizedOld = normalizeUsername(originalUsername);
+      if (normalizedNew !== normalizedOld && normalizedNew !== "") {
+        try {
+          await setUsername(user.uid, normalizedNew, normalizedOld || undefined);
+        } catch (err) {
+          if (err instanceof Error && err.message === "USERNAME_TAKEN") {
+            setSaveError("Ese nombre de usuario ya está en uso.");
+            return;
+          }
+          throw err;
+        }
+      }
+
+      await updateUserProfile(user.uid, updates);
+      navigate("/profile");
+    } catch (err) {
+      logger.error("[EditProfilePage] save failed:", err);
+      if (err instanceof FirebaseError) setSaveError(err.code);
+      else if (err instanceof Error) setSaveError(err.message);
+      else setSaveError("Error desconocido");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loadingProfile) {
+    return (
+      <div className="edit-profile edit-profile--loading">
+        <p>Cargando…</p>
+      </div>
+    );
+  }
+
+  if (!user) return null;
+
+  return (
+    <section className="edit-profile">
+      <h2 className="edit-profile__title">Editar perfil</h2>
+
+      <form className="edit-profile__form" onSubmit={handleSubmit(onSubmit)}>
+        <BannerUploader previewUrl={banner.url} onFileSelected={handleBannerSelected} />
+        <AvatarUploader previewUrl={photo.url} onFileSelected={handlePhotoSelected} />
+
+        <div className="edit-profile__fields">
+          <div className="edit-profile__row">
+            <div className="edit-profile__field">
+              <label className="edit-profile__label" htmlFor="name">
+                Nombre
+              </label>
+              <input
+                id="name"
+                className="edit-profile__input"
+                type="text"
+                {...register("name", { required: "El nombre es obligatorio" })}
+              />
+              {errors.name && <p className="edit-profile__error">{errors.name.message}</p>}
+            </div>
+            <div className="edit-profile__field">
+              <label className="edit-profile__label" htmlFor="surname">
+                Apellido
+              </label>
+              <input
+                id="surname"
+                className="edit-profile__input"
+                type="text"
+                {...register("surname")}
+              />
+            </div>
+          </div>
+
+          <UsernameField
+            register={register}
+            error={errors.username}
+            status={usernameStatus}
+          />
+
+          <BioField
+            register={register}
+            value={bioValue}
+            saveBlocked={bioSaveBlocked}
+            onClearBlock={() => setBioSaveBlocked(false)}
+            shaking={bioShaking}
+            onShakeEnd={() => setBioShaking(false)}
+          />
+
+          <div className="edit-profile__field">
+            <span className="edit-profile__label">Privacidad del perfil</span>
+            <div className="edit-profile__privacy">
+              <label className="edit-profile__switch">
+                <input type="checkbox" {...register("isPrivate")} />
+                <span className="edit-profile__switch-track" />
+              </label>
+              <p className="edit-profile__privacy-text">
+                {isPrivateProfile
+                  ? "Privado (solo los seguidores que aceptes podrán ver tu perfil)"
+                  : "Público (cualquiera puede ver tu perfil)"}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {saveError && <p className="edit-profile__save-error">{saveError}</p>}
+
+        <div className="edit-profile__actions">
+          <button
+            type="button"
+            className="edit-profile__btn edit-profile__btn--cancel"
+            onClick={() => navigate("/profile")}
+          >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            className="edit-profile__btn edit-profile__btn--save"
+            disabled={saving || usernameStatus === "checking" || usernameStatus === "taken"}
+          >
+            {saving ? "Guardando..." : "Guardar cambios"}
+          </button>
+        </div>
+      </form>
+    </section>
+  );
+}

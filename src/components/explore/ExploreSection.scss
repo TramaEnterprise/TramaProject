@@ -1,0 +1,173 @@
+@use "../../styles/lib" as *;
+
+.explore-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  &__title {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+
+    &-accent {
+      font-family: var(--font-editorial);
+      color: var(--color-brand-primary);
+    }
+
+    @include from($bp-md) {
+      font-size: var(--text-2xl);
+    }
+  }
+
+  &__see-more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    background: none;
+    border: none;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0;
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-text-primary);
+    }
+  }
+
+  &__scroll {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-6);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-top: var(--space-2);
+    margin-top: calc(-1 * var(--space-2));
+    padding-bottom: var(--space-2);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include from($bp-md) {
+      align-items: stretch;
+    }
+
+    .book-card {
+      flex-shrink: 0;
+      width: calc((100vw - #{$padding-horizontal}) / 2 - var(--space-4));
+      scroll-snap-align: start;
+
+      @include from($bp-md) {
+        width: calc((100vw - #{$padding-horizontal}) / 4 - var(--space-4));
+      }
+      @include from($bp-lg) {
+        width: calc((100vw - #{$padding-horizontal}) / 6 - var(--space-4));
+      }
+      @include from($bp-xxl) {
+        width: calc((100vw - #{$padding-horizontal}) / 6 - var(--space-8));
+      }
+    }
+
+    .featured-book-card {
+      flex-shrink: 0;
+      width: 320px;
+      scroll-snap-align: start;
+      overflow: hidden;
+
+      .featured-book-card__cover-wrapper {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .featured-book-card__cover,
+      .featured-book-card__cover-placeholder {
+        position: absolute;
+        top: var(--space-2);
+        left: var(--space-2);
+        width: calc(100% - 2 * var(--space-2));
+        height: calc(100% - 2 * var(--space-2));
+        aspect-ratio: unset;
+        object-fit: cover;
+        object-position: center;
+        border-radius: var(--radius-md);
+      }
+
+      .featured-book-card__synopsis {
+        min-height: 0;
+      }
+
+      @include from($bp-md) {
+        width: 580px;
+
+        .featured-book-card__cover-wrapper {
+          width: 220px;
+          height: 100%;
+        }
+      }
+
+      @include from($bp-lg) {
+        width: 660px;
+
+        .featured-book-card__cover-wrapper {
+          width: 260px;
+          height: 100%;
+        }
+      }
+
+      @include from($bp-xxl) {
+        width: 780px;
+
+        .featured-book-card__cover-wrapper {
+          width: 300px;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__error {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-6) 0;
+  }
+
+  &__error-text {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  &__retry {
+    @include ghost-button;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-brand-primary);
+    padding: 0;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "explore": {
+    "searchTitle": "Descubre tu próxima trama",
+    "searchPlaceholder": "Busca por título, autor o ISBN",
+    "searching": "Buscando...",
+    "resultsFound": "{{count}} resultados encontrados",
+    "backBtn": "Volver",
+    "resultsTitle": "Resultados para \"{{query}}\"",
+    "fantasyTitle": "Fantasía",
+    "saveTooltip": "Inicia sesión para guardar",
+    "seeMore": "Ver más",
+    "scrollPrev": "Desplazar a la izquierda",
+    "scrollNext": "Desplazar a la derecha",
+    "retry": "Reintentar",
+    "loadMore": "Cargar más",
+    "noMoreResults": "No hay más resultados",
+    "sectionError": "No se pudo cargar esta sección",
+    "sections": {
+      "trending": "Tendencias esta semana",
+      "trendingFallback": "Populares esta semana",
+      "topRated": "Mejor valorados",
+      "fiction": "Ficción",
+      "nonFiction": "No ficción",
+      "newReleases": "Nuevos lanzamientos",
+      "newReleasesFallback": "Novedades destacadas",
+      "quickReads": "Rápidos y muy buenos",
+      "becauseReading": "Porque estás leyendo {{title}}",
+      "moreGenre": "Recomendaciones de género {{genre}}",
+      "newReleasesForYou": "Nuevos lanzamientos para ti",
+      "waiting": "Fantásticas tramas te esperan",
+      "moreAuthor": "Más libros del autor {{author}}",
+      "topGenre": "Recomendaciones de género {{genre}}",
+      "acclaimed": "Aclamados por la crítica",
+      "becauseLiked": "Porque te gustó {{title}}",
+      "becauseFinished": "Porque leíste {{title}}",
+      "becauseFavorites": "Basado en tus favoritos",
+      "genreGrid": "Descubre según el género"
+    },
+    "allGenres": "Todos los géneros",
+    "banner": {
+      "title": "Descubre libros para ti",
+      "body": "Crea una cuenta para ver recomendaciones personalizadas según lo que lees.",
+      "cta": "Crear cuenta"
+    }
+  },
+  "search": {
+    "all": "Todo",
+    "title": "Título",
+    "author": "Autor",
+    "isbn": "ISBN",
+    "searchLabel": "Buscar Libros",
+    "clearLabel": "Borrar Búsqueda",
+    "searchBtnLabel": "Buscar",
+    "emptyPrompt": "Escribe algo para buscar libros",
+    "noResultsSubtitle": "Prueba con otra búsqueda",
+    "seeAllResults": "Ver más resultados",
+    "tooShort": "Escribe al menos 3 caracteres"
+  }
+}

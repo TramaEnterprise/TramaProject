@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "brandName": "Trama",
+    "register": "Registrar lectura",
+    "login": "Iniciar sesión",
+    "loginShort": "Iniciar sesión",
+    "signupShort": "Registrarse",
+    "logout": "Cerrar sesión",
+    "notifications": "Notificaciones",
+    "profile": "Perfil",
+    "search": "Busca por título, autor o ISBN"
+  },
+  "nav": {
+    "myLibrary": "Mi Biblioteca",
+    "explore": "Explorar",
+    "community": "Comunidad"
+  }
+}

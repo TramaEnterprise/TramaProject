@@ -1,0 +1,77 @@
+{
+  "landing": {
+    "checkingSession": "Comprobando sesión...",
+    "hero": {
+      "title": "Tu historia literaria,",
+      "titleSecond": "en un solo lugar",
+      "subtitle": "Descubre libros, sigue tu progreso, celebra tus metas y conecta con otros lectores.",
+      "cta": "Empezar gratis",
+      "guest": "Explorar sin cuenta"
+    },
+    "library": {
+      "title": "Tu biblioteca personal, siempre contigo",
+      "subtitle": "Añade libros a tu estantería según el estado en el que estén y actualiza su progreso para llevar un control de tus lecturas.",
+      "readingLabel": "Estoy leyendo",
+      "shelfLabel": "Estantería",
+      "pill": {
+        "reading": "Leyendo",
+        "read": "Leído",
+        "want": "Quiero Leer",
+        "abandoned": "Abandonado"
+      }
+    },
+    "habits": {
+      "title": "Convierte la lectura en un hábito",
+      "subtitle": "Mantén la racha diaria, márcate una meta de libros al año y revisa tus estadísticas de lectura.",
+      "stats": {
+        "streakLabel": "Racha actual",
+        "streakValue": "14 días",
+        "goalLabel": "Meta 2026",
+        "goalValue": "23 / 50 libros leídos",
+        "genresLabel": "Géneros favoritos",
+        "genre1": "Fantasía",
+        "genre2": "Ciencia ficción",
+        "genre3": "Misterio"
+      }
+    },
+    "community": {
+      "title": "Descubre qué leen quienes te inspiran",
+      "subtitle": "Sigue a tus amigos, consulta su actividad y comparte tus reflexiones",
+      "card": {
+        "readingNow": "Leyendo ahora",
+        "favorites": "Favoritos",
+        "follow": "Seguir",
+        "followers": "seguidores"
+      }
+    },
+    "socialProof": {
+      "title": "Lo que dicen los lectores de Trama",
+      "quote1": {
+        "text": "\"La web es acogedora y fácil de usar, se ha convertido en parte de mi rutina diaria.\"",
+        "author": "— Sofía L.",
+        "handle": "@sofialectora"
+      },
+      "quote2": {
+        "text": "\"El sistema de rachas y metas me ha hecho volver a leer.\"",
+        "author": "— Javier M.",
+        "handle": "@javier_reads"
+      },
+      "quote3": {
+        "text": "\"Me encanta estar conectada a mis amigos y poder compartir listas con ellos.\"",
+        "author": "— Laura P.",
+        "handle": "@laurabookclub"
+      }
+    },
+    "cta": {
+      "title": "La comunidad de Trama te espera",
+      "subtitle": "Gratis y sin anuncios. Empieza en menos de un minuto.",
+      "btn": "Crea tu cuenta ahora",
+      "guest": "Explorar sin cuenta →"
+    },
+    "footer": {
+      "copyright": "© 2026 Trama · Privacidad · Términos · Contacto",
+      "explore": "Explorar",
+      "login": "Iniciar sesión"
+    }
+  }
+}
