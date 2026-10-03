@@ -1,4 +1,5 @@
 #API
+.env
 .env.local
 serviceAccountKey.json
 shelf.backup.*.json
