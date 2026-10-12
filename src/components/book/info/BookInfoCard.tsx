@@ -87,7 +87,8 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
               .filter((g): g is string => !!g)
               .map((g) => t(`book.genres.${genreToI18nKey(g)}`, { defaultValue: g }))
               .reduce<React.ReactNode[]>((acc, label, i) => {
-                if (i > 0) acc.push(<span key={`sep-${i}`} className="book-info-card__genre-sep" />);
+                if (i > 0)
+                  acc.push(<span key={`sep-${i}`} className="book-info-card__genre-sep" />);
                 acc.push(label);
                 return acc;
               }, [])}
@@ -127,7 +128,6 @@ export default function BookInfoCard({ book }: BookInfoCardProps) {
               <span className="book-info-card__meta-value">{book.isbn || "-"}</span>
             </div>
           </div>
-
 
           {book.synopsis ? (
             <div className="book-info-card__synopsis">

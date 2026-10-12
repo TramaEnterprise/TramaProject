@@ -3,27 +3,19 @@ import { mkdir, mkdtemp, writeFile } from "node:fs/promises";
 import { createInterface } from "node:readline";
 import { resolve } from "node:path";
 import { normalize, classify } from "./preview-bne.mjs";
+import { fileURLToPath } from "node:url";
 
-const inputPath = resolve(
-  process.argv[2] ?? "data/catalog/raw/monomodernas-JSON.json"
-);
+const inputPath = resolve(process.argv[2] ?? "data/catalog/raw/monomodernas-JSON.json");
 
 const limit = 100_000;
 
 function keyText(value) {
-  return value
-    .normalize("NFC")
-    .toLowerCase()
-    .replace(/\s+/gu, " ")
-    .trim();
+  return value.normalize("NFC").toLowerCase().replace(/\s+/gu, " ").trim();
 }
 
 function groupingKey(record) {
   // Las obras anónimas no se unen solo por compartir título.
-  if (
-    record.authorshipStatus !== "identified" ||
-    record.authorNames.length === 0
-  ) {
+  if (record.authorshipStatus !== "identified" || record.authorNames.length === 0) {
     return JSON.stringify(["single", record.sourceRecordId]);
   }
 
@@ -53,10 +45,7 @@ function detectGroupingSignals(record) {
       "adaptation",
       /\b(?:adaptaci[oó]n|adaptaciones|adaptaci[oó]|adaptacions|adaptad[oa]s?|adaptation|adapted|refundici[oó]n)(?![\p{L}\p{N}_])/iu,
     ],
-    [
-      "abridged",
-      /\b(?:abreviad[oa]s?|abreujad[ae]s?|abridged|condensed)(?![\p{L}\p{N}_])/iu,
-    ],
+    ["abridged", /\b(?:abreviad[oa]s?|abreujad[ae]s?|abridged|condensed)(?![\p{L}\p{N}_])/iu],
     [
       "selection_or_anthology",
       /\b(?:antolog[ií]as?|antholog(?:y|ies)|selecci[oó]n de|selecci[oó] de|obras escogidas|selected works)(?![\p{L}\p{N}_])/iu,
@@ -84,9 +73,9 @@ function detectGroupingSignals(record) {
     }
   }
 
-  const multiVolume =
-    /\b(?:[2-9]|\d{2,})\s*(?:v\.|vols?\.|volumenes\b|volúmenes\b|tomos\b)/iu
-      .exec(record.extent);
+  const multiVolume = /\b(?:[2-9]|\d{2,})\s*(?:v\.|vols?\.|volumenes\b|volúmenes\b|tomos\b)/iu.exec(
+    record.extent
+  );
 
   if (multiVolume) {
     signals.push({
@@ -130,33 +119,25 @@ function publication(record, raw) {
 
 function makeProposal(records) {
   const spanish = records.filter((record) =>
-    /^(?:español|castellano|spa|es)$/u.test(
-      keyText(record.language)
-    )
+    /^(?:español|castellano|spa|es)$/u.test(keyText(record.language))
   );
 
   const pool = spanish.length > 0 ? spanish : records;
 
-  const latestYear = Math.max(
-    ...pool.map((record) => record.publicationYear)
-  );
+  const latestYear = Math.max(...pool.map((record) => record.publicationYear));
 
-  const latest = pool.filter(
-    (record) => record.publicationYear === latestYear
-  );
+  const latest = pool.filter((record) => record.publicationYear === latestYear);
 
   const selected = latest.length === 1 ? latest[0] : null;
 
   const groupingSignals = records.flatMap((record) =>
     record.groupingSignals.map((signal) => ({
-        sourceRecordId: record.sourceRecordId,
-        ...signal,
+      sourceRecordId: record.sourceRecordId,
+      ...signal,
     }))
-    );
+  );
 
-    const groupingWarningCodes = [
-    ...new Set(groupingSignals.map((signal) => signal.code)),
-    ];
+  const groupingWarningCodes = [...new Set(groupingSignals.map((signal) => signal.code))];
 
   return {
     status: "proposal_only",
@@ -164,20 +145,14 @@ function makeProposal(records) {
 
     originalPublicationYear: null,
 
-    oldestObservedPublicationYear: Math.min(
-      ...records.map((record) => record.publicationYear)
-    ),
+    oldestObservedPublicationYear: Math.min(...records.map((record) => record.publicationYear)),
 
-    selectionPreference: spanish.length > 0
-      ? "latest_spanish_in_group"
-      : "latest_any_language_in_group",
+    selectionPreference:
+      spanish.length > 0 ? "latest_spanish_in_group" : "latest_any_language_in_group",
 
-    selectedSourceRecordId:
-      selected?.sourceRecordId ?? null,
+    selectedSourceRecordId: selected?.sourceRecordId ?? null,
 
-    selectionCandidates: latest.map(
-      (record) => record.sourceRecordId
-    ),
+    selectionCandidates: latest.map((record) => record.sourceRecordId),
 
     needsReview: true,
 
@@ -186,15 +161,11 @@ function makeProposal(records) {
     groupingWarningCodes,
 
     reviewReasons: [
-    "confirm_same_work",
+      "confirm_same_work",
 
-    ...(latest.length > 1
-        ? ["same_year_selection_tie"]
-        : []),
+      ...(latest.length > 1 ? ["same_year_selection_tie"] : []),
 
-    ...groupingWarningCodes.map(
-        (code) => `grouping_warning:${code}`
-    ),
+      ...groupingWarningCodes.map((code) => `grouping_warning:${code}`),
     ],
 
     publications: records,
@@ -240,15 +211,11 @@ async function main() {
       try {
         raw = JSON.parse(value);
       } catch {
-        throw new Error(
-          `JSON no válido en la línea ${lineNumber}.`
-        );
+        throw new Error(`JSON no válido en la línea ${lineNumber}.`);
       }
 
       if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
-        throw new Error(
-          `Registro inesperado en la línea ${lineNumber}.`
-        );
+        throw new Error(`Registro inesperado en la línea ${lineNumber}.`);
       }
 
       const record = normalize(raw);
@@ -259,9 +226,7 @@ async function main() {
 
       if (result.bucket === "candidate") {
         if (seenCandidateIds.has(record.sourceRecordId)) {
-          throw new Error(
-            `Identificador candidato repetido: ${record.sourceRecordId}`
-          );
+          throw new Error(`Identificador candidato repetido: ${record.sourceRecordId}`);
         }
 
         seenCandidateIds.add(record.sourceRecordId);
@@ -284,9 +249,7 @@ async function main() {
     throw new Error("No se han encontrado registros.");
   }
 
-  const multiple = [...groups.values()]
-    .filter((group) => group.length > 1)
-    .map(makeProposal);
+  const multiple = [...groups.values()].filter((group) => group.length > 1).map(makeProposal);
 
   const summary = {
     inputPath,
@@ -305,42 +268,27 @@ async function main() {
       0
     ),
 
-    groupsWithSelectionTie: multiple.filter(
-      (group) => group.selectedSourceRecordId === null
-    ).length,
+    groupsWithSelectionTie: multiple.filter((group) => group.selectedSourceRecordId === null)
+      .length,
 
-    groupsWithGroupingWarnings: multiple.filter(
-    (group) => group.groupingSignals.length > 0
-    ).length,
+    groupsWithGroupingWarnings: multiple.filter((group) => group.groupingSignals.length > 0).length,
 
     groupingWarningCounts: Object.fromEntries(
-    [
-        "adaptation",
-        "abridged",
-        "selection_or_anthology",
-        "numbered_part",
-        "multiple_volumes",
-    ].map((code) => [
-        code,
-        multiple.filter(
-        (group) => group.groupingWarningCodes.includes(code)
-        ).length,
-    ])
+      ["adaptation", "abridged", "selection_or_anthology", "numbered_part", "multiple_volumes"].map(
+        (code) => [
+          code,
+          multiple.filter((group) => group.groupingWarningCodes.includes(code)).length,
+        ]
+      )
     ),
   };
 
   const reportsRoot = resolve("data/catalog/reports");
   await mkdir(reportsRoot, { recursive: true });
 
-  const outputDir = await mkdtemp(
-    resolve(reportsRoot, "works-preview-")
-  );
+  const outputDir = await mkdtemp(resolve(reportsRoot, "works-preview-"));
 
-  await writeFile(
-    resolve(outputDir, "summary.json"),
-    JSON.stringify(summary, null, 2),
-    "utf8"
-  );
+  await writeFile(resolve(outputDir, "summary.json"), JSON.stringify(summary, null, 2), "utf8");
 
   await writeFile(
     resolve(outputDir, "groups.proposed.json"),
@@ -353,7 +301,18 @@ async function main() {
   console.log(`Informes guardados en: ${outputDir}`);
 }
 
-main().catch((error) => {
-  console.error(error.message);
-  process.exitCode = 1;
-});
+// main().catch((error) => {
+//   console.error(error.message);
+//   process.exitCode = 1;
+// });
+export { publication };
+
+const isDirectExecution =
+  process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectExecution) {
+  main().catch((error) => {
+    console.error(error.message);
+    process.exitCode = 1;
+  });
+}

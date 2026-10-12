@@ -4,9 +4,7 @@ import { createInterface } from "node:readline";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const inputPath = resolve(
-  process.argv[2] ?? "data/catalog/raw/monomodernas-JSON.json"
-);
+const inputPath = resolve(process.argv[2] ?? "data/catalog/raw/monomodernas-JSON.json");
 
 const reportsRoot = resolve("data/catalog/reports");
 const sampleSize = 100;
@@ -57,17 +55,13 @@ const assessmentCombinations = new Map();
 let randomState = 42;
 
 function random() {
-  randomState = (
-    Math.imul(randomState, 1664525) + 1013904223
-  ) >>> 0;
+  randomState = (Math.imul(randomState, 1664525) + 1013904223) >>> 0;
 
   return randomState / 4294967296;
 }
 
 function text(value) {
-  return typeof value === "string"
-    ? value.replace(/\s+/g, " ").trim()
-    : "";
+  return typeof value === "string" ? value.replace(/\s+/g, " ").trim() : "";
 }
 
 function comparable(value) {
@@ -89,18 +83,14 @@ function cleanTitle(raw) {
   const credits = text(raw.mencion_de_autores);
   const slash = title.indexOf(" / ");
 
-  if (
-    slash >= 0 &&
-    credits &&
-    comparable(title.slice(slash + 3)) === comparable(credits)
-  ) {
+  if (slash >= 0 && credits && comparable(title.slice(slash + 3)) === comparable(credits)) {
     title = title.slice(0, slash);
   }
 
   return title
-  .replace(/\s*:(?:\s*:)+\s*/gu, ": ")
-  .replace(/:+\s*$/u, "")
-  .trim();
+    .replace(/\s*:(?:\s*:)+\s*/gu, ": ")
+    .replace(/:+\s*$/u, "")
+    .trim();
 }
 
 function publicationYear(value) {
@@ -171,10 +161,7 @@ function parseContributor(value) {
     name,
     roles: [...roles],
     raw: value,
-    needsReview:
-      roles.size === 0 ||
-      opening !== closing ||
-      !/\p{L}/u.test(name),
+    needsReview: roles.size === 0 || opening !== closing || !/\p{L}/u.test(name),
   };
 }
 
@@ -204,10 +191,7 @@ function recoverAuthorFromCredits(raw, contributors) {
       return false;
     }
 
-    const naturalName =
-      parts.length === 2
-        ? `${parts[1]} ${parts[0]}`
-        : parts[0];
+    const naturalName = parts.length === 2 ? `${parts[1]} ${parts[0]}` : parts[0];
 
     return comparable(naturalName) === creditName;
   });
@@ -231,24 +215,16 @@ function recoverAuthorFromCredits(raw, contributors) {
 }
 
 function normalizeAuthorship(raw) {
-  const parsedContributors = splitSourceValues(raw.autores)
-    .map(parseContributor);
+  const parsedContributors = splitSourceValues(raw.autores).map(parseContributor);
 
-  const contributors = recoverAuthorFromCredits(
-    raw,
-    parsedContributors
-  );
+  const contributors = recoverAuthorFromCredits(raw, parsedContributors);
 
   const override = authorshipOverrides.get(text(raw.id));
 
   const authorNames = [
     ...new Set(
       contributors
-        .filter(
-          (person) =>
-            person.roles.includes("author") &&
-            !person.needsReview
-        )
+        .filter((person) => person.roles.includes("author") && !person.needsReview)
         .map((person) => person.name)
     ),
   ];
@@ -256,30 +232,24 @@ function normalizeAuthorship(raw) {
   return {
     authorNames: override ? [] : authorNames,
 
-    authorshipStatus:
-      override?.status ??
-      (authorNames.length > 0 ? "identified" : "unresolved"),
+    authorshipStatus: override?.status ?? (authorNames.length > 0 ? "identified" : "unresolved"),
 
     authorshipEvidence: override
-    ? {
-        source: "manual_review",
-        reason: override.reason,
-      }
-    : {
-        source: contributors.some(
-          (person) =>
-            person.roleEvidence?.source ===
-            "responsibility_name_match"
-        )
-          ? "bne_roles_and_credit_inference"
-          : "bne_explicit_roles",
-      },
+      ? {
+          source: "manual_review",
+          reason: override.reason,
+        }
+      : {
+          source: contributors.some(
+            (person) => person.roleEvidence?.source === "responsibility_name_match"
+          )
+            ? "bne_roles_and_credit_inference"
+            : "bne_explicit_roles",
+        },
 
     contributors,
 
-    contributorRolesNeedReview: contributors.some(
-      (person) => person.needsReview
-    ),
+    contributorRolesNeedReview: contributors.some((person) => person.needsReview),
   };
 }
 
@@ -320,11 +290,10 @@ function scopeReviewReasons(record) {
   const metadata = `${forms} ${subjects}`;
   const reasons = [];
 
-  const schoolMetadata =
-    /libros escolares|libros de texto|cuadernos de ejercicios/;
+  const schoolMetadata = /libros escolares|libros de texto|cuadernos de ejercicios/;
 
   const schoolTitle =
-  /\b(?:educacion|educacio) (?:primaria|secundaria|infantil)\b|\bbachillerato\b|\bbatxillerat\b|\b[1-6]\s*[º°.]?\s*[:.-]?\s*(?:de\s+)?(?:primaria|secundaria|eso)\b/;
+    /\b(?:educacion|educacio) (?:primaria|secundaria|infantil)\b|\bbachillerato\b|\bbatxillerat\b|\b[1-6]\s*[º°.]?\s*[:.-]?\s*(?:de\s+)?(?:primaria|secundaria|eso)\b/;
 
   if (schoolMetadata.test(metadata) || schoolTitle.test(title)) {
     reasons.push("school_scope_review");
@@ -337,13 +306,9 @@ function scopeReviewReasons(record) {
     reasons.push("academic_scope_review");
   }
 
-  const technicalStandard =
-    /^(?:(?:une|en|iso|iec|cei|din|astm)[-\s]+)+\d/;
+  const technicalStandard = /^(?:(?:une|en|iso|iec|cei|din|astm)[-\s]+)+\d/;
 
-  if (
-    technicalStandard.test(title) ||
-    /manuales tecnicos|documentacion tecnica/.test(metadata)
-  ) {
+  if (technicalStandard.test(title) || /manuales tecnicos|documentacion tecnica/.test(metadata)) {
     reasons.push("technical_scope_review");
   }
 
@@ -381,33 +346,24 @@ function assessDataQuality(raw, record) {
     reasons.push("contributor_roles_need_review");
   }
 
-  const responsibility = comparable(
-    record.responsibilityStatement
-  ).replace(/^[\s[\]]+/u, "");
+  const responsibility = comparable(record.responsibilityStatement).replace(/^[\s[\]]+/u, "");
 
   const startsWithSupportingRole =
-    /^(?:prologo|prefacio|introduccion|traduccion|ilustraciones|edicion y notas|edicion literaria)\b/u
-      .test(responsibility);
+    /^(?:prologo|prefacio|introduccion|traduccion|ilustraciones|edicion y notas|edicion literaria)\b/u.test(
+      responsibility
+    );
 
-  if (
-    record.authorshipStatus === "identified" &&
-    startsWithSupportingRole
-  ) {
+  if (record.authorshipStatus === "identified" && startsWithSupportingRole) {
     reasons.push("authorship_role_conflict");
   }
 
   if (record.publicationYear === null) {
     reasons.push("missing_or_uncertain_publication_year");
-  } else if (
-    record.publicationYear > new Date().getFullYear() + 1
-  ) {
+  } else if (record.publicationYear > new Date().getFullYear() + 1) {
     reasons.push("future_publication_year");
   }
 
-  if (
-    !record.languageRaw ||
-    /^(indeterminado|varios idiomas)$/i.test(record.languageRaw)
-  ) {
+  if (!record.languageRaw || /^(indeterminado|varios idiomas)$/i.test(record.languageRaw)) {
     reasons.push("uncertain_language");
   }
 
@@ -420,11 +376,7 @@ function assessDataQuality(raw, record) {
   }
 
   return {
-    status: invalid
-      ? "invalid"
-      : reasons.length > 0
-        ? "review"
-        : "no_flags",
+    status: invalid ? "invalid" : reasons.length > 0 ? "review" : "no_flags",
     reasons,
   };
 }
@@ -437,19 +389,24 @@ function additionalScopeReviewReasons(record) {
   const reasons = new Set();
 
   const generalReading =
-    /\b(?:novelas?|cuentos?|poesia|poesias|poemas|teatro|comics?|historietas|ensayos?|obras de divulgacion|manuales para aficionados)\b/
-      .test(metadata);
+    /\b(?:novelas?|cuentos?|poesia|poesias|poemas|teatro|comics?|historietas|ensayos?|obras de divulgacion|manuales para aficionados)\b/.test(
+      metadata
+    );
 
   // Señales explícitas de finalidad educativa o profesional.
   if (
     /\b(?:contestaciones|temarios|cuestionarios|test|tests) para oposiciones\b/.test(metadata) ||
-    /\b(?:manuales de formacion|formacion profesional|certificados de profesionalidad)\b/.test(forms)
+    /\b(?:manuales de formacion|formacion profesional|certificados de profesionalidad)\b/.test(
+      forms
+    )
   ) {
     reasons.add("training_scope_review");
   }
 
   if (
-    /\b(?:manuales de laboratorio|protocolos clinicos|guias de practica clinica|manuales de mantenimiento|especificaciones tecnicas)\b/.test(metadata)
+    /\b(?:manuales de laboratorio|protocolos clinicos|guias de practica clinica|manuales de mantenimiento|especificaciones tecnicas)\b/.test(
+      metadata
+    )
   ) {
     reasons.add("technical_scope_review");
   }
@@ -474,7 +431,9 @@ function additionalScopeReviewReasons(record) {
 
     if (
       /^curso de (?:especialista|formacion profesional)\b/.test(title) ||
-      /\b(?:temario|cuestionarios?|test|tests)\b.*\boposiciones\b|\boposiciones\b.*\b(?:temario|cuestionarios?|test|tests)\b/.test(title)
+      /\b(?:temario|cuestionarios?|test|tests)\b.*\boposiciones\b|\boposiciones\b.*\b(?:temario|cuestionarios?|test|tests)\b/.test(
+        title
+      )
     ) {
       reasons.add("training_scope_review");
     }
@@ -482,20 +441,16 @@ function additionalScopeReviewReasons(record) {
     if (
       /^(?:metodos|tecnicas|manual) de laboratorio\b/.test(title) ||
       /^(?:guia de practica clinica|protocolo clinico|manual de mantenimiento)\b/.test(title) ||
-      (
-        /^determinacion de\b/.test(title) &&
-        /\b(?:analisis|quimica analitica)\b/.test(subjects)
-      )
+      (/^determinacion de\b/.test(title) && /\b(?:analisis|quimica analitica)\b/.test(subjects))
     ) {
       reasons.add("technical_scope_review");
     }
 
     if (
-      /^(?:censo de poblacion|memoria administrativa|annual report of|informe presentado al pleno)\b/.test(title) ||
-      (
-        /^estatutos?\b/.test(title) &&
-        /\b(?:derecho|administracion)\b/.test(subjects)
-      )
+      /^(?:censo de poblacion|memoria administrativa|annual report of|informe presentado al pleno)\b/.test(
+        title
+      ) ||
+      (/^estatutos?\b/.test(title) && /\b(?:derecho|administracion)\b/.test(subjects))
     ) {
       reasons.add("administrative_scope_review");
     }
@@ -517,10 +472,7 @@ function assessCatalogScope(record) {
   }
 
   const reasons = [
-    ...new Set([
-      ...scopeReviewReasons(record),
-      ...additionalScopeReviewReasons(record),
-    ]),
+    ...new Set([...scopeReviewReasons(record), ...additionalScopeReviewReasons(record)]),
   ];
 
   return {
@@ -533,17 +485,12 @@ function classify(raw, record) {
   const quality = assessDataQuality(raw, record);
   const scope = assessCatalogScope(record);
 
-  const reasons = [
-    ...quality.reasons,
-    ...scope.reasons,
-  ];
+  const reasons = [...quality.reasons, ...scope.reasons];
 
   const bucket =
-    quality.status === "invalid" ||
-    scope.status === "out_of_scope"
+    quality.status === "invalid" || scope.status === "out_of_scope"
       ? "excluded"
-      : quality.status === "review" ||
-          scope.status === "review"
+      : quality.status === "review" || scope.status === "review"
         ? "review"
         : "candidate";
 
@@ -593,7 +540,7 @@ async function main() {
     } catch {
       throw new Error(
         `JSON no válido en la línea ${lineNumber}. ` +
-        "Se detiene el proceso sin generar un informe final."
+          "Se detiene el proceso sin generar un informe final."
       );
     }
 
@@ -610,13 +557,9 @@ async function main() {
     assessmentCounts.quality[result.quality.status]++;
     assessmentCounts.scope[result.scope.status]++;
 
-    const combination =
-      `${result.quality.status}|${result.scope.status}`;
+    const combination = `${result.quality.status}|${result.scope.status}`;
 
-    assessmentCombinations.set(
-      combination,
-      (assessmentCombinations.get(combination) ?? 0) + 1
-    );
+    assessmentCombinations.set(combination, (assessmentCombinations.get(combination) ?? 0) + 1);
 
     for (const reason of result.reasons) {
       reasonCounts.set(reason, (reasonCounts.get(reason) ?? 0) + 1);
@@ -654,13 +597,9 @@ async function main() {
     assessmentCounts,
 
     assessmentCombinations: Object.fromEntries(
-      [...assessmentCombinations].sort(
-        ([left], [right]) => left.localeCompare(right)
-      )
+      [...assessmentCombinations].sort(([left], [right]) => left.localeCompare(right))
     ),
-    reasons: Object.fromEntries(
-      [...reasonCounts].sort((a, b) => b[1] - a[1])
-    ),
+    reasons: Object.fromEntries([...reasonCounts].sort((a, b) => b[1] - a[1])),
   };
 
   for (const [bucket, entries] of Object.entries(samples)) {
@@ -671,11 +610,7 @@ async function main() {
     );
   }
 
-  await writeFile(
-    resolve(outputDir, "summary.json"),
-    JSON.stringify(summary, null, 2),
-    "utf8"
-  );
+  await writeFile(resolve(outputDir, "summary.json"), JSON.stringify(summary, null, 2), "utf8");
 
   console.table(counts);
   console.log(`Informes guardados en: ${outputDir}`);
@@ -684,8 +619,7 @@ async function main() {
 export { normalize, classify };
 
 const isDirectExecution =
-  process.argv[1] &&
-  resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isDirectExecution) {
   main().catch((error) => {

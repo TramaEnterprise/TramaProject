@@ -9,24 +9,14 @@ type Props = {
   shelfParams: Partial<ExploreSectionParams>;
 };
 
-export default function ExploreGuestSections({
-  showConversionBanner,
-  shelfParams,
-}: Props) {
+export default function ExploreGuestSections({ showConversionBanner, shelfParams }: Props) {
   return (
     <>
       <TrendingSection params={shelfParams} />
-      <ExploreSection
-        type="acclaimed"
-        titleKey="explore.sections.acclaimed"
-        featured
-      />
+      <ExploreSection type="acclaimed" titleKey="explore.sections.acclaimed" featured />
       {showConversionBanner && <ExploreConversionBanner />}
       <GenreSection featuredGenre="Fiction" />
-      <ExploreSection
-        type="more-author"
-        titleKey="explore.sections.moreAuthor"
-      />
+      <ExploreSection type="more-author" titleKey="explore.sections.moreAuthor" />
     </>
   );
 }

@@ -1,7 +1,8 @@
 @use "../../styles/lib" as *;
 
 @keyframes glow-breathe {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }

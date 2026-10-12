@@ -151,7 +151,10 @@ function CurrentReadingCard() {
           <div className="reading-card reading-card--empty">
             <div className="reading-card__empty-state">
               <p className="reading-card__empty-state-text">
-                <Trans i18nKey="myLibrary.noCurrentReading">Parece que no estás leyendo ningún libro. ¡Añade uno ahora desde <Link to="/explore">Explorar</Link>!</Trans>
+                <Trans i18nKey="myLibrary.noCurrentReading">
+                  Parece que no estás leyendo ningún libro. ¡Añade uno ahora desde{" "}
+                  <Link to="/explore">Explorar</Link>!
+                </Trans>
               </p>
             </div>
           </div>

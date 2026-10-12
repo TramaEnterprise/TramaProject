@@ -11,7 +11,12 @@ import type { ShelfStatus } from "@/types/BookDetail";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ShelfContext } from "./shelf_init";
 import { useAuth } from "@/context/auth/useAuth";
-import { notifyProgressUpdated, notifyShelfAdded, notifyShelfRemoved, notifyShelfStatusChanged } from "@/utils/toast";
+import {
+  notifyProgressUpdated,
+  notifyShelfAdded,
+  notifyShelfRemoved,
+  notifyShelfStatusChanged,
+} from "@/utils/toast";
 import { useCurrentLanguage } from "@/plugins/i18n/useCurrentLanguage";
 import { groupShelfByStatus, localizeBook } from "@/utils/shelf";
 import { useShelfLangComplete } from "@/pages/profile/hooks/useShelfLangComplete";
@@ -62,82 +67,87 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
     };
   }, [uid, loadShelf]);
 
-
   const ready = uid !== null && loadedUid === uid;
   const loading = uid !== null && loadedUid !== uid;
   const visibleEntries = useMemo(() => (ready ? entries : EMPTY_ENTRIES), [ready, entries]);
 
   useShelfLangComplete({ uid, ready, entries, lang, setEntries });
 
-  const addBook = useCallback(async (book: Book, status: ShelfStatus, opts?: { silent?: boolean }) => {
-    if (!uid) return;
+  const addBook = useCallback(
+    async (book: Book, status: ShelfStatus, opts?: { silent?: boolean }) => {
+      if (!uid) return;
 
-    const prevStatus = entriesRef.current.get(encodeKey(book.key))?.status ?? null;
-    const rollback = new Map(entriesRef.current);
-    const newMap = new Map(entriesRef.current);
-    newMap.set(encodeKey(book.key), { book, status });
-    setEntries(newMap);
+      const prevStatus = entriesRef.current.get(encodeKey(book.key))?.status ?? null;
+      const rollback = new Map(entriesRef.current);
+      const newMap = new Map(entriesRef.current);
+      newMap.set(encodeKey(book.key), { book, status });
+      setEntries(newMap);
 
-    try {
-      await addToShelf(uid, book, status, prevStatus);
-      queryClient.invalidateQueries({
-        predicate: (q) => q.queryKey[0] === "section" || q.queryKey[0] === "explore-feed",
-        refetchType: "none",
-      });
+      try {
+        await addToShelf(uid, book, status, prevStatus);
+        queryClient.invalidateQueries({
+          predicate: (q) => q.queryKey[0] === "section" || q.queryKey[0] === "explore-feed",
+          refetchType: "none",
+        });
 
-      if (!opts?.silent) {
-        const localizedBook = localizeBook(book, lang);
-        if (prevStatus === null) {
-          notifyShelfAdded(localizedBook, status, () =>
-            apiRef.current!.removeBook(book.key, { silent: true }),
-          );
-        } else if (prevStatus !== status) {
-          notifyShelfStatusChanged(localizedBook, prevStatus, status, () =>
-            apiRef.current!.addBook(book, prevStatus, { silent: true }),
+        if (!opts?.silent) {
+          const localizedBook = localizeBook(book, lang);
+          if (prevStatus === null) {
+            notifyShelfAdded(localizedBook, status, () =>
+              apiRef.current!.removeBook(book.key, { silent: true })
+            );
+          } else if (prevStatus !== status) {
+            notifyShelfStatusChanged(localizedBook, prevStatus, status, () =>
+              apiRef.current!.addBook(book, prevStatus, { silent: true })
+            );
+          }
+        }
+      } catch {
+        setEntries(rollback);
+      }
+    },
+    [uid, lang, queryClient]
+  );
+
+  const removeBook = useCallback(
+    async (bookKey: string, opts?: { silent?: boolean }) => {
+      if (!uid) return;
+
+      const prev = entriesRef.current.get(encodeKey(bookKey));
+      if (!prev) {
+        return;
+      }
+
+      const rollback = new Map(entriesRef.current);
+      const newMap = new Map(entriesRef.current);
+      newMap.delete(encodeKey(bookKey));
+      setEntries(newMap);
+
+      try {
+        await removeFromShelf(uid, bookKey);
+        queryClient.invalidateQueries({
+          predicate: (q) => q.queryKey[0] === "section" || q.queryKey[0] === "explore-feed",
+          refetchType: "none",
+        });
+
+        if (!opts?.silent) {
+          const localizedBook = localizeBook(prev.book, lang);
+          notifyShelfRemoved(localizedBook, prev.status, () =>
+            apiRef.current!.addBook(prev.book, prev.status, { silent: true })
           );
         }
+      } catch {
+        setEntries(rollback);
       }
-    } catch {
-      setEntries(rollback);
-    }
-  }, [uid, lang, queryClient]);
-
-  const removeBook =  useCallback(async (bookKey: string, opts?: { silent?: boolean }) => {
-    if (!uid) return;
-
-    const prev = entriesRef.current.get(encodeKey(bookKey));
-    if (!prev) {
-      return;
-    }
-
-    const rollback = new Map(entriesRef.current);
-    const newMap = new Map(entriesRef.current);
-    newMap.delete(encodeKey(bookKey));
-    setEntries(newMap);
-
-    try {
-      await removeFromShelf(uid, bookKey);
-      queryClient.invalidateQueries({
-        predicate: (q) => q.queryKey[0] === "section" || q.queryKey[0] === "explore-feed",
-        refetchType: "none",
-      });
-
-      if (!opts?.silent) {
-        const localizedBook = localizeBook(prev.book, lang);
-        notifyShelfRemoved(localizedBook, prev.status, () =>
-          apiRef.current!.addBook(prev.book, prev.status, { silent: true }),
-        );
-      }
-    } catch {
-      setEntries(rollback);
-    }
-  }, [uid, lang, queryClient]);
+    },
+    [uid, lang, queryClient]
+  );
 
   const getStatus = useCallback(
     (bookKey: string) => visibleEntries.get(encodeKey(bookKey))?.status ?? null,
     [visibleEntries]
   );
-  
+
   const getEntry = useCallback(
     (bookKey: string): ShelfEntry | null => {
       const entry = visibleEntries.get(encodeKey(bookKey));
@@ -147,70 +157,82 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
     [visibleEntries, lang]
   );
 
-  const updateProgress = useCallback(async (
-    bookKey: string, 
-    currentPage: number, 
-    opts?: {
-      note?: string;
-      rating?: number;
-      review?: string;
-      status?: ShelfStatus;
-      silent?: boolean;
-      skipProgressLog?: boolean;
-    }
-  ) => {
-    if (!uid) {
-      return;
-    }
-
-    const encoded = encodeKey(bookKey);
-    const existing = entriesRef.current.get(encoded);
-    if (!existing) {
-      return;
-    }
-
-    const rollback = new Map(entriesRef.current);
-    const totalPages = existing.book.pages ?? 0;
-    const derivedStatus: ShelfStatus =
-      totalPages > 0 && currentPage === totalPages ? "finished" : existing.status;
-    const newStatus: ShelfStatus = opts?.status ?? derivedStatus;
-    const prevStatus = existing.status;
-    const prevPage = existing.currentPage ?? 0;
-
-    const newMap = new Map(entriesRef.current);
-    newMap.set(encoded, {
-      ...existing,
-      currentPage,
-      status: newStatus,
-      ...(opts?.rating !== undefined && { rating: opts.rating }),
-      ...(opts?.review !== undefined && { review: opts.review }),
-    });
-    setEntries(newMap);
-
-    try {
-      await updateReadingProgress(uid, existing, currentPage, opts?.note, opts?.rating, opts?.review, opts?.status, opts?.skipProgressLog);
-      queryClient.invalidateQueries({
-        predicate: (q) => q.queryKey[0] === "section" || q.queryKey[0] === "explore-feed",
-        refetchType: "none",
-      });
-      
-      if (!opts?.silent) {
-        const localizedBook = localizeBook(existing.book, lang);
-        if (newStatus !== prevStatus && newStatus === "finished") {
-          notifyShelfStatusChanged(localizedBook, prevStatus, "finished", () =>
-            apiRef.current!.updateProgress(bookKey, prevPage, {
-              status: prevStatus,
-              silent: true,
-            })
-          );
-        } else {
-          notifyProgressUpdated(localizedBook);
-        }
+  const updateProgress = useCallback(
+    async (
+      bookKey: string,
+      currentPage: number,
+      opts?: {
+        note?: string;
+        rating?: number;
+        review?: string;
+        status?: ShelfStatus;
+        silent?: boolean;
+        skipProgressLog?: boolean;
       }
-    } catch {
-      setEntries(rollback);
-    }
-  },[uid, lang, queryClient]);
+    ) => {
+      if (!uid) {
+        return;
+      }
+
+      const encoded = encodeKey(bookKey);
+      const existing = entriesRef.current.get(encoded);
+      if (!existing) {
+        return;
+      }
+
+      const rollback = new Map(entriesRef.current);
+      const totalPages = existing.book.pages ?? 0;
+      const derivedStatus: ShelfStatus =
+        totalPages > 0 && currentPage === totalPages ? "finished" : existing.status;
+      const newStatus: ShelfStatus = opts?.status ?? derivedStatus;
+      const prevStatus = existing.status;
+      const prevPage = existing.currentPage ?? 0;
+
+      const newMap = new Map(entriesRef.current);
+      newMap.set(encoded, {
+        ...existing,
+        currentPage,
+        status: newStatus,
+        ...(opts?.rating !== undefined && { rating: opts.rating }),
+        ...(opts?.review !== undefined && { review: opts.review }),
+      });
+      setEntries(newMap);
+
+      try {
+        await updateReadingProgress(
+          uid,
+          existing,
+          currentPage,
+          opts?.note,
+          opts?.rating,
+          opts?.review,
+          opts?.status,
+          opts?.skipProgressLog
+        );
+        queryClient.invalidateQueries({
+          predicate: (q) => q.queryKey[0] === "section" || q.queryKey[0] === "explore-feed",
+          refetchType: "none",
+        });
+
+        if (!opts?.silent) {
+          const localizedBook = localizeBook(existing.book, lang);
+          if (newStatus !== prevStatus && newStatus === "finished") {
+            notifyShelfStatusChanged(localizedBook, prevStatus, "finished", () =>
+              apiRef.current!.updateProgress(bookKey, prevPage, {
+                status: prevStatus,
+                silent: true,
+              })
+            );
+          } else {
+            notifyProgressUpdated(localizedBook);
+          }
+        }
+      } catch {
+        setEntries(rollback);
+      }
+    },
+    [uid, lang, queryClient]
+  );
 
   useEffect(() => {
     apiRef.current = { addBook, removeBook, updateProgress };
@@ -222,15 +244,18 @@ export function ShelfProvider({ children }: { children: React.ReactNode }) {
   );
 
   const value = useMemo(
-    () => ({ shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress, reload: loadShelf }),
+    () => ({
+      shelfByStatus,
+      loading,
+      addBook,
+      removeBook,
+      getStatus,
+      getEntry,
+      updateProgress,
+      reload: loadShelf,
+    }),
     [shelfByStatus, loading, addBook, removeBook, getStatus, getEntry, updateProgress, loadShelf]
   );
 
-  return (
-    <ShelfContext.Provider
-      value={value}
-    >
-      {children}
-    </ShelfContext.Provider>
-  );
+  return <ShelfContext.Provider value={value}>{children}</ShelfContext.Provider>;
 }

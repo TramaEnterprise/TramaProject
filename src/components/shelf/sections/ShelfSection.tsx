@@ -89,11 +89,7 @@ export default function ShelfSection({
           ))}
         </div>
         {onSeeAll && (
-          <button
-            type="button"
-            className="shelf-section__see-all"
-            onClick={onSeeAll}
-          >
+          <button type="button" className="shelf-section__see-all" onClick={onSeeAll}>
             {t("myLibrary.seeAll")} <ChevronRight size={14} aria-hidden="true" />
           </button>
         )}

@@ -34,7 +34,9 @@
     white-space: nowrap;
     transition: color var(--transition-fast);
 
-    &:hover { color: var(--color-text-primary); }
+    &:hover {
+      color: var(--color-text-primary);
+    }
     &:focus-visible {
       outline: 2px solid var(--color-text-primary);
       outline-offset: 2px;
@@ -50,10 +52,15 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    @include from($bp-md) { max-width: 420px; }
+    @include from($bp-md) {
+      max-width: 420px;
+    }
   }
 
-  &__sep { color: var(--color-text-tertiary); flex-shrink: 0; }
+  &__sep {
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+  }
 
   &__skeleton {
     display: inline-block;

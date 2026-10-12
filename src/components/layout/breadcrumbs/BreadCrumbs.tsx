@@ -60,7 +60,9 @@ export default function Breadcrumbs() {
                 {c.label}
               </span>
             )}
-            {!c.isLast && <ChevronRight className="breadcrumbs__sep" size={14} aria-hidden="true" />}
+            {!c.isLast && (
+              <ChevronRight className="breadcrumbs__sep" size={14} aria-hidden="true" />
+            )}
           </li>
         ))}
       </ol>

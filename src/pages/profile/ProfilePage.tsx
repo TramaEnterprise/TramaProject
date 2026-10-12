@@ -110,8 +110,8 @@ export default function ProfilePage() {
   }, [paramUserId, paramUsername, user]);
 
   const displayName = profile
-  ? `${profile.name ?? ""} ${profile.surname ?? ""}`.trim() || profile.username || profile.email
-  : undefined;
+    ? `${profile.name ?? ""} ${profile.surname ?? ""}`.trim() || profile.username || profile.email
+    : undefined;
   useBreadcrumbLabel("profileUser", isOwnProfile ? undefined : displayName);
 
   if (resolveState === "loading") {

@@ -17,9 +17,5 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     [miniNavEnabled, setMiniNavEnabled]
   );
 
-  return (
-    <PreferencesContext.Provider value={value}>
-      {children}
-    </PreferencesContext.Provider>
-  );
+  return <PreferencesContext.Provider value={value}>{children}</PreferencesContext.Provider>;
 }

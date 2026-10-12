@@ -105,7 +105,7 @@ async function buildSections(
   // 1. Trending
   const trendingBooks = await getTrendingBooks(lang, FETCH_LIMIT, signal);
   if (trendingBooks.length > 0) {
-    trendingBooks.slice(0, ABOVE_FOLD).forEach(b => globalVisibleKeys.add(b.key));
+    trendingBooks.slice(0, ABOVE_FOLD).forEach((b) => globalVisibleKeys.add(b.key));
     entries.push({ id: "trending", type: "trending", books: trendingBooks, isFallback: false });
   } else {
     const fallback = await getTopRatedBooks(lang, FETCH_LIMIT, signal);
@@ -161,7 +161,7 @@ async function buildSections(
     }
   }
 
-  // 4. Genre-grid 
+  // 4. Genre-grid
   entries.push({ id: "genre-grid", type: "genre-grid", books: [], isFallback: false });
 
   // 5. Because-finished
@@ -295,7 +295,10 @@ async function buildSections(
   return entries;
 }
 
-export function useExploreFeed(params: ExploreSectionsParams, disabled = false): ExploreSectionsResult {
+export function useExploreFeed(
+  params: ExploreSectionsParams,
+  disabled = false
+): ExploreSectionsResult {
   const { user } = useAuth();
   const uid = user?.uid ?? null;
 
@@ -310,6 +313,8 @@ export function useExploreFeed(params: ExploreSectionsParams, disabled = false):
     sections: query.data ?? [],
     loading: query.isPending && !disabled,
     error: query.error ? (query.error instanceof Error ? query.error.message : "unknown") : null,
-    retry: () => { query.refetch(); },
+    retry: () => {
+      query.refetch();
+    },
   };
 }

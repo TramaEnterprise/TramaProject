@@ -68,9 +68,7 @@ export function notifyShelfRemoved(
   renderShelfToast(book, message, undo);
 }
 
-export function notifyProgressUpdated(
-  book: BookForToast,
-): void {
+export function notifyProgressUpdated(book: BookForToast): void {
   const message = i18n.t("toasts.shelf.progressUpdated", { title: book.title });
   renderShelfToast(book, message);
 }

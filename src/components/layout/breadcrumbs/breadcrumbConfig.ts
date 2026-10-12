@@ -3,8 +3,14 @@ export type Crumb = { key?: string; slot?: string; to?: string };
 export const BREADCRUMB_TRAILS: Record<string, Crumb[]> = {
   "/explore/section/:type": [{ key: "nav.explore", to: "/explore" }, { slot: "section" }],
   "/books/:bookId": [{ slot: "bookSection" }, { slot: "bookResults" }, { slot: "book" }],
-  "/my-library/shelf": [{ key: "nav.myLibrary", to: "/my-library" }, { key: "myLibrary.shelfTitle" }],
-  "/profile/edit": [{ key: "breadcrumbs.profile", to: "/profile" }, { key: "breadcrumbs.editProfile" }],
+  "/my-library/shelf": [
+    { key: "nav.myLibrary", to: "/my-library" },
+    { key: "myLibrary.shelfTitle" },
+  ],
+  "/profile/edit": [
+    { key: "breadcrumbs.profile", to: "/profile" },
+    { key: "breadcrumbs.editProfile" },
+  ],
   "/profile/:userId": [{ key: "nav.community", to: "/community" }, { slot: "profileUser" }],
   "/u/:username": [{ key: "nav.community", to: "/community" }, { slot: "profileUser" }],
   "/lists/:userId/:listId": [

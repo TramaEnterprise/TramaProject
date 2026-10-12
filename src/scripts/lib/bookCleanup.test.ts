@@ -1,5 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { analyzeBook, cleanSlashTitle, upgradeCoverUrl, computePriority, titleLanguageFlags, synopsisLangMismatch } from "./bookCleanup";
+import {
+  analyzeBook,
+  cleanSlashTitle,
+  upgradeCoverUrl,
+  computePriority,
+  titleLanguageFlags,
+  synopsisLangMismatch,
+} from "./bookCleanup";
 
 describe("cleanSlashTitle", () => {
   it("corta todo a partir del primer ' / ' literal", () => {
@@ -9,7 +16,9 @@ describe("cleanSlashTitle", () => {
     expect(cleanSlashTitle("Yes/No")).toBe("Yes/No");
   });
   it("deja intactos los títulos sin ' / '", () => {
-    expect(cleanSlashTitle("Harry Potter y la piedra filosofal")).toBe("Harry Potter y la piedra filosofal");
+    expect(cleanSlashTitle("Harry Potter y la piedra filosofal")).toBe(
+      "Harry Potter y la piedra filosofal"
+    );
   });
   it("recorta espacios sobrantes tras el corte", () => {
     expect(cleanSlashTitle("Dune / Book One ")).toBe("Dune");
@@ -106,7 +115,8 @@ describe("analyzeBook", () => {
     const entry = analyzeBook({
       key: "/works/OL3W",
       titles: { es: "Libro", en: "Book" },
-      synopsis: "Sinopsis antigua en formato string suelto, lo bastante larga para no marcarse corta.",
+      synopsis:
+        "Sinopsis antigua en formato string suelto, lo bastante larga para no marcarse corta.",
       cover_id: 2,
       pages: 100,
     });

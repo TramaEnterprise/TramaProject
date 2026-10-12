@@ -34,7 +34,12 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
         {t("profile.menu.viewProfile")}
       </Link>
 
-      <Link className="profile-menu__item" to="/settings" state={{ from: location.pathname }} onClick={onClose}>
+      <Link
+        className="profile-menu__item"
+        to="/settings"
+        state={{ from: location.pathname }}
+        onClick={onClose}
+      >
         <Settings />
         {t("profile.menu.settings")}
       </Link>

@@ -1,8 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { parseGoodreadsCsvText, GoodreadsCsvError } from "./goodreadsCsv";
 
-const HEADER =
-  'Title,Author,ISBN,ISBN13,My Rating,My Review,Exclusive Shelf,Date Read,Date Added';
+const HEADER = "Title,Author,ISBN,ISBN13,My Rating,My Review,Exclusive Shelf,Date Read,Date Added";
 
 describe("parseGoodreadsCsvText", () => {
   it("mapea estados de Goodreads a ShelfStatus", () => {

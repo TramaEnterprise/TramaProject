@@ -47,7 +47,15 @@ export function useLists(userId: string | undefined) {
       const id = await createListDB(userId, name, books, description, isPublic);
       const date = new Date().toISOString();
       setLists((prev) => [
-        { id, name, description, books, isPublic: isPublic ?? false, createdAt: date, updatedAt: date },
+        {
+          id,
+          name,
+          description,
+          books,
+          isPublic: isPublic ?? false,
+          createdAt: date,
+          updatedAt: date,
+        },
         ...prev,
       ]);
     },

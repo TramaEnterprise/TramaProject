@@ -51,7 +51,10 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
         if (!cancelled) setLoadingSuggestions(false);
       }
     }, 300);
-    return () => { cancelled = true; window.clearTimeout(timer); };
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
   }, [searchValue, lang]);
 
   useEffect(() => {
@@ -125,7 +128,10 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
                   to={`/books/${encodeKey(book.key)}`}
                   className="navbar__search-dropdown-item"
                   role="option"
-                  onClick={() => { setOpen(false); setSearchValue(""); }}
+                  onClick={() => {
+                    setOpen(false);
+                    setSearchValue("");
+                  }}
                 >
                   {book.cover_url && (
                     <img src={book.cover_url} alt="" className="navbar__search-dropdown-cover" />
@@ -190,14 +196,10 @@ export default function Navbar({ hidden = false, onActiveClick }: NavbarProps) {
                   aria-label={t("navbar.profile")}
                   aria-haspopup="true"
                   aria-expanded={menuOpen && !hidden}
-                  onClick={() => setMenuOpen(o => !o)}
+                  onClick={() => setMenuOpen((o) => !o)}
                 >
                   {profile?.profilePhotoUrl ? (
-                    <img
-                      className="navbar__avatar-img"
-                      src={profile.profilePhotoUrl}
-                      alt=""
-                    />
+                    <img className="navbar__avatar-img" src={profile.profilePhotoUrl} alt="" />
                   ) : (
                     <User size={18} strokeWidth={1.5} />
                   )}

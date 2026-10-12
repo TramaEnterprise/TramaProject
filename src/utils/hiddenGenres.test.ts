@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { isVisibleBook, filterVisibleBooks, hasVisibleSubjects, HIDDEN_GENRES } from "./hiddenGenres";
+import {
+  isVisibleBook,
+  filterVisibleBooks,
+  hasVisibleSubjects,
+  HIDDEN_GENRES,
+} from "./hiddenGenres";
 
 describe("isVisibleBook", () => {
   it("oculta un libro cuyo género primario está en la lista", () => {

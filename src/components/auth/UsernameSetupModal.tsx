@@ -27,7 +27,7 @@ export default function UsernameSetupModal({
 
   if (wasOpen !== open) {
     setWasOpen(open);
-    if (!open) setUsername("");   
+    if (!open) setUsername("");
   }
 
   useEffect(() => {

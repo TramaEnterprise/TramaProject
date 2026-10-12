@@ -1,19 +1,41 @@
-# Dependencies
+# Dependencias y resultados de compilación
 node_modules/
-
-# Build output
 dist/
-
-# Docs and plans
-docs/
-*.md
-
-# Agent skills
-.agents/
-
-# Coverage
+dist-ssr/
 coverage/
+*.tsbuildinfo
 
-# Capacitor native
+# Catálogo descargado, informes y copias de seguridad
+data/catalog/
+backups/
+shelf.backup.*.json
+list.backup.*.json
+
+# Archivos generados
+src/types/database.types.ts
+src/**/*.css
+src/**/*.css.map
+package-lock.json
+
+# Proyectos nativos
 android/
 ios/
+
+# Backend Firebase con configuración propia
+functions/
+
+# Documentación y herramientas de agentes
+docs/
+*.md
+.agents/
+.codex/
+.superpowers/
+
+# Configuración local y credenciales
+.env
+.env.*
+serviceAccountKey.json
+
+# Archivos temporales de Supabase
+supabase/.temp/
+supabase/.branches/

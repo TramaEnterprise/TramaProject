@@ -100,7 +100,7 @@ export async function searchBooks(
   limit: number,
   lang: string,
   signal: AbortSignal,
-  page = 1,
+  page = 1
 ): Promise<{ books: Book[]; totalResults: number }> {
   const langCode = getLangIso3Letters(lang);
   const unknownAuthor = i18n.t("book.unknownAuthor");

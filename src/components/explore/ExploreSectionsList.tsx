@@ -62,11 +62,7 @@ type Props = {
   shelfDerived: ShelfDerived;
 };
 
-export default function ExploreSectionsList({
-  sections,
-  loading,
-  shelfDerived,
-}: Props) {
+export default function ExploreSectionsList({ sections, loading, shelfDerived }: Props) {
   if (loading) {
     return (
       <>
@@ -87,11 +83,7 @@ export default function ExploreSectionsList({
           {entry.type === "genre-grid" ? (
             <>
               <GenreSection featuredGenre={shelfDerived.favoriteGenre ?? "Fiction"} />
-              <ExploreSection
-                type="acclaimed"
-                titleKey="explore.sections.acclaimed"
-                featured
-              />
+              <ExploreSection type="acclaimed" titleKey="explore.sections.acclaimed" featured />
             </>
           ) : entry.type === "trending" ? (
             <TrendingSection

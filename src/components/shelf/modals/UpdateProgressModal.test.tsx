@@ -37,4 +37,3 @@ describe("UpdateProgressModal — confeti", () => {
     expect(document.body.querySelector(".confetti-burst")).toBeNull();
   });
 });
-

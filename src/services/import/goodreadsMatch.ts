@@ -59,10 +59,10 @@ export async function matchBook(
 
   // 4. OpenLibrary por título + autor
   if (row.title) {
-    const res = await safe(
-      searchBooks({ title: row.title, author: row.author }, 5, lang, signal),
-      { books: [] as Book[], totalResults: 0 }
-    );
+    const res = await safe(searchBooks({ title: row.title, author: row.author }, 5, lang, signal), {
+      books: [] as Book[],
+      totalResults: 0,
+    });
     const match = res.books.find((b) => authorMatches(row, b));
     if (match) {
       await safe(saveBooksToDB([match], lang), undefined);

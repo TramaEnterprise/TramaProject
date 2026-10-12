@@ -78,7 +78,8 @@
     }
   }
 
-  &:hover &__chevron[data-show], &__chevron[data-show]:focus-visible {
+  &:hover &__chevron[data-show],
+  &__chevron[data-show]:focus-visible {
     opacity: 1;
     pointer-events: auto;
   }

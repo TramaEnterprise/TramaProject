@@ -99,7 +99,6 @@ export default function LandingLibrarySection() {
 
       {/* UI derecha */}
       <div className="landing-library__ui">
-
         {/* Estoy leyendo */}
         <div>
           <div className="landing-library__block-header landing-library__block-header--reading">
@@ -150,9 +149,7 @@ export default function LandingLibrarySection() {
         {/* Estantería */}
         <div>
           <div className="landing-library__block-header">
-            <span className="landing-library__block-label">
-              {t("landing.library.shelfLabel")}
-            </span>
+            <span className="landing-library__block-label">{t("landing.library.shelfLabel")}</span>
           </div>
           <div className="landing-library__shelf-card">
             <div className="landing-library__shelf-tabs">
@@ -174,18 +171,13 @@ export default function LandingLibrarySection() {
             <div className="landing-library__shelf-grid">
               {shelfBooks.map((entry) => (
                 <div key={entry.title} className="landing-library__shelf-book">
-                  <img
-                    className="landing-library__cover"
-                    src={entry.cover}
-                    alt={entry.title}
-                  />
+                  <img className="landing-library__cover" src={entry.cover} alt={entry.title} />
                   <p className="landing-library__shelf-title">{entry.title}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

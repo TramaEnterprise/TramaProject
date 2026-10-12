@@ -52,12 +52,12 @@ export default function UpdateProgressModal({
   const initialPage = entry.currentPage ?? 0;
 
   const [localStatus, setLocalStatus] = useState<ShelfStatus>(entry.status);
-  
+
   const handleStatusChange = (status: ShelfStatus) => {
     setLocalStatus(status);
     if (status === "finished") setModalBurst((n) => n + 1);
   };
-  
+
   const [pageInput, setPageInput] = useState(initialPage > 0 ? String(initialPage) : "");
   const [percentInput, setPercentInput] = useState(derivePercent(initialPage, totalPages));
   const [note, setNote] = useState("");

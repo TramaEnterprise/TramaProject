@@ -12,13 +12,10 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 const PAGE_SIZE = 6;
 const POOL_TARGET = 30;
 
-function pickNext(
-  fullPool: Book[],
-  shown: Set<string>
-): { books: Book[]; shown: Set<string> } {
+function pickNext(fullPool: Book[], shown: Set<string>): { books: Book[]; shown: Set<string> } {
   const available = fullPool.filter((b) => !shown.has(b.key));
 
-  // Si no quedan suficientes sin mostrar, se reinicia 
+  // Si no quedan suficientes sin mostrar, se reinicia
   const enough = available.length >= PAGE_SIZE;
   const source = enough ? available : fullPool;
   const nextShown = enough ? new Set(shown) : new Set<string>();
@@ -53,11 +50,11 @@ export function useBookRecommendations(genres: string[], excludeKey: string) {
           .filter((b) => isVisibleBook(b) && hasVisibleSubjects(b.topics) && b.key !== excludeKey)
           .filter((b) => !seenKeys.has(b.key) && !seenTitles.has(b.title.toLowerCase().trim()))
           .slice(0, needed);
-        if (newBooks.length > 0) saveBooksToDB(newBooks, lang); 
+        if (newBooks.length > 0) saveBooksToDB(newBooks, lang);
         pool = [...dbBooks, ...newBooks];
       }
 
-      completeBookTitles(pool, lang); 
+      completeBookTitles(pool, lang);
       return pool;
     },
     enabled: genres.length > 0,

@@ -63,7 +63,9 @@ export default function ReviewBooksPage() {
             {e.flags.length > 0 && (
               <div className="review-card__flags">
                 {e.flags.map((f) => (
-                  <span key={f} className="review-card__flag">{f}</span>
+                  <span key={f} className="review-card__flag">
+                    {f}
+                  </span>
                 ))}
               </div>
             )}
@@ -73,7 +75,9 @@ export default function ReviewBooksPage() {
             </div>
             {e.changes.length > 0 && (
               <ul className="review-card__changes">
-                {e.changes.map((c) => <li key={c}>{c}</li>)}
+                {e.changes.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
               </ul>
             )}
           </li>
@@ -98,11 +102,19 @@ function Side({ label, snap }: { label: string; snap: BookSnapshot }) {
       ) : (
         <div className="review-side__cover review-side__cover--empty">sin portada</div>
       )}
-      <p className="review-side__title"><b>es:</b> {snap.titles.es ?? "—"}</p>
-      <p className="review-side__title"><b>en:</b> {snap.titles.en ?? "—"}</p>
+      <p className="review-side__title">
+        <b>es:</b> {snap.titles.es ?? "—"}
+      </p>
+      <p className="review-side__title">
+        <b>en:</b> {snap.titles.en ?? "—"}
+      </p>
       <p className="review-side__pages">páginas: {snap.pages ?? "—"}</p>
-      <p className="review-side__syn"><b>sinopsis es:</b> {snap.synopsis.es ?? "—"}</p>
-      <p className="review-side__syn"><b>sinopsis en:</b> {snap.synopsis.en ?? "—"}</p>
+      <p className="review-side__syn">
+        <b>sinopsis es:</b> {snap.synopsis.es ?? "—"}
+      </p>
+      <p className="review-side__syn">
+        <b>sinopsis en:</b> {snap.synopsis.en ?? "—"}
+      </p>
     </div>
   );
 }

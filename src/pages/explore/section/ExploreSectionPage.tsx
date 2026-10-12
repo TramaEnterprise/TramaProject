@@ -68,13 +68,13 @@ export default function ExploreSectionPage() {
   };
 
   const isWaiting = sectionType === "waiting";
-  const { books: fetchedBooks, loading: fetchLoading, error, retry, isFallback } = useSectionBooks(
-    sectionType,
-    params,
-    lang,
-    100,
-    isWaiting,
-  );
+  const {
+    books: fetchedBooks,
+    loading: fetchLoading,
+    error,
+    retry,
+    isFallback,
+  } = useSectionBooks(sectionType, params, lang, 100, isWaiting);
 
   const books = isWaiting ? (shelfDerived?.wantToReadBooks ?? []) : fetchedBooks;
   const loading = isWaiting ? shelfDerived === null : fetchLoading;
@@ -97,13 +97,16 @@ export default function ExploreSectionPage() {
   });
 
   const titleHighlight =
-    (sectionType === "because-reading" ||
-     sectionType === "because-liked" ||
-     sectionType === "because-finished" ||
-     sectionType === "because-favorites") ? params.referenceBookTitle :
-    sectionType === "more-genre" ? (params.favoriteGenreLabel ?? params.favoriteGenre) :
-    sectionType === "more-author" ? params.favoriteAuthorName :
-    undefined;
+    sectionType === "because-reading" ||
+    sectionType === "because-liked" ||
+    sectionType === "because-finished" ||
+    sectionType === "because-favorites"
+      ? params.referenceBookTitle
+      : sectionType === "more-genre"
+        ? (params.favoriteGenreLabel ?? params.favoriteGenre)
+        : sectionType === "more-author"
+          ? params.favoriteAuthorName
+          : undefined;
 
   useBreadcrumbLabel("section", title);
   return (
@@ -126,14 +129,14 @@ export default function ExploreSectionPage() {
       {!loading && !error && (
         <>
           <div className="section-page__grid">
-            {visibleBooks.map(book => (
+            {visibleBooks.map((book) => (
               <BookCard key={book.key} book={book} />
             ))}
           </div>
           <LoadMore
             hasMore={hasMore}
             loading={false}
-            onLoadMore={() => setVisibleCount(c => c + PAGE)}
+            onLoadMore={() => setVisibleCount((c) => c + PAGE)}
           />
           {!hasMore && books.length > PAGE && (
             <p className="section-page__end">{t("explore.noMoreResults")}</p>

@@ -42,16 +42,29 @@ async function main() {
   let n = 0;
   for (const doc of found) {
     if (DRY_RUN) {
-      console.log(`[DRY] borraría ${doc._id}  (${doc.titles?.es || doc.titles?.en || doc.title || "?"})`);
+      console.log(
+        `[DRY] borraría ${doc._id}  (${doc.titles?.es || doc.titles?.en || doc.title || "?"})`
+      );
     } else {
       batch.delete(booksRef.doc(doc._id));
-      if (++n >= 400) { await batch.commit(); batch = db.batch(); n = 0; }
+      if (++n >= 400) {
+        await batch.commit();
+        batch = db.batch();
+        n = 0;
+      }
     }
     deleted++;
   }
   if (!DRY_RUN && n > 0) await batch.commit();
 
-  console.log(`${DRY_RUN ? "[DRY-RUN] " : ""}FIN — ${DRY_RUN ? "se borrarían" : "borrados"}: ${deleted}`);
+  console.log(
+    `${DRY_RUN ? "[DRY-RUN] " : ""}FIN — ${DRY_RUN ? "se borrarían" : "borrados"}: ${deleted}`
+  );
 }
 
-main().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
+main()
+  .then(() => process.exit(0))
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });

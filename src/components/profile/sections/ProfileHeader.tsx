@@ -76,7 +76,9 @@ export default function ProfileHeader({
         tabIndex={profile.bannerImageUrl ? 0 : undefined}
         onKeyDown={
           profile.bannerImageUrl
-            ? (e) => { if (e.key === "Enter" || e.key === " ") setLightboxUrl(profile.bannerImageUrl!); }
+            ? (e) => {
+                if (e.key === "Enter" || e.key === " ") setLightboxUrl(profile.bannerImageUrl!);
+              }
             : undefined
         }
         aria-label={profile.bannerImageUrl ? t("profile.header.viewCover") : undefined}
@@ -84,7 +86,9 @@ export default function ProfileHeader({
         <div
           className="profile-header__banner-bg"
           style={
-            profile.bannerImageUrl ? { backgroundImage: `url(${profile.bannerImageUrl})` } : undefined
+            profile.bannerImageUrl
+              ? { backgroundImage: `url(${profile.bannerImageUrl})` }
+              : undefined
           }
         />
       </div>
@@ -94,12 +98,17 @@ export default function ProfileHeader({
           <div className="profile-header__avatar-wrap">
             <div
               className={`profile-header__avatar-frame${profile.profilePhotoUrl ? " profile-header__avatar-frame--clickable" : ""}`}
-              onClick={profile.profilePhotoUrl ? () => setLightboxUrl(profile.profilePhotoUrl!) : undefined}
+              onClick={
+                profile.profilePhotoUrl ? () => setLightboxUrl(profile.profilePhotoUrl!) : undefined
+              }
               role={profile.profilePhotoUrl ? "button" : undefined}
               tabIndex={profile.profilePhotoUrl ? 0 : undefined}
               onKeyDown={
                 profile.profilePhotoUrl
-                  ? (e) => { if (e.key === "Enter" || e.key === " ") setLightboxUrl(profile.profilePhotoUrl!); }
+                  ? (e) => {
+                      if (e.key === "Enter" || e.key === " ")
+                        setLightboxUrl(profile.profilePhotoUrl!);
+                    }
                   : undefined
               }
               aria-label={profile.profilePhotoUrl ? t("profile.header.viewPhoto") : undefined}

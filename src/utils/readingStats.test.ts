@@ -69,8 +69,8 @@ describe("computeWeeklyPages", () => {
 
   it("changePct es null cuando no hay datos de la semana pasada", () => {
     const events: ProgressEvent[] = [
-      { bookId: "B", progress: 5, createdAt: new Date(2026, 5, 9, 10) }, 
-      { bookId: "B", progress: 20, createdAt: new Date(2026, 5, 10, 10) }, 
+      { bookId: "B", progress: 5, createdAt: new Date(2026, 5, 9, 10) },
+      { bookId: "B", progress: 20, createdAt: new Date(2026, 5, 10, 10) },
     ];
     const r = computeWeeklyPages(events, now);
     expect(r.pagesThisWeek).toBe(20);

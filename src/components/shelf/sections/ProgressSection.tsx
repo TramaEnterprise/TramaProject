@@ -14,7 +14,7 @@ export default function ProgressSection() {
   const { weekly, genres, loading } = useReadingStats();
   const CHART_MAX = 200;
   const hasWeekData = weekly.perDay.some((d) => d.pages > 0);
-  const ticks = [CHART_MAX, CHART_MAX / 2, 0]; 
+  const ticks = [CHART_MAX, CHART_MAX / 2, 0];
 
   const changePct = weekly.changePct;
   const changeText =

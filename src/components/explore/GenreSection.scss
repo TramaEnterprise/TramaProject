@@ -36,7 +36,8 @@
 
   &__tile {
     background-color: var(--genre-color, var(--color-genre-default));
-    background-image: linear-gradient(var(--color-genre-veil), var(--color-genre-veil)), var(--genre-image, none);
+    background-image:
+      linear-gradient(var(--color-genre-veil), var(--color-genre-veil)), var(--genre-image, none);
     background-size: var(--genre-size, cover);
     background-position: var(--genre-pos, center);
     background-repeat: no-repeat;

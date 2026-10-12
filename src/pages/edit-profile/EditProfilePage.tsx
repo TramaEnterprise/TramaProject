@@ -80,9 +80,9 @@ export default function EditProfilePage() {
       })
       .finally(() => setLoadingProfile(false));
   }, [user, reset, setPhotoUrl, setBannerUrl]);
-  
+
   const handlePhotoSelected = (file: File) => {
-    photoFileRef.current = file;   
+    photoFileRef.current = file;
     photo.setFile(file);
   };
 
@@ -108,8 +108,10 @@ export default function EditProfilePage() {
         bio: data.bio,
         isPublic: !data.isPrivate,
       };
-      if (photoFileRef.current)  updates.profilePhotoUrl = await uploadProfilePhoto(user.uid, photoFileRef.current);
-      if (bannerFileRef.current) updates.bannerImageUrl  = await uploadBannerImage(user.uid, bannerFileRef.current);
+      if (photoFileRef.current)
+        updates.profilePhotoUrl = await uploadProfilePhoto(user.uid, photoFileRef.current);
+      if (bannerFileRef.current)
+        updates.bannerImageUrl = await uploadBannerImage(user.uid, bannerFileRef.current);
 
       const normalizedNew = normalizeUsername(data.username);
       const normalizedOld = normalizeUsername(originalUsername);
@@ -182,11 +184,7 @@ export default function EditProfilePage() {
             </div>
           </div>
 
-          <UsernameField
-            register={register}
-            error={errors.username}
-            status={usernameStatus}
-          />
+          <UsernameField register={register} error={errors.username} status={usernameStatus} />
 
           <BioField
             register={register}

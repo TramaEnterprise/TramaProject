@@ -108,7 +108,9 @@ export async function saveBooksToDB(books: Book[], lang: string): Promise<void> 
 
   // Asignar titulos al idioma actual
   await Promise.all(
-    newBooks.map((book) => updateBookTitleToDB(book.key, book.title, lang, book.isbn).catch(() => {}))
+    newBooks.map((book) =>
+      updateBookTitleToDB(book.key, book.title, lang, book.isbn).catch(() => {})
+    )
   );
 
   // Buscar titulo en otro idioma
@@ -663,7 +665,6 @@ export async function searchBooksInDB(
     }
   }
 }
-
 
 export async function getBookFromDB(workKey: string, lang: string): Promise<Book | null> {
   const refDoc = doc(db, BOOKS_COLLECTION, encodeKey(workKey));

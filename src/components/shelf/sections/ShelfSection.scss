@@ -134,7 +134,6 @@
     }
   }
 
-
   &__item {
     min-width: 0;
 
@@ -243,11 +242,11 @@
     justify-content: center;
 
     &--left {
-      justify-content: flex-start;   
+      justify-content: flex-start;
     }
 
     &--right {
-      justify-content: flex-end;     
+      justify-content: flex-end;
     }
   }
 

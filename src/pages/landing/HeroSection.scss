@@ -48,11 +48,7 @@
       left: 0;
       width: 38%;
       z-index: 5;
-      background: linear-gradient(
-        to right,
-        var(--color-bg-page) 0%,
-        transparent 100%
-      );
+      background: linear-gradient(to right, var(--color-bg-page) 0%, transparent 100%);
     }
 
     &--right {
@@ -61,11 +57,7 @@
       right: 0;
       width: 38%;
       z-index: 5;
-      background: linear-gradient(
-        to left,
-        var(--color-bg-page) 0%,
-        transparent 100%
-      );
+      background: linear-gradient(to left, var(--color-bg-page) 0%, transparent 100%);
     }
 
     &--halo {
@@ -75,11 +67,7 @@
       width: 560px;
       height: 420px;
       z-index: 6;
-      background: radial-gradient(
-        ellipse at center,
-        var(--color-bg-overlay) 40%,
-        transparent 75%
-      );
+      background: radial-gradient(ellipse at center, var(--color-bg-overlay) 40%, transparent 75%);
     }
   }
 

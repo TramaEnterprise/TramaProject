@@ -16,7 +16,13 @@ function BookCoverImage({ src, className }: { src?: string; className?: string }
     );
   }
   return (
-    <img className={className} src={src} alt="" aria-hidden="true" onError={() => setBroken(true)} />
+    <img
+      className={className}
+      src={src}
+      alt=""
+      aria-hidden="true"
+      onError={() => setBroken(true)}
+    />
   );
 }
 
@@ -75,10 +81,7 @@ export default function BookSearchPicker({
     () => pendingBooks.filter((book) => !selectedKeys.has(encodeKey(book.key))),
     [pendingBooks, selectedKeys]
   );
-  const pendingKeys = useMemo(
-    () => new Set(validPending.map((book) => book.key)),
-    [validPending]
-  );
+  const pendingKeys = useMemo(() => new Set(validPending.map((book) => book.key)), [validPending]);
 
   const remainingSlots = Math.max(0, max - selected.length);
 
@@ -183,7 +186,8 @@ export default function BookSearchPicker({
           {results.map((book) => {
             const alreadySelected = selectedKeys.has(encodeKey(book.key));
             const isPending = pendingKeys.has(book.key);
-            const isDisabled = alreadySelected || (!isPending && validPending.length >= remainingSlots);
+            const isDisabled =
+              alreadySelected || (!isPending && validPending.length >= remainingSlots);
 
             return (
               <li key={book.key}>
@@ -236,11 +240,7 @@ export default function BookSearchPicker({
             {t(`${translationPrefix}.selectedCount`, { count: validPending.length })}
           </span>
           <div className={classNames?.selectionActions}>
-            <button
-              type="button"
-              className={classNames?.addSelected}
-              onClick={handleAddPending}
-            >
+            <button type="button" className={classNames?.addSelected} onClick={handleAddPending}>
               {t(`${translationPrefix}.addSelected`, { count: pendingBooks.length })}
             </button>
           </div>

@@ -32,7 +32,10 @@ function buildPatch(entry, srcData) {
   for (const lang of ["es", "en"]) {
     const bt = before.titles[lang] ?? null;
     const at = after.titles[lang] ?? null;
-    if (at && at !== bt) { patch[`titles.${lang}`] = at; titleChanged = true; }
+    if (at && at !== bt) {
+      patch[`titles.${lang}`] = at;
+      titleChanged = true;
+    }
 
     const bs = before.synopsis[lang] ?? null;
     const as = after.synopsis[lang] ?? null;
@@ -70,24 +73,36 @@ async function main() {
     console.log(`backup escrito: ${backupPath} (${backup.length} libros)`);
   }
 
-  let updated = 0, skipped = 0, missing = 0;
+  let updated = 0,
+    skipped = 0,
+    missing = 0;
   let batch = db.batch();
   let batchWrites = 0;
 
   for (const entry of entries) {
     const ref = booksRef.doc(encodeKey(entry.key));
     const cur = await ref.get();
-    if (!cur.exists) { missing++; continue; }
+    if (!cur.exists) {
+      missing++;
+      continue;
+    }
 
     const patch = buildPatch(entry, cur.data());
-    if (Object.keys(patch).length === 0) { skipped++; continue; }
+    if (Object.keys(patch).length === 0) {
+      skipped++;
+      continue;
+    }
 
     updated++;
     if (DRY_RUN) {
       console.log(`[DRY] ${encodeKey(entry.key)}: ${Object.keys(patch).join(", ")}`);
     } else {
       batch.update(ref, patch);
-      if (++batchWrites >= 400) { await batch.commit(); batch = db.batch(); batchWrites = 0; }
+      if (++batchWrites >= 400) {
+        await batch.commit();
+        batch = db.batch();
+        batchWrites = 0;
+      }
     }
   }
   if (!DRY_RUN && batchWrites > 0) await batch.commit();
@@ -97,4 +112,9 @@ async function main() {
   );
 }
 
-main().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
+main()
+  .then(() => process.exit(0))
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });

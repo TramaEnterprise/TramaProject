@@ -21,7 +21,7 @@ export default function LoadMore({ hasMore, loading, onLoadMore }: LoadMoreProps
       (entries) => {
         if (entries[0]?.isIntersecting) onLoadMore();
       },
-      { rootMargin: "200px" },
+      { rootMargin: "200px" }
     );
     observer.observe(node);
     return () => observer.disconnect();

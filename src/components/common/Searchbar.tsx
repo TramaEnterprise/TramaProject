@@ -17,7 +17,7 @@ export default function SearchBar({ initialQuery = "", debounceMs = 400 }: Searc
   const { t } = useTranslation();
   const navigate = useNavigate();
 
- useEffect(() => {
+  useEffect(() => {
     const trimmed = query.trim();
     if (trimmed.length < 3) return;
 
@@ -28,10 +28,9 @@ export default function SearchBar({ initialQuery = "", debounceMs = 400 }: Searc
     return () => window.clearTimeout(timer);
   }, [query, debounceMs, navigate]);
 
-  const inputRowClass = [
-    "searchbar__input-row",
-    isFocused ? "searchbar__input-row--focused" : "",
-  ].filter(Boolean).join(" ");
+  const inputRowClass = ["searchbar__input-row", isFocused ? "searchbar__input-row--focused" : ""]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div className="searchbar">

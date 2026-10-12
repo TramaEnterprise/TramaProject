@@ -145,7 +145,8 @@ export default function RegisterForm() {
           error={errors.birthDate}
           max={maxBirthDate}
           registration={register("birthDate", {
-            validate: (value) => !value || value <= maxBirthDate || t("authErrors.birthDate-min-age"),
+            validate: (value) =>
+              !value || value <= maxBirthDate || t("authErrors.birthDate-min-age"),
           })}
         />
         <FormInput

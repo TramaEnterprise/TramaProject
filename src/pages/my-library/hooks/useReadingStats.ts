@@ -71,4 +71,3 @@ export function useReadingStats(): ReadingStats {
 
   return { weekly, genres, loading };
 }
-

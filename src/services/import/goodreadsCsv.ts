@@ -58,7 +58,6 @@ function toIso(date?: string): string | undefined {
   return Number.isNaN(fallback.getTime()) ? undefined : fallback.toISOString();
 }
 
-
 export function parseGoodreadsCsvText(text: string): GoodreadsRow[] {
   const result = Papa.parse<Record<string, string>>(text, {
     header: true,

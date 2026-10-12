@@ -16,13 +16,15 @@ export default function SearchPage() {
   const { lang } = useCurrentLanguage();
   const q = searchParams.get("q") ?? "";
   const trimmedQ = q.trim();
-  const insufficient = trimmedQ !== "" && (trimmedQ.length < 3 || buildTitleTokens(trimmedQ).length === 0);
+  const insufficient =
+    trimmedQ !== "" && (trimmedQ.length < 3 || buildTitleTokens(trimmedQ).length === 0);
 
   const [inputValue, setInputValue] = useState(q);
   const [prevQ, setPrevQ] = useState(q);
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { books, loading, error, totalResults, hasNextPage, isFetchingNextPage, fetchNextPage } = useBookSearchInfinite(insufficient ? "" : q, "todo", lang);
+  const { books, loading, error, totalResults, hasNextPage, isFetchingNextPage, fetchNextPage } =
+    useBookSearchInfinite(insufficient ? "" : q, "todo", lang);
 
   if (prevQ !== q) {
     setPrevQ(q);
@@ -36,12 +38,12 @@ export default function SearchPage() {
     if (!el) return;
     el.focus();
     const end = el.value.length;
-    try { 
-      el.setSelectionRange(end, end); 
-    } 
-    catch { /* type=search puede no permitirlo */ }
+    try {
+      el.setSelectionRange(end, end);
+    } catch {
+      /* type=search puede no permitirlo */
+    }
   }, []);
-
 
   useEffect(() => {
     if (hasNextPage && !isFetchingNextPage && !loading && books.length <= 6) {
@@ -51,8 +53,8 @@ export default function SearchPage() {
 
   useEffect(() => {
     const trimmed = inputValue.trim();
-    if (trimmed.length < 3) return;          
-    if (trimmed === q.trim()) return;      
+    if (trimmed.length < 3) return;
+    if (trimmed === q.trim()) return;
     const timer = window.setTimeout(() => {
       navigate(`/search?q=${encodeURIComponent(trimmed)}`, { replace: true });
     }, 400);
@@ -70,7 +72,8 @@ export default function SearchPage() {
   // "searching" cubre tanto la carga inicial (BD) como el fallback a la API
   // cuando la BD trajo ≤6 (incluido 0) — así no parpadea "sin resultados".
   const searching = loading || (isFetchingNextPage && books.length === 0);
-  const showNoResults = !searching && !error && !insufficient && trimmedQ !== "" && books.length === 0;
+  const showNoResults =
+    !searching && !error && !insufficient && trimmedQ !== "" && books.length === 0;
 
   return (
     <div className="search-page">

@@ -51,10 +51,7 @@ async function backupAllShelves(usersDocs) {
 
 // Mapa: bookId (encodeKey) -> { rating, note } del evento book_rated más reciente.
 async function buildRatedMap(uid) {
-  const snap = await db
-    .collection(`Users/${uid}/activity`)
-    .where("type", "==", "book_rated")
-    .get();
+  const snap = await db.collection(`Users/${uid}/activity`).where("type", "==", "book_rated").get();
 
   const byBook = new Map(); // id -> { rating, note, ms }
   for (const d of snap.docs) {
@@ -115,9 +112,7 @@ async function main() {
       const bookSnap = await db.collection("Books").doc(bookId).get();
       if (!bookSnap.exists) {
         entriesSkipped++;
-        console.log(
-          `${DRY_RUN ? "[DRY-RUN] " : ""}SKIP ${uid}/${bookId}: no existe en Books`
-        );
+        console.log(`${DRY_RUN ? "[DRY-RUN] " : ""}SKIP ${uid}/${bookId}: no existe en Books`);
         continue;
       }
 

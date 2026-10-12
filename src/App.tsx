@@ -57,11 +57,11 @@ function AppShell() {
       <ScrollRestoration
         getKey={(location) => {
           const p = location.pathname;
-          if (p.startsWith("/profile") || p.startsWith("/u/") || p.startsWith("/my-library")) return location.key;
+          if (p.startsWith("/profile") || p.startsWith("/u/") || p.startsWith("/my-library"))
+            return location.key;
           return p;
         }}
       />
-
     </>
   );
 }

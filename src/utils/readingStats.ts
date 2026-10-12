@@ -8,16 +8,16 @@ export type ProgressEvent = {
 };
 
 export type DayBucket = {
-  day: string; 
+  day: string;
   pages: number;
   currentDay: boolean;
 };
 
 export type WeeklyPages = {
-  perDay: DayBucket[]; 
+  perDay: DayBucket[];
   pagesThisWeek: number;
   pagesToday: number;
-  changePct: number | null; 
+  changePct: number | null;
 };
 
 export type GenreSlice = {
@@ -45,7 +45,7 @@ export function ceil(value: number): number {
 }
 
 function startOfWeek(d: Date): Date {
-  const diff = (d.getDay() + 6) % 7; 
+  const diff = (d.getDay() + 6) % 7;
   const monday = startOfDay(d);
   monday.setDate(monday.getDate() - diff);
   return monday;
@@ -96,9 +96,7 @@ export function computeWeeklyPages(events: ProgressEvent[], now: Date): WeeklyPa
   }));
 
   const changePct =
-    pagesLastWeek > 0
-      ? Math.round(((pagesThisWeek - pagesLastWeek) / pagesLastWeek) * 100)
-      : null;
+    pagesLastWeek > 0 ? Math.round(((pagesThisWeek - pagesLastWeek) / pagesLastWeek) * 100) : null;
 
   return { perDay, pagesThisWeek, pagesToday, changePct };
 }

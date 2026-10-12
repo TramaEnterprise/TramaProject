@@ -160,7 +160,7 @@ export async function updateReadingProgress(
   }
 
   const alreadyFinished = entry.status === "finished";
-  
+
   if (isFinished && !alreadyFinished) {
     logActivity(uid, { type: "book_finished", ...base }).catch((err) =>
       logger.warn("[updateReadingProgress] logActivity failed:", err)

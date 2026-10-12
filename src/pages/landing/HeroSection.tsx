@@ -29,24 +29,24 @@ type BookConfig = {
 
 const LEFT_BOOKS: BookConfig[] = [
   // Columna A (izquierda, ~7-9%)
-  { src: book1, pos: { left: "8%",  top: 50  }, rotate: -1,   duration: 5.2, delay: 0   },
-  { src: book2, pos: { left: "6%",  top: 240 }, rotate:  1,   duration: 6.5, delay: 1.1 },
-  { src: book5, pos: { left: "9%",  top: 430 }, rotate: -0.8, duration: 6.1, delay: 0.3 },
-  { src: book6, pos: { left: "7%",  top: 610 }, rotate:  0.6, duration: 5.4, delay: 2.2 },
+  { src: book1, pos: { left: "8%", top: 50 }, rotate: -1, duration: 5.2, delay: 0 },
+  { src: book2, pos: { left: "6%", top: 240 }, rotate: 1, duration: 6.5, delay: 1.1 },
+  { src: book5, pos: { left: "9%", top: 430 }, rotate: -0.8, duration: 6.1, delay: 0.3 },
+  { src: book6, pos: { left: "7%", top: 610 }, rotate: 0.6, duration: 5.4, delay: 2.2 },
   // Columna B (interior izquierda, ~20-23%)
   { src: book3, pos: { left: "21%", top: 130 }, rotate: -0.5, duration: 4.8, delay: 0.6 },
-  { src: book7, pos: { left: "23%", top: 345 }, rotate:  0.4, duration: 5.9, delay: 1.6 },
-  { src: book4, pos: { left: "20%", top: 555 }, rotate:  1.2, duration: 5.8, delay: 1.8 },
+  { src: book7, pos: { left: "23%", top: 345 }, rotate: 0.4, duration: 5.9, delay: 1.6 },
+  { src: book4, pos: { left: "20%", top: 555 }, rotate: 1.2, duration: 5.8, delay: 1.8 },
 ];
 
 const RIGHT_BOOKS: BookConfig[] = [
   // Columna A (derecha exterior, ~6-9%)
-  { src: book8,  pos: { right: "8%",  top: 50  }, rotate:  1,   duration: 5.6, delay: 0.9 },
-  { src: book9,  pos: { right: "6%",  top: 240 }, rotate: -1,   duration: 4.9, delay: 0.4 },
-  { src: book12, pos: { right: "9%",  top: 430 }, rotate:  0.8, duration: 5.7, delay: 0.7 },
-  { src: book13, pos: { right: "7%",  top: 610 }, rotate: -0.6, duration: 6.0, delay: 1.3 },
+  { src: book8, pos: { right: "8%", top: 50 }, rotate: 1, duration: 5.6, delay: 0.9 },
+  { src: book9, pos: { right: "6%", top: 240 }, rotate: -1, duration: 4.9, delay: 0.4 },
+  { src: book12, pos: { right: "9%", top: 430 }, rotate: 0.8, duration: 5.7, delay: 0.7 },
+  { src: book13, pos: { right: "7%", top: 610 }, rotate: -0.6, duration: 6.0, delay: 1.3 },
   // Columna B (interior derecha, ~20-23%)
-  { src: book10, pos: { right: "21%", top: 130 }, rotate:  0.5, duration: 6.3, delay: 1.5 },
+  { src: book10, pos: { right: "21%", top: 130 }, rotate: 0.5, duration: 6.3, delay: 1.5 },
   { src: book14, pos: { right: "23%", top: 345 }, rotate: -0.7, duration: 5.3, delay: 0.2 },
   { src: book11, pos: { right: "20%", top: 555 }, rotate: -1.2, duration: 5.1, delay: 2.0 },
 ];

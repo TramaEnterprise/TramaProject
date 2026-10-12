@@ -79,7 +79,10 @@ function LandingPage() {
                 <span className="landing__genre-pct">40%</span>
               </div>
               <div className="landing__progress-bar landing__progress-bar--sm">
-                <div className="landing__progress-bar-fill landing__progress-bar-fill--muted" style={{ width: "40%" }} />
+                <div
+                  className="landing__progress-bar-fill landing__progress-bar-fill--muted"
+                  style={{ width: "40%" }}
+                />
               </div>
             </div>
             <div className="landing__genre-row">
@@ -139,7 +142,9 @@ function LandingPage() {
                   </span>
                 </div>
                 <p className="landing__profile-card-meta">@mariag01</p>
-                <p className="landing__profile-card-followers">47 {t("landing.community.card.followers")}</p>
+                <p className="landing__profile-card-followers">
+                  47 {t("landing.community.card.followers")}
+                </p>
               </div>
             </div>
             <div className="landing__profile-card-reading">
@@ -147,7 +152,11 @@ function LandingPage() {
                 {t("landing.community.card.readingNow")}
               </p>
               <div className="landing__profile-card-book-row">
-                <img className="landing__profile-card-cover" src={coverMariaImg} alt="El Temor de un Hombre Sabio" />
+                <img
+                  className="landing__profile-card-cover"
+                  src={coverMariaImg}
+                  alt="El Temor de un Hombre Sabio"
+                />
                 <div className="landing__profile-card-book-body">
                   <div className="landing__profile-card-book-header">
                     <p className="landing__profile-card-book-title">El Temor de un Hombre Sabio</p>
@@ -193,7 +202,9 @@ function LandingPage() {
                   </span>
                 </div>
                 <p className="landing__profile-card-meta">@carlos_books</p>
-                <p className="landing__profile-card-followers">128 {t("landing.community.card.followers")}</p>
+                <p className="landing__profile-card-followers">
+                  128 {t("landing.community.card.followers")}
+                </p>
               </div>
             </div>
             <div className="landing__profile-card-reading">
@@ -225,7 +236,11 @@ function LandingPage() {
               </p>
               <div className="landing__profile-card-fav-covers">
                 <img className="landing__profile-card-fav-cover" src={coverCalalobosImg} alt="" />
-                <img className="landing__profile-card-fav-cover" src={coverFrankensteinImg} alt="" />
+                <img
+                  className="landing__profile-card-fav-cover"
+                  src={coverFrankensteinImg}
+                  alt=""
+                />
                 <img className="landing__profile-card-fav-cover" src={coverHarryPotterImg} alt="" />
                 <img className="landing__profile-card-fav-cover" src={coverShogunImg} alt="" />
                 <img className="landing__profile-card-fav-cover" src={coverPedroImg} alt="" />

@@ -1,8 +1,12 @@
 @use "../../styles/lib" as *;
 
 @keyframes lib-sheen {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
 }
 
 .landing-library {
@@ -101,7 +105,9 @@
       border-color: var(--color-text-primary);
     }
 
-    svg { display: block; }
+    svg {
+      display: block;
+    }
   }
 
   // ── Card "Estoy leyendo" ────────────────────────────────
@@ -143,7 +149,6 @@
     border-radius: var(--radius-sm);
     object-fit: cover;
     box-shadow: var(--shadow-cover);
-
   }
 
   // ── Cuerpo de la card ───────────────────────────────────
@@ -314,6 +319,4 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
 }
-

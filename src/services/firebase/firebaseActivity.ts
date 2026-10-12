@@ -75,10 +75,7 @@ export async function getActivity(uid: string, maxResults = 10): Promise<Activit
   });
 }
 
-export async function getProgressEventsSince(
-  uid: string,
-  since: Date
-): Promise<ProgressEvent[]> {
+export async function getProgressEventsSince(uid: string, since: Date): Promise<ProgressEvent[]> {
   const q = query(
     collection(db, "Users", uid, "activity"),
     where("type", "==", "progress"),

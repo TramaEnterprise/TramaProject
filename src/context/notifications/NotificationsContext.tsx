@@ -127,14 +127,17 @@ export function NotificationsProvider({ children }: { children: React.ReactNode 
   );
 
   const value = useMemo(
-    () => ({ notifications, unreadCount, loading, markAllRead, remove, acceptRequest, rejectRequest }),
-    [notifications, unreadCount, loading, markAllRead, remove, acceptRequest, rejectRequest]);
-
-  return (
-    <NotificationsContext.Provider
-      value={value}
-    >
-      {children}
-    </NotificationsContext.Provider>
+    () => ({
+      notifications,
+      unreadCount,
+      loading,
+      markAllRead,
+      remove,
+      acceptRequest,
+      rejectRequest,
+    }),
+    [notifications, unreadCount, loading, markAllRead, remove, acceptRequest, rejectRequest]
   );
+
+  return <NotificationsContext.Provider value={value}>{children}</NotificationsContext.Provider>;
 }

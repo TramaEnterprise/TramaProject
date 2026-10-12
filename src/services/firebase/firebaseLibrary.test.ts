@@ -97,8 +97,8 @@ describe("getShelf separa rating y userRating", () => {
 
     const shelf = await getShelf("uid1");
     expect(shelf).not.toBeNull();
-    expect(shelf![0].rating).toBe(4.5); 
-    expect(shelf![0].book.rating).toBe(4.66); 
+    expect(shelf![0].rating).toBe(4.5);
+    expect(shelf![0].book.rating).toBe(4.66);
   });
 });
 

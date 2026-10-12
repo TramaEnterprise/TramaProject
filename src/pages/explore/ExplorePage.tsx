@@ -77,21 +77,18 @@ function ExplorePage() {
   return (
     <>
       <SearchBar />
-        <div className="explore-page__sections">
-          {showGuestVersion && (
-            <ExploreGuestSections
-              showConversionBanner={isGuest}
-              shelfParams={shelfParams}
-            />
-          )}
-          {!showGuestVersion && shelfDerived && (
-            <ExploreSectionsList
-              sections={sectionsResult.sections}
-              loading={sectionsResult.loading}
-              shelfDerived={shelfDerived}
-            />
-          )}
-        </div>
+      <div className="explore-page__sections">
+        {showGuestVersion && (
+          <ExploreGuestSections showConversionBanner={isGuest} shelfParams={shelfParams} />
+        )}
+        {!showGuestVersion && shelfDerived && (
+          <ExploreSectionsList
+            sections={sectionsResult.sections}
+            loading={sectionsResult.loading}
+            shelfDerived={shelfDerived}
+          />
+        )}
+      </div>
     </>
   );
 }

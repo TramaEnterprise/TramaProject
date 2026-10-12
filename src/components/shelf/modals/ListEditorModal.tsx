@@ -24,7 +24,12 @@ function toListBook(book: Book): ListBook {
 
 type ListEditorModalProps = {
   existingList?: BookList;
-  onSubmit: (data: { name: string; description: string; books: ListBook[]; isPublic: boolean }) => Promise<void>;
+  onSubmit: (data: {
+    name: string;
+    description: string;
+    books: ListBook[];
+    isPublic: boolean;
+  }) => Promise<void>;
   onClose: () => void;
 };
 
@@ -136,9 +141,7 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
                 </span>
               </label>
               <span className="list-editor-modal__toggle-text">
-                {!isPublic
-                  ? t("myLibrary.listEditor.private")
-                  : t("myLibrary.listEditor.public")}
+                {!isPublic ? t("myLibrary.listEditor.private") : t("myLibrary.listEditor.public")}
               </span>
             </div>
           </div>
@@ -222,7 +225,10 @@ export default function ListEditorModal({ existingList, onSubmit, onClose }: Lis
                 alt={book.title}
               />
             ) : (
-              <span className="list-editor-modal__book-cover list-editor-modal__book-cover--placeholder" aria-hidden="true">
+              <span
+                className="list-editor-modal__book-cover list-editor-modal__book-cover--placeholder"
+                aria-hidden="true"
+              >
                 <BookOpen size={16} />
               </span>
             )}

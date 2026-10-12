@@ -15,11 +15,7 @@ export default function BookTile({ book }: BookTileProps) {
 
   return (
     <article className="book-tile">
-      <Link
-        className="book-tile__link"
-        to={`/books/${encodeKey(book.key)}`}
-        state={{ book }}
-      >
+      <Link className="book-tile__link" to={`/books/${encodeKey(book.key)}`} state={{ book }}>
         <div className="book-tile__cover-wrapper">
           {coverSrc ? (
             <>
@@ -38,7 +34,9 @@ export default function BookTile({ book }: BookTileProps) {
           )}
         </div>
         <p className="book-tile__title">{book.title}</p>
-        <p className="book-tile__author">{book.authors.length > 0 ? book.authors.join(", ") : ""}</p>
+        <p className="book-tile__author">
+          {book.authors.length > 0 ? book.authors.join(", ") : ""}
+        </p>
       </Link>
     </article>
   );

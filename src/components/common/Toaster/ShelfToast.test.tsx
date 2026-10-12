@@ -16,9 +16,7 @@ describe("ShelfToast — confeti", () => {
   });
 
   it("no muestra confeti por defecto", () => {
-    const { container } = render(
-      <ShelfToast cover={null} title="x" message="y" toastId="1" />
-    );
+    const { container } = render(<ShelfToast cover={null} title="x" message="y" toastId="1" />);
     expect(container.querySelector(".confetti-burst")).toBeNull();
   });
 });

@@ -30,7 +30,7 @@ export default function TermsConsentModal({
 
   if (wasOpen !== open) {
     setWasOpen(open);
-    if (!open) setAccepted(false);  
+    if (!open) setAccepted(false);
   }
 
   if (!open) return null;

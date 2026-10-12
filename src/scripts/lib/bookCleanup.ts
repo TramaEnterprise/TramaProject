@@ -84,7 +84,9 @@ export function synopsisLangMismatch(text: string, expectedLang: "es" | "en"): b
   return detected !== ISO3[expectedLang];
 }
 
-function normalizeSynopsis(syn: string | Record<string, string> | undefined): Record<string, string> {
+function normalizeSynopsis(
+  syn: string | Record<string, string> | undefined
+): Record<string, string> {
   if (typeof syn === "string") return syn.trim() ? { es: syn } : {};
   if (syn) return { ...syn };
   return {};

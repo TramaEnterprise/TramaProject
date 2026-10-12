@@ -44,7 +44,7 @@ export default function ListDetailPage() {
 
   const isOwner = !!user && user.uid === userId;
   const foundList = lists.find((l) => l.id === listId);
-  const list = foundList && (!isOwner && !foundList.isPublic) ? undefined : foundList;
+  const list = foundList && !isOwner && !foundList.isPublic ? undefined : foundList;
 
   const handleDelete = async () => {
     if (!listId) return;
@@ -67,7 +67,9 @@ export default function ListDetailPage() {
             <div className="list-detail-page__title-block">
               <h2 className="list-detail-page__title">
                 {list.name}
-                {!list.isPublic && <Lock size={16} className="list-detail-page__private-icon" aria-hidden="true" />}
+                {!list.isPublic && (
+                  <Lock size={16} className="list-detail-page__private-icon" aria-hidden="true" />
+                )}
               </h2>
               {list.description && (
                 <p className="list-detail-page__description">{list.description}</p>
@@ -157,10 +159,7 @@ export default function ListDetailPage() {
       )}
 
       {isOwner && (
-        <dialog
-          ref={confirmRef}
-          className="list-detail-page__confirm"
-        >
+        <dialog ref={confirmRef} className="list-detail-page__confirm">
           <div className="list-detail-page__confirm-box">
             <p className="list-detail-page__confirm-text">
               {t("myLibrary.listDetail.confirmDelete")}

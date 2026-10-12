@@ -21,7 +21,7 @@ type FetchResult = { books: Book[]; isFallback: boolean; authorName?: string };
 
 function dedupByKey(books: Book[]): Book[] {
   const seen = new Set<string>();
-  return books.filter(b => {
+  return books.filter((b) => {
     if (seen.has(b.key)) return false;
     seen.add(b.key);
     return true;
@@ -59,7 +59,9 @@ export function useSectionBooks(
     books: dedupByKey(query.data?.books ?? []),
     loading: query.isPending && !disabled,
     error: query.error ? "error" : null,
-    retry: () => { query.refetch(); },
+    retry: () => {
+      query.refetch();
+    },
     isFallback: query.data?.isFallback ?? false,
     authorName: query.data?.authorName,
   };

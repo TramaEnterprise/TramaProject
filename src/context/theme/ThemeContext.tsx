@@ -16,16 +16,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
- const toggleTheme = useCallback(
-    () => setTheme(t => (t === "light" ? "dark" : "light")),
-    []);
+  const toggleTheme = useCallback(() => setTheme((t) => (t === "light" ? "dark" : "light")), []);
 
   const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
-
-  return (
-    <ThemeContext.Provider value={value}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
